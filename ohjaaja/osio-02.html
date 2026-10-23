@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vetäjä · Osio 02: Määrittely ennen koodia: ohjetiedosto ja työlista</title>
+<meta name="description" content="Vibekoodaus-työpaja: ohjelmointia osaamaton rakentaa agentin avulla Oppisopimustäyttäjän.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23775EC4'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='600' fill='white'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<main>
+<a class="back-link" href="index.html">← Vetäjän sivut</a>
+<header class="page">
+  <div class="kicker">Vetäjä · Osio 02 · päivä 1, 10.30–11.45</div>
+  <h1>Määrittely ennen koodia: ohjetiedosto ja työlista</h1>
+</header>
+<nav class="pills" aria-label="Osion sisältö"><a href="#materiaali">Vetäjän materiaali</a><a href="#ohjatut">Ohjatut tehtävät</a><a href="../claude/osio-02.html">Oppija: Claude</a><a href="../codex/osio-02.html">Oppija: Codex</a></nav>
+<section class="md" id="materiaali"><h2>Vetäjän materiaali</h2>
+<h3>Ajattelukysymys ja tavoitteet (Bloom)</h3>
+<blockquote>
+<p>Ajattelukysymys: Kuvaako ohjetiedosto oikein sen, miten oppisopimus kirjataan, ja mistä sen tiedät?</p>
+</blockquote>
+<ul>
+<li>Ymmärtää: oppija selittää, miksi määrittely tehdään ennen koodia ja mitä ohjetiedosto tekee.</li>
+<li>Soveltaa: oppija käyttää suunnitelma ensin -työtapaa.</li>
+<li>Arvioida: oppija tarkistaa ohjetiedoston ja työlistan säännöt omaa kirjauskokemustaan vasten.</li>
+<li>Luoda: oppija kirjoittaa omin sanoin havaittavia hyväksymiskriteereitä.</li>
+</ul>
+<p>Painotus on arvioinnissa. Ohjetiedosto on agentin kirjoittama, mutta sen säännöt ovat oppijan vastuulla. Osion tärkein syöte on oppijan <code>oma-kokemus.md</code>. Kattavuus: vaihe 0 (määrittely). V01–V10 suunnitellaan työlistaan, ja V08:n PRO-värit tulevat ohjetiedostoon. Testejä ei vielä tehdä.</p>
+<p>Osiossa tehdään työkierros kahdesti, ensin ohjetiedostolle ja sitten työlistalle. Kriteerit ovat tallennuspisteessä ennen ensimmäistä rakentavaa kehotetta.</p>
+<h3>Aikataulu (minuutit, summa = osion kesto)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Min</th>
+<th>Kello</th>
+<th>Sisältö</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>10.30–10.35</td>
+<td>Kehystys: ajattelukysymys ja lukutekstin kaksi esimerkkiä</td>
+</tr>
+<tr>
+<td>10</td>
+<td>10.35–10.45</td>
+<td>Tehtävä 1: hyväksymiskriteerit ja tallennuspiste</td>
+</tr>
+<tr>
+<td>15</td>
+<td>10.45–11.00</td>
+<td>Tehtävä 2: K2 ja ohjetiedoston suunnitelma</td>
+</tr>
+<tr>
+<td>9</td>
+<td>11.00–11.09</td>
+<td>Tehtävä 3: ohjetiedoston tarkistus ja arviointi</td>
+</tr>
+<tr>
+<td>10</td>
+<td>11.09–11.19</td>
+<td>TL Substanssikatselmointi, kysymykset 1, 2, 3 ja 5</td>
+</tr>
+<tr>
+<td>6</td>
+<td>11.19–11.25</td>
+<td>Tehtävä 4: päätös ohjetiedostosta, K2 kehotepohjiin, tallennuspiste</td>
+</tr>
+<tr>
+<td>15</td>
+<td>11.25–11.40</td>
+<td>Tehtävä 5: työlista ja sen tarkistus</td>
+</tr>
+<tr>
+<td>5</td>
+<td>11.40–11.45</td>
+<td>Tehtävä 6: päätös työlistasta, tallennuspiste</td>
+</tr>
+<tr>
+<td>75</td>
+<td></td>
+<td>Yhteensä</td>
+</tr>
+</tbody>
+</table></div>
+<p>Aikataulu edellyttää, että oppija luki KP:n ensimmäisen pääosan osiossa 00 ja tämän osion lukutekstin ennen päivää 1. Katselmoinnin kysymykset 4 ja 6 kysytään osion 03 alussa. Mittaa osio harjoitusajossa erikseen (osio 00).</p>
+<h3>Ennen osiota</h3>
+<ul>
+<li>Oppijan <code>oma-kokemus.md</code> on kansiossa <code>maarittely</code>. Jos se on ohut, haastattele oppijaa tehtävän 1 aikana. Älä kirjoita hänen puolestaan.</li>
+<li>Osion 01 valmis-ehdot täyttyvät: päätösloki, kaksi tallennuspistettä ja paluun kokeilu.</li>
+<li>Claude: tunnet omasta versiostasi suunnittelutilan kytkennän, hyväksynnän vaihtoehdot ja oletuslupatilan palautuksen.</li>
+<li>Codex: tiedät, onko versiossa erillinen suunnittelutoiminto ja missä Git-toiminnot näyttävät muuttuneet tiedostot.</li>
+<li>Olet lukenut KP osat 6–10, 15, 25–26 ja 28.</li>
+<li>Substanssikatselmoinnin kysymykset ovat esillä (ohjatut tehtävät tällä sivulla).</li>
+</ul>
+<h3>Ohjaus askel askeleelta</h3>
+<p><strong>Kehystys.</strong> Kerro lukutekstin kaksi esimerkkiä ääneen ja kysy oppijalta kolmas omasta työstä. Kysy sitten ajattelukysymys. Vastaus kypsyy osion aikana.</p>
+<p><strong>Tehtävä 1.</strong> Kriteerit kirjoitetaan, ennen kuin agentti saa ensimmäisen rakentavan kehotteen. Älä anna valmiita kriteereitä. Hyvä kriteeri on tarkistettavissa avaamalla tiedosto. Esimerkiksi: &quot;Ohjetiedostossa on sääntö, että työaikaa ei valita itsestään, jos lähteet ovat eri mieltä.&quot; Tallennuspiste lopussa varmistaa, että paluu tehtävän 2 jälkeen palaa oikeaan kohtaan.</p>
+<p><strong>Tehtävä 2.</strong> Claude-polulla näytä suunnittelutilan kytkentä oppijan koneella, mutta anna oppijan tehdä se. Codex-polulla varmista, että kehotteen viimeinen rivi on mukana. K2:ssa on kolme aukkoa. Painotusaukon hyvä vastaus nimeää yhden osan ja syyn oppijan työstä, esimerkiksi osan 8, koska palkan yksikkö jää käsin kirjatessa helposti tarkistamatta. Oman säännön pitää tulla oppijan kokemuksesta, ei kuvauspaketista. Lue suunnitelma oppijan kanssa: yhdeksän kohtaa, oma sääntö ja vain yksi uusi tiedosto.</p>
+<p>Claude-polulla katso, miten oppija hyväksyy suunnitelman. Hyväksynnässä voi olla vaihtoehto, joka sallii muutokset automaattisesti istunnon loppuun asti. Jos oppija valitsi sen tai sovellus ei kysy lupaa tiedoston luontiin, pysähdy. Palauta oletuslupatila oppijan kanssa ennen seuraavaa tehtävää ja katsokaa muutosnäkymästä, mitä jo muuttui. Muuten lupapyynnöt puuttuvat osioista 03 ja 04. Codex-polulla oppija hyväksyy suunnitelman kirjoittamalla ja tarkistaa uuden tiedoston agenttisovelluksen Git-toiminnoista, ei agentin luettelosta.</p>
+<p><strong>Tehtävä 3.</strong> Oppija etsii säännöt itse ja arvioi yhden säännön oikeellisuuden omaa kokemustaan vasten. Tämä on Arvioida-tavoite oppijan omassa työssä. Jos oppija ei löydä epätarkkaa sääntöä, kysy, mihin hän vertasi. Ohjetiedosto, joka on kopioitu kuvauspaketista, ei läpäise tarkistusta, vaikka sanat olisivat oikein.</p>
+<p><strong>Substanssikatselmointi.</strong> Ks. ohjatut tehtävät. Tässä kysytään neljä kysymystä, loput kaksi osion 03 alussa.</p>
+<p><strong>Tehtävä 4.</strong> Päätöksen perusteen pitää viitata tehtävän 3 löydökseen tai katselmoinnissa lisättyyn sääntöön. Jos oppija hylkää, hän sulkee Muistion, palaa tehtävän 1 tallennuspisteeseen ja kirjaa päätöksen vasta sitten. K2 lisätään kehotepohjiin, ja tallennuspiste tehdään K6:lla tiedostosta. K2:n viimeinen rivi on uusi: osiosta 04 alkaen hyväksyntä ei vielä käynnistä työtä, vaan palat annetaan K3:lla yksi kerrallaan.</p>
+<p><strong>Tehtävä 5.</strong> Aukko pyytää yhden vaiheen, jonka oppija uskoo jäävän jatkoon, ja syyn hänen työstään. Älä korjaa arviota suoraan. Kysy, mihin se perustuu. Oma testi koskee järjestystä (KP osa 7) ja tiedoston lopun luetteloa V01–V10. Vertaa luetteloa alla olevaan kattavuustaulukkoon. Oppijan työlista saa poiketa siitä, jos poikkeama on perusteltu. Puuttuva V korjataan aina.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>V</th>
+<th>Työpajassa</th>
+<th>Jatkoon (täysimääräisenä tai testi-Wilmassa)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V01</td>
+<td>Näkyvä selain, kohdistus numerolla, Wilma-tallennus ja uudelleenluku simuloidussa Wilmassa</td>
+<td>Testi-Wilma, asennuspaketti, T12</td>
+</tr>
+<tr>
+<td>V02</td>
+<td>Haku kuvitteellisista lähteistä, puutteet ja ristiriidat</td>
+<td>P01, P03, T15</td>
+</tr>
+<tr>
+<td>V03</td>
+<td>Lisätavoite: yksi lausepohja</td>
+<td>P05, P06, T09</td>
+</tr>
+<tr>
+<td>V04</td>
+<td>Urasuunnitelma, HOPS lisätavoitteena</td>
+<td>HOPS testi-Wilmassa, T06</td>
+</tr>
+<tr>
+<td>V05</td>
+<td>Lisätavoite</td>
+<td>P06, T07</td>
+</tr>
+<tr>
+<td>V06</td>
+<td>Tavoite: oppisopimus, palkka yksikköineen, työaika</td>
+<td>P04, T08 testi-Wilmassa</td>
+</tr>
+<tr>
+<td>V07</td>
+<td>Tavoite: haku, puuttuvan tietueen valmistelu, toimipaikat</td>
+<td>Luonti testi-Wilmassa</td>
+</tr>
+<tr>
+<td>V08</td>
+<td>PRO-värit, lukutilat ja jonon tilat sanoina, näppäimistö (T14)</td>
+<td>Visuaalinen viimeistely</td>
+</tr>
+<tr>
+<td>V09</td>
+<td>Simuloitu WilmaRead, lukutilat</td>
+<td>W11, P02, T16</td>
+</tr>
+<tr>
+<td>V10</td>
+<td>CSV ja nimilista, jono, VALMIS ja seuraava, Odottaa lisätietoja</td>
+<td>XLSX, tuloskopio, T19 ja T22</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Tehtävä 6.</strong> Tallennuspisteen viesti on oppijan sanoin.</p>
+<p>Oppija pitää hiiren koko osion ajan.</p>
+<h3>Polkujen erot (taulukko Claude | Codex)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Asia</th>
+<th>Claude</th>
+<th>Codex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ohjetiedosto</td>
+<td><code>CLAUDE.md</code>, agentti lukee sen istunnon alussa</td>
+<td><code>AGENTS.md</code> projektin juuressa</td>
+</tr>
+<tr>
+<td>Suunnitelma ensin</td>
+<td>Suunnittelutila (plan mode) ja K2:n viimeinen rivi</td>
+<td>Pelkkä kehote: &quot;Tee suunnitelma. Älä muuta tiedostoja ennen kuin hyväksyn.&quot; Kehote on pyyntö, ei tekninen este.</td>
+</tr>
+<tr>
+<td>Suunnitelman hyväksyntä</td>
+<td>Hyväksyntä niin, että sovellus kysyy edelleen luvan. Ei vaihtoehtoa, joka sallii muutokset automaattisesti. Oppija toteaa, että tiedoston luonnista tulee lupapyyntö.</td>
+<td>Oppija kirjoittaa hyväksynnän agentille</td>
+</tr>
+<tr>
+<td>Muutosten tarkistus</td>
+<td>Lupapyyntö ja muutosnäkymä</td>
+<td>Agenttisovelluksen Git-toiminnot. Agentin luettelo on vain apu.</td>
+</tr>
+<tr>
+<td>Tallennuspisteet</td>
+<td>Kolme: tehtävät 1, 4 ja 6, K6 tiedostosta</td>
+<td>Sama. Lopuksi Git-toimintojen luettelo on tyhjä.</td>
+</tr>
+<tr>
+<td>Polun riski</td>
+<td>Hyväksyntä kytkee automaattisen hyväksynnän, ja lupapyynnöt loppuvat huomaamatta. Oppija unohtaa kytkeä suunnittelutilan.</td>
+<td>Agentti voi kirjoittaa kansioon ennen hyväksyntää, jos kehotteen rivi puuttuu. Tallennuspiste ennen suunnitelmaa ja paluu.</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Väärinkäsitykset (vähintään 3)</h3>
+<p><strong>Väärinkäsitys 1:</strong> &quot;Ohjetiedosto kirjoitetaan kerran.&quot; Ohjetiedosto elää. Kun oppija huomaa uuden säännön, se lisätään, ja lisäys kirjataan päätöslokiin.</p>
+<p><strong>Väärinkäsitys 2:</strong> &quot;Agentti noudattaa ohjetiedostoa aina.&quot; Ei aina. Pitkässä istunnossa tai ristiriitaisen kehotteen kanssa agentti voi poiketa säännöstä. Siksi hyväksymiskriteerit ja testit tehdään joka tapauksessa.</p>
+<p><strong>Väärinkäsitys 3:</strong> &quot;Hyväksymiskriteeri on toive.&quot; Kriteeri on havaittava ehto. &quot;Toimii hyvin&quot; on toive. &quot;Urasuunnitelma löytyy uudelleen avattuna oikealta opiskelijalta&quot; on kriteeri.</p>
+<p><strong>Väärinkäsitys 4:</strong> &quot;Kuvauspaketti on oikeassa kaikessa.&quot; Kuvauspaketissa on aukkoja. Esimerkki: jonon tilojen nimet eroavat KP osissa 9 ja 20. Osa 9 käyttää nimiä Odottaa ja Odottaa lisätietoja, osa 20 sanaa ODOTTAA puutteen merkityksessä. Asia käsitellään osiossa 06. Oppijan kokemus voi tarkentaa kuvauspakettia, ja tarkennus kirjataan päätöslokiin.</p>
+<h3>Jumikohdat ja purku (taulukko: oire | todennäköinen syy | purku)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Oire</th>
+<th>Todennäköinen syy</th>
+<th>Purku</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ohjetiedosto on yli kaksi sivua</td>
+<td>Agentti kopioi otteita tai selittää sääntöjä</td>
+<td>Korjauta enintään kahteen sivuun. Säännöt lyhyinä riveinä.</td>
+</tr>
+<tr>
+<td>Agentti alkaa koodata tai luoda kansioita</td>
+<td>Suunnitelma ensin puuttui</td>
+<td>Claude: kiellä lupapyyntö ja kytke suunnittelutila. Codex: palaa tallennuspisteeseen ja lisää kehotteen viimeinen rivi.</td>
+</tr>
+<tr>
+<td>Claude: lupapyyntöjä ei tule</td>
+<td>Suunnitelman hyväksyntä kytki automaattisen hyväksynnän</td>
+<td>Palauta oletuslupatila. Katsokaa muutosnäkymästä, mitä jo muuttui.</td>
+</tr>
+<tr>
+<td>Oppija ei keksi kriteeriä</td>
+<td>Kriteerin käsite on uusi</td>
+<td>Apukysymykset: mitä näet, kun se toimii? Mitä ei saa tapahtua? Lähteeksi <code>oma-kokemus.md</code>.</td>
+</tr>
+<tr>
+<td>Agentti kopioi kuvauspaketin sellaisenaan</td>
+<td>Painotusaukko jäi yleiseksi</td>
+<td>Pyydä tuotteen säännöt yksi sääntö riviä kohden. Oppija nimeää yhden painotettavan osan ja syyn.</td>
+</tr>
+<tr>
+<td>Oppijan oma sääntö on agentin muotoilema</td>
+<td>Oppija pyysi agenttia ehdottamaan sääntöä</td>
+<td>Pyydä oppijaa kirjoittamaan sääntö omasta kokemuksesta. Korvaa kohta 9.</td>
+</tr>
+<tr>
+<td>Työlistan lopun luettelosta puuttuu osa V01–V10:stä</td>
+<td>Agentti listasi vain työpajan tehtävät</td>
+<td>Korjauta: puuttuville merkintä &quot;jatko + syy&quot;</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Varasuunnitelma</h3>
+<p>Jos ohjetiedosto ei ole valmis kello 11.09, lyhennä katselmointi kahteen kysymykseen (1 ja 3). Loput kysytään osion 03 alussa.</p>
+<p>Jos agentti kiertää kehää tai ohjetiedosto menee rikki, palataan tehtävän 1 tallennuspisteeseen K7:llä, ja tehtävä 2 tehdään uudelleen. Kriteerit ovat tallennuspisteessä, ja K7 pyytää jättämään oppijan omat tiedostot ennalleen. Tarkista silti agentin vastauksesta ennen vahvistusta, mitkä tiedostot katoavat. Oppijan omat tiedostot säilytetään aina.</p>
+<p>Jos työlista jää kesken, oppija tekee tehtävän 4 päätöksen ja tallennuspisteen. Työlista viimeistellään osion 03 alussa, ennen kuin <code>TESTIT.md</code>-runko tarkistetaan sitä vasten.</p>
+<p>Jos oppija ei lukenut lukutekstiä etukäteen, käy kehystyksessä läpi vain lukutekstin vaiheet 0–7. Muu luetaan lounaalla.</p>
+<h3>Tarkista ennen seuraavaa osiota</h3>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Ohjetiedostossa on oppijan oma sääntö sanasta sanaan ja kahdeksan tuotesääntöä.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Ohjetiedosto on enintään kaksi sivua, ja PRO-värit (KP osa 14) ovat mukana.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> <code>TYOLISTA.md</code>: vaiheet 0–7, järjestys oikein ja lopussa luettelo V01–V10.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> <code>HYVAKSYMISKRITEERIT.md</code>:n osio 02 on oppijan sanoin, ja nimi päättyy <code>.md</code>.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> <code>KEHOTEPOHJAT.md</code>:ssä ovat K1, K2, K6 ja K7.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Päätöslokissa on kaksi uutta merkintää, ja osiossa on tehty kolme tallennuspistettä.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Claude: sovellus kysyy edelleen luvan ennen tiedostomuutoksia.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Katselmoinnin kysymykset 4 ja 6 on merkitty osion 03 alkuun.</li>
+</ul>
+<h3>Tarkistettavat nimet</h3>
+<ul>
+<li>Claude: suunnittelutilan nimi ja kytkentä Code-välilehdellä.</li>
+<li>Claude: vaihtoehdot suunnitelman hyväksynnässä. Mikä säilyttää lupapyynnöt, mikä sallii muutokset automaattisesti?</li>
+<li>Claude: miten oletuslupatila palautetaan.</li>
+<li>Codex: onko versiossa erillinen suunnittelutoiminto ja mikä sen nimi on.</li>
+<li>Codex: miten Git-toiminnot näyttävät muuttuneet tiedostot.</li>
+</ul>
+
+</section>
+<section class="md" id="ohjatut"><h2>Ohjatut tehtävät</h2>
+<h3>TL Substanssikatselmointi (10 min, tehtävän 3 jälkeen)</h3>
+<p>Tavoite: oppija osoittaa, että ohjetiedosto kuvaa oikein, miten oppisopimus kirjataan. Hän näyttää säännön ohjetiedostosta tai lisää puuttuvan. Tämä on osion ajattelukysymyksen koe.</p>
+<p>Tässä kysytään kysymykset 1, 2, 3 ja 5. Kysymykset 4 ja 6 kysytään osion 03 alussa, jotta osio 02 mahtuu 75 minuuttiin.</p>
+<p>Roolit: vetäjä kysyy, oppija vastaa ja näyttää. Vetäjä ei näytä vastausta ohjetiedostosta. Jos sääntö puuttuu, oppija pyytää omin sanoin agenttia lisäämään sen. Lisäys tarkistetaan polun tavalla. Claude-polulla oppija lukee lupapyynnön ja katsoo muutosnäkymän. Codex-polulla hän avaa agenttisovelluksen Git-toiminnoista muuttuneet tiedostot ja avaa ohjetiedoston Muistiolla. Agentin oma luettelo ei riitä.</p>
+<p>Kulku: kysy yksi kysymys kerrallaan. Odota, että oppija löytää rivin. Kysy sitten: &quot;Mistä tiedät, että tämä on oikein?&quot; Hyvä vastaus viittaa omaan kokemukseen tai kuvauspaketin osaan. Pelkkä &quot;agentti kirjoitti niin&quot; ei riitä.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Kysymys</th>
+<th>Odotettu vastaus</th>
+<th>Lähde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Saako ohjelma päätellä palkan yksikön summasta?</td>
+<td>Ei. Yksikkö tarkistetaan. Liisa Kokeilun &quot;2 450&quot; ilman yksikköä estää kirjauksen.</td>
+<td>KP osa 8</td>
+</tr>
+<tr>
+<td>2. Haastattelussa ja esitiedoissa on eri työaika. Kumpi voittaa?</td>
+<td>Ei kumpikaan. Ohjelma näyttää molemmat, ja työntekijä ratkaisee ennen Wilma-tallennusta. Valinta kirjataan.</td>
+<td>KP osat 8 ja 15</td>
+</tr>
+<tr>
+<td>3. Riittääkö nimi, jos se on harvinainen?</td>
+<td>Ei. Nimi on hakusyöte. Kohdistus tehdään opiskelijanumerolla ja opiskeluoikeudella.</td>
+<td>KP osat 9 ja 20</td>
+</tr>
+<tr>
+<td>4. Saako ohjelma luoda työpaikan kysymättä? (osio 03)</td>
+<td>Ei. Ohjelma etsii olemassa olevan ja näyttää sen ennen uuden luomista. Puuttuvan lisäys valmistellaan hyväksyttäväksi.</td>
+<td>KP osat 6 ja 8</td>
+</tr>
+<tr>
+<td>5. Milloin opiskelija on valmis?</td>
+<td>Kun kaikki valitut pakolliset lomakkeet on hyväksytty, tallennettu ja uudelleenluettu. Yksi onnistunut lomake ei riitä.</td>
+<td>KP osat 10 ja 20</td>
+</tr>
+<tr>
+<td>6. Mitä ohjelma tekee, jos Wilma-kenttää ei löydy? (osio 03)</td>
+<td>Pysäyttää kirjoituksen ja merkitsee kentän puuttuvaksi. Kenttää ei keksitä, eikä toista valita tilalle.</td>
+<td>KP osat 19 ja 21</td>
+</tr>
+</tbody>
+</table></div>
+<p>Kysymys 2 ja osion 03 kysymykset 4 ja 6 eivät suoraan kuulu oppijan tarkistuslistan kahdeksaan tuotesääntöön. Ne paljastavat, kokosiko agentti säännöt koko kuvauspaketista vai vain kehotteen esimerkeistä. Jos säännöt puuttuvat, ne lisätään.</p>
+<p>Jos oppija vastaa toisin kuin taulukko ja perustelee vastauksen omalla kokemuksellaan, älä tyrmää. Kirjatkaa ero päätöslokiin. Kuvauspaketti voi olla väärässä tai epätarkka, ja se on arvokas havainto jatkoa varten.</p>
+<p>Purku (1 min): kysy ajattelukysymys. Mistä tiedät, että ohjetiedosto kuvaa kirjauksen oikein? Tavoitevastaus: luin säännöt ja vertasin niitä omaan kokemukseeni ja kuvauspakettiin. Puuttuvat lisättiin, ja ne on kirjattu.</p>
+<p>Kirjaus: katselmoinnissa lisätyt säännöt mainitaan tehtävän 4 päätöslokimerkinnässä ohjetiedostosta. Osion 03 alussa lisätyt säännöt oppija kirjaa omana merkintänään.</p>
+
+</section>
+<nav class="pager"><a href="osio-01.html">← Osio 01</a><a href="osio-03.html">Osio 03 →</a></nav>
+<footer class="page">Kaikki materiaalin henkilöt, yritykset, tunnisteet ja palkat ovat kuvitteellisia. Versio 1 · 23.10.2026.</footer>
+</main>
+</body>
+</html>

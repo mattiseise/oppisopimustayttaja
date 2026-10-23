@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vetäjä · Osio 03: Simuloitu Wilma ja kuvitteellinen aineisto</title>
+<meta name="description" content="Vibekoodaus-työpaja: ohjelmointia osaamaton rakentaa agentin avulla Oppisopimustäyttäjän.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23775EC4'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='600' fill='white'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<main>
+<a class="back-link" href="index.html">← Vetäjän sivut</a>
+<header class="page">
+  <div class="kicker">Vetäjä · Osio 03 · päivä 1, 12.30–13.45</div>
+  <h1>Simuloitu Wilma ja kuvitteellinen aineisto</h1>
+</header>
+<nav class="pills" aria-label="Osion sisältö"><a href="#materiaali">Vetäjän materiaali</a><a href="../claude/osio-03.html">Oppija: Claude</a><a href="../codex/osio-03.html">Oppija: Codex</a></nav>
+<section class="md" id="materiaali"><h2>Vetäjän materiaali</h2>
+<h3>Ajattelukysymys ja tavoitteet (Bloom)</h3>
+<blockquote>
+<p>Ajattelukysymys: Kattaako kuvitteellinen aineisto ne tilanteet, joissa oikea kirjaus menee helpoimmin väärin?</p>
+</blockquote>
+<ul>
+<li>Ymmärtää: oppija selittää, mitä simuloitu Wilma todistaa ja mitä ei.</li>
+<li>Luoda: oppija määrittelee testitapaukset omasta kokemuksestaan.</li>
+<li>Analysoida: oppija vertaa simuloidun lomakkeen kenttiä omaan tietoonsa oikeasta Wilmasta.</li>
+<li>Arvioida: oppija arvioi kuvitteellisen aineiston uskottavuuden ja turvallisuuden.</li>
+</ul>
+<p>Painotus on testaamisessa. Kattavuus: vaihe 0 simuloituna (kenttäkartoitus, testitunnukset, kuvitteellinen aineisto, testitapaukset). Osio on päivän 1 kriittistä polkua. Ilman simuloitua Wilmaa ja <code>TESTIT.md</code>:tä osiota 04 ei voi aloittaa.</p>
+<h3>Aikataulu (minuutit, summa = osion kesto)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Min</th>
+<th>Kello</th>
+<th>Sisältö</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>12.30–12.35</td>
+<td>Osion 02 katselmoinnin kysymykset 4 ja 6. Kesken jäänyt työlista (tehtävän 1 askel 1).</td>
+</tr>
+<tr>
+<td>6</td>
+<td>12.35–12.41</td>
+<td>Kehystys: ajattelukysymys ja se, mitä simuloitu Wilma ei todista</td>
+</tr>
+<tr>
+<td>8</td>
+<td>12.41–12.49</td>
+<td>Tehtävä 1: tapaukset, kriteerit ja tallennuspiste</td>
+</tr>
+<tr>
+<td>26</td>
+<td>12.49–13.15</td>
+<td>Tehtävä 2: simuloitu Wilma, käynnistystiedostot ja palautus (K2, K3, oma testi, päätös, tallennuspiste)</td>
+</tr>
+<tr>
+<td>12</td>
+<td>13.15–13.27</td>
+<td>Tehtävä 3: testiaineisto ja K8</td>
+</tr>
+<tr>
+<td>9</td>
+<td>13.27–13.36</td>
+<td>Tehtävä 4: <code>KENTAT.md</code> ja oppijan huomiot</td>
+</tr>
+<tr>
+<td>9</td>
+<td>13.36–13.45</td>
+<td>Tehtävä 5: <code>TESTIT.md</code>-runko ja O01:n tulos</td>
+</tr>
+<tr>
+<td>75</td>
+<td></td>
+<td>Yhteensä</td>
+</tr>
+</tbody>
+</table></div>
+<p>Aloittelijalle tehtävä 2 vie arviolta 30–35 min. Päätöskohta on kello 13.15 (varasuunnitelma).</p>
+<h3>Ennen osiota</h3>
+<ul>
+<li>Osion 02 tuotokset ovat projektikansiossa: ohjetiedosto, <code>TYOLISTA.md</code>, <code>HYVAKSYMISKRITEERIT.md</code> ja yhteensä viisi tallennuspistettä osioista 01 ja 02. Tiedät, jäikö työlista kesken. <code>TESTIT.md</code> ottaa merkinnät työlistalta.</li>
+<li>Harjoitusajon välitila osion 03 lopusta on saatavilla (simuloitu Wilma ja testiaineisto ilman oppijan tiedostoja).</li>
+<li>Varmuusaineisto (liite) on tekstinä valmiina liitettäväksi.</li>
+<li>Ensimmäisen koulutuksen tutkinnon osat (P05): jos ne on saatu, oppija voi korvata Testikoulutuksen oikealla julkisella koulutuksella tehtävän 2 kehotteessa. Päätös kirjataan päätöslokiin. Opiskelijat pysyvät kuvitteellisina.</li>
+<li>Tiedät harjoitusajosta, aukeaako käynnistystiedosto kaksoisnapsautuksella hallitulla koneella, toimiiko palautus ja odottaako agentti hyväksynnän jälkeen K3:a.</li>
+<li>Osion 02 ohjatut tehtävät:n kysymykset 4 ja 6 vastauksineen ovat esillä.</li>
+</ul>
+<h3>Ohjaus askel askeleelta</h3>
+<p><strong>Osion 02 kysymykset.</strong> Oppija näyttää säännön ohjetiedostosta. Kysymys 4: saako ohjelma luoda työpaikan kysymättä? Odotettu vastaus: ei. Ohjelma etsii olemassa olevan ja näyttää sen ennen uuden luomista, ja puuttuvan lisäys valmistellaan hyväksyttäväksi (KP osat 6 ja 8). Kysymys 6: mitä ohjelma tekee, jos Wilma-kenttää ei löydy? Odotettu vastaus: pysäyttää kirjoituksen ja merkitsee kentän puuttuvaksi. Kenttää ei keksitä, eikä toista valita tilalle (KP osat 19 ja 21). Jos sääntö puuttuu, oppija pyytää omin sanoin agenttia lisäämään sen ja tarkistaa lisäyksen polun tavalla. Hän kirjaa lisäyksen päätöslokiin omana merkintänään.</p>
+<p><strong>Kehystys.</strong> Kysy ajattelukysymys ja anna oppijan vastata ääneen yhdellä tapauksella. Sano sitten tärkein lause: agentti tekee sekä simuloidun Wilman että sovelluksen, joten ne sopivat yhteen silloinkin, kun molemmat ovat väärin. Oppijan vertailu oikeaan työhön on ainoa korjaus tähän.</p>
+<p><strong>Tehtävä 1.</strong> Viisi tapausta, joista yksi omasta kokemuksesta. Liitteen A tapaukset ovat lukutekstissä, joten neljä löytyy helposti. Viides on osion arvokkain. Jos oppija jumittuu, kysy: Mikä kirjaus on mennyt viimeksi uusiksi? Mikä tieto on puuttunut, kun olisit tarvinnut sen? Älä ehdota tapausta itse. Tapaus kirjoitetaan tilanteena, ei henkilönä. Lopun tallennuspiste suojaa kriteerit.</p>
+<p><strong>Tehtävä 2.</strong> Rajaa simulaatio seitsemään kohtaan. Agentti ehdottaa helposti ulkoasua, tietokantapalvelinta tai oppisopimusnäkymää. Ne korjautetaan pois. Kenttäaukon pitää tulla oppijan muistista ilman oikeita tietoja.</p>
+<p>Agentti tekee käynnistys- ja palautustiedostot, <code>KAYNNISTYS.md</code>:n ja lähtötilan (sopimukset 9.3 ja 10.1). Oppija käynnistää simuloidun Wilman itse kaksoisnapsautuksella. Lähtötilassa Aino Testisellä 000456 on yksi aiempi urasuunnitelma: T05:n vertailukohta ja olemassa olevan tietueen tapaus. Oppijan käsin tekemä urasuunnitelma testaa säilymisen, ja palautus poistaa sen.</p>
+<p>K2:n viimeinen rivi pyytää agenttia odottamaan K3:a, mutta se ei ole varmaa. Oppijalla on varaohje (sopimukset 9.4). K3 lisätään kehotepohjiin vasta osiossa 04. Jos työlistalla ei ole simuloidun Wilman tehtävää, K3:een kirjoitetaan tehtävän nimi. Katso hyväksyntähetkellä polun tapa (Polkujen erot).</p>
+<p><strong>Tehtävä 3.</strong> Aineisto luodaan suoraan kehotteella, koska sisältö annetaan valmiina. Sääntö osioille 03–09 (sopimukset 9.2): suora kehote ilman K2:ta ja K3:a vain dokumenteille ja aineistolle, joiden sisältö annetaan kehotteessa. Koodi kulkee aina koko työkierroksen. Testikytkimellä on silti oma testi, päätös ja tallennuspiste. Oppijan työ on tarkistus. Aineistossa ovat myös 000456 ja Mallikkaat osioita 05–07 varten. Varmista, että CSV avataan Muistiolla. Jos aineistossa on uskottava oikea nimi, esimerkiksi agentin keksimä tavallinen etu- ja sukunimi, oppija korjauttaa sen liitteen A tyyliin.</p>
+<p><strong>Tehtävä 4.</strong> Oma huomio on osion analyysiosa. Hyväksy myös epävarmat huomiot, kunhan ne ovat muistista. Älä anna oppijan avata oikeaa Wilmaa tarkistaakseen. Oikea Wilma ei kuulu työpajaan. Jos urasuunnitelmasta puuttuu kenttä, jota oppija tarvitsee osiossa 04, päätös on korjautan. Kenttä lisätään simuloituun Wilmaan ja <code>KENTAT.md</code>:hen työkierroksella: muutosten tarkistus, kokeilu ja tallennuspiste.</p>
+<p><strong>Tehtävä 5.</strong> Listamuoto on tarkoituksellinen, koska oppija kirjoittaa tulokset Muistiolla. Vertaa merkintöjä suunnitelman luvun 1.2 tasoihin. Vähimmäistavoitteessa ovat T01 (sim.), T02 (osin), T05, T13 ja T20. Lisätavoitteessa ovat T06, T07 ja T09, ja jatkoon jäävät T11, T12, T15 ja T16. Muut ovat tavoitetta. Jos oppijan työlista poikkeaa, oppija päättää. Puutu vain, jos T05 tai T13 ei ole työpajassa. O01 on oppijan ensimmäinen itse kirjoitettu tulos. Katso, että Tulos-rivillä on yksi vaihtoehto ja havainto on oma. Jokaisella testillä on Lähtötila-rivi (palauta ensin), ja tiedoston alussa on uusinnan malli (sopimukset 4 ja 10.3). O03 (kaksoiskappaleen esto) jatkaa T05:stä, ja se tehdään osiossa 04.</p>
+<p>Oppija pitää hiiren koko osion ajan.</p>
+<h3>Polkujen erot (taulukko Claude | Codex)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Asia</th>
+<th>Claude</th>
+<th>Codex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Suunnitelma ensin</td>
+<td>Suunnittelutila ja K2</td>
+<td>K2:n viimeinen rivi. Kehote on pyyntö, ei tekninen este.</td>
+</tr>
+<tr>
+<td>Suunnitelman hyväksyntä</td>
+<td>Vaihtoehto, joka jättää lupapyynnöt päälle. Jos agentti aloittaa ennen K3:a, oppija kieltää lupapyynnön ja kirjoittaa &quot;Pysähdy. Odota, että annan palan.&quot;</td>
+<td>Täsmälleen &quot;Hyväksyn suunnitelman. Älä vielä aloita. Annan ensimmäisen palan seuraavaksi.&quot; Jos agentti aloittaa, oppija pysäyttää sen ja katsoo Git-toiminnot.</td>
+</tr>
+<tr>
+<td>Agentin kokeilema palvelin</td>
+<td>Lupapyyntö käynnistyskomennolle</td>
+<td>PowerShell hiekkalaatikossa. Palvelimen käynnistys voi vaatia hyväksynnän.</td>
+</tr>
+<tr>
+<td>Oppijan käynnistys</td>
+<td><code>kaynnista-wilma.cmd</code> kaksoisnapsautuksella</td>
+<td>Sama</td>
+</tr>
+<tr>
+<td>Muutosten tarkistus</td>
+<td>Lupapyynnöt ja muutosnäkymä</td>
+<td>Agenttisovelluksen Git-toiminnot. Agentin luettelo on vain apu.</td>
+</tr>
+<tr>
+<td>Esikatselu</td>
+<td>Edge tai sisäänrakennettu selain</td>
+<td>Edge</td>
+</tr>
+<tr>
+<td>Ohjetiedosto kehotteissa</td>
+<td><code>CLAUDE.md</code></td>
+<td><code>AGENTS.md</code></td>
+</tr>
+<tr>
+<td>Polun riski</td>
+<td>Lupapyyntöjä tulee rakennuksessa useita, ja oppija alkaa hyväksyä lukematta</td>
+<td>Agentti muokkaa kansion tiedostoja kysymättä. Git-näkymä on ainoa kontrolli.</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Väärinkäsitykset (vähintään 3)</h3>
+<p><strong>Väärinkäsitys 1:</strong> &quot;Simuloitu Wilma vastaa oikeaa.&quot; Se vastaa sitä, mitä agentti ymmärsi kuvauspaketista ja oppijan muistista. Kentät, oikeudet ja kirjautuminen todennetaan testi-Wilmassa. Oppijan huomiot <code>KENTAT.md</code>:ssä ovat ainoa kirjattu ero.</p>
+<p><strong>Väärinkäsitys 2:</strong> &quot;Kuvitteellinen aineisto saa olla oikeasta muokattu.&quot; Ei saa. Vaihdettu nimi ei poista tunnistettavaa tilannetta. Tapaus keksitään alusta, ja nimet ja tunnisteet noudattavat liitettä A.</p>
+<p><strong>Väärinkäsitys 3:</strong> &quot;Läpäisty testi simuloidussa Wilmassa tarkoittaa, että ohjelma toimii Wilmassa.&quot; Se tarkoittaa, että ohjelma toimii simuloitua Wilmaa vasten. KP osa 27 vaatii erottamaan, mitä testattiin paikallisesti ja mitä testi-Wilmassa. Siksi <code>TESTIT.md</code>:n havaintoon kirjataan ympäristö.</p>
+<h3>Jumikohdat ja purku (taulukko: oire | todennäköinen syy | purku)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Oire</th>
+<th>Todennäköinen syy</th>
+<th>Purku</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simuloitu Wilma ei käynnisty, ilmoitus kertoo portin olevan käytössä</td>
+<td>Agentti jätti oman kokeilunsa käyntiin</td>
+<td>Oppija pyytää agenttia sulkemaan sen. Tarvittaessa agentti vaihtaa portin ja päivittää ohjeen.</td>
+</tr>
+<tr>
+<td>Selain ei avaa paikallista osoitetta</td>
+<td>Simuloitu Wilma ei ole käynnissä, tai osoite on kirjoitettu väärin</td>
+<td>Tarkista käynnistysikkuna. Kopioi osoite <code>KAYNNISTYS.md</code>:stä sellaisenaan.</td>
+</tr>
+<tr>
+<td>Agentti tekee liian hienon simulaation</td>
+<td>Rajaus jäi lukematta tai agentti ennakoi myöhempiä osioita</td>
+<td>Korjauta seitsemään kohtaan. Ylimääräinen poistetaan ennen hyväksyntää, ei myöhemmin.</td>
+</tr>
+<tr>
+<td>Etunollat ovat kadonneet</td>
+<td>CSV avattiin ja tallennettiin Excelillä</td>
+<td>Pyydä lista uudelleen. Näytä Muistio-tapa. Gitistä näkee, muuttuiko tiedosto.</td>
+</tr>
+<tr>
+<td>Oppija haluaa näyttää oikean Wilman näkymän kuvana</td>
+<td>Halu saada simulaatio tarkaksi</td>
+<td>Ei. Oppija kuvailee kentän omin sanoin. Kuvat kerätään jatkossa testi-Wilmasta puhdistettuina (KP liite A).</td>
+</tr>
+<tr>
+<td>Codex: agentin käynnistämä simuloitu Wilma ei vastaa</td>
+<td>Hiekkalaatikko tai hyväksyntä puuttuu</td>
+<td>Oppija käynnistää simuloidun Wilman itse kaksoisnapsauttamalla <code>kaynnista-wilma.cmd</code>:tä.</td>
+</tr>
+<tr>
+<td>Käynnistysikkuna sulkeutuu heti</td>
+<td>Virhe käynnistyksessä</td>
+<td>Oppija pyytää agenttia pitämään ikkunan auki virheen jälkeen. Sitten virhe agentille sellaisenaan.</td>
+</tr>
+<tr>
+<td>Agentti aloittaa heti hyväksynnän jälkeen tai tekee kaiken kerralla</td>
+<td>Hyväksyntä käynnisti toteutuksen</td>
+<td>Polkujen erot, rivi Suunnitelman hyväksyntä. Jatka K3:lla.</td>
+</tr>
+<tr>
+<td>Palautuksen jälkeen oma urasuunnitelma näkyy yhä</td>
+<td>Simuloitu Wilma oli käynnissä palautuksen aikana</td>
+<td>Sulje ikkunat ja palauta uudelleen.</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Varasuunnitelma</h3>
+<p>Jos työlista jäi osiossa 02 kesken eikä se valmistu alun viidessä minuutissa, oppija viimeistelee siitä vain V01–V10-luettelon ja T05:n ja T13:n tehtävät. Ne tarvitaan tehtävässä 5. Loput tehdään osion 04 asennusten odotusaikana.</p>
+<p>Jos testiaineiston luonti ei onnistu kahdella yrityksellä, anna agentille varmuusaineisto. Oppija tarkistaa sen samoin kuin oman aineistonsa.</p>
+<p>Jos simuloitu Wilma ei toimi kello 13.10, pura harjoitusajon välitila projektikansioon. Säilytä oppijan omat tiedostot: <code>PAATOSLOKI.md</code>, <code>HYVAKSYMISKRITEERIT.md</code>, <code>maarittely/oma-kokemus.md</code> ja mahdollinen <code>TESTIT.md</code>. Oppija kirjaa päätöslokiin, että välitila otettiin käyttöön ja miksi.</p>
+<p>Kello 13.15, jos tehtävä 2 on kesken: <code>TESTIT.md</code> tehdään ennen <code>KENTAT.md</code>:n omia huomioita, koska T05 ja T13 tarvitsevat rungon. Huomiot kirjoitetaan osion 04 asennusten odotusaikana.</p>
+<p>Jos agentti kiertää kehää, pysäytä se. K10 esitellään vasta osiossa 04, joten tässä vetäjä katkaisee kehän ja oppija palaa tallennuspisteeseen K7:llä.</p>
+<h3>Tarkista ennen seuraavaa osiota</h3>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Simuloitu Wilma käynnistyy kaksoisnapsautuksella ilman agenttia, ja palautus on kokeiltu. Jokaisella sivulla lukee SIMULOITU.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Haku nimellä Aino Testinen näyttää kaksi opiskelijaa. Aino Testisellä 000456 on vain lähtötilan urasuunnitelma.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Profiilin Primus-tiedot ovat vain luettavia.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> <code>testiaineisto</code> sisältää liitteen A tapaukset, Mallikkaat ja oppijan oman tapauksen. Etunollat ovat tallessa.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> <code>KENTAT.md</code>:ssä ovat urasuunnitelman ja profiilin kentät sekä oppijan omat huomiot.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> <code>TESTIT.md</code> on listamuodossa Lähtötila-riveineen, T05 ja T13 ovat työpajassa, O03 on mukana, ja O01:llä on oppijan tulos.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> <code>KEHOTEPOHJAT.md</code>:ssä on K8.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Kysymysten 4 ja 6 säännöt ovat ohjetiedostossa. Mahdollinen lisäys on kirjattu päätöslokiin.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Päätöslokissa on vähintään neljä uutta merkintää omin sanoin, ja viimeinen tallennuspiste on tehty.</li>
+</ul>
+<h3>Tarkistettavat nimet</h3>
+<ul>
+<li>Claude: sisäänrakennetun selaimen avaaminen Code-välilehdellä.</li>
+<li>Claude: vaihtoehdot suunnitelman hyväksynnässä ja lupatila hyväksynnän jälkeen.</li>
+<li>Claude: lupapyynnön vaihtoehto, joka sallii saman jatkossa kysymättä.</li>
+<li>Codex: hyväksyntäpyynnön muoto, kun agentti käynnistää paikallisen palvelimen hiekkalaatikossa.</li>
+<li>Codex: Git-toimintojen näkymä, jossa uudet tiedostot näkyvät.</li>
+<li>Windows: Muistion avausikkuna .csv-tiedostolle ja raahaustapa.</li>
+<li>Windows: .cmd-käynnistystiedosto hallitulla koneella ja päätteen näkyminen.</li>
+<li>Windows: tekstin kopiointi käynnistysikkunasta.</li>
+<li>Claude: aloittaako agentti toteutuksen suunnitelman hyväksynnän jälkeen, vaikka K2 kieltää.</li>
+<li>Codex: agentin pysäytys kesken työn.</li>
+</ul>
+<h3>Liite: varmuusaineisto</h3>
+<p>Ei lasketa sanamäärään. Liitä agentille kehotteella &quot;Lisää kansioon testiaineisto tämä aineisto. Opiskelijanumerot ovat tekstiä. Älä muuta tiedostoa wilma-lahtotila.json.&quot; Simuloidun Wilman lähtötilassa ovat opiskelijat ja profiilit sekä yksi aiempi urasuunnitelma Aino Testisellä 000456.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Opiskelija</th>
+<th>Nro</th>
+<th>Opiskeluoikeus</th>
+<th>Esitiedot</th>
+<th>Haastattelu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aino Testinen</td>
+<td>000123</td>
+<td>Testikoulutus, TK26A</td>
+<td>37,5 h/vko, 2 450 €/kk, Testileipomo Oy Keskusta</td>
+<td>37,5 h/vko, työpaikkaohjaaja Maija Mallikas, työnantajan edustaja Kaisa Mallikas</td>
+</tr>
+<tr>
+<td>Aino Testinen</td>
+<td>000456</td>
+<td>Testikoulutus, TK26B</td>
+<td>nimikaima, tiedot kunnossa</td>
+<td>nimikaima</td>
+</tr>
+<tr>
+<td>Eero Esimerkki</td>
+<td>001789</td>
+<td>Testikoulutus ja Esimerkkikoulutus</td>
+<td>30 h/vko, 14,20 €/h</td>
+<td>30 h/vko</td>
+</tr>
+<tr>
+<td>Liisa Kokeilu</td>
+<td>002024</td>
+<td>Testikoulutus</td>
+<td>30 h/vko, palkka 2 450 (ei yksikköä)</td>
+<td>37,5 h/vko</td>
+</tr>
+<tr>
+<td>Ville Testaaja</td>
+<td>000999</td>
+<td>Testikoulutus</td>
+<td>puuttuu</td>
+<td>tehty</td>
+</tr>
+<tr>
+<td>(tyhjä rivi)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>(virherivi)</td>
+<td>12A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>Liitettävä nimilista: Aino Testinen, Eero Esimerkki. Työpaikat (osio 07): Testileipomo Oy (Keskusta, Satama), Esimerkkikone Oy (yksi toimipaikka), Kokeiluverstas Oy (puuttuu simuloidusta Wilmasta). Henkilöt: Maija Mallikas (työpaikkaohjaaja, Testileipomo Oy Keskusta), Kaisa Mallikas (työnantajan edustaja, Testileipomo Oy), Pekka Mallikas (työpaikkaohjaaja, Esimerkkikone Oy) ja Pekka Mallikas (työpaikkaohjaaja, Testileipomo Oy Satama).</p>
+
+</section>
+<nav class="pager"><a href="osio-02.html">← Osio 02</a><a href="osio-04.html">Osio 04 →</a></nav>
+<footer class="page">Kaikki materiaalin henkilöt, yritykset, tunnisteet ja palkat ovat kuvitteellisia. Versio 1 · 23.10.2026.</footer>
+</main>
+</body>
+</html>

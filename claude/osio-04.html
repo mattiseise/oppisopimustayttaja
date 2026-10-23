@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Osio 04: Ensimmäinen varmennettu tallennus – Claude-polku</title>
+<meta name="description" content="Mistä tiedät, että tieto todella tallentui, kun agentti sanoo valmis?">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23775EC4'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='600' fill='white'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<main>
+<a class="back-link" href="index.html">← Claude-polku</a>
+<header class="page">
+  <div class="kicker">Claude-polku · Osio 04 · päivä 1, 14.00–16.00</div>
+  <h1>Ensimmäinen varmennettu tallennus</h1>
+  <div class="insight"><div class="kicker">Ajattelukysymys</div><p>Mistä tiedät, että tieto todella tallentui, kun agentti sanoo valmis?</p></div>
+</header>
+<nav class="pills" aria-label="Osion sisältö">
+  <a href="#lue">1 · Lukuteksti</a><a href="#tehtavat">2 · Tehtävät</a><a href="#sanasto">3 · Sanasto</a>
+</nav>
+<section class="md" id="lue"><h2>Lukuteksti</h2>
+<p>Tässä osiossa sovellus tekee ensimmäisen Wilma-tallennuksen. Wilma on simuloitu, ja opiskelija on kuvitteellinen. Ketju on silti sama kuin myöhemmin oikeassa työssä. Sovellus löytää opiskelijan, täyttää lomakkeen, tekee Wilma-tallennuksen ja tarkistaa tuloksen.</p>
+<p>Osio on päivän 1 tärkein. Sen jälkeen vähimmäistavoitteesta on valmiina kolme kohtaa. Simuloitu Wilma käynnistyy ohjeella ilman agenttia. Sovellus käynnistyy samalla ohjeella ja avaa selaimen, jossa kirjaudut itse. Urasuunnitelman Wilma-tallennus varmennetaan uudelleenluvulla, ja poikkeava arvo näkyy tarkistamattomana. Automaattinen haku lähteistä tulee osiossa 05 ja kahden opiskelijan jono osiossa 06.</p>
+<p>Osion tärkein asia ei kuitenkaan ole tekniikka. Se on ero agentin valmis-ilmoituksen ja oman testisi välillä.</p>
+<p>Aloitat osion uudella istunnolla. Agentti ei muista edellistä keskustelua, mutta se lukee ohjetiedoston istunnon alussa. Kehotepohja K11 pyytää sitä lukemaan lisäksi työlistan, päätöslokin ja testit. Vastauksesta näet, tunteeko agentti projektin tilanteen. Vertaat sitä omaan päätöslokiisi. Jos agentti muistaa jotain väärin, korjaat sen, ennen kuin se rakentaa mitään.</p>
+<h3>Pienin kokonainen ketju</h3>
+<p>Kuvauspaketin vaihe 1 on tekninen kokeilu. Siinä rakennetaan pienin ketju, joka kulkee alusta loppuun. Ketjua laajennetaan vasta, kun se toimii. Kuvauspaketin osa 30 kutsuu tätä ensimmäiseksi kehityskokonaisuudeksi.</p>
+<p>Tässä versiossa sovellus tekee seitsemän asiaa. Se avaa näkyvän selaimen simuloituun Wilmaan. Sinä kirjaudut. Sovellus tarkistaa, että ympäristö on simuloitu Wilma. Se etsii opiskelijan opiskelijanumerolla. Se näyttää urasuunnitelman arvot, ja sinä hyväksyt ne. Se täyttää lomakkeen ja tekee Wilma-tallennuksen. Lopuksi se lukee lomakkeen uudelleen ja vertaa arvoja hyväksymiisi.</p>
+<p>Agentti rakentaa ketjun viidessä palassa. Pala (a) käynnistää sovelluksen. Pala (b) avaa selaimen. Pala (c) kohdistaa opiskelijan. Pala (d) täyttää lomakkeen ja tekee Wilma-tallennuksen. Pala (e) lukee uudelleen ja vertaa. Jokaisen palan jälkeen ajat sovelluksen itse, katsot tuloksen ja teet tallennuspisteen (commit). Jos pala (d) rikkoo jotain, palaat palan (c) tallennuspisteeseen. Et menetä koko iltapäivää.</p>
+<p>Opiskelija kohdistetaan opiskelijanumerolla, ei nimellä. Aino Testisiä on kaksi, ja nimihaku löytäisi molemmat. Siksi kokeilet palassa (c) myös numeroa, jota simuloidussa Wilmassa ei ole. Sovelluksen pitää kertoa, ettei opiskelijaa löydy. Se ei saa avata ketään muuta. Työkortin tarkistuslista sanoo saman: kokeile aina vähintään yhtä tapausta, jonka pitää pysähtyä.</p>
+<p>Sovellus on työpöytäsovellus, joka avautuu omaan ikkunaansa. Se ajetaan <strong>kehitystilassa</strong> suoraan projektikansiosta. Asennuspakettia ei tehdä työpajassa. Sovellus käynnistyy samalla tavalla kuin simuloitu Wilma: kaksoisnapsautat käynnistystiedostoa. Ohje lisätään tiedostoon <code>KAYNNISTYS.md</code>. Sen pitää toimia ilman agenttia, koska huomenna ja työpajan jälkeen käynnistät sovelluksen itse.</p>
+<p>Ensimmäiset asennukset voivat kestää hallitussa verkossa 5–15 minuuttia. Asennuksissa tulee monta lupapyyntöä peräkkäin. Lue jokainen, vaikka ne alkavat näyttää samalta. Käytä odotusaika päätöslokin kirjoittamiseen.</p>
+<h3>Miksi uudelleenluku</h3>
+<p>Kun painat Wilmassa tallennusta, näet usein onnistumisviestin. Viesti kertoo, että painallus meni perille. Se ei kerro, mitä lomakkeelle jäi. Kenttä voi katketa, arvo voi mennä väärään kenttään, tai tallennus voi jäädä kesken.</p>
+<p>Kuvauspaketin osa 21 sanoo saman. Onnistumisviesti tai napin painallus ei yksin riitä. Sovellus avaa tallennetun lomakkeen uudelleen ja lukee arvot. Tätä kutsutaan <strong>uudelleenluvuksi</strong>. Jos luetut arvot vastaavat hyväksyttyjä, Wilma-tallennus on varmennettu. Jos jokin arvo poikkeaa tai sitä ei voi lukea, kenttä näytetään tarkistamattomana. Silloin kirjausta ei näytetä valmiina.</p>
+<p>Simuloitu Wilma tallentaa yleensä oikein, koska agentti teki sen. Siksi siihen lisätään testikytkin. Kun kytkin on päällä, simuloitu Wilma tallentaa yhden kentän väärin. Testi T13 tarkistaa, että sovellus huomaa sen. Teet T13:n Ville Testaajalle. Ennen sitä palautat simuloidun Wilman lähtötilaan, jotta aiemmat kirjaukset eivät vaikuta tulokseen.</p>
+<p><strong>Pysähdy hetkeksi:</strong> Jos sovellus näyttää valmista, mutta simuloidussa Wilmassa on väärä arvo, kumpaan uskot ja miksi?</p>
+<h3>Agentin valmis ei ole testitulos</h3>
+<p>Agentti kertoo usein, että työ on valmis. Se voi myös kertoa ajaneensa testit. Agentin valmis ei ole testitulos.</p>
+<p>Agentti kirjoittaa ja ajaa <strong>automaattisia testejä</strong>. Ne ovat agentin työkalu. Ne tarkistavat, että koodi toimii niin, kuin agentti sen ymmärsi. Jos agentti ymmärsi urasuunnitelman väärin, testi menee silti läpi.</p>
+<p>Hyväksymistesti on sinun. Teet sen ajamalla sovellusta ja katsomalla tuloksen itse. Testitulos on sinun havaintosi: läpi, ei läpi tai ei testattu. Kirjoitat sen <code>TESTIT.md</code>:hen Muistiolla. Agentti ei merkitse testiä läpäistyksi. Se ei myöskään merkitse työlistan tehtävää valmiiksi ennen testiäsi.</p>
+<p>Valmiilta voi näyttää kolme asiaa: agentin viesti, sovelluksen onnistumisviesti ja läpi mennyt automaattinen testi. Mikään niistä ei ole testitulos. Testitulos syntyy, kun katsot itse, mitä lomakkeelle jäi.</p>
+<p>T13:ssa kirjoitat ennusteen Odotan-riville, ennen kuin ajat. Syy on sama kuin kriteereissä. Jos kirjoitat odotuksen vasta tuloksen nähtyäsi, kirjoitat helposti sen, mitä näit.</p>
+<p>Tämä koskee jokaista palaa. Kun agentti sanoo palan olevan valmis, ajat sovelluksen <code>KAYNNISTYS.md</code>:n ohjeella. Katsot, näkyykö se, mitä kriteerisi lupaa. Vasta sitten kirjaat päätöksen.</p>
+<h3>Kun jokin ei toimi</h3>
+<p>Ohjelma tai komento antaa virheilmoituksen, kun jokin epäonnistuu. Virheilmoitus näyttää usein sekavalta. Sinun ei tarvitse ymmärtää sitä. Annat sen agentille sellaisenaan kehotepohjalla K4. Kerrot lisäksi, mitä teit ja mitä odotit. Agentti selvittää syyn ja kertoo ennen korjausta, mitä aikoo muuttaa.</p>
+<p>Joskus korjaus ei auta. Agentti yrittää uudelleen, ja sama virhe palaa. Tätä kutsutaan <strong>kehäksi</strong>. Sääntö on yksinkertainen. Jos ongelma on jäljellä kahden korjausyrityksen jälkeen, katkaiset kehän kehotepohjalla K10. Agentti lopettaa ja kertoo, mitä yritti. Sitten palaat tallennuspisteeseen K7:llä ja kerrot vetäjälle.</p>
+<p>Kehän katkaisu ei ole epäonnistuminen. Se säästää aikaa. Pieni pala ja tuore tallennuspiste tekevät paluusta halvan.</p>
+<p><strong>Pysähdy hetkeksi:</strong> Miksi on parempi palata tallennuspisteeseen kahden yrityksen jälkeen kuin yrittää, kunnes virhe katoaa?</p>
+<h3>Sovittimen työjärjestys</h3>
+<p>Sovellus hoitaa jokaisen lomakkeen omalla osallaan. Tätä osaa kutsutaan <strong>sovittimeksi</strong>. Ensimmäinen sovitin hoitaa urasuunnitelman.</p>
+<p>Kuvauspaketin liitteen A lopussa on työjärjestys, jolla sovitin rakennetaan. Kehotepohja K9 noudattaa sitä. Ensin jokaiselle kentälle haetaan lomakkeelta täsmälleen yksi osuma. Sitten kenttä täytetään. Sen jälkeen tehdään Wilma-tallennus. Sitten lomake luetaan uudelleen, ja arvoja verrataan hyväksyttyyn sisältöön. Lopuksi estetään kaksoiskappale, jotta sama lomake ei synny kahdesti. Testaat eston omalla testilläsi O03.</p>
+<p>Työjärjestyksessä on kaksi sääntöä, jotka koskevat sinua. Agentti käyttää vain <code>KENTAT.md</code>:n kenttiä. Puuttuva kenttä merkitään puuttuvaksi, eikä sitä keksitä. Jos haku osuu kahteen kenttään, sovellus pysähtyy eikä valitse ensimmäistä.</p>
+<h3>Turvaraja ennen ensimmäistä Wilma-kosketusta</h3>
+<p>Tänään sovellus koskee Wilmaan ensimmäisen kerran. Wilma on simuloitu, mutta toimit kuin se olisi oikea. Silloin tapa on valmis, kun vastassa on testi-Wilma.</p>
+<p>Kirjaudut itse näkyvässä selaimessa. Agentti ei saa salasanaa eikä tunnuksia. Simuloidussa Wilmassa salasanaa ei ole, mutta sovellus ei saa pyytää sitä silloinkaan. Sovellus ei tallenna selaimen istuntoa, evästeitä eikä tallenteita. Käynnistät sovelluksen itse <code>KAYNNISTYS.md</code>:n ohjeella, ja sovellus avaa selaimen. Agentti ei avaa selainta puolestasi kirjautumista varten.</p>
+<p>Tietoturvan muistilista on työkortin osassa 4. Kertaat sen ennen suunnitelmaa:</p>
+<ul>
+<li>Ei oikeaa opiskelijatietoa agentille: ei kehotteeseen, tiedostoon eikä kuvaan.</li>
+<li>Ei salasanoja eikä tunnuksia agentille.</li>
+<li>Kirjaudut itse näkyvässä selaimessa.</li>
+<li>Lue lupapyyntö ennen hyväksymistä.</li>
+<li>Älä salli kaikkea automaattisesti.</li>
+<li>Oikea Wilma ei kuulu työpajaan.</li>
+<li>Testi-Wilmasta saatu aineisto puhdistetaan kuvauspaketin liitteen A mukaan ennen agenttia.</li>
+<li>Projektikansio ei ole OneDrivessa.</li>
+<li>Epäilys tietovuodosta: pysähdy ja kerro vetäjälle.</li>
+</ul>
+<p><strong>Pysähdy hetkeksi:</strong> Mitä tapahtuisi, jos sovellus tallentaisi kirjautuneen istunnon projektikansioon, jonka agentti näkee?</p>
+<h3>Esimerkki: tavoite katkesi</h3>
+<p>Teet Aino Testisen (000123) urasuunnitelman. Hyväksyt tavoitteeksi kuvitteellisen tekstin, joka on 120 merkkiä pitkä. Sovellus täyttää lomakkeen ja tekee Wilma-tallennuksen. Simuloitu Wilma näyttää onnistumisviestin. Agentti kertoo, että pala on valmis ja sen automaattiset testit menivät läpi.</p>
+<p>Sovellus lukee lomakkeen uudelleen. Tavoitekentässä on vain 50 ensimmäistä merkkiä. Sovellus näyttää kentän tarkistamattomana, eikä kirjausta näytetä varmennettuna.</p>
+<p>Ilman uudelleenlukua et olisi huomannut mitään. Onnistumisviesti ja agentin valmis olisivat kertoneet päinvastaista. Kirjaat päätöslokiin korjautan. Perusteeksi kirjoitat: &quot;Tavoite katkesi 50 merkkiin. Uudelleenluku näytti sen tarkistamattomana.&quot; Sitten selvität agentin kanssa, onko raja simuloidussa Wilmassa tahallinen vai virhe. Kirjaat rajan myös <code>KENTAT.md</code>:n Oma huomio -riville, jos muistat oikeasta Wilmasta jotain vastaavaa.</p>
+<h3>Yhteenveto</h3>
+<p>Tekninen kokeilu rakentaa pienimmän kokonaisen ketjun viidessä palassa, ja jokainen pala testataan ennen seuraavaa. Wilma-tallennus varmennetaan uudelleenluvulla, koska onnistumisviesti ei todista, mitä lomakkeelle jäi. Agentin valmis ei ole testitulos. Testitulos on oma havaintosi <code>TESTIT.md</code>:ssä. Virheilmoitus annetaan agentille sellaisenaan, ja kahden yrityksen jälkeen kehä katkaistaan. Kirjaudut aina itse, eikä sovellus tallenna istuntoa.</p>
+
+</section>
+<section class="md" id="tehtavat"><h2>Tehtävät</h2>
+<p>Aika noin 120 min. Tarvitset: Claude-työpöytäsovelluksen Code-välilehden, projektikansion, Muistion ja Edgen.</p>
+<p>Agentin valmis ei ole testitulos. Tarkistat jokaisen palan itse, ennen kuin hyväksyt sen.</p>
+<h3>Tehtävä 1: Uudet kehotepohjat ja tilannekatsaus</h3>
+<ol>
+<li>Aloita Code-välilehdellä uusi istunto samassa projektikansiossa. Vetäjä näyttää, miten.</li>
+<li>Kopioi alla oleva lohko kehotekenttään. Lähetä.</li>
+<li>Lue lupapyyntö kolmella kysymyksellä. Muuttua saa vain <code>KEHOTEPOHJAT.md</code>.</li>
+<li><strong>Kehote (K11):</strong> Avaa <code>KEHOTEPOHJAT.md</code> Muistiolla. Kopioi K11. Täytä aukko: mitä haluat tietää, ennen kuin jatkat. Lähetä.</li>
+<li>Vertaa vastausta päätöslokiisi. Totea, että agentti tuntee osion 03 tuotokset.</li>
+<li>Tee tallennuspiste (commit) K6:lla omalla viestilläsi.</li>
+</ol>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k23">Kopioi</button></div><pre id="k23"><code>Lisää KEHOTEPOHJAT.md:n loppuun alla olevat kuusi pohjaa sellaisinaan. Älä muuta muita tiedostoja.
+
+## K3 Toteuta yksi pala
+Toteuta hyväksytty suunnitelma: TYOLISTA.md:n tehtävä [numero].
+Noudata CLAUDE.md:n sääntöjä.
+Kun olet valmis, kerro, miten käynnistän sovelluksen ja mitä minun pitää nähdä, kun [tilanne, jonka haluan tarkistaa].
+Älä tee tallennuspistettä.
+
+## K4 Virheilmoitus
+Tein näin: [mitä tein].
+Sain tämän virheilmoituksen:
+[virheilmoitus sellaisenaan]
+Odotin: [mitä odotin näkeväni].
+Selvitä syy. Kerro ennen korjausta, mitä aiot muuttaa. Älä muuta tiedostoja ennen kuin hyväksyn.
+
+## K5 Korjauta
+Testi tai kriteeri: [testin tunnus tai kriteeri].
+Havaitsin: [mitä näin].
+Korjaa niin, että [mitä pitää tapahtua].
+Älä muuta muuta toimintaa. Kerro lopuksi, miten tarkistan korjauksen.
+
+## K9 Sovittimen työjärjestys
+Rakennetaan lomake [lomakkeen nimi] simuloituun Wilmaan.
+Käytä vain KENTAT.md:n kenttiä. Jos kenttä puuttuu, merkitse se puuttuvaksi. Älä keksi kenttiä.
+Etene tässä järjestyksessä ja pysähdy jokaisen kohdan jälkeen:
+(1) kenttien haku: jokaiselle kentälle täsmälleen yksi osuma
+(2) täyttö
+(3) Wilma-tallennus
+(4) uudelleenluku ja vertailu hyväksyttyyn sisältöön
+(5) kaksoiskappaleen esto
+Kiinnitä erityistä huomiota kenttään [kenttä, joka menee käsin kirjatessa helpoimmin väärin].
+Kerro jokaisen kohdan jälkeen, miten tarkistan sen itse sovelluksesta.
+
+## K10 Katkaise kehä
+Lopeta korjaaminen. Älä muuta tiedostoja.
+Halusin saada aikaan: [mitä halusin saada aikaan].
+Kerro kolmella lauseella, mitä yritit ja miksi se ei toiminut.
+Kerro, mihin tallennuspisteeseen kannattaa palata ja mitä silloin katoaa.
+
+## K11 Tilannekatsaus
+Lue CLAUDE.md, TYOLISTA.md, PAATOSLOKI.md ja TESTIT.md. Älä muuta mitään.
+Kerro, mitkä tehtävät ovat valmiita, mikä on seuraava avoin tehtävä ja mitkä testit ovat tekemättä.
+Kerro erityisesti [mitä haluan tietää ennen kuin jatkan].
+</code></pre></div>
+<p>Seuraavaksi: kriteerit ennen rakentamista.</p>
+<h3>Tehtävä 2: Kriteerit ja hyväksyttävät arvot</h3>
+<ol>
+<li>Kopioi alla oleva pohja Muistiolla tiedoston <code>HYVAKSYMISKRITEERIT.md</code> loppuun.</li>
+<li><strong>Oma kriteeri:</strong> Kirjoita vähintään kolme Hyväksyn, kun -kohtaa ensimmäiselle varmennetulle Wilma-tallennukselle.</li>
+<li>Kirjoita vähintään yksi En hyväksy, jos -kohta.</li>
+<li>Kirjoita Aino Testisen urasuunnitelmalle arvot. Käytä <code>KENTAT.md</code>:n kenttiä ja keksi arvot itse.</li>
+<li>Kirjoita Tarkistan näin -kohta. Tallenna ja sulje Muistio.</li>
+<li>Tee tallennuspiste K6:lla.</li>
+</ol>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k24">Kopioi</button></div><pre id="k24"><code>## Osio 04: ensimmäinen varmennettu tallennus
+Hyväksyn, kun:
+- [kriteeri]
+- [kriteeri]
+- [kriteeri]
+En hyväksy, jos:
+- [kriteeri]
+Aino Testisen (000123) urasuunnitelman arvot, jotka hyväksyn:
+- [kenttä]: [kuvitteellinen arvo]
+- [kenttä]: [kuvitteellinen arvo]
+Tarkistan näin:
+- [mitä teen ja mitä näen]
+Liittyvät testit:
+- T05, T13
+</code></pre></div>
+<p>Seuraavaksi: turvaraja ja suunnitelma.</p>
+<h3>Tehtävä 3: Turvaraja ja suunnitelma teknisestä kokeilusta</h3>
+<ol>
+<li>Lue Muistiolla tietoturvan muistilista <code>TYOKORTTI.md</code>:n osasta 4. Sovellus ei myöskään tallenna istuntoa, evästeitä eikä tallenteita.</li>
+<li>Kytke suunnittelutila päälle.</li>
+<li><strong>Kehote (K2 + K9):</strong> Kopioi koko lohko kehotekenttään. Täytä kolme aukkoa. Lähetä.</li>
+</ol>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k25">Kopioi</button></div><pre id="k25"><code>Tehtävä: tekninen kokeilu. Sovellus tekee Aino Testisen (000123) urasuunnitelmasta Wilma-tallennuksen simuloituun Wilmaan ja varmentaa sen uudelleenluvulla.
+Lue ensin CLAUDE.md, TYOLISTA.md ja HYVAKSYMISKRITEERIT.md:n osio 04.
+Tärkein kriteerini: [tärkein kriteeri].
+Noudata KEHOTEPOHJAT.md:n pohjaa K9 lomakkeelle urasuunnitelma. Kiinnitä erityistä huomiota kenttään [kenttä, joka menee käsin kirjatessa helpoimmin väärin].
+Jaa työ viiteen palaan:
+(a) sovellus käynnistyy kehitystilassa kaksoisnapsautettavalla tiedostolla kaynnista-sovellus.cmd kuten simuloitu Wilma. Lisää sovelluksen ohje KAYNNISTYS.md:hen samassa muodossa.
+(b) sovellus avaa näkyvän selaimen simuloituun Wilmaan, minä kirjaudun, ja sovellus tarkistaa, että ympäristö on SIMULOITU
+(c) kohdistus opiskelijanumerolla
+(d) K9:n kohdat (1)–(3): arvot näkyvät muokattavina, minä hyväksyn ne, sitten täyttö ja Wilma-tallennus
+(e) K9:n kohdat (4)–(5): jokainen kenttä näkyy varmennettuna tai tarkistamattomana. Laajenna palauta-lahtotila.cmd tyhjentämään myös sovelluksen paikallinen työjono ja käsittelyt.
+Aino Testisen hyväksyttävät arvot: [arvot kriteeritiedostostasi].
+Sovellus ei pyydä salasanaa. Se ei tallenna selaimen istuntoa, evästeitä eikä tallenteita. Se kirjoittaa vain simuloidun Wilman osoitteeseen.
+Kerro jokaiselle palalle TYOLISTA.md:n tehtävän numero.
+Tee suunnitelma. Kerro, mitkä tiedostot muuttuvat, mitä komentoja ajat ja miten tarkistan tuloksen ilman koodin lukemista.
+Älä muuta tiedostoja ennen kuin hyväksyn.
+Kun hyväksyn suunnitelman, älä vielä aloita. Annan palat yksi kerrallaan.
+</code></pre></div>
+<ol start="4">
+<li><strong>Oma testi:</strong> Etsi suunnitelmasta vastaus neljään kysymykseen. Onko mukana uudelleenluku? Pyydetäänkö salasanaa? Tallennetaanko istunto? Kirjoittaako sovellus muualle kuin simuloituun Wilmaan? Oikeat vastaukset ovat kyllä, ei, ei ja ei.</li>
+<li>Korjauta: kirjoita agentille, mikä on väärin. Jos ei mitään, jatka.</li>
+<li>Kirjoita palojen tehtävänumerot paperille.</li>
+<li>Hyväksy suunnitelma niin, että sovellus kysyy edelleen luvan ennen muutoksia. Älä valitse vaihtoehtoa, joka sallii muutokset automaattisesti.</li>
+<li>Jos tulee lupapyyntö, ennen kuin lähetit K3:n, kiellä se. Kirjoita agentille: Pysähdy. Odota, että annan palan.</li>
+</ol>
+<p>Seuraavaksi: palat yksi kerrallaan.</p>
+<h3>Tehtävä 4: Rakenna pala kerrallaan</h3>
+<p>Teet saman kierroksen jokaiselle palalle (a)–(e).</p>
+<ol>
+<li><strong>Kehote (K3):</strong> Avaa <code>KEHOTEPOHJAT.md</code> Muistiolla. Kopioi K3. Täytä aukot: palan tehtävänumero ja tilanne, jonka haluat tarkistaa. Lähetä.</li>
+<li>Lue jokainen lupapyyntö kolmella kysymyksellä. Hyväksy vain tämä kerta. Älä valitse vaihtoehtoa, joka sallii saman jatkossa kysymättä.</li>
+<li>Kirjoita odottaessasi päätöslokiin merkinnän alku tai <code>KENTAT.md</code>:n kesken jääneet huomiot. Jos agentti ei etene 15 minuuttiin, kutsu vetäjä.</li>
+<li>Katso muutosnäkymästä, mitkä tiedostot muuttuivat. Kysy agentilta jokaisesta, jota et tunnista.</li>
+<li>Aja sovellus itse <code>KAYNNISTYS.md</code>:n ohjeella.</li>
+<li><strong>Oma testi:</strong> Tee palan tarkistus alla olevasta listasta.</li>
+<li><strong>Päätös:</strong> Jos hylkäät, toimi ensin alla olevan Hylkään-rivin mukaan. Kirjaa päätöslokiin palasta hyväksyn, korjautan tai hylkään ja peruste muodossa Näin: … Siksi: … Tallenna ja sulje Muistio.</li>
+<li>Tee tallennuspiste K6:lla. Kirjoita viestiin, mikä pala toimii.</li>
+</ol>
+<p>Korjautan: K5 ja takaisin askeleeseen 4. Hylkään: sulje Muistio, palaa ensin tallennuspisteeseen K7:llä ja kirjaa päätös sitten. Virheilmoitus: tehtävä 5.</p>
+<p>Palojen tarkistukset:</p>
+<ul>
+<li>(a) Kaksoisnapsautat tiedostoa <code>kaynnista-sovellus.cmd</code>, ja sovelluksen ikkuna aukeaa.</li>
+<li>(b) Näkyvä selain avautuu simuloituun Wilmaan, ja sivulla lukee SIMULOITU. Valitset testikäyttäjän itse. Salasanaa ei kysytä.</li>
+<li>(c) Kirjoita sovellukseen 000123. Sovellus näyttää Aino Testisen ryhmästä TK26A. Kokeile numeroa 000777. Sovellus kertoo, ettei opiskelijaa löydy, eikä avaa ketään.</li>
+<li>(d) Sovellus näyttää kriteeritiedostosi arvot. Hyväksyt ne. Näet selaimessa, kun lomake täyttyy ja Wilma-tallennus tehdään.</li>
+<li>(e) Sovellus näyttää jokaisen kentän varmennettuna tai tarkistamattomana. Kaikki ovat varmennettuja.</li>
+</ul>
+<p>Seuraavaksi: kun palat (a)–(e) toimivat, tehtävä 6. Tehtävä 5 on virhetilanteisiin.</p>
+<h3>Tehtävä 5: Kun pala ei toimi</h3>
+<ol>
+<li>Maalaa virheilmoitus hiirellä ja kopioi se Ctrl+C:llä. Älä paina Ctrl+C ennen maalaamista: se voi sulkea ohjelman. Jos kopiointi ei onnistu, kirjoita ensimmäiset rivit K4:ään.</li>
+<li><strong>Kehote (K4):</strong> Avaa <code>KEHOTEPOHJAT.md</code> Muistiolla. Kopioi K4. Täytä aukot. Lähetä.</li>
+<li>Lue agentin selitys. Kirjoita agentille, että se saa tehdä muutoksen, kun ymmärrät, mitä muuttuu.</li>
+<li>Lue jokainen lupapyyntö kolmella kysymyksellä.</li>
+<li>Aja sovellus uudelleen <code>KAYNNISTYS.md</code>:n ohjeella. Jos pala toimii, jatka tehtävän 4 askeleesta 6. Jos ei ja yritys oli ensimmäinen, tee askeleet 1–5 uudelleen.</li>
+<li>Jos sama ongelma on jäljellä toisen yrityksen jälkeen, lopeta korjaaminen.</li>
+<li><strong>Kehote (K10):</strong> Avaa <code>KEHOTEPOHJAT.md</code> Muistiolla. Kopioi K10. Täytä aukko. Lähetä.</li>
+<li>Sulje Muistio. Palaa agentin ehdottamaan tallennuspisteeseen K7:llä ja kerro vetäjälle. Kirjaa päätöslokiin hylkään ja peruste vasta paluun jälkeen. Aloita pala tehtävän 4 askeleesta 1.</li>
+</ol>
+<p>Seuraavaksi: tehtävä 4 askeleen 5 tai 8 mukaan.</p>
+<h3>Tehtävä 6: Käynnistysohje ilman agenttia</h3>
+<ol>
+<li><strong>Kehote:</strong> Kopioi koko lohko kehotekenttään. Täytä aukko. Lähetä.</li>
+</ol>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k26">Kopioi</button></div><pre id="k26"><code>Lue KAYNNISTYS.md. Selvennä tätä kohtaa: [kohta, joka oli sinulle epäselvä paloissa a–e].
+Varmista, että ohjeessa on simuloidun Wilman osoite, sulkeminen ja palautus lähtötilaan.
+Älä muuta muita tiedostoja.
+</code></pre></div>
+<ol start="2">
+<li>Lue lupapyyntö kolmella kysymyksellä. Muuttua saa vain <code>KAYNNISTYS.md</code>.</li>
+<li>Sulje sovellus, näkyvä selain ja simuloitu Wilma.</li>
+<li>Kaksoisnapsauta tiedostoa <code>palauta-lahtotila.cmd</code>.</li>
+<li><strong>Oma testi:</strong> Käynnistä simuloitu Wilma ja sovellus <code>KAYNNISTYS.md</code>:n ohjeella. Älä kysy agentilta mitään.</li>
+<li>Tee tallennuspiste K6:lla.</li>
+</ol>
+<p>Seuraavaksi: testit T05 ja O03.</p>
+<h3>Tehtävä 7: Testit T05 ja O03</h3>
+<ol>
+<li><strong>Oma testi T05:</strong> Tee sovelluksella kirjaus Aino Testiselle (000123). Hyväksy kriteeritiedostosi arvot.</li>
+<li>Avaa simuloitu Wilma Edgessä <code>KAYNNISTYS.md</code>:n osoitteesta ja kirjaudu.</li>
+<li>Avaa Aino Testisen (000123) urasuunnitelma. Vertaa arvoja kriteeritiedostosi arvoihin kenttä kerrallaan.</li>
+<li>Avaa Aino Testisen (000456) urasuunnitelmat. Totea, että siellä on vain aiempi urasuunnitelma.</li>
+<li>Kirjaa Muistiolla <code>TESTIT.md</code>:hen T05:lle tulos, havainto ja päivä. Mainitse havainnossa myös 000456 ja palan (c) 000777.</li>
+<li><strong>Oma testi O03:</strong> Tee kirjaus Ainolle 000123 uudelleen. Totea Edgessä, että urasuunnitelmia on yhä yksi.</li>
+<li>Kirjaa O03:lle tulos, havainto ja päivä. Tallenna ja sulje Muistio.</li>
+</ol>
+<p>Jos T05 tai O03 ei mene läpi, korjauta K5:llä ja tee uusinta.</p>
+<p>Seuraavaksi: testikytkin.</p>
+<h3>Tehtävä 8: Testikytkin ja testi T13</h3>
+<ol>
+<li>Seuraa, kun vetäjä näyttää testikytkimen omalla koneellaan.</li>
+<li><strong>Kehote:</strong> Kopioi koko lohko kehotekenttään. Täytä aukko: kenttä ja virhe, jonka haluat testata. Lähetä.</li>
+</ol>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k27">Kopioi</button></div><pre id="k27"><code>Lisää simuloituun Wilmaan testikytkin &quot;tallenna kenttä väärin&quot;. Kun kytkin on päällä, simuloitu Wilma tallentaa yhden kentän väärin näin: [mikä kenttä tallentuu väärin ja miten].
+Tee kytkimestä valinta simuloidun Wilman sivulle. Kytkin on oletuksena pois päältä, ja palautus lähtötilaan kytkee sen pois.
+Muuta vain kansiota simuloitu-wilma ja tarvittaessa lähtötilaa. Älä muuta sovellusta.
+</code></pre></div>
+<ol start="3">
+<li>Lue lupapyyntö kolmella kysymyksellä. Muuttua saavat vain <code>simuloitu-wilma</code> ja lähtötila.</li>
+<li>Sulje sovellus ja simuloitu Wilma. Kaksoisnapsauta tiedostoa <code>palauta-lahtotila.cmd</code>.</li>
+<li>Käynnistä simuloitu Wilma ja sovellus <code>KAYNNISTYS.md</code>:n ohjeella.</li>
+<li>Kytke testikytkin päälle simuloidun Wilman sivulta.</li>
+<li><strong>Oma testi T13:</strong> Kirjoita <code>TESTIT.md</code>:n T13:n Odotan-rivin perään oma ennusteesi sanalla Ennuste:.</li>
+<li>Tee sovelluksella urasuunnitelman kirjaus Ville Testaajalle (000999) kuvitteellisilla arvoilla.</li>
+<li>Vertaa sovelluksen näyttöä ennusteeseesi. Avaa sitten Villen urasuunnitelma Edgessä ja katso, mikä arvo tallentui.</li>
+<li>Kirjaa T13:lle tulos, havainto ja päivä. Tallenna ja sulje Muistio.</li>
+<li>Kytke testikytkin pois päältä.</li>
+<li><strong>Päätös:</strong> Kirjaa päätöslokiin testikytkimestä ja T13:sta päätös ja peruste. Tee tallennuspiste K6:lla.</li>
+</ol>
+<p>Jos väärä kenttä näkyy varmennettuna, T13 ei mene läpi. Korjauta K5:llä.</p>
+<p>Seuraavaksi: päivän päätös.</p>
+<h3>Tehtävä 9: Päivän päätös</h3>
+<ol>
+<li>Pyydä agenttia merkitsemään valmiiksi ne <code>TYOLISTA.md</code>:n tehtävät, joiden testin kirjasit läpi, myös osion 03 tehtävät (O01). Kerro numerot itse.</li>
+<li>Lue lupapyyntö kolmella kysymyksellä. Muuttua saa vain <code>TYOLISTA.md</code>.</li>
+<li><strong>Päätös:</strong> Kirjaa päätöslokiin teknisestä kokeilusta hyväksyn, korjautan tai hylkään. Kirjoita perusteeseen T05:n ja T13:n tulokset omin sanoin.</li>
+<li>Kirjoita päätöslokin loppuun &quot;Huomenna aloitan tästä:&quot; ja yksi lause. Tallenna ja sulje Muistio.</li>
+<li>Tee tallennuspiste K6:lla. Aloita viesti sanoilla Päivä 1.</li>
+</ol>
+<p>Seuraavaksi: tarkistat, että osio on valmis.</p>
+<h3>Valmis, kun</h3>
+<ul>
+<li>Simuloitu Wilma ja sovellus käynnistyvät kaksoisnapsautuksella <code>KAYNNISTYS.md</code>:n ohjeella, ja olet kokeillut sen itse.</li>
+<li>Kirjaudut sovelluksen avaamassa selaimessa itse ilman salasanaa.</li>
+<li><code>TESTIT.md</code>:ssä on tulos T05:lle, O03:lle ja T13:lle.</li>
+<li><code>KEHOTEPOHJAT.md</code>:ssä ovat K3, K4, K5, K9, K10 ja K11.</li>
+<li>Päätöslokissa ovat palojen päätökset, päivän päätös ja huomisen aloituskohta.</li>
+<li>Tallennuspiste Päivä 1 on tehty.</li>
+</ul>
+<h3>Jos jäät jumiin</h3>
+<p>Jos asennus pysähtyy latausvirheeseen, anna virheilmoitus agentille K4:llä ja kutsu vetäjä. Älä muuta koneen asetuksia itse.</p>
+<p>Jos selaimen lataus estyy, pyydä agenttia käyttämään koneen Edgeä. Jos komennot estyvät PowerShellissä, pyydä toista tapaa.</p>
+<p>Jos agentti pysähtyy kesken palan (d) tai (e), tee sen kertoma tarkistus ja kirjoita: Jatka seuraavaan kohtaan.</p>
+<p>Jos lupapyyntöjä tulee niin paljon, että alat hyväksyä lukematta, pysähdy ja kutsu vetäjä.</p>
+<p>Ennen uusintaa sulje sovellus ja simuloitu Wilma ja kaksoisnapsauta <code>palauta-lahtotila.cmd</code>. Kirjaa uusinta testin alle <code>TESTIT.md</code>:n alun mallilla.</p>
+<h3>Seuraava osio</h3>
+<p>Osio 05 alkaa huomenna kello 9.00 uudella istunnolla ja K11:llä. Jos vetäjän katselmointi ja T13 jäivät tänään tekemättä, teet tehtävän 8 huomenna heti K11:n jälkeen.</p>
+
+</section>
+<section class="md" id="sanasto"><h2>Sanasto</h2>
+<h3>Kehitystila</h3>
+<p>Tapa ajaa sovellusta suoraan projektikansiosta ilman asennuspakettia. Työpajassa sovellus ajetaan aina kehitystilassa.</p>
+<h3>Työpöytäsovellus (Electron)</h3>
+<p>Sovellus, joka avautuu omaan ikkunaansa koneellasi. Electron on tekniikka, jolla Oppisopimustäyttäjä tehdään kuvauspaketin ehdotuksen mukaan.</p>
+<h3>Playwright</h3>
+<p>Ohjelmakirjasto, jolla sovellus ohjaa selainta. Se etsii kentät, täyttää ne ja lukee ne uudelleen simuloidussa Wilmassa.</p>
+<h3>Näkyvä selain</h3>
+<p>Selainikkuna, jota sovellus ohjaa ja jonka näet. Kirjaudut siinä itse.</p>
+<h3>Wilma-tallennus</h3>
+<p>Lomakkeen tallennus Wilmaan tai simuloituun Wilmaan. Eri asia kuin tallennuspiste.</p>
+<h3>Uudelleenluku</h3>
+<p>Sovellus avaa tallennetun lomakkeen uudelleen ja lukee arvot.</p>
+<h3>Varmennettu</h3>
+<p>Wilma-tallennus, jonka uudelleenluetut arvot vastaavat hyväksyttyä sisältöä. Muuten kenttä näytetään tarkistamattomana.</p>
+<h3>Testitulos</h3>
+<p>Sinun havaintosi ja merkintäsi: läpi, ei läpi tai ei testattu. Agentin valmis ei ole testitulos.</p>
+<h3>Automaattinen testi</h3>
+<p>Agentin kirjoittama ja ajama testi. Agentin työkalu, ei hyväksymistesti.</p>
+<h3>Virheilmoitus</h3>
+<p>Teksti, jonka ohjelma tai komento antaa, kun jokin epäonnistuu. Annetaan agentille sellaisenaan.</p>
+<h3>Kehä</h3>
+<p>Agentti yrittää korjata samaa ongelmaa tuloksetta. Jos ongelma on jäljellä kahden korjausyrityksen jälkeen, katkaise kehä ja palaa tallennuspisteeseen.</p>
+<h3>Sovitin</h3>
+<p>Sovelluksen osa, joka hoitaa yhden lähteen tai lomakkeen lukemisen ja täyttämisen. Kuvauspaketissa käytetään myös sanaa adapteri.</p>
+
+</section>
+<nav class="pager"><a href="osio-03.html">← Osio 03</a><a href="osio-05.html">Osio 05 →</a></nav>
+<footer class="page">Kaikki materiaalin henkilöt, yritykset, tunnisteet ja palkat ovat kuvitteellisia. Versio 1 · 23.10.2026.</footer>
+</main>
+</body>
+</html>

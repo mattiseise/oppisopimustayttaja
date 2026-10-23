@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Osio 05: Lähteet, puutteet ja ristiriidat – Claude-polku</title>
+<meta name="description" content="Kun lähteet ovat eri mieltä tai tieto puuttuu, mitä ohjelma saa päättää ja mitä vain sinä?">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23775EC4'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='600' fill='white'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<main>
+<a class="back-link" href="index.html">← Claude-polku</a>
+<header class="page">
+  <div class="kicker">Claude-polku · Osio 05 · päivä 2, 9.00–10.30</div>
+  <h1>Lähteet, puutteet ja ristiriidat</h1>
+  <div class="insight"><div class="kicker">Ajattelukysymys</div><p>Kun lähteet ovat eri mieltä tai tieto puuttuu, mitä ohjelma saa päättää ja mitä vain sinä?</p></div>
+</header>
+<nav class="pills" aria-label="Osion sisältö">
+  <a href="#lue">1 · Lukuteksti</a><a href="#tehtavat">2 · Tehtävät</a><a href="#sanasto">3 · Sanasto</a>
+</nav>
+<section class="md" id="lue"><h2>Lukuteksti</h2>
+<p>Päivä 2 alkaa. Agentti ei muista eilistä keskustelua. Tiedostot muistavat: ohjetiedosto, työlista, päätösloki ja testit. Siksi aloitat uuden istunnon kehotepohjalla K11. Agentti lukee tiedostot ja kertoo, missä olette.</p>
+<p>Eilen sovellus teki yhden varmennetun Wilma-tallennuksen. Arvot olivat valmiina. Tänään sovellus hakee arvot itse kolmesta lähteestä. Lähteet eivät aina ole samaa mieltä, ja joskus tieto puuttuu. Ohjelma ei saa paikata näitä kohtia arvaamalla.</p>
+<p>Tässä osiossa agentti rakentaa tarkistusnäkymän, ja sinä testaat sen tahallisilla virheillä. Teet myös oman päätöksen siitä, miten valvot agentin muutoksia.</p>
+<h3>Kolme lähdettä</h3>
+<p>Kuvauspaketin osa 4 nimeää oppisopimuksen tietolähteet. Tässä osiossa käytetään kolmea. Esitietolomakkeella opiskelija kertoo tietojaan etukäteen. Haastattelusta käytetään talteen kirjatut tiedot, kuten tavoitteet, työtehtävät ja työaika. Primuksen tiedot, kuten koulutus ja opiskeluoikeus, luetaan Wilman näkymistä, joissa ne näkyvät käyttäjälle. Tätä lukutapaa kutsutaan nimellä <strong>WilmaRead</strong> (kuvauspaketin osat 5 ja 16). Luku ei muuta Wilmassa mitään.</p>
+<p>Ohjelma hakee tiedot automaattisesti. Sinä et vie tiedostoja mistään etkä kopioi arvoja. Tämä on testin T01 ydin. Kuvauspaketin osa 16 sanoo, ettei käsin tehty tiedostovienti korvaa automaattista hakua. Käsin viety tiedosto voi olla vanha, väärän opiskelijan tai puutteellinen, eikä kukaan huomaa sitä.</p>
+<p>Jokainen lähde kytketään opiskelijaan opiskelijanumerolla, ei nimellä. Kuvitteellisessa aineistossa on kaksi Aino Testistä. Jos sovellus hakisi esitiedot nimellä, se voisi yhdistää toisen Ainon esitiedot ensimmäisen Ainon profiiliin. Tarkistusnäkymässä kaikki näyttäisi oikealta, koska nimi täsmää.</p>
+<p>Työpajassa lähteet ovat kuvitteellisia. Esitiedot ja haastattelut ovat tiedostoja kansiossa <code>testiaineisto</code>. Profiili luetaan simuloidusta Wilmasta. Oikeissa lähteissä on vielä avoimia päätöksiä. Kuvauspaketin osa 29 nimeää ne: esitietopalvelu (P01), Primus-tietojen haku (P02) ja haastattelun kirjauspaikka (P03). Ne ratkaisevat IT ja pääkäyttäjät. Sinun osuutesi on kertoa, mitä tietoa työ tarvitsee.</p>
+<h3>Kenttähavainto ja viisi lukutilaa</h3>
+<p>Sovellus ei säilytä pelkkää arvoa. Jokaisesta kentästä syntyy <strong>kenttähavainto</strong>, jossa on arvo, lähde ja lukutila. Lukutila kertoo, miten arvo saatiin. Kuvauspaketin osa 15 määrittelee viisi lukutilaa.</p>
+<p>OK tarkoittaa, että kenttä luettiin ja arvo löytyi. EMPTY tarkoittaa, että kenttä näkyi, mutta oli tyhjä. NOT_VISIBLE tarkoittaa, ettei kenttä ollut näkymässä tai käyttäjän saatavilla. READ_FAILED tarkoittaa, että lukeminen epäonnistui, esimerkiksi yhteysvirheen takia. CONFLICT tarkoittaa, että lähteiden arvot ovat ristiriidassa.</p>
+<p>EMPTY on rehellinen tieto. Kenttä on olemassa, ja se on tyhjä. Silloin pyydetään täydennys, jos tieto tarvitaan.</p>
+<p>Tärkein ero on EMPTY:n ja NOT_VISIBLE:n välillä. Kuvittele, että palkkakenttä ei näy sinun roolillesi. Ohjelma ei silloin tiedä palkkaa. Se ei tarkoita, että palkkaa ei ole. Jos ohjelma näyttäisi kentän tyhjänä, joku täyttäisi sen arvaamalla tai jättäisi sen pois. Molemmat olisivat väärin. Kuvauspaketin osa 5 sanoo saman: puuttuvaa käyttöoikeutta ei tulkita tyhjäksi tiedoksi.</p>
+<p>READ_FAILED toimii samalla periaatteella. Jos Wilma ei vastaa, ohjelma ei saa näyttää onnistunutta tyhjää hakua. Virhe näytetään virheenä. Testaat molemmat tilanteet testikytkimillä. Toinen kytkin piilottaa kentän, toinen sammuttaa simuloidun Wilman.</p>
+<p>Lukutila näytetään myös sanoina, ei pelkkänä koodina tai värinä. Ohjetiedostossa on tästä sääntö.</p>
+<p><strong>Pysähdy hetkeksi:</strong> Minkä tiedon arvaaminen aiheuttaisi suurimman vahingon?</p>
+<h3>Ristiriita: sinä ratkaiset</h3>
+<p>Liisa Kokeilun haastattelussa työaika on 37,5 h viikossa. Esitietolomakkeella se on 30 h. Kuvauspaketin osa 8 sanoo, että ohjelma näyttää molemmat arvot. Työntekijä selvittää oikean tiedon ennen Wilma-tallennusta.</p>
+<p>Ohjelma ei siis valitse uudempaa lähdettä. Se ei valitse myöskään lähdettä, joka tuntuu luotettavammalta. Haastattelu voi olla uudempi, mutta opiskelija on voinut muistaa väärin. Esitiedot voivat olla vanhat, mutta työsopimus on voinut muuttua. Oikean vastauksen tietää vain se, joka selvittää asian.</p>
+<p>Kun valitset, valinta kirjataan. Myöhemmin näkyy, mistä arvo tuli ja että sen valitsi ihminen. Oikeassa työssä selvittäisit työajan opiskelijalta tai työpaikalta. Testissä valitset itse.</p>
+<p><strong>Pysähdy hetkeksi:</strong> Muistatko tilanteen, jossa kaksi lähdettä kertoi saman asian eri tavalla? Miten selvitit oikean tiedon?</p>
+<p>Puute on eri asia kuin ristiriita. Puutteessa tietoa ei saada mistään lähteestä. Kuvauspaketin osa 15 sanoo, että pakollisen tiedon puute estää siitä riippuvan kirjauksen. Liisan palkasta puuttuu yksikkö. Sitä testataan osiossa 07, kun oppisopimus rakennetaan.</p>
+<h3>Hyväksyntä sidotaan sisältöön</h3>
+<p>Tarkistusnäkymässä hyväksyt sisällön. Hyväksyntä koskee juuri niitä arvoja, jotka näit. Jos arvo muuttuu hyväksynnän jälkeen, hyväksyntä vanhenee. Silloin hyväksyt uudelleen.</p>
+<p>Ilman tätä sääntöä hyväksyntä 30 tunnista kelpaisi myös 37,5 tunnille. Kukaan ei olisi tarkistanut uutta arvoa. Kuvauspaketin osa 20 sitoo hyväksynnän kohteeseen ja sisältöversioon.</p>
+<p>Sisältö voi muuttua kahdella tavalla. Korjaat itse arvoa tarkistusnäkymässä, tai sovellus lukee lähteen uudelleen ja saa eri arvon. Kummassakin tapauksessa vanha hyväksyntä ei enää koske sitä, mitä Wilmaan menisi. Urasuunnitelman Wilma-tallennus käyttää vain voimassa olevaa hyväksyntää.</p>
+<p>Sovelluksen hyväksyntä ja päätöslokin päätös ovat eri asioita. Sovelluksessa hyväksyt opiskelijan tiedot ennen Wilma-tallennusta. Päätöslokiin kirjaat, kelpaako agentin tekemä työ.</p>
+<h3>Oma lupa-asetus</h3>
+<p>Tähän asti agentti on kysynyt luvan ennen jokaista tiedostomuutosta. Tämä on lupatilan oletus. Tänään agentti rakentaa viisi palaa, ja lupapyyntöjä tulee paljon. Kun niitä tulee paljon, niitä alkaa hyväksyä lukematta. Silloin kontrolli on vain näennäinen.</p>
+<p>Voit sallia tiedostomuutokset automaattisesti. Silloin agentti ei kysy lupaa tiedostomuutoksille. Komennoille lupapyyntö pidetään päällä. Kontrolli siirtyy kahteen kohtaan. Teet tallennuspisteen (commit) ennen palaa ja katsot muutosnäkymän palan jälkeen. Jos muutosnäkymässä on jotain, mitä et pyytänyt, palaat tallennuspisteeseen.</p>
+<p>Kumpikin ratkaisu käy, kun tarkistus tehdään. Väärä ratkaisu on sallia muutokset ja jättää muutosnäkymä katsomatta. Työkortin sääntö pysyy: et salli kaikkea automaattisesti.</p>
+<p>Muutosnäkymästä katsot ensin tiedostojen nimet. Sovelluksen ja simuloidun Wilman tiedostot saavat muuttua, kun pyysit palaa. Kansioiden <code>maarittely</code> ja <code>testiaineisto</code> ei pidä muuttua. Omia tiedostojasi agentti ei muokkaa: päätöslokia, hyväksymiskriteereitä ja testien tuloksia. Jos niissä näkyy muutos, jota et itse tehnyt, kysy syytä, ennen kuin jatkat.</p>
+<p>Kirjaat päätöksen päätöslokiin. Kirjoitat myös oman pysäytyssäännön. Se kertoo, mikä muutos saa sinut hylkäämään. Esimerkiksi: jos kansiossa <code>testiaineisto</code> muuttui jotain, mitä en pyytänyt, hylkään.</p>
+<p><strong>Pysähdy hetkeksi:</strong> Kumpi pitää sinut tarkkana: monta pientä lupapyyntöä vai yksi huolellinen tarkistus palan lopussa?</p>
+<h3>Esimerkki: Liisa Kokeilun tarkistusnäkymä</h3>
+<p>Avaat Liisa Kokeilun (002024) tiedot. Koulutus on Testikoulutus. Lähde on profiili, ja lukutila on OK. Työajan kohdalla lukee CONFLICT ja sanoin ristiriita. Alla ovat molemmat arvot: 37,5 h/vko haastattelusta ja 30 h/vko esitiedoista. Kumpaakaan ei ole valittu.</p>
+<p>Palkan kohdalla on 2 450. Lähde on haastattelu, mutta yksikkö puuttuu. Panet sen merkille osiota 07 varten.</p>
+<p>Valitset työajaksi 37,5 h. Sovellus näyttää valintasi ja sen, että valinnan teki käyttäjä. Hyväksyt sisällön. Sitten työpaikka kertoo, että sovittu työaika on 30 h. Korjaat arvon. Hyväksyntä näkyy heti vanhentuneena, eikä Wilma-tallennus käynnisty. Tarkistat sisällön ja hyväksyt sen uudelleen.</p>
+<p>Kaikki esimerkin tiedot ovat kuvitteellisia.</p>
+<h3>Yhteenveto</h3>
+<p>Sovellus hakee tiedot kolmesta lähteestä ja näyttää jokaisesta kentästä arvon, lähteen ja lukutilan. Piilossa oleva tai lukematon kenttä ei ole tyhjä. Ristiriidassa ohjelma näyttää molemmat arvot, ja sinä valitset. Hyväksyntä koskee vain sitä sisältöä, jonka näit. Lupa-asetuksen päätät itse, mutta muutokset tarkistetaan aina.</p>
+
+</section>
+<section class="md" id="tehtavat"><h2>Tehtävät</h2>
+<p>Aika noin 90 min. Tarvitset: Claude-työpöytäsovelluksen Code-välilehden, Muistion ja projektikansion.</p>
+<p>Vähimmäistavoite on tehtävät 1–5: lähteet, T01 ja tarkistusnäkymä. Osion 06 jono tarvitsee tarkistusnäkymän, jossa hyväksyt sisällön. Tehtävät 6–8 ovat tavoitetta. Jos ne jäävät kesken, ne tehdään osion 07 aikana.</p>
+<h3>Tehtävä 1: Aloita päivä ja kirjoita kriteerit</h3>
+<ol>
+<li>Aloita Code-välilehdellä uusi istunto projektikansiossa <code>C:\dev\oppisopimustayttaja</code>.</li>
+<li><strong>Kehote (K11):</strong> Avaa <code>KEHOTEPOHJAT.md</code> Muistiolla. Kopioi K11. Täytä aukko: mitä haluat tietää, ennen kuin jatkat. Katso apua päätöslokin viimeisestä merkinnästä. Lähetä.</li>
+<li>Vertaa agentin vastausta tiedostoon <code>TESTIT.md</code>. Testi on tehty vain, jos siinä on sinun tuloksesi.</li>
+<li>Lue päätöslokin rivi Huomenna aloitan tästä. Jos T13 jäi eilen tekemättä, tee nyt osion 04 tehtävä Testikytkin ja testi T13. Aikaa on enintään 20 min. Jos osion 04 pala (d) tai (e) jäi kesken, kerro vetäjälle, ennen kuin jatkat.</li>
+<li>Avaa <code>HYVAKSYMISKRITEERIT.md</code> Muistiolla.</li>
+<li><strong>Oma kriteeri:</strong> Lisää osio 05 samalla rungolla kuin aiemmat osiot. Kirjoita Hyväksyn, kun -kohtaan, mitä tarkistusnäkymässä pitää näkyä jokaisesta kentästä.</li>
+<li>Kirjoita En hyväksy, jos -kohtaan, mikä estää hyväksynnän. Mieti erityisesti puuttuvaa ja piilossa olevaa tietoa.</li>
+<li>Tallenna tiedosto ja sulje Muistio.</li>
+</ol>
+<p>Seuraavaksi: päätät, miten valvot agentin muutoksia tänään.</p>
+<h3>Tehtävä 2: Päätä lupa-asetus</h3>
+<p>Lue ensin lukutekstin kohta Oma lupa-asetus.</p>
+<ol>
+<li>Valitse, pidätkö lupapyynnöt tiedostomuutoksille vai sallitko muutokset automaattisesti. Komennoille lupapyyntö pidetään joka tapauksessa.</li>
+<li>Päätä, milloin ja mistä tarkistat muutokset ja mikä muutos saa sinut hylkäämään.</li>
+<li>Avaa <code>PAATOSLOKI.md</code> Muistiolla.</li>
+<li><strong>Päätös:</strong> Kirjaa uusi merkintä alla olevilla riveillä. Kirjoita peruste omin sanoin.</li>
+<li>Tallenna tiedosto ja sulje Muistio.</li>
+<li>Pyydä vetäjää näyttämään asetus, jos päätit sallia muutokset automaattisesti. Vaihda asetus itse.</li>
+<li>Tee tallennuspiste (commit) K6:lla. Kirjoita viesti omin sanoin.</li>
+</ol>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k28">Kopioi</button></div><pre id="k28"><code>## Merkintä [numero]
+- Päivä ja osio: [päivä], osio 05
+- Tuotos: lupa-asetus ja muutosten tarkistus
+- Päätös: [lupapyynnöt pysyvät / tiedostomuutokset sallitaan automaattisesti]
+- Tarkistan muutokset: [milloin ja mistä]
+- Hylkään, jos: [oma pysäytyssääntö]
+- Peruste: [miksi juuri näin, omin sanoin]
+- Tallennuspisteen viesti: [viesti]
+</code></pre></div>
+<p>Seuraavaksi: pyydät agentilta suunnitelman.</p>
+<h3>Tehtävä 3: Suunnitelma lähteistä ja tarkistusnäkymästä</h3>
+<ol>
+<li>Avaa <code>KENTAT.md</code> Muistiolla. Katso, mitkä kentät tulevat esitiedoista, haastattelusta ja profiilista.</li>
+<li>Kytke suunnittelutila päälle.</li>
+<li><strong>Kehote (K2):</strong> Kopioi koko lohko. Liitä se agentin kehotekenttään. Täytä aukot. Lähetä.</li>
+</ol>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k29">Kopioi</button></div><pre id="k29"><code>Tehtävä: [tehtävä omin sanoin].
+Lue ensin CLAUDE.md, TYOLISTA.md ja HYVAKSYMISKRITEERIT.md:n osio 05.
+Tärkein kriteerini: [tärkein kriteeri].
+Sovellus hakee yhden opiskelijan tiedot itse kolmesta lähteestä: esitiedot ja haastattelu kansiosta testiaineisto sekä profiili simuloidusta Wilmasta WilmaRead-luvulla, joka ei muuta mitään.
+Jokaisesta kentästä näytetään arvo, lähde ja lukutila: OK, EMPTY, NOT_VISIBLE, READ_FAILED tai CONFLICT (kuvauspaketin osa 15). Lukutila näkyy myös sanoina.
+Nämä kentät ja lukutilat estävät hyväksynnän: [kenttä ja lukutila, jotka estävät hyväksynnän työssäsi].
+Ristiriidassa näytetään molemmat arvot lähteineen. Sovellus ei valitse. Käyttäjän valinta kirjataan.
+Käyttäjä voi korjata arvon tarkistusnäkymässä.
+Hyväksyntä sidotaan sisältöön. Kun hyväksytty arvo muuttuu, hyväksyntä vanhenee. Urasuunnitelman Wilma-tallennus käyttää vain voimassa olevaa hyväksyntää.
+Lähtötilan palautus (palauta-lahtotila.cmd) tyhjentää myös valinnat ja hyväksynnät.
+Jaa työ viiteen palaan: (1) esitiedot ja haastattelu, (2) profiili, (3) tarkistusnäkymä, (4) ristiriidan ratkaisu ja kirjaus, (5) hyväksynnän vanheneminen. Kerro jokaisen palan kohdalla TYOLISTA.md:n tehtävän numero.
+Kun hyväksyn suunnitelman, älä aloita. Annan palat yksi kerrallaan, palat 1 ja 2 yhdessä.
+Tee suunnitelma. Kerro, mitkä tiedostot muuttuvat, mitä komentoja ajat ja miten tarkistan tuloksen ilman koodin lukemista.
+Älä muuta tiedostoja ennen kuin hyväksyn.
+</code></pre></div>
+<ol start="4">
+<li>Lue suunnitelma. Tarkista, että siinä on viisi palaa, niiden tehtävänumerot ja estävät lukutilasi.</li>
+<li>Korjauta suunnitelmaa kirjoittamalla agentille, mitä puuttuu. Jos mitään ei puutu, siirry seuraavaan askeleeseen.</li>
+<li>Hyväksy suunnitelma tehtävän 2 päätöksesi mukaan. Jos pidät lupapyynnöt, älä valitse vaihtoehtoa, joka sallii muutokset automaattisesti.</li>
+<li>Jos agentti alkaa toteuttaa ennen K3:a, kiellä lupapyyntö ja kirjoita: Pysähdy. Odota, että annan palan. Jos sallit muutokset automaattisesti, pysäytä agentti, katso muutosnäkymä ja palaa tarvittaessa tallennuspisteeseen K7:llä.</li>
+<li>Kirjoita palojen tehtävänumerot paperille.</li>
+</ol>
+<p>Seuraavaksi: rakennat palat 1 ja 2.</p>
+<h3>Tehtävä 4: Palat 1 ja 2 – lähteet ja T01</h3>
+<p>Teet palat 1 ja 2 yhdellä kierroksella. Työkierros on sama kaikissa paloissa:</p>
+<ul>
+<li>Palauta lähtötila ennen testiä: sulje simuloitu Wilma ja sovellus ja kaksoisnapsauta <code>palauta-lahtotila.cmd</code>. Testin Lähtötila-rivi on silloin palauta ensin.</li>
+<li>Korjautan: K5, sitten muutosten tarkistus ja testi uudelleen. Kirjaa uusinta testin alle omalle rivilleen: <code>- Uusinta [päivä]: [läpi / ei läpi]. [havainto]</code>. Älä pyyhi aiempaa tulosta.</li>
+<li>Hylkään: sulje Muistio, palaa tallennuspisteeseen K7:llä ja kirjaa päätös vasta sitten.</li>
+<li>Hyväksyn: pyydä agenttia merkitsemään työlistan tehtävä valmiiksi ennen tallennuspistettä.</li>
+</ul>
+<ol>
+<li><strong>Kehote (K3):</strong> Avaa <code>KEHOTEPOHJAT.md</code> Muistiolla. Kopioi K3. Täytä aukot: palojen 1 ja 2 tehtävänumerot ja tilanne, jonka haluat tarkistaa. Lähetä.</li>
+<li>Kirjoita odotusajalla T01:n kohdat Lähtötila, Mitä teen ja Odotan.</li>
+<li>Tarkista muutokset päätöksesi mukaan. Lue lupapyynnöt kolmella kysymyksellä ja katso lopuksi muutosnäkymä.</li>
+<li>Palauta lähtötila. Käynnistä simuloitu Wilma ja sovellus <code>KAYNNISTYS.md</code>:n ohjeella.</li>
+<li>Kirjaudu itse simuloituun Wilmaan sovelluksen avaamassa näkyvässä selaimessa.</li>
+<li><strong>Oma testi T01 (sim.):</strong> Hae Aino Testinen opiskelijanumerolla 000123. Totea, että esitietojen ja haastattelun kentillä näkyvät arvo ja lähde.</li>
+<li>Totea, että profiilin kenttien lähteenä on profiili ja ryhmä on TK26A, ei TK26B.</li>
+<li>Totea, ettet vienyt etkä kopioinut yhtään tiedostoa itse.</li>
+<li>Kirjaa tulos ja havainto T01:n kohdalle.</li>
+<li><strong>Päätös:</strong> Kirjaa päätöslokiin päätös ja peruste omin sanoin. Tee tallennuspiste K6:lla.</li>
+</ol>
+<p>Seuraavaksi: kokoat kentät yhteen näkymään.</p>
+<h3>Tehtävä 5: Pala 3 – tarkistusnäkymä</h3>
+<ol>
+<li><strong>Kehote (K3):</strong> Kopioi K3 ja täytä aukot palan 3 mukaan. Lähetä.</li>
+<li>Tarkista muutokset kuten tehtävässä 4.</li>
+<li>Palauta lähtötila. Käynnistä simuloitu Wilma ja sovellus.</li>
+<li><strong>Oma testi:</strong> Avaa Aino Testisen tarkistusnäkymä. Käy osion 05 kriteerisi läpi yksi kerrallaan. Totea, että voit hyväksyä sisällön.</li>
+<li><strong>Päätös:</strong> Kirjaa päätöslokiin päätös ja peruste muodossa &quot;Näin: … Siksi: …&quot;. Tee tallennuspiste K6:lla.</li>
+</ol>
+<p>Seuraavaksi: vähimmäistavoite on tehty. Jatka tavoitteeseen.</p>
+<h3>Tehtävä 6: Pala 4 – ristiriita ja T03 (tavoite)</h3>
+<ol>
+<li><strong>Kehote (K3):</strong> Kopioi K3 ja täytä aukot palan 4 mukaan. Lähetä.</li>
+<li>Kirjoita odotusajalla T03:n kohdat Lähtötila, Mitä teen ja Odotan.</li>
+<li>Tarkista muutokset kuten tehtävässä 4.</li>
+<li>Palauta lähtötila. Käynnistä simuloitu Wilma ja sovellus.</li>
+<li><strong>Oma testi T03 (työaika):</strong> Avaa Liisa Kokeilun (002024) tiedot. Totea, että työajan lukutila on CONFLICT ja molemmat arvot näkyvät lähteineen: 37,5 h/vko ja 30 h/vko.</li>
+<li>Totea, ettei kumpaakaan arvoa ole valittu valmiiksi.</li>
+<li>Valitse toinen arvo.</li>
+<li>Avaa Liisan tiedot uudelleen. Totea, että valintasi on tallessa.</li>
+<li>Kirjaa tulos ja havainto T03:n kohdalle. Merkitse, että palkka testataan osiossa 07.</li>
+<li><strong>Päätös:</strong> Kirjaa päätöslokiin päätös ja peruste. Tee tallennuspiste K6:lla.</li>
+</ol>
+<p>Seuraavaksi: rikot simuloidun Wilman tahallaan.</p>
+<h3>Tehtävä 7: Testikytkimet ja T17 (tavoite)</h3>
+<ol>
+<li><strong>Kehote:</strong> Kopioi koko lohko. Liitä se agentin kehotekenttään. Täytä aukko <code>KENTAT.md</code>:n profiilikentällä. Lähetä.</li>
+</ol>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k30">Kopioi</button></div><pre id="k30"><code>Lisää simuloituun Wilmaan kaksi testikytkintä samalla tavalla kuin eilinen testikytkin.
+(1) Piilota kenttä: profiilista piilotetaan kenttä [profiilin kenttä, jonka puuttuminen olisi työssäsi vaarallisinta].
+(2) Sammuta: simuloitu Wilma ei vastaa sovelluksen lukuun.
+Lisää molemmat lähtötilaan pois päältä, jotta palauta-lahtotila.cmd kytkee ne pois.
+Älä muuta sovellusta. Kerro, miten kytken kytkimet päälle ja pois.
+</code></pre></div>
+<ol start="2">
+<li>Tarkista muutokset kuten tehtävässä 4. Vain simuloidun Wilman ja lähtötilan tiedostoja saa muuttua.</li>
+<li>Palauta lähtötila. Käynnistä simuloitu Wilma ja sovellus.</li>
+<li><strong>Oma testi T17:</strong> Kytke kentän piilotus päälle. Avaa Aino Testisen tiedot. Totea, että kentän lukutila on NOT_VISIBLE eikä kenttä näy tyhjänä.</li>
+<li>Yritä hyväksyä sisältö, jos kenttä on hyväksynnän estävien listallasi. Hyväksynnän pitää estyä.</li>
+<li>Kytke piilotus pois ja sammutus päälle.</li>
+<li>Avaa Aino Testisen tiedot uudelleen. Totea, että profiilin kenttien lukutila on READ_FAILED ja virhe näkyy. Mikään profiilin kenttä ei saa näkyä tyhjänä.</li>
+<li>Kirjaa T17:n kohdalle Lähtötila, tulos ja havainto.</li>
+<li>Kokeile palautusta: palauta lähtötila ja käynnistä simuloitu Wilma. Totea, että molemmat kytkimet ovat pois päältä.</li>
+<li><strong>Päätös:</strong> Kirjaa päätöslokiin päätös ja peruste. Tee tallennuspiste K6:lla.</li>
+</ol>
+<p>Seuraavaksi: testaat, vanheneeko hyväksyntä.</p>
+<h3>Tehtävä 8: Pala 5 – hyväksynnän vanheneminen (tavoite)</h3>
+<ol>
+<li><strong>Kehote (K3):</strong> Kopioi K3 ja täytä aukot palan 5 mukaan. Lähetä.</li>
+<li>Tarkista muutokset kuten tehtävässä 4.</li>
+<li>Palauta lähtötila. Käynnistä simuloitu Wilma ja sovellus.</li>
+<li>Hyväksy Aino Testisen sisältö tarkistusnäkymässä.</li>
+<li><strong>Oma testi:</strong> Muuta yhtä hyväksymääsi arvoa. Totea, että hyväksyntä näkyy vanhentuneena.</li>
+<li>Yritä aloittaa urasuunnitelman Wilma-tallennus. Sen pitää estyä. Älä tee Wilma-tallennusta.</li>
+<li><strong>Päätös:</strong> Kirjaa päätöslokiin päätös ja peruste muodossa &quot;Näin: … Siksi: …&quot;. Tee tallennuspiste K6:lla.</li>
+</ol>
+<p>Seuraavaksi: tarkistat, että osio on valmis.</p>
+<h3>Valmis, kun</h3>
+<p>Vähimmäistavoite:</p>
+<ul>
+<li><code>HYVAKSYMISKRITEERIT.md</code>:ssä on osio 05.</li>
+<li>Päätöslokissa on lupa-asetus pysäytyssääntöineen ja päätös jokaisesta tehdystä palasta.</li>
+<li>Sovellus näyttää Aino Testisen kentät arvoineen, lähteineen ja lukutiloineen, ja voit hyväksyä sisällön.</li>
+<li><code>TESTIT.md</code>:ssä on T01:n tulos, havainto ja Lähtötila-rivi.</li>
+<li>Viimeinen tallennuspiste on tehty.</li>
+</ul>
+<p>Tavoite:</p>
+<ul>
+<li>Liisa Kokeilun työaika näyttää molemmat arvot, ja valintasi säilyy (T03).</li>
+<li>Piilotettu kenttä on NOT_VISIBLE ja sammutetun simuloidun Wilman profiili READ_FAILED (T17). Palautus kytkee kytkimet pois.</li>
+<li>Muutettu arvo vanhentaa hyväksynnän.</li>
+</ul>
+<h3>Jos jäät jumiin</h3>
+<p>Jos lukutila näkyy vain koodina tai värinä, korjauta K5:llä ja pyydä se myös sanoina.</p>
+<p>Jos piilotettu tai sammutettu kenttä näkyy tyhjänä, kirjaa ei läpi. Korjauta K5:llä ja testaa uudelleen.</p>
+<p>Jos <code>palauta-lahtotila.cmd</code> puuttuu tai ei toimi, kerro vetäjälle.</p>
+<p>Jos komennoille ei enää tule lupapyyntöä, pysähdy ja kutsu vetäjä.</p>
+<p>Jos sama ongelma on jäljellä kahden korjausyrityksen jälkeen, katkaise kehä K10:llä ja palaa tallennuspisteeseen K7:llä. Kerro vetäjälle.</p>
+<p>Jos kello on 10.30 ja pala on kesken, tee tallennuspiste K6:lla viestillä Kesken: [pala] tai palaa edelliseen tallennuspisteeseen K7:llä. Pyydä agenttia merkitsemään pala työlistaan keskeneräiseksi. Vetäjä päättää osion 06 alussa, jatketaanko. Osion 06 jono tarvitsee palan 3.</p>
+<h3>Seuraava osio</h3>
+<p>Osio 06 alkaa kello 10.45. Siinä sovellus tuo opiskelijalistan ja käsittelee sen työjonona. Mieti tauolla, miten erotat kaksi samannimistä opiskelijaa.</p>
+
+</section>
+<section class="md" id="sanasto"><h2>Sanasto</h2>
+<h3>Lähde</h3>
+<p>Paikka, josta sovellus saa tiedon: esitietolomake, haastattelu tai Primuksen tiedot Wilman kautta. Jokaisen kentän lähde näkyy tarkistusnäkymässä. Työpajassa lähteet ovat kuvitteellisia.</p>
+<h3>Esitietolomake</h3>
+<p>Lomake, jolla opiskelija antaa tietojaan etukäteen. Työpajassa se on kuvitteellinen tiedosto kansiossa <code>testiaineisto</code>.</p>
+<h3>WilmaRead</h3>
+<p>Tapa lukea Primuksen tiedot niistä Wilman näkymistä, joissa ne näkyvät käyttäjälle. Luku ei muuta Wilmassa mitään. Työpajassa luetaan simuloidun Wilman profiilia.</p>
+<h3>Kenttähavainto</h3>
+<p>Yhden kentän tieto sovelluksessa. Siinä on arvo, lähde ja lukutila. Pelkkä arvo ei riitä.</p>
+<h3>Lukutila</h3>
+<p>Kertoo, miten kentän arvo saatiin: OK (luettu), EMPTY (näkyi tyhjänä), NOT_VISIBLE (ei näkyvissä), READ_FAILED (luku epäonnistui) tai CONFLICT (ristiriita). Koodit ovat kuvauspaketin osasta 15. Sovellus näyttää lukutilan myös sanoina.</p>
+<h3>Ristiriita</h3>
+<p>Lähteissä on samasta tiedosta eri arvot. Sovellus näyttää molemmat, sinä valitset, ja valinta kirjataan. Esimerkki: Liisa Kokeilun työaika on haastattelussa 37,5 h/vko ja esitiedoissa 30 h/vko.</p>
+<h3>Hyväksynnän vanheneminen</h3>
+<p>Kun hyväksytty sisältö muuttuu, hyväksyntä ei ole enää voimassa. Sisältö hyväksytään uudelleen ennen Wilma-tallennusta.</p>
+
+</section>
+<nav class="pager"><a href="osio-04.html">← Osio 04</a><a href="osio-06.html">Osio 06 →</a></nav>
+<footer class="page">Kaikki materiaalin henkilöt, yritykset, tunnisteet ja palkat ovat kuvitteellisia. Versio 1 · 23.10.2026.</footer>
+</main>
+</body>
+</html>

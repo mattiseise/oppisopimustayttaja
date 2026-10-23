@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vetäjä · Osio 04: Ensimmäinen varmennettu tallennus</title>
+<meta name="description" content="Vibekoodaus-työpaja: ohjelmointia osaamaton rakentaa agentin avulla Oppisopimustäyttäjän.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23775EC4'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='600' fill='white'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<main>
+<a class="back-link" href="index.html">← Vetäjän sivut</a>
+<header class="page">
+  <div class="kicker">Vetäjä · Osio 04 · päivä 1, 14.00–16.00</div>
+  <h1>Ensimmäinen varmennettu tallennus</h1>
+</header>
+<nav class="pills" aria-label="Osion sisältö"><a href="#materiaali">Vetäjän materiaali</a><a href="#ohjatut">Ohjatut tehtävät</a><a href="../claude/osio-04.html">Oppija: Claude</a><a href="../codex/osio-04.html">Oppija: Codex</a></nav>
+<section class="md" id="materiaali"><h2>Vetäjän materiaali</h2>
+<h3>Ajattelukysymys ja tavoitteet (Bloom)</h3>
+<blockquote>
+<p>Ajattelukysymys: Mistä tiedät, että tieto todella tallentui, kun agentti sanoo valmis?</p>
+</blockquote>
+<ul>
+<li>Ymmärtää: oppija selittää, miksi Wilma-tallennus varmennetaan uudelleenluvulla.</li>
+<li>Soveltaa: oppija ohjaa agentin rakentamaan pienen kokonaisen ketjun pala kerrallaan.</li>
+<li>Soveltaa: oppija antaa virheilmoituksen agentille sellaisenaan ja katkaisee kehän.</li>
+<li>Arvioida: oppija erottaa agentin valmis-ilmoituksen omasta testituloksestaan.</li>
+</ul>
+<p>Painotus on testaamisessa. Kattavuus: vaihe 1 (tekninen kokeilu) ja vaihe 4 osin (urasuunnitelma). Vaatimukset V01, V04 (osin) ja V09 (kohdistus profiilista). Testit T05, T13 ja T02 osin: kohdistus opiskelijanumerolla ja T05:n tarkistus, ettei nimikaima 000456 muutu.</p>
+<p>Osion jälkeen suunnitelman luvun 1.2 vähimmäistavoitteesta täyttyvät kohdat 1, 2 ja 4. Simuloitu Wilma ja sovellus käynnistyvät <code>KAYNNISTYS.md</code>:n ohjeella ilman agenttia. Sovellus avaa näkyvän selaimen, jossa oppija kirjautuu itse, ja kirjoittaa vain simuloituun Wilmaan. Urasuunnitelman Wilma-tallennus varmennetaan uudelleenluvulla, ja poikkeava arvo näkyy tarkistamattomana. Automaattinen haku (kohta 3) tulee osiossa 05 ja jono (kohta 5) osiossa 06. Tavoitetaso on realistinen vain, jos päivä 1 päättyy varmennettuun Wilma-tallennukseen.</p>
+<h3>Aikataulu (minuutit, summa = osion kesto)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Min</th>
+<th>Kello</th>
+<th>Sisältö</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>14.00–14.10</td>
+<td>Kehystys: ajattelukysymys ja lause &quot;agentin valmis ei ole testitulos&quot;. Tehtävä 1: uusi keskustelu, kehotepohjat ja K11.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>14.10–14.18</td>
+<td>Tehtävä 2: kriteerit, Aino Testisen arvot ja tallennuspiste</td>
+</tr>
+<tr>
+<td>12</td>
+<td>14.18–14.30</td>
+<td>Tehtävä 3: muistilista, K2 + K9 ja suunnitelman tarkistus</td>
+</tr>
+<tr>
+<td>50</td>
+<td>14.30–15.20</td>
+<td>Tehtävät 4 ja 5: palat (a)–(e) ja virhetilanteet</td>
+</tr>
+<tr>
+<td>15</td>
+<td>15.20–15.35</td>
+<td>Tehtävät 6–7: palautus, kylmä käynnistys, T05 ja O03</td>
+</tr>
+<tr>
+<td>15</td>
+<td>15.35–15.50</td>
+<td>TL Valmis vai varmennettu ja tehtävä 8: testikytkin ja T13</td>
+</tr>
+<tr>
+<td>10</td>
+<td>15.50–16.00</td>
+<td>Tehtävä 9: päivän päätös ja tallennuspiste Päivä 1</td>
+</tr>
+<tr>
+<td>120</td>
+<td></td>
+<td>Yhteensä</td>
+</tr>
+</tbody>
+</table></div>
+<p>Taulukko on ihannepolku. Palojen arvio ennen harjoitusajoa: (a) 15 min, koska siinä on asennukset, (b) 10, (c) 8, (d) 10 ja (e) 7. Aloittelijalle yksi pala vie 12–20 min, ja koko osio arviolta 150–180 min. Korjaa luvut harjoitusajon mittausten mukaan. Leikkaa ajoissa:</p>
+<ul>
+<li>Kello 15.00: jos pala (c) ei ole hyväksytty, TL ja T13 siirtyvät päivän 2 alkuun (noin 20 min, ks. varasuunnitelma).</li>
+<li>Kello 15.30: jos pala (e) ei ole valmis, tehtävän 6 kylmä käynnistys tehdään palan (e) tarkistuksessa, ja T05 tehdään ennen päivän päätöstä.</li>
+</ul>
+<h3>Ennen osiota</h3>
+<ul>
+<li>Osion 03 tarkistuslista täyttyy. Erityisesti <code>TESTIT.md</code> on olemassa, palautus toimii, ja Aino Testisellä 000456 on lähtötilan urasuunnitelma.</li>
+<li>Savutestin tulos on tiedossa. Jos Electron tai Playwrightin selain ei latautunut, päätä varapolku ennen osiota (luku 1.5).</li>
+<li>Harjoitusajon välitila osion 04 lopusta on omalla koneellasi: sovellus, simuloitu Wilma testikytkimineen ja <code>KAYNNISTYS.md</code>. Tarvitset sitä TL:ssä ja varapolkuna.</li>
+<li>Tunnet oman versiosi: uuden keskustelun aloitus samassa projektikansiossa, suunnitelman hyväksynnän vaihtoehdot (Claude) ja verkko- ja kirjoitushyväksyntöjen muoto (Codex).</li>
+<li>Tiedät harjoitusajosta, odottaako agentti hyväksynnän jälkeen K3:a, aukeaako <code>kaynnista-sovellus.cmd</code> ja tyhjentääkö palautus sovelluksen työjonon.</li>
+<li>K9 on KP liitteen A &quot;GPT-6.1 Sol -avusteisen devauksen työjärjestys&quot; sovellettuna molempiin polkuihin. Oppijan materiaalissa mallin nimeä ei mainita. Työjärjestys on sama mallista riippumatta.</li>
+<li>Tilauksen käyttöraja: osio 04 kuluttaa eniten. Tiedä, mitä teet, jos raja tulee vastaan.</li>
+</ul>
+<h3>Ohjaus askel askeleelta</h3>
+<p><strong>Kehystys ja tehtävä 1.</strong> Sano ääneen: &quot;Agentin valmis ei ole testitulos.&quot; Kysy ajattelukysymys ja jätä vastaus auki. Näytä uuden keskustelun aloitus, mutta anna oppijan tehdä se. Kehotepohjat lisätään ennen K11:tä, jotta K11 otetaan jo tiedostosta. Jos K11:n vastauksesta puuttuu simuloitu Wilma tai <code>TESTIT.md</code>, agentti ei lukenut tiedostoja. Oppija pyytää uudelleen.</p>
+<p><strong>Tehtävä 2.</strong> Hyvä En hyväksy, jos -kohta on esimerkiksi: &quot;En hyväksy, jos sovellus näyttää valmiin ennen uudelleenlukua.&quot; Aino Testisen arvot kirjoitetaan kriteeritiedostoon ennen rakentamista. Silloin T05 vertaa oppijan omaan tiedostoon eikä sovelluksen näyttöön. Arvot ovat keksittyjä. Jos oppija aikoo muokata oikean opiskelijan tavoitetta, pysäytä. Lopun tallennuspiste suojaa kriteerit ja mahdollistaa paluun, jos agentti aloittaa ennen K3:a.</p>
+<p><strong>Tehtävä 3.</strong> Pyydä oppijaa sanomaan muistilistasta ääneen kohta, joka koskee tätä osiota. Odotettu vastaus on kirjautuminen. K2 + K9:ssä on kolme aukkoa. Kenttäaukko on substanssia: kenttä, joka menee käsin helpoimmin väärin. Suunnitelman Oma testi on neljä kysymystä. Jos suunnitelma tallentaa kirjautumistilan tiedostoon, se on istunto. Oppija korjauttaa sen ennen hyväksyntää. Pala (a) tekee <code>kaynnista-sovellus.cmd</code>:n, ja pala (e) laajentaa palautuksen sovelluksen työjonoon ja käsittelyihin (sopimukset 9.3 ja 10.1). Agentti ei välttämättä odota K3:a. Hyväksynnän tapa ja varaohje ovat Polkujen erot -taulukossa.</p>
+<p><strong>Tehtävä 4.</strong> Pala (a) on raskain, koska siinä asennetaan Electron. Claude-polulla lupapyyntöjä tulee kymmeniä. Seuraa, ettei oppija valitse vaihtoehtoa, joka sallii saman jatkossa kysymättä. Codex-polulla oppija hyväksyy verkon ja kaksi kansion ulkopuolista kohdetta (Polkujen erot). Muut hän kieltää ja kutsuu sinut. Palassa (b) oppija kirjautuu itse. Agentti saa kokeilla simuloitua Wilmaa automaattisilla testeillään, mutta näkyvän selaimen kirjautuminen on oppijan. Katso palan (b) tallennuspisteen jälkeen, ettei projektikansioon syntynyt selaimen profiili- tai istuntokansiota. Palassa (c) numero 000777 on pysähtyvä tapaus. Palassa (d) arvot näkyvät muokattavina. Tätä tarvitaan T13:ssa Ville Testaajalle. Päätösten perusteet saavat olla lyhyitä, kunhan ne ovat muotoa &quot;Näin: … Siksi: …&quot; ja nimeävät havainnon (sopimukset 9.1). &quot;Toimii&quot; ei kelpaa.</p>
+<p><strong>Tehtävä 5.</strong> Yleisimmät virheet ovat asennusvirheitä. Vaadi, että oppija kopioi virheilmoituksen eikä kuvaile sitä. Käynnistysikkunassa teksti maalataan ennen Ctrl+C:tä, koska pelkkä Ctrl+C voi pysäyttää ohjelman. Laske yritykset ääneen oppijan kanssa. Kahden jälkeen K10 ja K7. Jos syy on ympäristössä, kuten välityspalvelin tai IT:n esto, kehää ei jatketa. Siirrytään varapolkuun.</p>
+<p><strong>Tehtävä 6.</strong> <code>KAYNNISTYS.md</code> testataan kylmästä käynnistyksestä. Oppija ei kysy agentilta. Ennen käynnistystä oppija palauttaa lähtötilan, joten T05 ei riipu palojen (d) ja (e) kokeiluista. Jos ohjeessa on askel, jota oppija ei voi tehdä, kuten PowerShellin suoritusasetuksen muutos, oppija korjauttaa sen. Agentti valitsee toisen käynnistystavan.</p>
+<p><strong>Tehtävä 7.</strong> Oppija tekee kirjauksen sovelluksella ja tarkistaa sen sovelluksen ohi, suoraan simuloidusta Wilmasta Edgessä. Vertailukohta on kriteeritiedosto. Nimikaiman 000456 tarkistus ja palan (c) 000777 ovat T02:n osa, ja ne kirjataan T05:n havaintoon (sopimukset 9.1). O03 jatkaa T05:stä: toinen kirjaus Ainolle ei saa tehdä toista urasuunnitelmaa. Se testaa K9:n kohdan (5).</p>
+<p><strong>TL ja tehtävä 8.</strong> TL tehdään ennen oppijan omaa testikytkintä (ohjatut tehtävät tällä sivulla). Ville Testaaja on valittu, koska hänen esitietolomakkeensa puuttuu. Osiossa 06 hän siirtyy jonon tilaan Odottaa lisätietoja, eikä sovellus kirjoita hänelle jonossa. T13:n jälki ei siis häiritse osion 06 testejä. Uusinnat tehdään lähtötilasta. Testikytkin on sivun valinta, jolla on oma päätös ja tallennuspiste (sopimukset 9.2). T13 alkaa palautuksella, joka poistaa aiemmat kirjaukset ja kytkee kytkimen pois. Ennuste kirjoitetaan Odotan-rivin perään sanalla Ennuste: ennen ajoa. Läpi tarkoittaa, että väärä kenttä näkyy tarkistamattomana eikä kirjausta näytetä varmennettuna. Jos se näkyy varmennettuna, tulos on ei läpi ja oppija korjauttaa K5:llä. Tämä on arvokas löydös. Älä kiirehdi sen ohi.</p>
+<p><strong>Tehtävä 9.</strong> Päivän päätöksen perusteen pitää viitata T05:n ja T13:n tuloksiin oppijan sanoin. &quot;Huomenna aloitan tästä&quot; on päivän 2 ensimmäinen syöte. Tarkista, että agentti merkitsi työlistalta valmiiksi vain testatut tehtävät, myös osion 03 tehtävät, joiden O01 on läpi.</p>
+<p>Oppija pitää hiiren koko osion ajan. Vetäjä tarttuu näppäimistöön vain asennus- ja järjestelmäongelmissa.</p>
+<h3>Polkujen erot (taulukko Claude | Codex)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Asia</th>
+<th>Claude</th>
+<th>Codex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Uusi keskustelu</td>
+<td>Uusi istunto Code-välilehdellä. <code>CLAUDE.md</code> luetaan istunnon alussa, K11 täydentää.</td>
+<td>Uusi työsäie samassa projektissa. K11 pyytää lukemaan <code>AGENTS.md</code>:n.</td>
+</tr>
+<tr>
+<td>Suunnitelman hyväksyntä</td>
+<td>Vaihtoehto, joka jättää lupapyynnöt päälle. Jos lupapyyntö tulee ennen K3:a, oppija kieltää sen ja kirjoittaa &quot;Pysähdy. Odota, että annan palan.&quot;</td>
+<td>Täsmälleen &quot;Hyväksyn suunnitelman. Älä vielä aloita. Annan ensimmäisen palan seuraavaksi.&quot; Jos agentti aloittaa, oppija pysäyttää sen, katsoo Git-toiminnot ja palaa tarvittaessa tallennuspisteeseen.</td>
+</tr>
+<tr>
+<td>Asennusten luvat</td>
+<td>Lupapyyntö jokaiselle komennolle, usein kymmeniä peräkkäin</td>
+<td>Hyväksyntä verkolle ja kahdelle kohteelle kansion ulkopuolella: asennusten välimuisti ja Playwrightin selainkansio. Muut kielletään.</td>
+</tr>
+<tr>
+<td>Ikkunoiden avaaminen</td>
+<td>Agentti voi käynnistää sovelluksen lupapyynnöllä. Oppija käynnistää <code>kaynnista-sovellus.cmd</code>:llä.</td>
+<td>Ikkuna ei välttämättä aukea hiekkalaatikosta. Oppija käynnistää <code>kaynnista-sovellus.cmd</code>:llä.</td>
+</tr>
+<tr>
+<td>Muutosten tarkistus palojen välillä</td>
+<td>Lupapyynnöt ja muutosnäkymä</td>
+<td>Agenttisovelluksen Git-toiminnot jokaisen palan jälkeen</td>
+</tr>
+<tr>
+<td>Virheilmoituksen lähde</td>
+<td>Käynnistysikkuna tai terminaalipaneeli</td>
+<td>Käynnistysikkuna tai agentin ajaman komennon tuloste</td>
+</tr>
+<tr>
+<td>Polun riski</td>
+<td>Lupapyyntöväsymys ja vaihtoehto, joka sallii saman jatkossa</td>
+<td>Houkutus valita täydet oikeudet asennusten nopeuttamiseksi</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Väärinkäsitykset (vähintään 3)</h3>
+<p><strong>Väärinkäsitys 1:</strong> &quot;Valmis = toimii.&quot; Agentin valmis tarkoittaa, että agentti lopetti. Toimiminen todetaan ajamalla sovellus ja katsomalla tulos. Ohjetiedoston kohta 3 vaatii, että valmis-ilmoituksessa on tarkistusohje.</p>
+<p><strong>Väärinkäsitys 2:</strong> &quot;Onnistumisviesti = tallentunut.&quot; KP osa 21 sanoo, ettei onnistumisviesti, napin painallus tai HTTP-vastaus yksin riitä. Vain uudelleenluku kertoo, mitä lomakkeelle jäi. TL näyttää tämän.</p>
+<p><strong>Väärinkäsitys 3:</strong> &quot;Virheilmoitus pitää ymmärtää itse.&quot; Oppija antaa sen agentille sellaisenaan K4:llä. Oppijan tehtävä on kertoa, mitä hän teki ja mitä odotti. Agentti selvittää syyn.</p>
+<p><strong>Väärinkäsitys 4:</strong> &quot;Automaattiset testit läpi = hyväksymistesti läpi.&quot; Automaattinen testi tarkistaa agentin oman ymmärryksen. Hyväksymistesti tarkistaa oppijan kriteerin. Ne voivat olla eri mieltä, ja silloin oppijan havainto ratkaisee.</p>
+<p><strong>Väärinkäsitys 5:</strong> &quot;Simuloidussa Wilmassa kirjautumisen voi jättää agentille, koska salasanaa ei ole.&quot; Tapa opitaan nyt. Testi-Wilmassa samaa tapaa ei voi enää muuttaa ilman riskiä.</p>
+<h3>Jumikohdat ja purku (taulukko: oire | todennäköinen syy | purku)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Oire</th>
+<th>Todennäköinen syy</th>
+<th>Purku</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Electronin lataus estyy</td>
+<td>Välityspalvelin tai IT:n esto</td>
+<td>Luvun 1.5 varapolku: käyttöliittymä selaimessa ja Playwright erillisenä prosessina. Oppija kirjaa teknologiavalinnan muutoksen päätöslokiin. V01:n työpöytäkuori siirtyy jatkoon.</td>
+</tr>
+<tr>
+<td>Playwrightin selainlataus estyy</td>
+<td>Välityspalvelin</td>
+<td>Playwright käyttää koneen Edgeä.</td>
+</tr>
+<tr>
+<td>npm-komennot estyvät PowerShellissä</td>
+<td>Suoritusasetus</td>
+<td>Agentti valitsee toisen käynnistystavan. Oppija ei muuta järjestelmäasetuksia. Jos ei ratkea, IT.</td>
+</tr>
+<tr>
+<td>Codex: asennus pysähtyy</td>
+<td>Verkko tai kirjoitus projektikansion ulkopuolelle vaatii hyväksynnän</td>
+<td>Oppija lukee pyynnön kolmella kysymyksellä. Hyväksyy verkon, asennusten välimuistin ja Playwrightin selainkansion. Täysiä oikeuksia ei valita.</td>
+</tr>
+<tr>
+<td>Codex: ikkuna ei aukea agentin kokeilussa</td>
+<td>Hiekkalaatikko</td>
+<td>Oppija käynnistää sovelluksen itse <code>kaynnista-sovellus.cmd</code>:llä.</td>
+</tr>
+<tr>
+<td>Käynnistysikkuna sulkeutuu heti</td>
+<td>Virhe käynnistyksessä</td>
+<td>Oppija pyytää agenttia pitämään ikkunan auki virheen jälkeen. Sitten K4.</td>
+</tr>
+<tr>
+<td>Virheilmoituksen kopiointi sulkee ohjelman</td>
+<td>Ctrl+C painettiin ennen maalaamista</td>
+<td>Käynnistä uudelleen ja maalaa ensin. Tai kirjoita ensimmäiset rivit K4:ään.</td>
+</tr>
+<tr>
+<td>Agentti aloittaa heti hyväksynnän jälkeen tai tekee monta palaa kerralla</td>
+<td>Hyväksyntä käynnisti toteutuksen</td>
+<td>Polkujen erot, rivi Suunnitelman hyväksyntä. Jatka K3:lla.</td>
+</tr>
+<tr>
+<td>Uusinnassa sovellus ei tee kirjausta, tai Ainolla on monta urasuunnitelmaa</td>
+<td>Lähtötilaa ei palautettu, ja kaksoiskappaleen esto pysäyttää</td>
+<td>Palautus lähtötilaan ja testi alusta.</td>
+</tr>
+<tr>
+<td>Claude: lupapyyntöjä ei enää tule</td>
+<td>Oppija valitsi vaihtoehdon, joka sallii saman jatkossa, tai automaattisen hyväksynnän</td>
+<td>Palauta oletuslupatila. Katso muutosnäkymästä, mitä jo muuttui.</td>
+</tr>
+<tr>
+<td>Agentti kiertää kehää</td>
+<td>Sama korjaus toistuu</td>
+<td>K10 ja K7. Katso, onko syy ympäristössä.</td>
+</tr>
+<tr>
+<td>Agentti kysyy teknisiä valintoja</td>
+<td>Ohjetiedoston kohta 2 ei vaikuta</td>
+<td>Muistuta kohdasta 2. Auta valinnassa vain, jos se muuttaa sitä, mitä oppija näkee.</td>
+</tr>
+<tr>
+<td>Tallennuspisteessä on tuhansia tiedostoja</td>
+<td>Asennetut kirjastot tulivat mukaan</td>
+<td>Oppija pyytää agenttia rajaamaan asennetut kirjastot tallennuspisteiden ulkopuolelle.</td>
+</tr>
+<tr>
+<td>Sovellus pyytää salasanaa tai tallentaa kirjautumistilan</td>
+<td>Agentti toteutti tavallisen kirjautumismallin</td>
+<td>Pysäytä. Korjautus K5:llä. Syntynyt tiedosto poistetaan ennen tallennuspistettä.</td>
+</tr>
+<tr>
+<td>Agentti merkitsee testin läpäistyksi</td>
+<td>Ohjetiedoston kohta 3 ohitettiin</td>
+<td>Korjautus. Tuloksen kirjoittaa oppija.</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Varasuunnitelma</h3>
+<p>Jos aika loppuu, pala (e) ja T05 tehdään ennen T13:a (päätöskohdat aikataulun alla). Jos TL ja T13 siirtyvät, päivä 2 alkaa uudella keskustelulla ja K11:llä. Sen jälkeen käytetään enintään 20 min: ensin T13 (TL sen alussa, jos aika riittää), sitten osion 04 katselmointi tämän tiedoston tarkistuslistalla (sopimukset 10.2). Oppija tietää siirrosta osion 04 Seuraava osio -kohdasta. Jos pala jää kesken, oppija tekee tallennuspisteen viestillä &quot;Kesken: [pala]&quot; ja kirjoittaa palan Huomenna aloitan tästä -riville.</p>
+<p>Jos agentti aloittaa harjoitusajossa aina heti hyväksynnän jälkeen, kerro siitä materiaalin ylläpitäjälle ennen työpajaa.</p>
+<p>Jos projekti on rikki yli 15 minuuttia, pura harjoitusajon välitila osion 04 lopusta projektikansioon. Säilytä oppijan omat tiedostot: <code>PAATOSLOKI.md</code>, <code>HYVAKSYMISKRITEERIT.md</code>, <code>TESTIT.md</code>, <code>KENTAT.md</code> ja <code>maarittely/oma-kokemus.md</code>. Oppija kirjaa päätöslokiin, miksi välitila otettiin käyttöön. T05 ja T13 tehdään silti välitilan sovelluksella, koska osion tavoite on testaus.</p>
+<p>Jos päivä 1 päättyy ilman varmennettua Wilma-tallennusta, päivän 2 järjestys on luvun 1.5 mukainen. Osio 04 viedään loppuun enintään 60 minuutissa. Osiosta 05 tehdään vain haku ja tarkistusnäkymä, ja osiosta 06 CSV ja jono. Osio 07 jää pois, ja osiossa 08 tehdään vain vähimmäistestit. Oppijan &quot;Huomenna aloitan tästä&quot; -rivin pitää silloin olla tarkka.</p>
+<p>Jos käyttöraja tulee vastaan, siirry varakoneelle tai käytä toista tunnusta organisaation lisenssiehtojen mukaan.</p>
+<h3>Tarkista ennen seuraavaa osiota</h3>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> <code>KAYNNISTYS.md</code> toimii kylmästä käynnistyksestä ilman agenttia. Molemmat käynnistyvät kaksoisnapsautuksella, ja palautus toimii.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Sovellus ei pyydä salasanaa. Projektikansiossa ei ole istunto-, eväste- tai tallennetiedostoja.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> <code>TESTIT.md</code>:ssä ovat T05:n, O03:n ja T13:n tulokset oppijan sanoin. T05:n havainnossa ovat 000456 ja 000777. Testikytkin on pois päältä.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Simuloidussa Wilmassa Ville Testaajalla on yksi urasuunnitelma (T13) ja Aino Testisellä 000456 vain lähtötilan urasuunnitelma.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Palojen perusteet ovat muotoa &quot;Näin: … Siksi: …&quot;.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> <code>KEHOTEPOHJAT.md</code>:ssä ovat K3, K4, K5, K9, K10 ja K11.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Päätöslokissa ovat palojen päätökset, päivän päätös ja huomisen aloituskohta.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Työlistalla on valmiina vain tehtävät, joiden testitulos on kirjattu.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Tallennuspiste Päivä 1 on tehty.</li>
+</ul>
+<h3>Tarkistettavat nimet</h3>
+<ul>
+<li>Molemmat: uuden keskustelun aloitus samassa projektikansiossa.</li>
+<li>Claude: vaihtoehdot suunnitelman hyväksynnässä ja lupatila hyväksynnän jälkeen.</li>
+<li>Claude: lupatilan vaihto ja palautus oletukseen.</li>
+<li>Claude: lupapyynnön vaihtoehto, joka sallii saman jatkossa kysymättä.</li>
+<li>Claude: terminaalipaneelin avaaminen virheilmoituksen kopiointia varten.</li>
+<li>Codex: hyväksyntäpyyntöjen muoto verkolle ja projektikansion ulkopuoliselle kirjoitukselle.</li>
+<li>Codex: Git-toimintojen näkymä muuttuneille tiedostoille.</li>
+<li>Codex: oikeusasetuksen näkymä, josta näkee, ettei täysiä oikeuksia ole valittu.</li>
+<li>Codex: miltä asennusten välimuisti ja Playwrightin selainkansio näyttävät hyväksyntäpyynnössä.</li>
+<li>Claude: aloittaako agentti toteutuksen suunnitelman hyväksynnän jälkeen, vaikka K2 kieltää.</li>
+<li>Codex: agentin pysäytys kesken työn.</li>
+<li>Windows: <code>kaynnista-sovellus.cmd</code> kaksoisnapsautuksella hallitulla koneella.</li>
+<li>Windows: tekstin kopiointi käynnistysikkunasta.</li>
+</ul>
+
+</section>
+<section class="md" id="ohjatut"><h2>Ohjatut tehtävät</h2>
+<p>Tässä tehtävässä vetäjä näyttää ja haastaa. Oppija ei tee rakennustyötä. Oppija pitää hiiren omalla koneellaan.</p>
+<h3>TL Valmis vai varmennettu (noin 10 min, tehtävän 8 alussa, voi siirtyä päivän 2 alkuun)</h3>
+<p>Tavoite: oppija erottaa kolme asiaa toisistaan. Ne ovat agentin valmis-ilmoitus, sovelluksen onnistumisviesti ja oma testitulos.</p>
+<p>Valmistelu: omalla koneellasi on harjoitusajon välitila osion 04 lopusta. Palauta sen lähtötila ennen TL:ää. Simuloidussa Wilmassa on testikytkin, ja se on pois päältä. Käytä oppijan polun agenttisovellusta.</p>
+<p>Jos välitilaa ei ole, tee TL oppijan koneella, kun hänen testikytkimensä on lisätty (tehtävän 8 askel 3). Silloin oppija kytkee kytkimen päälle simuloidun Wilman sivulta sinun ohjeestasi. Tee kirjaus Ville Testaajalle. Oppijan T13 alkaa palautuksella, joten kirjauksesi ei jää häiritsemään.</p>
+<ol>
+<li>Kytke testikytkin päälle. Älä kerro, mikä kenttä tallentuu väärin.</li>
+<li>Kirjoita agentille: &quot;Toimiiko urasuunnitelman Wilma-tallennus? Älä muuta mitään.&quot; Lue vastaus ääneen.</li>
+<li>Pyydä oppijaa ennustamaan ääneen kolme asiaa. Mitä onnistumisviesti näyttää? Mitä uudelleenluku näyttää? Mitä simuloidun Wilman lomakkeella on?</li>
+<li>Tee kirjaus sovelluksella. Näytä ensin onnistumisviesti ja sitten uudelleenluvun tulos.</li>
+<li>Avaa simuloitu Wilma Edgessä ja näytä tallentunut arvo.</li>
+<li>Kytke testikytkin pois päältä.</li>
+</ol>
+<p>Agentti vastaa askeleessa 2 todennäköisesti, että Wilma-tallennus toimii. Se ei tiedä kytkimestä, tai sen automaattiset testit ajetaan ilman kytkintä. Juuri tämä on opetus.</p>
+<p>Claude-polulla agentti voi pyytää lupaa ajaa testinsä. Lue lupapyyntö ääneen kolmella kysymyksellä ennen hyväksyntää. Codex-polulla agentti voi ajaa testit kysymättä. Näytä lopuksi Git-toiminnoista, ettei mikään tiedosto muuttunut.</p>
+<h3>Purku</h3>
+<p>Kysy kaksi kysymystä. Mikä näyttö olisi riittänyt agentille? Mikä riittää sinulle? Odotettu vastaus: agentille riitti oma automaattinen testi ja onnistumisviesti. Oppijalle riittää uudelleenluku, ja epäselvässä tilanteessa simuloidun Wilman lomake.</p>
+<p>Kysy lisäksi, mihin oppija kirjoittaa ennusteensa omassa T13:ssa. Oikea vastaus on Odotan-rivin perään sanalla Ennuste: ennen ajoa.</p>
+<p>Jos oppijan ennuste oli väärä, älä korjaa sitä heti. Kysy, mihin ennuste perustui. Väärä ennuste on hyvä syy kirjoittaa ennuste aina ennen ajoa.</p>
+<p>Jos välitilasi sovellus näyttää kentän varmennettuna kytkimestä huolimatta, käytä tilannetta. Näytä simuloidun Wilman väärä arvo ja kysy, mikä T13:n tulos olisi. Vastaus on ei läpi. Kirjaa löydös harjoitusajon muistiinpanoihin ja korjaa välitila ennen seuraavaa työpajaa.</p>
+
+</section>
+<nav class="pager"><a href="osio-03.html">← Osio 03</a><a href="osio-05.html">Osio 05 →</a></nav>
+<footer class="page">Kaikki materiaalin henkilöt, yritykset, tunnisteet ja palkat ovat kuvitteellisia. Versio 1 · 23.10.2026.</footer>
+</main>
+</body>
+</html>

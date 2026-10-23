@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vetäjä · Osio 05: Lähteet, puutteet ja ristiriidat</title>
+<meta name="description" content="Vibekoodaus-työpaja: ohjelmointia osaamaton rakentaa agentin avulla Oppisopimustäyttäjän.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23775EC4'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='600' fill='white'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<main>
+<a class="back-link" href="index.html">← Vetäjän sivut</a>
+<header class="page">
+  <div class="kicker">Vetäjä · Osio 05 · päivä 2, 9.00–10.30</div>
+  <h1>Lähteet, puutteet ja ristiriidat</h1>
+</header>
+<nav class="pills" aria-label="Osion sisältö"><a href="#materiaali">Vetäjän materiaali</a><a href="../claude/osio-05.html">Oppija: Claude</a><a href="../codex/osio-05.html">Oppija: Codex</a></nav>
+<section class="md" id="materiaali"><h2>Vetäjän materiaali</h2>
+<h3>Ajattelukysymys ja tavoitteet (Bloom)</h3>
+<blockquote>
+<p>Ajattelukysymys: Kun lähteet ovat eri mieltä tai tieto puuttuu, mitä ohjelma saa päättää ja mitä vain sinä?</p>
+</blockquote>
+<ul>
+<li>Ymmärtää: oppija selittää viiden lukutilan erot.</li>
+<li>Analysoida: oppija tunnistaa lähteiden ristiriidan ja puutteen.</li>
+<li>Soveltaa: oppija testaa lukutilat testikytkimillä.</li>
+<li>Arvioida: oppija perustelee oman lupa-asetuksensa ja muutosten tarkistustapansa.</li>
+</ul>
+<p>Painotus on arvioinnissa. Osio aloittaa päivän 2. Siinä oppija muuttaa ensimmäistä kertaa omaa valvontatapaansa, ja Claude-polun lupapyyntöväsymys käsitellään tässä. Kattavuus: vaihe 2 osa 1 (lähdehavainnot, validointi, ristiriitanäkymä, sisällön versiointi). V02 ja V09. T01 (sim.), T03 (vain työaika) ja T17. Vähimmäistavoite: palat 1–3 ja T01 (oppijan tehtävät 1–5). Tavoite: pala 4 (T03), testikytkimet (T17) ja pala 5 (tehtävät 6–8).</p>
+<h3>Aikataulu (minuutit, summa = osion kesto)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Min</th>
+<th>Kello</th>
+<th>Sisältö</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>9.00–9.10</td>
+<td>Kehystys, uusi keskustelu ja K11 (tehtävä 1, askeleet 1–4)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>9.10–9.15</td>
+<td>Tehtävä 1: kriteerit tarkistusnäkymälle</td>
+</tr>
+<tr>
+<td>7</td>
+<td>9.15–9.22</td>
+<td>Tehtävä 2: lupa-asetus tai tarkistustapa</td>
+</tr>
+<tr>
+<td>8</td>
+<td>9.22–9.30</td>
+<td>Tehtävä 3: K2 ja suunnitelman tarkistus</td>
+</tr>
+<tr>
+<td>18</td>
+<td>9.30–9.48</td>
+<td>Tehtävä 4: palat 1 ja 2 yhdellä kierroksella, T01</td>
+</tr>
+<tr>
+<td>12</td>
+<td>9.48–10.00</td>
+<td>Tehtävä 5: pala 3, tarkistusnäkymä</td>
+</tr>
+<tr>
+<td>15</td>
+<td>10.00–10.15</td>
+<td>Tehtävä 6 (tavoite): pala 4, ristiriita ja T03</td>
+</tr>
+<tr>
+<td>15</td>
+<td>10.15–10.30</td>
+<td>Tehtävä 7 tai 8 (tavoite)</td>
+</tr>
+<tr>
+<td>90</td>
+<td></td>
+<td>Yhteensä</td>
+</tr>
+</tbody>
+</table></div>
+<p>Aloittelijan työkierros vie 12–20 min. Vähimmäistavoite mahtuu, vaikka T13 tehtäisiin aamulla. Tavoitteen palat jäävät usein osion 07 aikaan.</p>
+<h3>Ennen osiota</h3>
+<ul>
+<li>Osion 04 valmis-ehdot: tallennuspiste &quot;Päivä 1&quot;, T05 ja T13 kirjattu, päätöslokissa aloituskohta. Jos päivä 1 jäi kesken, toimi varasuunnitelman mukaan.</li>
+<li><code>palauta-lahtotila.cmd</code> on projektikansiossa ja tyhjentää sovelluksen jonon ja käsittelyt. Jokainen tämän osion testi alkaa palautuksella. Kokeile tiedostoa välitilassasi.</li>
+<li>Avaa oppijan <code>testiaineisto</code> Muistiolla. Aino Testisellä (000123) ja Liisa Kokeilulla (002024) on esitiedot ja haastattelu. Liisan työaika on haastattelussa 37,5 h/vko ja esitiedoissa 30 h/vko. Jos ristiriita puuttuu, T03 ei testaa mitään. Oppija lisää tapauksen K8:lla ennen tehtävää 6.</li>
+<li><code>KENTAT.md</code> luettelee profiilin kentät. Oppija tarvitsee niitä tehtävissä 3 ja 7.</li>
+<li>Vetäjän välitila osion 04 lopusta on saatavilla.</li>
+<li>Pyydä oppijaa lukemaan lukuteksti edellisenä iltana.</li>
+</ul>
+<h3>Ohjaus askel askeleelta</h3>
+<p><strong>Kehystys ja K11.</strong> Kysy ajattelukysymys ja pyydä esimerkki omasta työstä: milloin kaksi lähdettä on kertonut eri asian? Oppija aloittaa uuden keskustelun ja ajaa K11:n. Vertaa vastausta yhdessä <code>TESTIT.md</code>:hen. Jos agentti sanoo testin tehdyksi, vaikka tulos puuttuu, pysähdy siihen. Testitulos on oppijan merkintä, ei agentin muistikuva. Askel 4: jos T13 jäi eilen, se tehdään nyt (varasuunnitelma).</p>
+<p><strong>Tehtävä 1.</strong> Hyvä kriteeri on havaittava. Esimerkiksi: &quot;Piilotettu kenttä näkyy sanoin ei näkyvissä, ei tyhjänä.&quot; Älä anna sitä valmiina. Jos oppija jumittuu, kysy: mitä tarkistusnäkymässä ei saa koskaan näkyä?</p>
+<p><strong>Tehtävä 2: lupa-asetuksen ohjaus.</strong> Hyväksy kumpi tahansa ratkaisu, jos perustelu on oppijan oma ja tallennuspiste tehdään ennen jokaista palaa. Claude-polulla komentojen lupapyynnöt pidetään päällä. Jos oppija sallii tiedostomuutokset automaattisesti, varmista ensimmäisen palan aikana, että komennoille tulee yhä lupapyyntö (jumikohdat). Codex-polulla varmista, että oikeusasetus on oletusoikeudet. Täysiä oikeuksia ei valita.</p>
+<p>Pysäytyssäännön pitää olla havaittava: kansio, tiedosto tai muutos, jonka oppija näkee. &quot;Jos jokin näyttää oudolta&quot; ei ole sääntö. Kysy lopuksi: mitä teet, jos sääntösi laukeaa kesken palan? Oikea vastaus: suljen Muistion, palaan tallennuspisteeseen K7:llä ja kirjaan hylkäyksen sen jälkeen.</p>
+<p><strong>Tehtävä 3.</strong> Aukon hyvä vastaus nimeää kentän ja lukutilan oppijan työstä, esimerkiksi opiskeluoikeus NOT_VISIBLE. Tarkista suunnitelmasta viisi palaa ja tehtävänumerot. Rivi &quot;Kun hyväksyn suunnitelman, älä aloita&quot; pyytää agenttia odottamaan. Askel 7 on varaohje, jos agentti silti aloittaa. Hyväksyntä tehdään polun tavalla (polkujen erot). K2:n palautusrivi varmistaa, että osion 06 testit alkavat ilman osion 05 valintoja ja hyväksyntöjä.</p>
+<p><strong>Tehtävät 4–6 ja 8.</strong> Sama työkierros. Palat 1 ja 2 tehdään yhdellä K3:lla, koska aika ei riitä kahteen kierrokseen. Pidä rytmi: K3, muutosten tarkistus, palautus, ajo, Oma testi, Päätös ja tallennuspiste. Älä anna oppijan niputtaa päätöksiä loppuun. Odotusaika käytetään Lähtötila- ja Odotan-rivien kirjoittamiseen. Ennuste ennen havaintoa on osion tärkein tapa. Uusinta kirjataan testin alle omalle rivilleen, ja aiempi tulos jää.</p>
+<p>T01: kohdistus tehdään opiskelijanumerolla, ja ryhmä on TK26A. Jos sovellus näyttää ryhmän TK26B, se luki nimikaiman tiedot. Tulos on ei läpi, ja korjaus tehdään K5:llä.</p>
+<p>T03: kumpaakaan arvoa ei saa olla valittuna valmiiksi. Jos sovellus valitsee uudemman lähteen, tulos on ei läpi.</p>
+<p><strong>Tehtävä 7.</strong> Oppija valitsee piilotettavan kentän <code>KENTAT.md</code>:stä. Jos kenttä näkyy tyhjänä, testi on tehnyt tehtävänsä. Oppija kirjaa ei läpi, korjauttaa K5:llä ja testaa uudelleen. Tämä on hyvä ei läpi -tulos, ei epäonnistuminen. Oppija toteaa lopuksi, että palautus kytkee kytkimet pois.</p>
+<p><strong>Tehtävä 8.</strong> Oppija ei tee Wilma-tallennusta. Muutettu arvo ja vanhentunut hyväksyntä häviävät palautuksessa ennen osion 06 T20:tä.</p>
+<p>Oppija pitää hiiren koko osion ajan.</p>
+<h3>Polkujen erot (taulukko Claude | Codex)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Asia</th>
+<th>Claude</th>
+<th>Codex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Uusi keskustelu</td>
+<td>Uusi istunto Code-välilehdellä</td>
+<td>Uusi työsäie samassa projektissa, yksi kerrallaan</td>
+</tr>
+<tr>
+<td>Ohjetiedosto K2:ssa ja K11:ssä</td>
+<td><code>CLAUDE.md</code></td>
+<td><code>AGENTS.md</code></td>
+</tr>
+<tr>
+<td>Osion päätös</td>
+<td>Pidetäänkö lupapyynnöt tiedostomuutoksille vai sallitaanko muutokset automaattisesti. Komentojen lupapyynnöt pysyvät.</td>
+<td>Milloin muutokset tarkistetaan Git-toiminnoista. Oletusoikeudet pysyvät, täysiä oikeuksia ei valita.</td>
+</tr>
+<tr>
+<td>Suunnitelma ensin</td>
+<td>Suunnittelutila ja K2:n viimeinen rivi. Hyväksyntä tehtävän 2 päätöksen mukaan.</td>
+<td>K2:n viimeinen rivi. Hyväksyntä lauseella &quot;Hyväksyn suunnitelman. Älä vielä aloita. Annan ensimmäisen palan seuraavaksi.&quot;</td>
+</tr>
+<tr>
+<td>Agentti aloittaa ennen K3:a</td>
+<td>Kiellä lupapyyntö: &quot;Pysähdy. Odota, että annan palan.&quot; Automaattisen sallimisen jälkeen pysäytä agentti ja katso muutosnäkymä.</td>
+<td>Pysäytä agentti ja tarkista Git-toiminnot. K7 tarvittaessa.</td>
+</tr>
+<tr>
+<td>Muutosten tarkistus palan jälkeen</td>
+<td>Lupapyynnöt ja lopuksi muutosnäkymä. Automaattisen sallimisen jälkeen pelkkä muutosnäkymä.</td>
+<td>Git-toimintojen muuttuneet tiedostot. Agentin luettelo vain apuna.</td>
+</tr>
+<tr>
+<td>Tehtävän 2 tarkistus</td>
+<td>Asetuksen vaihto vetäjän ohjaamana, jos oppija sallii muutokset</td>
+<td>Git-toiminnoista todetaan, että vain oppijan omat tiedostot muuttuivat</td>
+</tr>
+<tr>
+<td>Polun riski</td>
+<td>Lupapyyntöväsymys: hyväksyntä lukematta. Automaattisen sallimisen jälkeen muutosnäkymä jää katsomatta.</td>
+<td>Tarkistus jää tekemättä, kun kaikki toimii. Oppija tyytyy agentin luetteloon.</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Väärinkäsitykset (vähintään 3)</h3>
+<p><strong>Väärinkäsitys 1:</strong> &quot;Tyhjä kenttä tarkoittaa, että tietoa ei ole.&quot; Tyhjä on yksi viidestä lukutilasta. Piilossa oleva kenttä (NOT_VISIBLE) ja epäonnistunut luku (READ_FAILED) eivät ole tyhjiä. KP osa 5: puuttuvaa käyttöoikeutta ei tulkita tyhjäksi tiedoksi.</p>
+<p><strong>Väärinkäsitys 2:</strong> &quot;Ohjelma voi valita uudemman lähteen.&quot; Ei voi. KP osa 8: ohjelma näyttää molemmat, ja työntekijä selvittää oikean tiedon. Uudempi lähde voi olla väärä.</p>
+<p><strong>Väärinkäsitys 3:</strong> &quot;Hyväksyntä on pysyvä.&quot; Hyväksyntä sidotaan sisältöversioon (KP osa 20). Kun sisältö muuttuu, hyväksyntä vanhenee. Vaihe 2 on valmis vasta, kun tämä toimii (KP osa 25).</p>
+<p><strong>Väärinkäsitys 4:</strong> &quot;Automaattinen salliminen tekee agentista turvallisemman, koska sitä ei tarvitse vahtia.&quot; Asetus ei muuta agenttia. Se poistaa yhden pysähdyksen. Turvallisuus tulee tallennuspisteestä ennen palaa ja muutosten tarkistuksesta sen jälkeen. Codex-polulla sama ajatus kuuluu muodossa &quot;hiekkalaatikko riittää&quot;. Hiekkalaatikko ei estä muutoksia projektikansion sisällä.</p>
+<h3>Jumikohdat ja purku (taulukko: oire | todennäköinen syy | purku)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Oire</th>
+<th>Todennäköinen syy</th>
+<th>Purku</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lukutilat näkyvät vain koodeina tai väreinä</td>
+<td>Pyyntö ei korostanut sanoja</td>
+<td>K5: lukutila sanoina ja PRO-värein (V08). Ohjetiedoston kohta 8.</td>
+</tr>
+<tr>
+<td>Ristiriidan valintaa ei kirjata</td>
+<td>Pala 4 toteutti vain valinnan</td>
+<td>K5 T03:lla: valinta näkyy ja säilyy, kun tiedot avataan uudelleen</td>
+</tr>
+<tr>
+<td>Oppija hyväksyy kaiken nopeasti</td>
+<td>Lupapyyntöväsymys tai kiire</td>
+<td>Pyydä yksi en hyväksy -tapaus: mitä sovellus ei saa näyttää? Testataan se.</td>
+</tr>
+<tr>
+<td>Agentti aloittaa heti hyväksynnän jälkeen tai tekee monta palaa kerralla</td>
+<td>Suunnitelman hyväksyntä tulkittiin toteutusluvaksi</td>
+<td>Pysäytä polun tavalla (polkujen erot). K7 tarvittaessa. Jatka K3:lla.</td>
+</tr>
+<tr>
+<td><code>palauta-lahtotila.cmd</code> puuttuu, ei tyhjennä jonoa tai ei kytke uusia kytkimiä pois</td>
+<td>Osion 03 tai 04 palautus jäi kesken, tai kytkimiä ei lisätty lähtötilaan</td>
+<td>K5: palautus lähtötilan mukaan. Testit vasta sen jälkeen.</td>
+</tr>
+<tr>
+<td>Piilotettu tai sammutettu kenttä näkyy tyhjänä</td>
+<td>Sovellus tulkitsee puuttuvan tyhjäksi</td>
+<td>Ei läpi T17:ssä. K5 ja uusinta.</td>
+</tr>
+<tr>
+<td>Komennoille ei tule lupapyyntöä automaattisen sallimisen jälkeen (Claude)</td>
+<td>Valittiin laajempi asetus kuin tarkoitettiin</td>
+<td>Palauta asetus. Katso muutosnäkymästä, mitä muuttui. Oppija kirjaa asian päätöslokiin.</td>
+</tr>
+<tr>
+<td>Agentti muuttaa testiaineistoa korjatakseen ristiriidan</td>
+<td>Agentti tulkitsi ristiriidan virheeksi</td>
+<td>Hylkää ja palaa tallennuspisteeseen. Ristiriita on testitapaus. Ohjetiedoston kohta 6.</td>
+</tr>
+<tr>
+<td>Profiilia ei saada luettua</td>
+<td>Näkyvä selain ei auennut tai oppija ei kirjautunut</td>
+<td>Käynnistys <code>KAYNNISTYS.md</code>:n mukaan, oppija kirjautuu itse. Agentti ei kirjaudu.</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Varasuunnitelma</h3>
+<p><strong>Prioriteettilista.</strong> Osiot 06–08 viittaavat tähän listaan.</p>
+<ul>
+<li>Päivä 2 alkaa uudella keskustelulla ja K11:llä. Sen jälkeen enintään 20 min päivältä 1 kesken jääneelle: ensin T13, sitten osion 04 vetäjän katselmointi. Jos päivä 1 päättyi ilman varmennettua Wilma-tallennusta, osio 04 tehdään ensin loppuun, enintään 60 min.</li>
+<li>Prioriteetti (vetäjä tarkistaa klo 12.00 ja 14.15): (1) vähimmäistavoitteen palat: osion 05 haku ja tarkistusnäkymä (T01), osion 06 tuonti, jono ja VALMIS (T02 osin, T20); (2) osio 08 vähimmäistestit, työpajaversio ja osio 09 – näitä ei pudoteta; (3) tavoitteen palat osioista 05–06 (T03, T17, T18, T19, T21); (4) osio 07.</li>
+<li>Osio 07 pudotetaan ensin. Sen jälkeen osioiden 05–06 tavoitteen palat.</li>
+<li>Jos osio loppuu kesken palan: oppija tekee tallennuspisteen viestillä &quot;Kesken: [pala]&quot; tai palaa edelliseen tallennuspisteeseen, ja pyytää agenttia merkitsemään palan työlistaan keskeneräiseksi. Seuraavan osion alussa vetäjä päättää prioriteetin mukaan, jatketaanko.</li>
+<li>Riippuvuus: osion 06 T20 tarvitsee osion 05 palan 3, jossa sisältö hyväksytään tarkistusnäkymässä. Jos pala 3 on kesken kello 10.30, se tehdään osion 06 alussa.</li>
+</ul>
+<p><strong>T13 siirtyi aamuun.</strong> K11:n jälkeen oppija tekee osion 04 T13:n, TL mukaan lukien, enintään 20 min (tehtävä 1, askel 4). Aika otetaan tavoitteen paloista. Palat 1–3 ja T01 tehdään silti tässä osiossa.</p>
+<p><strong>Päivä 1 ilman varmennusta.</strong> Osion 04 jälkeen osiosta 05 tehdään vain vähimmäistavoite. Lupa-asetuksen päätökseen 5 min. Osio 06 alkaa ajallaan kello 10.45. Osio 07 jää pois.</p>
+<p><strong>Aikataulu venyy.</strong> Järjestys: palat 1–3 ja T01, pala 4 ja T03, testikytkimet ja T17, pala 5. Kesken jääneet tavoitteen palat tehdään osion 07 aikana. Osiota 06 ei lyhennetä tämän vuoksi.</p>
+<p>Agentti kiertää kehää: K10 ja K7. Jos projekti on rikki yli 15 min, pura vetäjän välitila osion 04 lopusta. Oppijan omat tiedostot säilytetään: <code>PAATOSLOKI.md</code>, <code>HYVAKSYMISKRITEERIT.md</code>, <code>TESTIT.md</code>, <code>KENTAT.md</code> ja <code>maarittely/oma-kokemus.md</code>. Oppija kirjaa päätöslokiin, mitä tapahtui.</p>
+<h3>Tarkista ennen seuraavaa osiota</h3>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Päätöslokissa on lupa-asetus tai tarkistustapa, oppijan oma peruste ja havaittava pysäytyssääntö.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Claude: komentojen lupapyynnöt ovat päällä. Codex: oikeusasetus on oletusoikeudet.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> T01 on kirjattu oppijan sanoin, ja T03 ja T17, jos ne tehtiin. Tulos on läpi, ei läpi tai ei testattu, ja Lähtötila-rivi on täytetty.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Jokaisesta tehdystä palasta on päätös ja tallennuspiste. Kesken jäänyt pala on työlistalla keskeneräisenä.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Testikytkimet ovat pois päältä, ja palautus kytkee ne pois.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Pala 3 on hyväksytty. Jos ei, se tehdään osion 06 alussa.</li>
+</ul>
+<h3>Tarkistettavat nimet</h3>
+<ul>
+<li>Claude: uuden istunnon aloitus Code-välilehdellä.</li>
+<li>Claude: automaattisen sallimisen asetuksen nimi ja paikka sekä mitkä komennot sovellus kysyy asetuksen jälkeen.</li>
+<li>Claude: näyttääkö muutosnäkymä kaikki muutokset edellisen tallennuspisteen jälkeen vai vain viimeisen vastauksen.</li>
+<li>Claude: suunnitelman hyväksynnän vaihtoehdot suunnittelutilassa, ja aloittaako agentti hyväksynnän jälkeen, vaikka K2 kieltää.</li>
+<li>Claude ja Codex: agentin pysäytys kesken työn.</li>
+<li>Codex: uuden työsäikeen aloitus samassa projektissa.</li>
+<li>Codex: oikeusasetuksen näkymä ja oletusoikeuksien nimi.</li>
+<li>Codex: Git-toimintojen näkymä, jossa muuttuneet tiedostot näkyvät.</li>
+</ul>
+
+</section>
+<nav class="pager"><a href="osio-04.html">← Osio 04</a><a href="osio-06.html">Osio 06 →</a></nav>
+<footer class="page">Kaikki materiaalin henkilöt, yritykset, tunnisteet ja palkat ovat kuvitteellisia. Versio 1 · 23.10.2026.</footer>
+</main>
+</body>
+</html>

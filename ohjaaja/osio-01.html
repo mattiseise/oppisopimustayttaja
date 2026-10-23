@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vetäjä · Osio 01: Agentti ei ole chat: ensimmäinen tehtävä ja tallennuspiste</title>
+<meta name="description" content="Vibekoodaus-työpaja: ohjelmointia osaamaton rakentaa agentin avulla Oppisopimustäyttäjän.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23775EC4'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='600' fill='white'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<main>
+<a class="back-link" href="index.html">← Vetäjän sivut</a>
+<header class="page">
+  <div class="kicker">Vetäjä · Osio 01 · päivä 1, 9.00–10.15</div>
+  <h1>Agentti ei ole chat: ensimmäinen tehtävä ja tallennuspiste</h1>
+</header>
+<nav class="pills" aria-label="Osion sisältö"><a href="#materiaali">Vetäjän materiaali</a><a href="#ohjatut">Ohjatut tehtävät</a><a href="../claude/osio-01.html">Oppija: Claude</a><a href="../codex/osio-01.html">Oppija: Codex</a></nav>
+<section class="md" id="materiaali"><h2>Vetäjän materiaali</h2>
+<h3>Ajattelukysymys ja tavoitteet (Bloom)</h3>
+<blockquote>
+<p>Ajattelukysymys: Mitä agentti teki koneellasi juuri nyt, ja mistä sen näet?</p>
+</blockquote>
+<ul>
+<li>Ymmärtää: oppija selittää agentin ja chat-palvelun eron.</li>
+<li>Soveltaa: oppija antaa rajatun tehtävän, lukee lupapyynnön kolmella kysymyksellä ja tarkistaa muutokset.</li>
+<li>Soveltaa: oppija tekee tallennuspisteen ja palaa siihen.</li>
+<li>Arvioida: oppija arvioi agentin tiivistelmän kuvauspaketista oman substanssiosaamisensa perusteella ja kirjaa päätöksen.</li>
+</ul>
+<p>Osio on tunnistamisen tasolla. Oppija ei vielä rakenna sovellusta. Hän oppii näkemään, mitä agentti teki, ja tekemään siitä päätöksen. Kattavuus: vaihe 0, projektin perustus. Vaatimuksia tai testejä ei vielä käsitellä.</p>
+<h3>Aikataulu (minuutit, summa = osion kesto)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Min</th>
+<th>Kello</th>
+<th>Sisältö</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>9.00–9.10</td>
+<td>Avaus: turvaraja ääneen, lukuteksti, ajattelukysymys</td>
+</tr>
+<tr>
+<td>10</td>
+<td>9.10–9.20</td>
+<td>Tehtävä 1: K1 ja oma testi</td>
+</tr>
+<tr>
+<td>15</td>
+<td>9.20–9.35</td>
+<td>Tehtävä 2 ja TL1 Lupapyyntö ääneen</td>
+</tr>
+<tr>
+<td>7</td>
+<td>9.35–9.42</td>
+<td>Tehtävä 3: päätösloki</td>
+</tr>
+<tr>
+<td>10</td>
+<td>9.42–9.52</td>
+<td>Tehtävä 4: Git ja ensimmäinen tallennuspiste</td>
+</tr>
+<tr>
+<td>15</td>
+<td>9.52–10.07</td>
+<td>TL2 Rikotaan ja palataan, tehtävä 5</td>
+</tr>
+<tr>
+<td>8</td>
+<td>10.07–10.15</td>
+<td>Tehtävä 6 ja purku</td>
+</tr>
+<tr>
+<td>75</td>
+<td></td>
+<td>Yhteensä</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Ennen osiota</h3>
+<ul>
+<li>Oppijan osio 00 on tarkistettu: projektikansio on oikeassa paikassa, ja <code>oma-kokemus.md</code> on olemassa.</li>
+<li>Gitin nimi ja sähköposti on sovittu. Asetus tehdään projektikohtaisesti. Kaikki on paikallista. GitHubia tai muuta verkkopalvelua ei käytetä.</li>
+<li>Oma koneesi on valmiina TL2:ta varten: projektikansio, jossa on <code>TYOKORTTI.md</code> ja vähintään yksi tallennuspiste.</li>
+<li>Tiedät oman polkusi sovellusversiosta, miltä lupapyyntö näyttää (Claude) ja miten muuttuneet tiedostot näkyvät Git-toiminnoissa (Codex).</li>
+<li>Codex: olet kirjannut harjoitusajossa, vaatiiko tallennuspiste oletusoikeuksilla hyväksynnän. Materiaalin askel ennakoi molemmat tapaukset.</li>
+</ul>
+<h3>Ohjaus askel askeleelta</h3>
+<p><strong>Avaus.</strong> Lue turvaraja ääneen, ennen kuin oppija avaa agenttisovelluksen. Riittää muistilistan kolme ensimmäistä kohtaa ja polun oma kohta. Kysy sitten ajattelukysymys. Älä odota vastausta vielä. Palaatte siihen purussa.</p>
+<p><strong>Tehtävä 1.</strong> Varmista, että oppija täyttää K1:n aukon omalla kysymyksellään. Hyvä aukko liittyy hänen työhönsä, esimerkiksi siihen, miten ohjelma löytää oikean opiskelijan. Oma testi on osion tärkein substanssikohta. Jos oppija ei löydä virhettä, kysy: &quot;Mitä tiivistelmästä puuttuu, mitä sinä tekisit aina?&quot; Älä osoita virhettä itse. Tyypillisiä löytöjä ovat nimellä kohdistus, VALMIS-ehto ja työpaikan järjestys (KP osat 7, 9 ja 10).</p>
+<p><strong>Tehtävä 2.</strong> TL1 tehdään tässä. Kehotteet ovat kokonaisia lohkoja, joissa pyyntö ja tiedoston teksti ovat yhdessä. Varmista, että oppija kopioi koko lohkon eikä täytä pohjien hakasulkeita. Claude-polulla oppija hyväksyy vain tämän kerran eikä valitse vaihtoehtoa, joka sallii saman jatkossa kysymättä. Codex-polulla Git ei ole vielä käytössä, joten tarkistus tehdään Resurssienhallinnasta. Katso lisäksi itse kansion <code>maarittely</code> tiedostojen muokkausajat. Niiden pitää olla osion 00 ajalta. Tiedosto kansiossa on konkreettinen vastaus ajattelukysymykseen: agentti teki jotain koneella. Tarkista, että agentti kopioi työkortin sellaisenaan eikä muokannut sitä.</p>
+<p><strong>Tehtävä 3.</strong> Lue ensimmäinen merkintä oppijan kanssa. Jos peruste on &quot;näyttää hyvältä&quot; tai agentin lause, kysy: &quot;Mitä tarkistit?&quot; Peruste kirjoitetaan uudelleen omin sanoin.</p>
+<p><strong>Tehtävä 4.</strong> Kehotteen ensimmäinen rivi asettaa nimen ja sähköpostin vain tähän projektiin. Viesti on oppijan sanoin. Jos oppija kopioi agentin ehdottaman viestin, pyydä häntä kirjoittamaan, mitä kansiossa nyt on. Codex-polulla tallennuspiste voi vaatia hyväksynnän, jos hiekkalaatikko suojaa Git-kansion. Oppija lukee silloin pyynnön kolmella kysymyksellä. Tästä tehtävästä alkaen Codex-oppija tarkistaa muutokset agenttisovelluksen Git-toiminnoista. Näytä, missä muuttuneet tiedostot näkyvät ja että luettelo on tallennuspisteen jälkeen tyhjä.</p>
+<p><strong>Tehtävä 5.</strong> TL2 ensin, sitten oppija tekee saman. Muistuta sulkemaan Muistio ennen paluuta. Muuten oppija voi tallentaa vanhan version palautetun päälle. K7:n toinen rivi pyytää agenttia jättämään oppijan omat tiedostot ennalleen. Codex-polulla poistettu rivi todetaan Git-toiminnoista ja Muistiosta, ei agentin luettelosta.</p>
+<p><strong>Tehtävä 6 ja purku.</strong> Toinen päätös koskee paluuta. Tallennuspiste tehdään K6:lla, joka otetaan <code>KEHOTEPOHJAT.md</code>:stä. Tämä on ensimmäinen kerta, kun oppija käyttää pohjaa tiedostosta. Purkukysymys on ajattelukysymys: mitä agentti teki koneellasi, ja mistä näit sen? Hyvä vastaus nimeää vähintään kaksi näyttöä: lupapyynnön ja muutosnäkymän (Claude) tai Git-toiminnot (Codex), Resurssienhallinnan ja tallennuspisteen. Agentin oma kertomus ei ole näyttö.</p>
+<p>Oppija pitää hiiren koko osion ajan. Tartu näppäimistöön vain asennus- ja järjestelmäongelmissa.</p>
+<h3>Polkujen erot (taulukko Claude | Codex)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Asia</th>
+<th>Claude</th>
+<th>Codex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pääkontrolli</td>
+<td>Lupapyynnön lukeminen ennen muutosta</td>
+<td>Tallennuspiste ennen tehtävää ja muutosten tarkistus sen jälkeen</td>
+</tr>
+<tr>
+<td>Lupapyyntö</td>
+<td>Oletuksena ennen tiedostomuutoksia ja komentoja (lupatila). Hyväksytään vain tämän kerran.</td>
+<td>Kun agentti ylittää hiekkalaatikon rajan, esimerkiksi verkko. Kansion sisällä ei oletusoikeuksilla kysytä erikseen. Tarkista omasta versiosta.</td>
+</tr>
+<tr>
+<td>Muutosten tarkistus</td>
+<td>Lupapyyntö ennen muutosta ja muutosnäkymä sen jälkeen</td>
+<td>Tehtävässä 2 (ennen Gitiä) Resurssienhallinta ja tiedoston avaaminen. Tehtävästä 4 alkaen agenttisovelluksen Git-toiminnot. Agentin luettelo on vain apu.</td>
+</tr>
+<tr>
+<td>TL1</td>
+<td>Vetäjä lukee lupapyynnön ääneen</td>
+<td>Vetäjä käy tuloksen ääneen läpi Resurssienhallinnassa</td>
+</tr>
+<tr>
+<td>Git</td>
+<td>Agentti ottaa käyttöön pyydettäessä, komennoista tulee lupapyynnöt</td>
+<td>Agentti ottaa käyttöön pyydettäessä. Tallennuspiste voi vaatia hyväksynnän (tarkista harjoitusajossa). Tarkistus agenttisovelluksen Git-toiminnoista.</td>
+</tr>
+<tr>
+<td>Työkortin polkukohdat</td>
+<td>Osa 2: vain tämän kerran. Osa 3: lupapyyntö ja muutosnäkymä. Osa 4: älä salli kaikkea automaattisesti.</td>
+<td>Osa 2: kysymykset myös muuttuneille tiedostoille, Git-toiminnot, vain tämän kerran. Osa 4: älä valitse täysiä oikeuksia.</td>
+</tr>
+<tr>
+<td>Polun riski</td>
+<td>Lupapyyntöväsymys: oppija alkaa hyväksyä lukematta tai sallii saman jatkossa kysymättä</td>
+<td>Muutokset tapahtuvat kysymättä, ja jälkitarkistus unohtuu tai korvautuu agentin kertomuksella</td>
+</tr>
+</tbody>
+</table></div>
+<p>Claude-polulla aliagentteja ja erillisiä istuntoja ei käytetä. Codex-polulla käytetään yhtä työsäiettä, ei rinnakkaisia worktree-säikeitä eikä pilvitilaa.</p>
+<h3>Väärinkäsitykset (vähintään 3)</h3>
+<p><strong>Väärinkäsitys 1:</strong> &quot;Agentti on fiksumpi chat.&quot; Ero ei ole älykkyydessä vaan siinä, mitä se tekee. Chat-palvelu tuottaa tekstiä. Agentti muuttaa tiedostoja ja ajaa komentoja. Näytä tiedosto Resurssienhallinnassa.</p>
+<p><strong>Väärinkäsitys 2:</strong> &quot;Lupapyynnön voi hyväksyä, koska agentti tietää, mitä tekee.&quot; Agentti tietää, mitä se aikoo, mutta ei sitä, mitä oppija tarkoitti. Lupapyyntö on kohta, jossa oppija vertaa näitä kahta. Kolme kysymystä vie kymmenen sekuntia.</p>
+<p><strong>Väärinkäsitys 3:</strong> &quot;Git on varmuuskopio pilveen.&quot; Git toimii vain tällä koneella. Jos kone hajoaa, tallennuspisteet katoavat sen mukana. Työpajassa tallennuspisteitä ei viedä verkkopalveluun.</p>
+<p><strong>Väärinkäsitys 4:</strong> &quot;Paluu poistaa kaiken.&quot; Paluu kumoaa vain valitun tallennuspisteen jälkeiset muutokset. Aiemmat tallennuspisteet säilyvät. Siksi tallennuspiste tehdään jokaisen hyväksynnän jälkeen. Muistuta myös, että paluu voi kumota oppijan omat muutokset, jotka on tehty tallennuspisteen jälkeen, esimerkiksi päätöslokiin kirjoitetun merkinnän. K7 pyytää agenttia jättämään päätöslokin, kriteerit ja testit ennalleen. Silti järjestys on: sulje Muistio, palaa ensin, kirjaa hylkäys sitten.</p>
+<p><strong>Väärinkäsitys 5 (Codex):</strong> &quot;Agentin luettelo kertoo, mitä muuttui.&quot; Luettelo on agentin oma kertomus. Se ei näytä muutosta, jota agentti ei huomannut tai jätti kertomatta. Muutokset todetaan agenttisovelluksen Git-toiminnoista, Resurssienhallinnasta ja avaamalla tiedosto.</p>
+<h3>Jumikohdat ja purku (taulukko: oire | todennäköinen syy | purku)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Oire</th>
+<th>Todennäköinen syy</th>
+<th>Purku</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Agentti kertoo, ettei Gitiä löydy</td>
+<td>Git for Windows puuttuu, tai sovellus avattiin ennen asennusta</td>
+<td>Käynnistä agenttisovellus uudelleen. Jos ei auta, IT tai varakone. Oppija jatkaa tehtäviä 1–3 sillä välin.</td>
+</tr>
+<tr>
+<td>Git kysyy nimeä tai sähköpostia</td>
+<td>Tehtävän 4 kehotteen ensimmäinen rivi puuttui</td>
+<td>Lisää rivi sovituilla tiedoilla ja anna kehote uudelleen</td>
+</tr>
+<tr>
+<td>Codex: Git-toiminnoissa näkyy tiedosto, jota agentin luettelossa ei ole</td>
+<td>Agentti muutti jotain, mitä ei kertonut</td>
+<td>Git-toiminnot ratkaisevat. Pyydä agenttia selittämään. Palaa tarvittaessa tallennuspisteeseen.</td>
+</tr>
+<tr>
+<td>Claude: lupapyyntöjä ei enää tule samanlaisista toiminnoista</td>
+<td>Oppija valitsi vaihtoehdon, joka sallii saman jatkossa kysymättä</td>
+<td>Palauta oletuslupatila oppijan kanssa. Katsokaa muutosnäkymästä, mitä jo muuttui.</td>
+</tr>
+<tr>
+<td>Oppija ei löydä tiedostoa Resurssienhallinnasta</td>
+<td>Hän katsoo väärää kansiota, tai agentti loi tiedoston muualle</td>
+<td>Näytä polku. Pyydä agenttia kertomaan tiedoston koko polku.</td>
+</tr>
+<tr>
+<td>Kansioon tuli tiedostoja, joita ei pyydetty</td>
+<td>Agentti teki enemmän kuin pyydettiin</td>
+<td>Pysäytä. Pyydä agenttia selittämään. Palaa tallennuspisteeseen. Lisää kehotteeseen &quot;Älä tee muuta.&quot;</td>
+</tr>
+<tr>
+<td>Oppija hyväksyy lupapyynnön lukematta</td>
+<td>Kiire tai lupapyyntöjen määrä</td>
+<td>Pysäytä ja lukekaa seuraava yhdessä kolmella kysymyksellä</td>
+</tr>
+<tr>
+<td>Poistettu rivi ei näy palanneen</td>
+<td>Muistio oli auki paluun aikana, ja oppija tallensi vanhan version</td>
+<td>Sulje Muistio, avaa tiedosto uudelleen ja tee paluu tarvittaessa uudelleen</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Varasuunnitelma</h3>
+<p>Jos Git ei asennu, oppija tekee tehtävät 1–3 ja seuraa TL2:n vetäjän koneelta. Git asennetaan tauolla tai otetaan varakone. Tehtävät 4–6 tehdään osion 02 alussa.</p>
+<p>Jos tehtävään 5 jää alle 10 minuuttia, oppija tekee paluun osion 02 alussa ennen tehtävää 1. Paluun kokeilu on osion valmis-ehto, eikä sitä jätetä pois.</p>
+<p>Jos agenttisovellus tai tilaus lakkaa toimimasta, toimi osion 00 varasuunnitelman mukaan: toinen polku tai varakone.</p>
+<h3>Tarkista ennen seuraavaa osiota</h3>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Päätöslokin perustelut ovat oppijan sanoja, eivät agentin tekstiä.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Päätöslokissa on kaksi merkintää, ja tallennuspisteitä on vähintään kaksi.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> <code>TYOKORTTI.md</code> ja <code>KEHOTEPOHJAT.md</code> (K1, K6, K7) ovat olemassa, ja työkortti on oppijan polun versio.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Paluu on kokeiltu.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> <code>PAATOSLOKI.md</code> on oikeanniminen, ei <code>.txt</code>. Muuten ohjetiedoston suojasääntö ei osiosta 02 alkaen koske sitä.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Kehotepohjien K7 sisältää rivin, joka jättää oppijan omat tiedostot ennalleen.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> <code>maarittely/oma-kokemus.md</code> on valmis osiota 02 varten.</li>
+</ul>
+<h3>Tarkistettavat nimet</h3>
+<ul>
+<li>Claude: lupapyynnön hyväksymis- ja kieltämispainikkeiden nimet sekä mahdollinen valinta, joka sallii saman toiminnon jatkossa kysymättä.</li>
+<li>Claude: muutosnäkymän avaaminen Code-välilehdellä.</li>
+<li>Claude: missä lupatila näkyy sovelluksessa.</li>
+<li>Claude: miten oletuslupatila palautetaan, jos oppija salli saman toiminnon jatkossa kysymättä.</li>
+<li>Codex: Git-toimintojen nimet ja sijainti sekä näkymä, jossa muuttuneet tiedostot näkyvät.</li>
+<li>Codex: näkyykö muuttuneiden tiedostojen luettelo tyhjänä tallennuspisteen jälkeen.</li>
+<li>Codex: miten sovellus näyttää agentin ajamat komennot.</li>
+<li>Codex: kysyykö sovellus oletusoikeuksilla lupaa projektikansion sisäisiin muutoksiin.</li>
+<li>Codex: vaatiiko tallennuspiste hyväksynnän oletusoikeuksilla. Kirjaa harjoitusajossa.</li>
+<li>Codex: onko hyväksyntäpyynnössä valinta, joka sallii saman jatkossa kysymättä.</li>
+</ul>
+
+</section>
+<section class="md" id="ohjatut"><h2>Ohjatut tehtävät</h2>
+<p>Näissä tehtävissä vetäjä näyttää ja haastaa. Oppija ei tee niissä rakennustyötä. Oppija pitää hiiren omalla koneellaan.</p>
+<h3>TL1 Lupapyyntö ääneen (noin 5 min, tehtävä 2)</h3>
+<p>Tavoite: oppija kuulee kerran, miltä tarkistus kuulostaa, ja tekee sen sitten itse.</p>
+<p>Claude-polku. Kun oppijan ruudulle tulee työkortin lupapyyntö, lue se ääneen. Mikä: luodaan tiedosto <code>TYOKORTTI.md</code>. Missä: polku alkaa <code>C:\dev\oppisopimustayttaja</code>. Miksi: oppija pyysi juuri tätä. Sano ääneen myös, mitä tekisit, jos yksi vastaus puuttuisi. Kieltäisit ja kysyisit agentilta syytä. Näytä, että hyväksyt vain tämän kerran. Seuraavan lupapyynnön (<code>KEHOTEPOHJAT.md</code>) oppija lukee itse ääneen. Älä auta, ennen kuin hän on vastannut kaikkiin kolmeen.</p>
+<p>Codex-polku. Git ei ole vielä käytössä. Avaa oppijan kanssa projektikansio Resurssienhallinnassa ja käy tulos ääneen läpi. Mikä: uusi tiedosto <code>TYOKORTTI.md</code>. Missä: projektikansion juuressa, eikä muita uusia tiedostoja ole. Miksi: oppija pyysi juuri tätä. Sano ääneen, miksi tarkistus tehdään näin. Agentti muutti kansiota kysymättä, ja sen oma vastaus on kertomus, ei tarkistus. Tulos katsotaan aina sovelluksen ulkopuolelta: nyt Resurssienhallinnasta, tehtävästä 4 alkaen Git-toiminnoista. Seuraavan tuloksen oppija käy itse läpi.</p>
+<p>Jos oppija vastaa kysymyksiin agentin sanoin, pyydä häntä sanomaan sama omin sanoin. Tavoite on, että tarkistuksesta tulee tapa ennen tehtävää 4. Siinä lupapyyntöjä tai ajettuja komentoja tulee useita peräkkäin.</p>
+<p>Purkukysymys: Mistä näit, mitä agentti teki? Hyvä vastaus nimeää lupapyynnön (Claude) tai Resurssienhallinnan (Codex). Agentin oma vastaus ei riitä.</p>
+<h3>TL2 Rikotaan ja palataan (noin 5 min, ennen tehtävää 5)</h3>
+<p>Tavoite: oppija näkee paluun kerran, ennen kuin tekee sen itse.</p>
+<p>Valmistelu: omalla koneellasi on projektikansio, jossa on tallennuspiste ja tiedosto <code>TYOKORTTI.md</code>. Käytä oppijan polun agenttisovellusta.</p>
+<ol>
+<li>Pyydä agenttia poistamaan työkortista koko osa 4 (tietoturva).</li>
+<li>Näytä muutos. Claude-polulla käytä muutosnäkymää. Codex-polulla avaa agenttisovelluksen Git-toiminnoista muuttuneet tiedostot.</li>
+<li>Avaa tiedosto Muistiolla ja näytä, että osa puuttuu. Sulje Muistio ja sano ääneen miksi.</li>
+<li>Anna K7. Lue ääneen agentin vastaus siitä, mitkä muutokset katoavat.</li>
+<li>Vahvista paluu ja avaa tiedosto. Näytä, että osa palasi.</li>
+</ol>
+<p>Sano ääneen kaksi asiaa. Paluu kumoaa vain tallennuspisteen jälkeiset muutokset. K7 pyytää agenttia jättämään päätöslokin, kriteerit ja testit ennalleen, mutta hylkäyksessä palataan silti ensin ja kirjataan sitten. Siksi tallennuspiste tehdään jokaisen hyväksynnän jälkeen.</p>
+<p>Tietoturvaosa on valittu tarkoituksella. Kun se katoaa, menetys on helppo nähdä ja ymmärtää.</p>
+<p>Purkukysymys: Mitä olisi tapahtunut, jos tallennuspistettä ei olisi ollut? Odotettu vastaus: osa olisi pitänyt kirjoittaa uudelleen, eikä kukaan tietäisi varmasti, mitä siinä oli.</p>
+
+</section>
+<nav class="pager"><a href="osio-00.html">← Osio 00</a><a href="osio-02.html">Osio 02 →</a></nav>
+<footer class="page">Kaikki materiaalin henkilöt, yritykset, tunnisteet ja palkat ovat kuvitteellisia. Versio 1 · 23.10.2026.</footer>
+</main>
+</body>
+</html>

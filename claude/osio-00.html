@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Osio 00: Ennen työpajaa: kone, kansio ja turvaraja – Claude-polku</title>
+<meta name="description" content="Mitä tietoa agentti saa nähdä, ja mitä se ei saa nähdä koskaan?">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23775EC4'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='600' fill='white'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<main>
+<a class="back-link" href="index.html">← Claude-polku</a>
+<header class="page">
+  <div class="kicker">Claude-polku · Osio 00 · itsenäisesti 60–90 min, viimeistään 3 arkipäivää ennen</div>
+  <h1>Ennen työpajaa: kone, kansio ja turvaraja</h1>
+  <div class="insight"><div class="kicker">Ajattelukysymys</div><p>Mitä tietoa agentti saa nähdä, ja mitä se ei saa nähdä koskaan?</p></div>
+</header>
+<nav class="pills" aria-label="Osion sisältö">
+  <a href="#lue">1 · Lukuteksti</a><a href="#tehtavat">2 · Tehtävät</a><a href="#sanasto">3 · Sanasto</a>
+</nav>
+<section class="md" id="lue"><h2>Lukuteksti</h2>
+<p>Työpajassa rakennat Oppisopimustäyttäjän ensimmäisen version agentin avulla. Oppisopimustäyttäjä on sovellus, joka kokoaa oppisopimuksen tiedot, näyttää ne tarkistettaviksi ja täyttää Wilma-lomakkeet. Sen määrittely on valmiina kuvauspaketissa.</p>
+<p>Et opettele ohjelmointia. Agentti kirjoittaa koodin. Sinä omistat säännöt, tarkistukset ja päätökset. Sinä tiedät, miten oppisopimus kirjataan oikein. Agentti ei tiedä.</p>
+<p>Tämä osio tehdään ennen työpajaa. Siinä laitat valmiiksi koneen, kansion ja oman aineistosi. Samalla opit turvarajan, joka pätee koko työpajan ajan.</p>
+<h3>Mikä agentti on</h3>
+<p><strong>Agentti</strong> on tekoälyohjelma, joka lukee ja muokkaa tiedostoja ja ajaa komentoja sille annetussa projektikansiossa. Chat-palvelu vastaa tekstillä. Agentti tekee muutoksia koneellasi. Tässä työpajassa agentti toimii Claude-työpöytäsovelluksen Code-välilehdellä. Osiossa 01 katsot tarkemmin, mitä agentti tekee ja miten valvot sitä.</p>
+<h3>Mitä työpajan lopussa on</h3>
+<p>Kahdessa päivässä ei valmistu koko sovellus. Rehellinen lopputulos on työpajaversio. Se toimii simuloitua Wilmaa vasten kuvitteellisella aineistolla.</p>
+<p>Vähimmäistavoite on tämä. Simuloitu Wilma ja sovellus käynnistyvät ohjeella ilman agenttia. Sovellus avaa selaimen, jossa kirjaudut itse. Se hakee yhden opiskelijan tiedot kuvitteellisista lähteistä ja näyttää ne tarkistettavina. Se tekee urasuunnitelman Wilma-tallennuksen ja lukee lomakkeen uudelleen. Näin näet, tallentuiko tieto oikein. Kahden opiskelijan jonossa seuraava avautuu vasta, kun edellinen on varmennettu. Lisäksi sinulla on omat tiedostosi: säännöt, työlista, päätösloki, hyväksymiskriteerit, testitulokset ja jatkosuunnitelma.</p>
+<p>Tavoite on vähimmäistavoitetta laajempi. Silloin sovellus näyttää myös puuttuvat ja ristiriitaiset tiedot. Se tuo opiskelijalistan, erottaa samannimiset opiskelijat ja osaa jättää opiskelijan odottamaan lisätietoja. Se kirjaa oppisopimuksen tiedot oikeassa järjestyksessä. Ulkoasu noudattaa PRO-ilmettä, ja yksi häiriötilanne on testattu. Jos testi-Wilma on käytössä, kokeilet myös sen kenttien lukemista.</p>
+<p>Työpajan lopussa ei ole yhteyttä oikeaan Wilmaan. Ei ole oikeita tietoja, valmista asennettavaa ohjelmaa eikä pilottia. Ne ovat jatkoa, ja niihin tarvitaan IT:tä ja pääkäyttäjiä.</p>
+<h3>Simuloitu Wilma ja testi-Wilma</h3>
+<p><strong>Simuloitu Wilma</strong> on projektikansiossa toimiva kuvitteellinen testisivusto. Se jäljittelee niitä Wilman näkymiä, joita sovellus tarvitsee. Agentti rakentaa sen osiossa 03. Sillä ei ole yhteyttä oikeaan Wilmaan.</p>
+<p>Simuloitu Wilma tulee ensin, koska se on turvallinen. Siinä ei ole oikeita tietoja. Sen voi rikkoa tahallaan, ja saman testin voi toistaa yhä uudelleen.</p>
+<p>Testi-Wilma on oppilaitoksen Wilma-testiympäristö, jossa on vain testiopiskelijoita. Sitä käytetään vain, jos vetäjä on saanut sen ennakkoon. Silloinkaan siihen ei kirjoiteta työpajassa. Oikea Wilma ei kuulu työpajaan lainkaan.</p>
+<p><strong>Pysähdy hetkeksi:</strong> Mitä tietoa sinulla on koneellasi juuri nyt, jota agentti ei saa nähdä?</p>
+<h3>Turvaraja</h3>
+<p>Turvaraja on yksinkertainen. Oikeaa opiskelijatietoa ei koskaan anneta agentille. Oikeaa tietoa on kaikki, mikä koskee oikeaa opiskelijaa, työpaikkaa tai henkilöä: nimi, tunniste, palkka, haastattelu ja kuvakaappaus. Sitä ei kirjoiteta kehotteeseen eikä projektikansion tiedostoon, eikä sitä näytetä kuvana.</p>
+<p>Salasanoja ja tunnuksia ei anneta agentille. Kun sovellus myöhemmin avaa selaimen, kirjaudut siihen itse. Agentti ei näe salasanaasi.</p>
+<p>Agentti kysyy lupaa, ennen kuin se muuttaa tiedostoa tai ajaa komennon. Luet lupapyynnön aina, ennen kuin hyväksyt, ja hyväksyt vain sen kerran. Et salli kaikkea automaattisesti. Projektikansio on koneesi omassa kansiossa, ei OneDrivessa. Jos testi-Wilmasta saadaan aineistoa, se puhdistetaan kuvauspaketin liitteen A mukaan, ennen kuin agentti näkee sen. Jos epäilet, että jotain vuoti, pysähdy ja kerro vetäjälle.</p>
+<p>Tietoturvan muistilista:</p>
+<ul>
+<li>Ei oikeaa opiskelijatietoa agentille: ei kehotteeseen, tiedostoon eikä kuvaan.</li>
+<li>Ei salasanoja eikä tunnuksia agentille.</li>
+<li>Kirjaudut itse näkyvässä selaimessa.</li>
+<li>Lue lupapyyntö ennen hyväksymistä.</li>
+<li>Älä salli kaikkea automaattisesti.</li>
+<li>Oikea Wilma ei kuulu työpajaan.</li>
+<li>Testi-Wilmasta saatu aineisto puhdistetaan liitteen A mukaan ennen agenttia.</li>
+<li>Projektikansio ei ole OneDrivessa.</li>
+<li>Epäilet tietovuotoa: pysähdy ja kerro vetäjälle.</li>
+</ul>
+<h3>Sinun osaamisesi on raaka-aine</h3>
+<p>Agentti osaa kirjoittaa koodia. Se ei tiedä, mikä oppisopimuksen kirjauksessa menee käytännössä väärin. Sinä tiedät. Tiedät, missä järjestyksessä lomakkeet täytetään, mitkä kentät sekoittuvat ja mitä ei saa koskaan arvata.</p>
+<p>Tämän osion tehtävissä kirjoitat tiedoston <code>oma-kokemus.md</code>. Siihen tulevat lomakkeet, jotka kirjaat, kolme yleisintä virhettä ja kaksi asiaa, joita ohjelma ei saa koskaan tehdä. Osiossa 02 vertaat agentin kirjoittamia sääntöjä tähän tiedostoon. Ilman sitä et voi tarkistaa, ovatko säännöt oikein.</p>
+<p>Luet tässä osiossa myös kuvauspaketin ensimmäisen pääosan. Kuvauspaketissa on kaksi pääosaa, ja ne jakautuvat numeroituihin kohtiin 1–31. Materiaalissa &quot;kuvauspaketin osa 8&quot; tarkoittaa kohtaa 8. Ensimmäinen pääosa, osat 1–12, on kirjoitettu hallinnon työntekijälle. Vertaa sitä lukiessasi omaan työhösi. Toinen pääosa on teknistä, ja sen lukee agentti.</p>
+<p><strong>Pysähdy hetkeksi:</strong> Mikä kirjauksen kohta vie sinulta eniten aikaa tai menee useimmin uusiksi?</p>
+<h3>Esimerkki: mitä agentti saa nähdä</h3>
+<p>Työpajassa käsittelet esimerkiksi Aino Testista. Hänen opiskelijanumeronsa on 000123, ja hän opiskelee Testikoulutuksessa. Hänen työpaikkansa on Testileipomo Oy, ja työpaikkaohjaaja on Maija Mallikas. Kaikki nämä on keksitty. Agentti saa nähdä ne, koska ne eivät koske ketään oikeaa ihmistä.</p>
+<p>Kuvittele, että kopioisit kehotteeseen oikean haastattelun ja vaihtaisit siitä vain nimen. Palkka, työtehtävät ja työpaikka paljastaisivat henkilön silti. Se on oikeaa opiskelijatietoa. Agentti ei saa nähdä sitä edes muokattuna.</p>
+<p>Sama koskee omaa kokemustasi. Voit kirjoittaa, että palkan yksikkö unohtuu usein. Et kirjoita, kenen palkasta oli kyse.</p>
+<h3>Yhteenveto</h3>
+<p>Työpajassa agentti kirjoittaa koodin, ja sinä omistat säännöt ja päätökset. Lopputulos on työpajaversio, joka toimii simuloitua Wilmaa vasten kuvitteellisella aineistolla. Agentti saa nähdä kuvauspaketin, kuvitteellisen aineiston ja oman kokemuksesi ilman tunnistetietoja. Se ei saa koskaan nähdä oikeaa opiskelijatietoa, salasanoja eikä tunnuksia.</p>
+
+</section>
+<section class="md" id="tehtavat"><h2>Tehtävät</h2>
+<p>Aika noin 60–90 min. Tarvitset: Claude-työpöytäsovelluksen, vetäjän toimittaman kuvauspaketin, Resurssienhallinnan ja Muistion.</p>
+<p>Teet tämän osion itsenäisesti viimeistään kolme arkipäivää ennen työpajaa. Lue ensin osion lukuteksti.</p>
+<p>Lue materiaalia vetäjän jakamassa muodossa, esimerkiksi verkkosivuna. Muistiossa kehotteiden mukaan kopioituu ylimääräisiä merkkejä.</p>
+<h3>Tehtävä 1: Tarkista tilaus ja agenttisovellus</h3>
+<ol>
+<li>Avaa Claude-työpöytäsovellus.</li>
+<li>Kirjaudu sovellukseen itse, jos se pyytää.</li>
+<li>Siirry Code-välilehdelle.</li>
+</ol>
+<p>Tilauksesi on oltava Pro, Max, Team tai Enterprise. Tilaus toimii, kun agentti vastaa käynnistystestissä (tehtävä 4).</p>
+<p>Seuraavaksi: luot kansion, jossa agentti työskentelee.</p>
+<h3>Tehtävä 2: Luo projektikansio</h3>
+<p>Projektikansio on agentin työalue. Kaikki työpajan tiedostot tulevat sinne. Kansio ei saa olla OneDrivessa, koska OneDrive kopioi tiedostot pilveen.</p>
+<ol>
+<li>Avaa Resurssienhallinta.</li>
+<li>Luo kansio <code>C:\dev</code>, jos sitä ei vielä ole.</li>
+<li>Luo sen sisään kansio <code>oppisopimustayttaja</code>.</li>
+<li>Käytä varapaikkaa <code>%USERPROFILE%\dev\oppisopimustayttaja</code>, jos <code>C:\</code>-juureen ei saa luoda kansiota.</li>
+<li>Tarkista, ettei kansio ole Tiedostot-, Työpöytä- tai OneDrive-kansion sisällä.</li>
+<li>Valitse Code-välilehdellä tämä kansio kansioksi, jossa agentti työskentelee. Sovellus käyttää siitä nimeä työhakemisto.</li>
+<li>Tarkista, että sovellus näyttää valitun kansion nimen <code>oppisopimustayttaja</code>.</li>
+</ol>
+<p>Seuraavaksi: kopioit kuvauspaketin projektikansioon ja luet sen ensimmäisen pääosan.</p>
+<h3>Tehtävä 3: Kopioi ja lue kuvauspaketti</h3>
+<p>Kuvauspaketti on Oppisopimustäyttäjän määrittely. Agentti lukee sitä, mutta ei muuta sitä.</p>
+<ol>
+<li>Luo projektikansioon alikansio <code>maarittely</code>.</li>
+<li>Kopioi vetäjän toimittama kuvauspaketti kansioon <code>maarittely</code>. Käytä teksti- tai Markdown-muotoa, älä Word-tiedostoa.</li>
+<li>Kopioi samaan kansioon myös tiedosto <code>03-kenttakartoitus.csv</code>, jos vetäjä toimitti sen.</li>
+<li>Lue kuvauspaketin ensimmäinen pääosa, osat 1–12. Voit lukea sen missä muodossa tahansa. Varaa siihen noin 15 minuuttia.</li>
+<li>Lue osat 6–10 tarkimmin. Tarvitset niitä osiossa 02.</li>
+</ol>
+<p>Seuraavaksi: kokeilet, että agentti toimii projektikansiossa.</p>
+<h3>Tehtävä 4: Tee käynnistystesti</h3>
+<p>Testi kertoo, että agentti toimii projektikansiossa ja koneella on tarvittavat ohjelmat. Tässä kehotteessa ei ole aukkoja. Muissa kehotteissa täytät aukot itse.</p>
+<p>Kopioit kehotteen aina koko lohkona, ja rivinvaihdot tulevat mukaan. Älä paina Enteriä kesken kehotteen. Se voi lähettää viestin liian aikaisin.</p>
+<ol>
+<li>Tarkista Code-välilehdellä, että projektikansio on valittuna.</li>
+<li>Kopioi koko lohko. Liitä se agentin kehotekenttään. Lähetä.</li>
+</ol>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k1">Kopioi</button></div><pre id="k1"><code>Tarkista, onko tällä koneella Node.js ja Git. Kerro kummankin versio ja komennot, jotka ajoit.
+Älä asenna mitään äläkä muuta mitään tiedostoa.
+</code></pre></div>
+<ol start="3">
+<li>Lue lupapyyntö, ennen kuin hyväksyt.</li>
+<li>Hyväksy vain komento, joka kysyy versiota. Jos komento asentaa tai muuttaa jotain, kiellä se.</li>
+<li>Hyväksy vain tämän kerran. Jos lupapyynnössä on vaihtoehto, joka sallii saman jatkossa kysymättä, älä valitse sitä.</li>
+<li>Avaa projektikansio Resurssienhallinnassa. Totea, että siellä on edelleen vain kansio <code>maarittely</code>.</li>
+<li>Kirjoita Node.js- ja Git-versiot paperille. Siirrät ne tiedostoon tehtävässä 5.</li>
+<li>Ilmoita vetäjälle, jos agentti kertoo, että Node.js tai Git puuttuu.</li>
+</ol>
+<p>Seuraavaksi: luet turvarajan ja aloitat oman tiedostosi.</p>
+<h3>Tehtävä 5: Lue turvaraja ja aloita oma tiedosto</h3>
+<p>Oma tiedostosi tulee kansioon <code>maarittely</code>. Agentti saa lukea sen. Siksi siinä ei saa olla oikeaa opiskelijatietoa.</p>
+<p>Opit samalla tallentamaan ja avaamaan .md-tiedoston Muistiolla. Tapa on sama koko työpajan ajan.</p>
+<ol>
+<li>Lue tietoturvan muistilista osion lukutekstistä.</li>
+<li>Avaa Muistio.</li>
+<li>Kopioi Muistioon tämä pohja:</li>
+</ol>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k2">Kopioi</button></div><pre id="k2"><code># Oma kokemus
+
+Miksi oikeaa opiskelijatietoa ei anneta agentille:
+[yksi lause omin sanoin]
+
+Mitä agentti saa nähdä tässä työpajassa (2–3 asiaa):
+- [asia]
+- [asia]
+
+Mitä agentti ei saa nähdä koskaan (2–3 asiaa):
+- [asia]
+- [asia]
+
+Mitä työpajan lopussa on valmiina:
+[1–2 lausetta omin sanoin]
+
+Lomakkeet, jotka kirjaan oppisopimuksessa:
+[lomakkeet]
+
+Kolme yleisintä virhettä tai hankaluutta:
+- [virhe tai hankaluus 1]
+- [virhe tai hankaluus 2]
+- [virhe tai hankaluus 3]
+
+Kaksi asiaa, joita ohjelma ei saa koskaan tehdä:
+- [asia 1]
+- [asia 2]
+
+Koneen versiot: Node.js [versio], Git [versio]
+
+Testi-Wilman tilanne:
+[vetäjän vastaus tai &quot;ei tiedossa&quot;]
+</code></pre></div>
+<ol start="4">
+<li>Valitse Muistion valikosta Tiedosto → Tallenna nimellä.</li>
+<li>Valitse tallennuspaikaksi kansio <code>maarittely</code>.</li>
+<li>Kirjoita tiedostonimi lainausmerkkeihin: &quot;oma-kokemus.md&quot;. Silloin Windows ei lisää nimen loppuun .txt-päätettä.</li>
+<li>Tallenna.</li>
+<li>Katso Muistion otsikkoriviltä tai välilehdeltä, että nimi on <code>oma-kokemus.md</code> eikä <code>oma-kokemus.md.txt</code>.</li>
+<li>Sulje Muistio.</li>
+<li>Avaa tiedosto uudelleen näin: avaa Muistio ja vedä <code>oma-kokemus.md</code> Resurssienhallinnasta Muistion ikkunaan.</li>
+<li>Kirjoita pohjan neljä ensimmäistä kohtaa omin sanoin lukutekstin perusteella.</li>
+<li>Kirjoita kohtaan Koneen versiot käynnistystestin versiot.</li>
+<li>Tallenna tiedosto.</li>
+</ol>
+<p>Avaa .md-tiedosto aina raahaamalla. Kaksoisnapsautus tai Muistion avausikkuna ei välttämättä avaa sitä oikein.</p>
+<p>Seuraavaksi: kirjoitat oman kokemuksesi oppisopimuksen kirjaamisesta.</p>
+<h3>Tehtävä 6: Kirjoita oma kokemuksesi</h3>
+<p>Käytät tätä tiedostoa osiossa 02, kun tarkistat agentin säännöt. Kirjoita yleisellä tasolla. Älä kirjoita nimiä, opiskelijanumeroita, yritysten nimiä tai palkkoja. Älä liitä kuvakaappauksia.</p>
+<p>Lomakkeista riittävät nimet ja virheestä lyhyt kuvaus. Kirjoita niin kuin selittäisit asiaa uudelle työkaverille.</p>
+<ol>
+<li>Kirjoita, mitkä lomakkeet kirjaat Wilmaan oppisopimuksessa.</li>
+<li>Kirjoita kolme yleisintä virhettä tai hankaluutta. Mieti, mikä menee uusiksi, mikä unohtuu ja mikä sekoittuu.</li>
+<li>Kirjoita kaksi asiaa, joita ohjelma ei saa koskaan tehdä.</li>
+<li>Lue teksti läpi ja varmista, ettei siinä ole nimiä tai tunnisteita.</li>
+<li>Tallenna tiedosto.</li>
+<li>Sulje Muistio.</li>
+</ol>
+<p>Seuraavaksi: selvität, onko testi-Wilma käytössä.</p>
+<h3>Tehtävä 7: Selvitä testi-Wilman tilanne</h3>
+<ol>
+<li>Kysy vetäjältä sähköpostilla tai Teamsissa, onko testi-Wilma saatu käyttöön.</li>
+<li>Avaa <code>oma-kokemus.md</code> Muistiolla raahaamalla.</li>
+<li>Kirjoita vastaus kohtaan Testi-Wilman tilanne. Jos et saa vastausta samana päivänä, kirjoita &quot;ei tiedossa&quot;. Vetäjä kertoo tilanteen savutestissä.</li>
+<li>Tallenna tiedosto.</li>
+<li>Sulje Muistio.</li>
+</ol>
+<p>Seuraavaksi: tarkistat, että kaikki on valmiina.</p>
+<h3>Valmis, kun</h3>
+<ul>
+<li>Claude-työpöytäsovellus avautuu Code-välilehdelle, ja agentti vastasi käynnistystestiin.</li>
+<li>Kansio <code>C:\dev\oppisopimustayttaja</code> tai varapaikka on olemassa. Se ei ole OneDrivessa, Tiedostoissa eikä Työpöydällä.</li>
+<li>Kansiossa <code>maarittely</code> on kuvauspaketti tekstimuodossa, ja olet lukenut sen osat 1–12.</li>
+<li>Muistion otsikkorivillä näkyy nimi <code>oma-kokemus.md</code>, ja tiedosto avautuu raahaamalla.</li>
+<li><code>oma-kokemus.md</code>:ssä on täytetty kohdat Mitä agentti saa nähdä, Mitä agentti ei saa nähdä koskaan ja Mitä työpajan lopussa on valmiina.</li>
+<li>Myös turvarajan lause, lomakkeet, kolme virhettä, kaksi kieltoa, versiot ja testi-Wilman tilanne on kirjattu.</li>
+<li>Tiedostossa ei ole nimiä, tunnisteita eikä kuvakaappauksia.</li>
+</ul>
+<h3>Jos jäät jumiin</h3>
+<p>Jos sovellus, Node.js tai Git puuttuu tai ei asennu, älä muuta koneen asetuksia. Hallitulla koneella asennukset tekee IT. Kerro vetäjälle, mikä puuttuu.</p>
+<p>Jos kansio päätyi OneDriveen, Tiedostoihin tai Työpöydälle, luo uusi kansio <code>C:\dev</code>:n alle. Valitse se sitten Code-välilehdellä.</p>
+<p>Jos sovellus ilmoittaa tilauksesta tai ei päästä Code-välilehdelle, kirjoita ilmoituksen teksti ylös. Kerro se vetäjälle.</p>
+<p>Jos agentti pyytää käynnistystestissä lupaa asentaa jotain tai muuttaa tiedostoa, kiellä lupapyyntö. Kerro vetäjälle, mitä agentti yritti tehdä.</p>
+<p>Jos Muistion otsikossa näkyy <code>oma-kokemus.md.txt</code> tai <code>oma-kokemus.txt</code>, tallenna tiedosto uudelleen tehtävän 5 tavalla. Kirjoita nimi lainausmerkeissä. Vääränniminen tiedosto voi jäädä kansioon. Kerro siitä vetäjälle savutestissä.</p>
+<h3>Seuraava osio</h3>
+<p>Kun olet tehnyt tämän osion, vetäjä tekee kanssasi koneellasi lyhyen savutestin. Aluksi käytte yhdessä läpi Valmis, kun -listan.</p>
+<p>Osio 01 alkaa työpajan ensimmäisenä päivänä kello 9.00. Lue osioiden 01 ja 02 lukutekstit ennen ensimmäistä päivää, koska työpajassa niihin on vähän aikaa.</p>
+
+</section>
+<section class="md" id="sanasto"><h2>Sanasto</h2>
+<h3>Agentti</h3>
+<p>Tekoälyohjelma, joka lukee ja muokkaa tiedostoja ja ajaa komentoja sille annetussa projektikansiossa.</p>
+<h3>Agenttisovellus</h3>
+<p>Työpöytäsovellus, jossa agentin kanssa työskennellään. Tällä polulla se on Claude-työpöytäsovelluksen Code-välilehti.</p>
+<h3>Projektikansio</h3>
+<p>Kansio, jossa kaikki työn tiedostot ovat ja jonka sisällä agentti työskentelee. Oletus on <code>C:\dev\oppisopimustayttaja</code>. Sovellus kutsuu sitä työhakemistoksi.</p>
+<h3>Kuvauspaketti</h3>
+<p>Dokumentti &quot;Oppisopimustietojen kirjaaminen Wilmaan&quot; v0.2. Se on tuotteen määrittely.</p>
+<h3>Oppisopimustäyttäjä</h3>
+<p>Työpajassa rakennettava sovellus.</p>
+<h3>Simuloitu Wilma</h3>
+<p>Projektikansiossa paikallisesti ajettava kuvitteellinen testisivusto, joka jäljittelee tarvittavia Wilman näkymiä. Sillä ei ole yhteyttä oikeaan Wilmaan.</p>
+<h3>Testi-Wilma</h3>
+<p>Oppilaitoksen Wilma-testiympäristö, jossa on vain testiopiskelijoita ja testirooli. Käytetään vain, jos se on saatu ennakkoon.</p>
+<h3>Oikea Wilma</h3>
+<p>Oppilaitoksen käytössä oleva Wilma oikeine tietoineen. Ei kuulu työpajaan.</p>
+<h3>Kuvitteellinen aineisto</h3>
+<p>Keksityt opiskelijat, yritykset, henkilöt, palkat ja tunnisteet.</p>
+<h3>Oikea opiskelijatieto</h3>
+<p>Mikä tahansa tieto oikeasta opiskelijasta, työpaikasta tai henkilöstä: nimi, tunniste, palkka, haastattelu tai kuvakaappaus. Ei koskaan agentille.</p>
+<h3>Node.js</h3>
+<p>Ohjelmisto, jonka avulla sovellus ja simuloitu Wilma toimivat koneellasi. Asennetaan ennen työpajaa.</p>
+<h3>Git</h3>
+<p>Ohjelma, jolla tallennuspisteet tehdään. Toimii vain omalla koneella.</p>
+
+</section>
+<nav class="pager"><span></span><a href="osio-01.html">Osio 01 →</a></nav>
+<footer class="page">Kaikki materiaalin henkilöt, yritykset, tunnisteet ja palkat ovat kuvitteellisia. Versio 1 · 23.10.2026.</footer>
+</main>
+</body>
+</html>

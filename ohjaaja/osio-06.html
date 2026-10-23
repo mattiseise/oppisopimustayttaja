@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vetäjä · Osio 06: Opiskelijalista ja työjono</title>
+<meta name="description" content="Vibekoodaus-työpaja: ohjelmointia osaamaton rakentaa agentin avulla Oppisopimustäyttäjän.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23775EC4'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='600' fill='white'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<main>
+<a class="back-link" href="index.html">← Vetäjän sivut</a>
+<header class="page">
+  <div class="kicker">Vetäjä · Osio 06 · päivä 2, 10.45–12.00</div>
+  <h1>Opiskelijalista ja työjono</h1>
+</header>
+<nav class="pills" aria-label="Osion sisältö"><a href="#materiaali">Vetäjän materiaali</a><a href="../claude/osio-06.html">Oppija: Claude</a><a href="../codex/osio-06.html">Oppija: Codex</a></nav>
+<section class="md" id="materiaali"><h2>Vetäjän materiaali</h2>
+<h3>Ajattelukysymys ja tavoitteet (Bloom)</h3>
+<blockquote>
+<p>Ajattelukysymys: Voiko jono avata seuraavan opiskelijan tai kirjoittaa väärälle henkilölle, ja millä testillä sen osoitat?</p>
+</blockquote>
+<ul>
+<li>Ymmärtää: oppija selittää, miksi nimi ei riitä kohdistukseen.</li>
+<li>Soveltaa: oppija testaa tuonnin ja jonon testeillä T18, T02, T20 ja T21.</li>
+<li>Arvioida: oppija arvioi, voiko jono kirjoittaa väärälle henkilölle tai merkitä keskeneräisen valmiiksi.</li>
+<li>Arvioida: oppija päättää jonon tilojen nimet kuvauspaketin ristiriidan perusteella.</li>
+</ul>
+<p>Painotus on testaamisessa. Kattavuus: vaihe 2 osa 2 (tuonti, kohdistus, jono). V10 ja V01 (kohdistus). T02, T18 (osin), T19 (osin), T20, T21 ja T22 (osin). T02 ja T20 kuuluvat vähimmäistavoitteeseen: vähintään kahden opiskelijan jono, jossa VALMIS tulee vasta varmennuksen jälkeen, seuraava avautuu itsestään eikä edellisen hyväksyntä periydy. Vähimmäistavoite: palat 1–4 (oppijan tehtävät 1–6). Tavoite: pala 5 (tehtävä 7: T21, T19, T22). Päivän 2 prioriteetti on osion 05 materiaalin varasuunnitelmassa.</p>
+<h3>Aikataulu (minuutit, summa = osion kesto)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Min</th>
+<th>Kello</th>
+<th>Sisältö</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>10.45–10.50</td>
+<td>Kehystys</td>
+</tr>
+<tr>
+<td>6</td>
+<td>10.50–10.56</td>
+<td>Tehtävä 1: uusi keskustelu, K11 ja kriteerit</td>
+</tr>
+<tr>
+<td>6</td>
+<td>10.56–11.02</td>
+<td>Tehtävä 2: jonon tilojen nimet</td>
+</tr>
+<tr>
+<td>6</td>
+<td>11.02–11.08</td>
+<td>Tehtävä 3: K2 ja suunnitelman tarkistus</td>
+</tr>
+<tr>
+<td>13</td>
+<td>11.08–11.21</td>
+<td>Tehtävä 4: pala 1, tuonti ja esikatselu (T18)</td>
+</tr>
+<tr>
+<td>13</td>
+<td>11.21–11.34</td>
+<td>Tehtävä 5: pala 2, kohdistus ja valinta (T02)</td>
+</tr>
+<tr>
+<td>20</td>
+<td>11.34–11.54</td>
+<td>Tehtävä 6: palat 3 ja 4 yhdellä kierroksella, jono ja VALMIS (T20)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>11.54–12.00</td>
+<td>Tehtävä 7 (tavoite) alkaa, tai tallennuspiste &quot;Kesken&quot;</td>
+</tr>
+<tr>
+<td>75</td>
+<td></td>
+<td>Yhteensä</td>
+</tr>
+</tbody>
+</table></div>
+<p>Palat 3 ja 4 tehdään yhdellä K3:lla, koska viisi kierrosta ei mahdu 50 minuuttiin. Pala 5 jää yleensä osion 07 aikaan.</p>
+<h3>Ennen osiota</h3>
+<ul>
+<li>Osion 05 lopputilanne: tehdyt palat on hyväksytty, ja kesken jääneet on merkitty työlistaan. Jos osion 05 pala 3 on kesken, se tehdään ensin, koska T20 tarvitsee sen. Testikytkimet ovat pois päältä. Päätöslokissa on lupa-asetus tai tarkistustapa.</li>
+<li>Avaa oppijan <code>testiaineisto/opiskelijalista.csv</code> Muistiolla. Siinä on viisi kuvitteellista opiskelijaa, etunollat, yksi tyhjä rivi ja virherivi 12A. Nimilistassa ovat Aino Testinen ja Eero Esimerkki. Ville Testaajalta puuttuu esitietolomake.</li>
+<li>CSV on mukana jossakin tallennuspisteessä. Muuten T22:n Git-tarkistuksella ei ole vertailukohtaa.</li>
+<li>Lue KP osat 9, 10 ja 20 sekä osan 14 tilaesimerkki. Tunnet silloin ristiriidan tarkasti.</li>
+<li>Testit alkavat palautuksella (<code>palauta-lahtotila.cmd</code>). Se poistaa testien urasuunnitelmat, tyhjentää jonon ja käsittelyt ja jättää Aino Testiselle 000456 lähtötilan urasuunnitelman.</li>
+</ul>
+<h3>Ohjaus askel askeleelta</h3>
+<p><strong>Kehystys.</strong> Kysy ajattelukysymys. Pyydä oppijaa kertomaan, miten hän nyt käsittelee listan ja mistä hän tietää, kuka on valmis. Vastaus johtaa usein Excel-merkintöihin. Ne ovat hyvä vertailukohta väärinkäsitykselle 3.</p>
+<p><strong>Tehtävä 1.</strong> Ei saa koskaan -kriteeri on osion tärkein. Hyvä esimerkki: &quot;Jono ei saa koskaan kirjoittaa opiskelijalle, jota en ole valinnut, kun nimi on kahdella.&quot; Älä anna sitä valmiina. Uusi keskustelu aloitetaan, koska agentti lukee K11:n pyynnöstä ohjetiedoston uudelleen. Säännöt pysyvät silloin tuoreina.</p>
+<p><strong>Tehtävä 2.</strong> KP osa 9: Odottaa tarkoittaa käsittelemätöntä ja Odottaa lisätietoja puutetta. KP osa 20 käyttää sanaa ODOTTAA puutteen merkityksessä. KP osa 14 mainitsee esimerkkeinä ODOTTAA, KÄSITTELYSSÄ ja VALMIS ilman määritelmää. Suositus on osan 9 nimet. Hyväksy myös oppijan omat nimet, jos jokainen sana tarkoittaa yhtä asiaa ja perustelu on oma. Materiaali käyttää osan 9 nimiä joka tapauksessa. Jos oppija valitsee omat nimet, pyydä häntä kirjoittamaan päätöslokiin vastaavuus osan 9 nimiin. Päätös on myös esimerkki osion 02 väärinkäsityksestä &quot;kuvauspaketti on oikeassa kaikessa&quot;.</p>
+<p><strong>Tehtävä 3.</strong> Esikatselun aukon hyvä vastaus: virherivi näkyy omana rivinään ja syy kerrotaan, tyhjä rivi näkyy, ja opiskelijanumerot näkyvät etunollineen. Rivi &quot;XLSX ei kuulu tähän&quot; pitää agentin rajattuna. Rivi &quot;Kun hyväksyn suunnitelman, älä aloita&quot; pyytää agenttia odottamaan. Jos agentti silti aloittaa, oppija toimii osion 05 tehtävän 3 askeleen 7 mukaan. Palautusrivi varmistaa, että palautus tyhjentää myös jonon.</p>
+<p><strong>Tehtävä 4.</strong> Oppija avaa CSV:n Muistiolla ennen tuontia. Silloin hän tietää, mitä esikatselussa pitää näkyä. Käsittelyä ei aloiteta CSV:stä. Jono tehdään nimilistasta, koska siinä nimi on ainoa tieto. Jokainen testi alkaa palautuksella, ja oppija kirjaa Lähtötila-rivin.</p>
+<p><strong>Tehtävä 5.</strong> T02:n ydin on askel 4: yritys jatkaa ilman valintaa. Jos sovellus päästää kirjoittamaan, tulos on ei läpi. Korjautus tehdään ennen palaa 3, koska kaikki myöhemmät testit nojaavat oikeaan kohdistukseen.</p>
+<p><strong>Tehtävä 6.</strong> Palat 3 ja 4 yhdellä kierroksella. Askel 4 todistaa, että palautus poisti T05:n urasuunnitelman. Jono on kolmen nimen lista: Aino Testinen, Ville Testaaja ja Liisa Kokeilu. Eero ei ole jonossa, joten hän pysyy puhtaana osion 08 B1:tä varten. Seuraa askelta 8: oppija etsii itse tapaa merkitä Aino valmiiksi ennen Wilma-tallennusta. T20:n toinen osa on Villen tarkistus: hänen esitietolomakkeensa puuttuu, joten jos Villellä näkyy Ainon esitietoarvo, tulos on ei läpi. Mitään ei saa olla hyväksytty. Kolmas osa on simuloidun Wilman tarkistus: uusi urasuunnitelma on opiskelijalla 000123, ei nimikaimalla.</p>
+<p><strong>Tehtävä 7.</strong> T20 ja T21 ovat samaa jonoa. Pala 5 tuo pysyvyyden, joten T20:n jono ei säily palan 5 rakentamisen yli. Siksi oppija palauttaa lähtötilan ja vie Ainon uudelleen VALMIS-tilaan (askel 4), noin 3 min. Sen jälkeen Ville on aktiivinen (T21). Liisan työajassa näkyy ristiriita, koska palautus tyhjensi osion 05 valinnan. Pysyvyys ja T19 jatkavat T21:n jälkeisestä tilanteesta. Valmiiden merkintöjen pitää säilyä (KP osa 10). T22: agentin Git-vastaus on agentin kertomus. Oppijan oma tarkistus on CSV Muistiossa ja Codex-polulla Git-toiminnot.</p>
+<p>Oppija pitää hiiren koko osion ajan.</p>
+<h3>Polkujen erot (taulukko Claude | Codex)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Asia</th>
+<th>Claude</th>
+<th>Codex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Uusi keskustelu</td>
+<td>Uusi istunto Code-välilehdellä</td>
+<td>Uusi työsäie samassa projektissa</td>
+</tr>
+<tr>
+<td>Ohjetiedosto K2:ssa ja K11:ssä</td>
+<td><code>CLAUDE.md</code></td>
+<td><code>AGENTS.md</code></td>
+</tr>
+<tr>
+<td>Suunnitelma ensin</td>
+<td>Suunnittelutila ja K2:n viimeinen rivi. Hyväksyntä osion 05 päätöksen mukaan.</td>
+<td>K2:n viimeinen rivi. Hyväksyntä lauseella &quot;Hyväksyn suunnitelman. Älä vielä aloita. Annan ensimmäisen palan seuraavaksi.&quot;</td>
+</tr>
+<tr>
+<td>Agentti aloittaa ennen K3:a</td>
+<td>Kiellä lupapyyntö: &quot;Pysähdy. Odota, että annan palan.&quot; Automaattisen sallimisen jälkeen pysäytä agentti ja katso muutosnäkymä.</td>
+<td>Pysäytä agentti ja tarkista Git-toiminnot. K7 tarvittaessa.</td>
+</tr>
+<tr>
+<td>Muutosten tarkistus palan jälkeen</td>
+<td>Osion 05 päätöksen mukaan: lupapyynnöt ja muutosnäkymä tai pelkkä muutosnäkymä</td>
+<td>Git-toimintojen muuttuneet tiedostot pysäytyssäännön mukaan</td>
+</tr>
+<tr>
+<td>T22 lähtötiedosto</td>
+<td>Agentin Git-vastaus ja Muistio</td>
+<td>Agentin Git-vastaus, Git-toiminnot ja Muistio</td>
+</tr>
+</tbody>
+</table></div>
+<p>Sisältö, tehtävät ja testit ovat samat.</p>
+<h3>Väärinkäsitykset (vähintään 3)</h3>
+<p><strong>Väärinkäsitys 1:</strong> &quot;Nimi riittää, jos se on harvinainen.&quot; Harvinainen nimi voi olla kahdella, ja yhdellä ihmisellä voi olla kaksi opiskeluoikeutta. KP osa 20: nimi on hakusyöte, ei kirjoituskohteen tunniste.</p>
+<p><strong>Väärinkäsitys 2:</strong> &quot;Jono saa jatkaa automaattisesti vaikean opiskelijan ohi.&quot; Puuttuva tieto ei aiheuta automaattista ohitusta (KP osa 20). Odottaa lisätietoja vaatii oppijan päätöksen ja perustelun. Tarkistettava tallennus pysäyttää jonon, eikä sitä ohiteta siirtämällä opiskelijaa odottamaan.</p>
+<p><strong>Väärinkäsitys 3:</strong> &quot;Excel-tiedostoon voi merkitä valmiit.&quot; Alkuperäistä listaa ei muuteta (KP osa 10). Valmis-tieto on sovelluksen jonossa ja Wilmassa. Tuloskopio on lisätavoite, ja sekin on vain tilannekuva, joka ei todista Wilman tallennuksia (KP osa 20).</p>
+<p><strong>Väärinkäsitys 4:</strong> &quot;VALMIS sovelluksessa tarkoittaa, että Wilmassa on kaikki.&quot; Työpajassa VALMIS koskee vain urasuunnitelmaa. Kun oppisopimus tulee mukaan osiossa 07, VALMIS vaatii senkin varmennuksen.</p>
+<h3>Jumikohdat ja purku (taulukko: oire | todennäköinen syy | purku)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Oire</th>
+<th>Todennäköinen syy</th>
+<th>Purku</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Agentti muuttaa lähtö-CSV:tä, esimerkiksi poistaa virherivin</td>
+<td>Agentti korjaa testiaineistoa</td>
+<td>Hylkää ja K7. Ohjetiedoston kohta 6. Virherivi on testitapaus.</td>
+</tr>
+<tr>
+<td>Opiskelija merkitään valmiiksi ennen varmennusta</td>
+<td>VALMIS on kytketty Wilma-tallennukseen, ei uudelleenlukuun</td>
+<td>Ei läpi T20:ssä. K5 ennen palaa 5.</td>
+</tr>
+<tr>
+<td>Jono ei säily</td>
+<td>Jono on vain sovelluksen muistissa</td>
+<td>Ei läpi pysyvyystestissä. K5 palassa 5.</td>
+</tr>
+<tr>
+<td>Etunollat katoavat</td>
+<td>CSV avattu ja tallennettu Excelillä tai tunniste luettu lukuna</td>
+<td>Oppija kysyy Gitiltä, onko CSV muuttunut. Jos on, K7. Jos ei, K5: tunnisteet tekstinä.</td>
+</tr>
+<tr>
+<td>Sovellus löytää Aino Testiselle (000123) vanhan urasuunnitelman</td>
+<td>Palautusta ei tehty, tai simuloitu Wilma oli auki palautuksen aikana</td>
+<td>Sulje ohjelmat ja palauta uudelleen. Kaksoiskappaleen esto toimii oikein.</td>
+</tr>
+<tr>
+<td>Liisan osion 05 valinta näkyy palautuksen jälkeen</td>
+<td>Palautus ei tyhjennä käsittelyjä</td>
+<td>Oppija kirjaa havainnon T21:een ja korjauttaa palautuksen K5:llä. T21 ei kaadu tähän.</td>
+</tr>
+<tr>
+<td>Nimilista tulkitaan yhdeksi nimeksi</td>
+<td>Liitetyt rivit luetaan yhtenä</td>
+<td>K5: yksi nimi riviä kohden</td>
+</tr>
+<tr>
+<td>Agentti rakentaa XLSX-tuonnin</td>
+<td>Suunnitelma laajeni</td>
+<td>Pyydä poistamaan tai palaa tallennuspisteeseen. XLSX on lisätavoite.</td>
+</tr>
+<tr>
+<td>Agentti aloittaa heti hyväksynnän jälkeen tai rakentaa kaikki palat kerralla</td>
+<td>Suunnitelman hyväksyntä tulkittiin toteutusluvaksi</td>
+<td>Pysäytä polun tavalla (polkujen erot). K7 tarvittaessa. K3 pala kerrallaan.</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Varasuunnitelma</h3>
+<p>Noudata osion 05 Varasuunnitelman prioriteettilistaa. Tarkista tilanne kello 12.00.</p>
+<p>Osion 05 pala 3 on kesken: se tehdään ensin, koska T20 tarvitsee tarkistusnäkymän hyväksynnän. Aika otetaan palasta 5.</p>
+<p>Päivä 1 jäi kesken, ja osio 05 tehtiin lyhennettynä: osio 06 alkaa silti ajallaan. Tehdään vähimmäistavoite: palat 1–4, T02 ja T20. Jos aika on tiukka, T18:n CSV-osa (tehtävän 4 askeleet 4–5) siirtyy myöhemmäksi. Nimilistan tuonti tehdään, koska jono tarvitsee sen. Pala 5 siirtyy osion 07 aikaan. Osio 07 jää pois.</p>
+<p>Aikataulu venyy: T02 ja T20 ensin, koska ne ovat vähimmäistavoitteessa. Sitten pala 5: T21 ja pysyvyys, viimeisinä T19 ja T22. Kesken jääneet tehdään osion 07 aikana. Osiota 06 ei pudoteta.</p>
+<p>XLSX ei kuulu osioon. Siihen ei käytetä aikaa, jos CSV ja nimilista ovat kesken.</p>
+<p>Agentti kiertää kehää: K10 ja K7. Jos projekti on rikki yli 15 min, pura vetäjän välitila osion 05 lopusta. Oppijan omat tiedostot säilytetään. Oppija kirjaa päätöslokiin, mitä tapahtui.</p>
+<h3>Tarkista ennen seuraavaa osiota</h3>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Päätöslokissa ovat jonon tilojen nimet ja oppijan oma peruste.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> T02 ja T20 on kirjattu oppijan sanoin Lähtötila-riveineen. Ei läpi -tulokset on korjautettu tai siirretty osion 07 alkuun. Uusinnat ovat omilla riveillään.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> <code>opiskelijalista.csv</code> on ennallaan.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Jono säilyy uudelleenkäynnistyksen yli, tai pysyvyys on kirjattu ei läpi -tulokseksi, tai pala 5 on työlistalla keskeneräisenä.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Viimeinen tallennuspiste on tehty.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Osion 07 laajuus on päätetty prioriteettilistan mukaan ja kirjattu päätöslokiin. Osio 07 on joustokohta.</li>
+</ul>
+<h3>Tarkistettavat nimet</h3>
+<ul>
+<li>Claude: uuden istunnon aloitus Code-välilehdellä.</li>
+<li>Claude: suunnitelman hyväksynnän vaihtoehdot suunnittelutilassa.</li>
+<li>Claude ja Codex: agentin pysäytys kesken työn.</li>
+<li>Codex: uuden työsäikeen aloitus samassa projektissa.</li>
+<li>Codex: Git-toimintojen näkymä, jossa muuttuneet tiedostot ja tiedostokohtainen muutos näkyvät (T22).</li>
+<li>Windows: tiedoston avaaminen Muistiolla raahaamalla, jos CSV:n oletusohjelma on Excel.</li>
+</ul>
+
+</section>
+<nav class="pager"><a href="osio-05.html">← Osio 05</a><a href="osio-07.html">Osio 07 →</a></nav>
+<footer class="page">Kaikki materiaalin henkilöt, yritykset, tunnisteet ja palkat ovat kuvitteellisia. Versio 1 · 23.10.2026.</footer>
+</main>
+</body>
+</html>

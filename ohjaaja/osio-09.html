@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vetäjä · Osio 09: Jatko: seuraavat askeleet ja pilotti</title>
+<meta name="description" content="Vibekoodaus-työpaja: ohjelmointia osaamaton rakentaa agentin avulla Oppisopimustäyttäjän.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23775EC4'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='600' fill='white'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<main>
+<a class="back-link" href="index.html">← Vetäjän sivut</a>
+<header class="page">
+  <div class="kicker">Vetäjä · Osio 09 · päivä 2, 15.45–16.15 ja itsenäisesti 60 min</div>
+  <h1>Jatko: seuraavat askeleet ja pilotti</h1>
+</header>
+<nav class="pills" aria-label="Osion sisältö"><a href="#materiaali">Vetäjän materiaali</a><a href="../claude/osio-09.html">Oppija: Claude</a><a href="../codex/osio-09.html">Oppija: Codex</a></nav>
+<section class="md" id="materiaali"><h2>Vetäjän materiaali</h2>
+<h3>Ajattelukysymys ja tavoitteet (Bloom)</h3>
+<blockquote>
+<p>Ajattelukysymys: Mikä on seuraava pienin askel, jonka voit tehdä ja tarkistaa itse, ja mikä kuuluu IT:lle tai pääkäyttäjälle?</p>
+</blockquote>
+<ul>
+<li>Arvioida: oppija arvioi, mitä työpajaversiosta on valmiina suhteessa vaatimuksiin V01–V10.</li>
+<li>Ymmärtää: oppija erottaa omat päätöksensä niistä, jotka kuuluvat IT:lle tai pääkäyttäjälle (P01–P11).</li>
+<li>Luoda: oppija laatii jatkosuunnitelman kolmesta seuraavasta askeleesta kriteereineen ja tarkistustapoineen.</li>
+</ul>
+<p>Painotus on perustelussa. Kattavuus: vaihe 0 oikeana sekä vaiheet 3–7 jatkona. Kaikki vaatimukset näkyvät jatkosuunnitelmassa. Testit T11, T12, T15, T16 ja T22 siirtyvät kokonaan jatkoon.</p>
+<p>Pidä lupaus samana kuin osiossa 00. Vähimmäistavoite: simuloitu Wilma ja Oppisopimustäyttäjä käynnistyvät <code>KAYNNISTYS.md</code>:n ohjeella ilman agenttia. Sovellus avaa näkyvän selaimen, ja oppija kirjautuu itse. Yhden opiskelijan tiedot haetaan kuvitteellisista lähteistä tarkistettaviksi. Urasuunnitelman Wilma-tallennus varmennetaan uudelleenluvulla. Kahden opiskelijan jonossa VALMIS tulee vasta varmennuksen jälkeen. Lisäksi oppijalla on ohjetiedosto, työlista, päätösloki, hyväksymiskriteerit, <code>TESTIT.md</code> ja <code>JATKO.md</code>. Tavoite lisää lukutilat ja ristiriidat, listatuonnin ja nimikaimat, jonon tilan Odottaa lisätietoja, oppisopimuksen riippuvuuksineen, PRO-ilmeen, yhden häiriötestin ja testi-Wilman lukukokeilun, jos ehdot täyttyivät. Oikea Wilma, oikeat tiedot, asennuspaketti ja pilotti ovat jatkoa.</p>
+<h3>Aikataulu (minuutit, summa = osion kesto)</h3>
+<p>Työpajassa:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Min</th>
+<th>Kello</th>
+<th>Sisältö</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3</td>
+<td>15.45–15.48</td>
+<td>Kehystys: ajattelukysymys</td>
+</tr>
+<tr>
+<td>5</td>
+<td>15.48–15.53</td>
+<td>Tehtävä 1: tekemättömät testit jatkoon</td>
+</tr>
+<tr>
+<td>10</td>
+<td>15.53–16.03</td>
+<td>Tehtävä 2: <code>JATKO.md</code>:n runko ja tarkistus</td>
+</tr>
+<tr>
+<td>7</td>
+<td>16.03–16.10</td>
+<td>Tehtävä 3: kolme seuraavaa askelta</td>
+</tr>
+<tr>
+<td>5</td>
+<td>16.10–16.15</td>
+<td>Tehtävä 4: seurantatapaaminen, päätös ja tallennuspiste</td>
+</tr>
+<tr>
+<td>30</td>
+<td></td>
+<td>Yhteensä</td>
+</tr>
+</tbody>
+</table></div>
+<p>Itsenäisesti työpajan jälkeen (tehtävä 5, kerran viikossa):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Min</th>
+<th>Sisältö</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>Uusi keskustelu ja K11, vertailu päätöslokiin</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Askeleen valinta ja tallennuspiste</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Testi tai korjauskierros</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Päätös, tallennuspiste ja <code>JATKO.md</code>:n päivitys</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Yhteensä</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Ennen osiota</h3>
+<ul>
+<li>Osion 08 hyväksymispäätös on kirjattu, ja tallennuspiste Työpajaversio 1 on tehty.</li>
+<li>Sinulla on kalenteri auki. Seurantatapaamiset sovitaan noin kahden ja kuuden viikon päähän.</li>
+<li>Tunnet oman organisaatiosi vastuutahot KP osan 29 rooleille. Nimiä ei kirjoiteta agentin tiedostoihin. Kerro ne oppijalle suullisesti.</li>
+<li>Luovutusviesti IT:lle on mietitty (ks. alla).</li>
+</ul>
+<h3>Ohjaus askel askeleelta</h3>
+<p><strong>Kehystys.</strong> Kysy ajattelukysymys. Tavoitevastauksessa on yksi pieni askel, jonka oppija voi tarkistaa simuloidussa Wilmassa, ja yksi asia, joka kuuluu IT:lle tai pääkäyttäjälle.</p>
+<p><strong>Tehtävä 1.</strong> Myös ei läpi -testit merkitään jatkoon. Viimeisin tulos on alin uusintarivi, eikä aiempia tuloksia pyyhitä. Testit T11, T12, T15 ja T16 sekä T22 kokonaisuudessaan ovat jatkoa joka tapauksessa.</p>
+<p><strong>Tehtävä 2.</strong> Agentti kokoaa rungon, mutta seuraavat askeleet jäävät tyhjiksi. Aukko pyytää P-päätöksiä, joihin oppijalla on omaa tietoa. Tyypillisiä ovat P03 (haastattelu), P07 (nykyinen tieto) ja P11 (sarja-ajon säännöt). Oppija tarkistaa rivit P01–P11 KP osasta 29. Hän lukee osan, kun agentti kirjoittaa. Tarkista, ettei tiedostossa ole ihmisten nimiä.</p>
+<p><strong>Tehtävä 3.</strong> Askeleet ovat oppijan omia. Älä kirjoita niitä. Hyvä askel on pieni ja havaittava: &quot;Teen T04:n simuloidussa Wilmassa. Hyväksyn, kun Kokeiluverstas Oy:n lisäys odottaa hyväksyntääni.&quot; Huono askel on iso ja epämääräinen: &quot;Selvitän Primuksen.&quot; Kysy silloin: &quot;Mikä on yksi testi, jolla näet edistymisen?&quot; Vähintään yhden askeleen pitää olla sellainen, jonka oppija tekee yksin.</p>
+<p><strong>Tehtävä 4.</strong> Sopikaa ensimmäinen seurantatapaaminen nyt, ei sähköpostilla myöhemmin. Sopikaa myös, miten oppija ottaa yhteyttä tapaamisten välillä. Hän kirjoittaa tavan <code>JATKO.md</code>:hen. Päätöksen peruste on oppijan sanoin.</p>
+<p><strong>Tehtävä 5.</strong> Jos aikaa jää, näytä uuden keskustelun aloitus ja K11. Painota: agentti ei muista eilistä, tiedostot muistavat. Jos askel vaatii rakentamista, oppija tekee koko työkierroksen, ja suunnitelma hyväksytään kuten työpajassa. Testi, joka tekee Wilma-tallennuksen, alkaa lähtötilan palautuksella.</p>
+<h3>Seurantatapaamisten runko (2 × 2 h)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Min</th>
+<th>Sisältö</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20</td>
+<td>Tilannekatsaus: oppija näyttää <code>JATKO.md</code>:n, <code>TESTIT.md</code>:n ja päätöslokin</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Testit: oppija tekee kaksi testiä vetäjän nähden</td>
+</tr>
+<tr>
+<td>50</td>
+<td>Yksi rakennuskierros yhdessä: K11, K2, K3, tarkistus, testi, päätös ja tallennuspiste</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Seuraavat askeleet: <code>JATKO.md</code> päivitetään</td>
+</tr>
+<tr>
+<td>120</td>
+<td>Yhteensä</td>
+</tr>
+</tbody>
+</table></div>
+<p>Ensimmäisessä tapaamisessa rakennuskierros on osio 07, jos se siirtyi jatkoon. Toisessa tapaamisessa aloitetaan testi-Wilman luku, jos testi-Wilma (osa P10:tä) on saatu.</p>
+<h3>Luovutus IT:lle</h3>
+<p>Kerro, mitä työpajaversio on: prototyyppi, joka toimii simuloidun Wilman kanssa kuvitteellisella aineistolla kehitystilassa. Git on vain oppijan koneella. Kerro myös, mitä se ei ole. Se ei ole käyttövalmis, sitä ei ole testattu oikeassa Wilmassa, eikä siinä ole salausta tai säilytysratkaisua (P09, T15).</p>
+<p>Mukaan <code>JATKO.md</code>, <code>TESTIT.md</code>, ohjetiedosto ja vaiheen 1 kokeiluhavainnot. Havaintoja ovat esimerkiksi Electronin tai Playwrightin lataus hallitulla koneella ja testi-Wilman kirjautuminen näkyvässä selaimessa. Projektikansiota ei lähetetä sähköpostilla eikä siirretä OneDriveen. Siirrosta sovitaan IT:n kanssa.</p>
+<h3>Työpajan arviointi</h3>
+<p>Arvioi kolmea asiaa. Päätöslokissa on vähintään 10 merkintää, perustelut ovat oppijan sanoja, ja mukana on vähintään yksi korjautan tai hylkään. Vähimmäistestit on tehty, ja havainnot ovat omin sanoin. Oppijan oma arvio pyydetään kolmella kysymyksellä: mitä osaat nyt tehdä yksin, mitä et vielä ja mikä yllätti. Arviointi on palautetta, ei arvosana.</p>
+<h3>Polkujen erot (taulukko Claude | Codex)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Asia</th>
+<th>Claude</th>
+<th>Codex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Uusi keskustelu</td>
+<td>Uusi istunto samassa kansiossa</td>
+<td>Uusi työsäie samassa projektissa, yksi kerrallaan</td>
+</tr>
+<tr>
+<td>Ohjetiedosto</td>
+<td><code>CLAUDE.md</code></td>
+<td><code>AGENTS.md</code></td>
+</tr>
+<tr>
+<td>Muutosten tarkistus</td>
+<td>Muutosnäkymä</td>
+<td>Muuttuneet tiedostot Git-toiminnoista</td>
+</tr>
+<tr>
+<td>Lupapyyntö</td>
+<td>Ennen tiedostomuutoksia ja komentoja</td>
+<td>Kun agentti ylittää hiekkalaatikon rajan</td>
+</tr>
+<tr>
+<td>Suunnitelman hyväksyntä jatkossa</td>
+<td>Osion 05 lupapäätöksen mukaan</td>
+<td>&quot;Hyväksyn suunnitelman. Älä vielä aloita. Annan ensimmäisen palan seuraavaksi.&quot;</td>
+</tr>
+<tr>
+<td>Polun riski jatkossa</td>
+<td>Väsynyt oppija sallii myös komennot automaattisesti tai jättää muutosnäkymän katsomatta</td>
+<td>Oppija avaa rinnakkaisia työsäikeitä tai pilvitilan</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Väärinkäsitykset (vähintään 3)</h3>
+<p><strong>Väärinkäsitys 1:</strong> &quot;Työpajaversion voi ottaa käyttöön oikealla datalla.&quot; Ei voi. Salaus, säilytys, lokit (P09, T15), testi-Wilma ja pilotti puuttuvat. Oikeaa aineistoa ei käsitellä ennen niitä.</p>
+<p><strong>Väärinkäsitys 2:</strong> &quot;Jatkan yksin kaikki vaiheet.&quot; Oppija tuo substanssin ja hyväksynnän. Yhteydet, oikeudet, asennus ja jakelu kuuluvat IT:lle ja pääkäyttäjille (KP osa 29).</p>
+<p><strong>Väärinkäsitys 3:</strong> &quot;Agentti muistaa, missä jäätiin.&quot; Uusi keskustelu alkaa tyhjästä. Tiedostot ja K11 kantavat tilanteen.</p>
+<p><strong>Väärinkäsitys 4:</strong> &quot;Jatkosuunnitelma on agentin suunnitelma.&quot; Agentti kokoaa rungon. Seuraavat askeleet ja niiden kriteerit ovat oppijan.</p>
+<h3>Jumikohdat ja purku (taulukko: oire | todennäköinen syy | purku)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Oire</th>
+<th>Todennäköinen syy</th>
+<th>Purku</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>JATKO.md</code>:ssä on ihmisten nimiä</td>
+<td>Oppija kirjoitti aukkoon kollegan nimen</td>
+<td>Korjauta roolinimikkeiksi. Nimet kerrotaan suullisesti.</td>
+</tr>
+<tr>
+<td>P-rivejä puuttuu tai vastuut ovat väärin</td>
+<td>Agentti tiivisti osan 29</td>
+<td>Korjauta KP osan 29 mukaan</td>
+</tr>
+<tr>
+<td>Askeleet ovat liian suuria</td>
+<td>Työtä ei ole pilkottu</td>
+<td>Kysy: mikä on yksi testi?</td>
+</tr>
+<tr>
+<td>Kaikki askeleet vaativat muita</td>
+<td>Oppija ei näe, mitä voi tehdä yksin</td>
+<td>Osoita tekemättömät simuloidun Wilman testit</td>
+</tr>
+<tr>
+<td>Oppija haluaa jatkaa heti oikealla aineistolla</td>
+<td>Innostus</td>
+<td>P09 ja T15 ensin. Kirjaa toive askeleeksi IT:lle.</td>
+</tr>
+<tr>
+<td>Aika loppuu</td>
+<td>Osio 08 venyi</td>
+<td>Tehtävät 1, 2 ja 4 nyt. Tehtävä 3 ensimmäisellä itsenäisellä kerralla.</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Varasuunnitelma</h3>
+<p>Jos aika loppuu, tehdään tehtävät 2 ja 4. Oppija kirjoittaa kolme askelta ensimmäisellä itsenäisellä työkerralla, ja ne tarkistetaan seurantatapaamisessa.</p>
+<p>Jos agentti ei ole käytettävissä, oppija kirjoittaa <code>JATKO.md</code>:n Muistiolla viidellä otsikolla. Anna hänelle P01–P11 KP osasta 29.</p>
+<p>Jos osio 08 jäi kesken, tee ensin hyväksymispäätös ja tallennuspiste Työpajaversio 1 (5 min). Lyhennä tehtävää 3.</p>
+<h3>Tarkista ennen seuraavaa osiota</h3>
+<p>Seuraava yhteinen kerta on ensimmäinen seurantatapaaminen.</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> <code>TESTIT.md</code>:ssä tekemättömät ja ei läpi -testit on merkitty jatkoon.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> <code>JATKO.md</code>:ssä on viisi otsikkoa, P01–P11 vastuineen ja kolme oppijan omaa askelta kriteereineen.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Seurantatapaaminen on molempien kalenterissa, ja yhteydenottotapa on <code>JATKO.md</code>:ssä.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Viimeinen päätös ja tallennuspiste on tehty.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Projektikansio on edelleen <code>C:\dev\oppisopimustayttaja</code>, eikä sitä ole kopioitu OneDriveen.</li>
+</ul>
+<h3>Tarkistettavat nimet</h3>
+<ul>
+<li>Claude: uuden istunnon aloittaminen samassa kansiossa.</li>
+<li>Codex: uuden työsäikeen aloittaminen ja se, ettei pilvitila tai rinnakkainen työsäie valikoidu oletuksena.</li>
+<li>Molemmat: miten aiemmat keskustelut näkyvät sovelluksessa. Oppija ei käytä niitä muistina.</li>
+</ul>
+
+</section>
+<nav class="pager"><a href="osio-08.html">← Osio 08</a><span></span></nav>
+<footer class="page">Kaikki materiaalin henkilöt, yritykset, tunnisteet ja palkat ovat kuvitteellisia. Versio 1 · 23.10.2026.</footer>
+</main>
+</body>
+</html>

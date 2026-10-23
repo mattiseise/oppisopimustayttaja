@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Osio 02: Määrittely ennen koodia: ohjetiedosto ja työlista – Codex-polku</title>
+<meta name="description" content="Kuvaako ohjetiedosto oikein sen, miten oppisopimus kirjataan, ja mistä sen tiedät?">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23775EC4'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='600' fill='white'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<main>
+<a class="back-link" href="index.html">← Codex-polku</a>
+<header class="page">
+  <div class="kicker">Codex-polku · Osio 02 · päivä 1, 10.30–11.45</div>
+  <h1>Määrittely ennen koodia: ohjetiedosto ja työlista</h1>
+  <div class="insight"><div class="kicker">Ajattelukysymys</div><p>Kuvaako ohjetiedosto oikein sen, miten oppisopimus kirjataan, ja mistä sen tiedät?</p></div>
+</header>
+<nav class="pills" aria-label="Osion sisältö">
+  <a href="#lue">1 · Lukuteksti</a><a href="#tehtavat">2 · Tehtävät</a><a href="#sanasto">3 · Sanasto</a>
+</nav>
+<section class="md" id="lue"><h2>Lukuteksti</h2>
+<p>Agentti kirjoittaa koodia nopeasti. Se kirjoittaa sitä myös silloin, kun se ei tiedä, mitä pitäisi tehdä. Silloin se arvaa. Tässä osiossa estät arvaamisen, ennen kuin ensimmäistäkään koodiriviä on kirjoitettu.</p>
+<p>Agentti tekee kuvauspaketista kaksi tiedostoa. Ohjetiedosto kertoo säännöt, joita agentti noudattaa koko ajan. Työlista pilkkoo työn pieniksi tehtäviksi. Sinä tarkistat, että säännöt vastaavat sitä, miten oppisopimus oikeasti kirjataan.</p>
+<p>Ennen sitä kirjoitat ensimmäiset hyväksymiskriteerisi. Ne kertovat, milloin hyväksyt agentin työn.</p>
+<p>Teet osiossa saman kierroksen kahdesti, ensin ohjetiedostolle ja sitten työlistalle. Kumpikin päättyy omaan tarkistukseen, päätökseen ja tallennuspisteeseen (commit). Näin jokainen hyväksytty tuotos on tallessa ennen seuraavaa.</p>
+<h3>Miksi agentille ei sanota &quot;tee oppisopimusohjelma&quot;</h3>
+<p>Lyhyt pyyntö tuottaa jotain, joka näyttää valmiilta. Agentti täyttää aukot omilla oletuksillaan. Oletukset ovat usein järkeviä. Oppisopimuksessa ne ovat silti vaarallisia.</p>
+<p>Katso kahta esimerkkiä. Liisa Kokeilun palkaksi on kirjattu &quot;2 450&quot; ilman yksikköä. Agentti voi päätellä, että kyse on kuukausipalkasta, koska summa näyttää siltä. Kuvauspaketin osa 8 kieltää tämän. Palkan yksikkö tarkistetaan, sitä ei arvata.</p>
+<p>Toinen esimerkki tulee Testileipomo Oy:stä. Aino Testisen työpaikkaohjaaja on Maija Mallikas, ja työnantajan edustaja on Kaisa Mallikas. Agentti voi olettaa, että sama henkilö hoitaa molemmat roolit. Kuvauspaketin osa 7 sanoo, että he voivat olla eri henkilöitä. Ohjelma ei saa olettaa heitä samaksi.</p>
+<p>Kumpikaan virhe ei näy koodista. Ne näkyvät vasta, kun Wilmassa on väärä tieto. Siksi säännöt kirjoitetaan ennen koodia.</p>
+<h3>Kuvauspaketti on lähde</h3>
+<p>Luit kuvauspaketin ensimmäisen pääosan, osat 1–12, osiossa 00. Tärkeimmät niistä ovat osat 6–10. Osa 6 kertoo, mitä Wilmaan täytetään. Osa 7 kertoo järjestyksen. Osa 8 kertoo, mitä työntekijä tarkistaa. Osat 9 ja 10 kertovat listan käsittelystä ja siitä, milloin opiskelija on valmis. Nämä osat ovat sinun alaasi.</p>
+<p>Toinen pääosa on kirjoitettu järjestelmäasiantuntijoille. Kaksi sen osaa koskee myös sinua. Osa 15 sisältää vaatimukset V01–V10 ja osa 28 hyväksymistestit. Niitä ei tarvitse lukea nyt. Agentti käyttää niitä työlistassa, ja sinä katsot niistä tarvittavat rivit myöhemmin. Muut osat ovat teknisiä, eikä sinun tarvitse ymmärtää niitä. Agentti lukee ne.</p>
+<p>Kuvauspaketti ei ole virheetön. Siinä voi olla kohtia, joissa sinun kokemuksesi on tarkempi. Kun huomaat sellaisen, kerrot sen agentille ja kirjaat sen päätöslokiin. Agentti ei voi huomata sitä itse, koska sillä ei ole muuta lähdettä kuin kuvauspaketti.</p>
+<h3>Ohjetiedosto ja työlista</h3>
+<p><strong>Ohjetiedosto</strong> on projektikansion juuressa oleva <code>AGENTS.md</code>. Agentti lukee sen työn alussa. Siinä ovat projektin pysyvät säännöt.</p>
+<p>Ohjetiedostossa on yhdeksän kohtaa. Ne kertovat projektista, käyttäjästä, työtavasta ja tietoturvasta. Lisäksi niissä ovat tuotteen säännöt, tiedostot, joita agentti ei saa muokata, tekniikka, ulkoasu ja oma sääntösi.</p>
+<p>Kaikki kohdat eivät ole yhtä tärkeitä sinulle. Tekniikan agentti valitsee kuvauspaketin ehdotuksen pohjalta. Käyttäjä-kohta kertoo agentille, ettet ohjelmoi. Silloin agentti kertoo jokaisen tuloksen kohdalla, miten tarkistat sen ajamalla sovellusta. Kohta tiedostoista, joita agentti ei muokkaa, suojaa päätöslokisi ja hyväksymiskriteerisi. Tämä on tällä polulla tärkeää, koska agentti voi muokata kansion tiedostoja kysymättä. Suoja toimii vain, jos tiedostojen nimet ovat oikein, esimerkiksi <code>PAATOSLOKI.md</code> eikä <code>PAATOSLOKI.md.txt</code>. Tärkein kohta sinulle on tuotteen säännöt. Agentti kokoaa ne kuvauspaketista, ja sinä tarkistat ne.</p>
+<p>Ohjetiedosto ei valmistu kerralla. Kun huomaat työpajan aikana uuden säännön, lisäät sen. Agentti ei myöskään noudata ohjetiedostoa aina. Siksi tarvitaan testit.</p>
+<p><strong>Työlista</strong> on tiedosto <code>TYOLISTA.md</code>. Siinä kuvauspaketin vaiheet 0–7 on pilkottu pieniksi, järjestetyiksi ja tarkistettaviksi tehtäviksi. Vaiheet kuvataan kuvauspaketin osissa 25 ja 26. Lyhyesti ne ovat nämä:</p>
+<ul>
+<li>Vaihe 0: selvitetään, mistä tiedot saadaan ja mihin Wilman kenttiin ne menevät.</li>
+<li>Vaihe 1: kokeillaan koko ketju yhdellä opiskelijalla: tiedot lähteistä, Wilma-tallennus ja uudelleenluku.</li>
+<li>Vaihe 2: ohjelma näyttää puuttuvat ja ristiriitaiset tiedot ja käsittelee opiskelijalistan jonona.</li>
+<li>Vaihe 3: oikea yritys, toimipaikka ja työpaikkaohjaaja löytyvät ilman väärää yhdistämistä.</li>
+<li>Vaihe 4: urasuunnitelma ja HOPS.</li>
+<li>Vaihe 5: näyttösuunnitelmat ja oppisopimus.</li>
+<li>Vaihe 6: häiriötilanteet, tietojen suojaus ja asennuspaketti.</li>
+<li>Vaihe 7: rajattu pilotti, jossa henkilöstö kokeilee ohjelmaa oikeassa työssä.</li>
+</ul>
+<p>Työpajassa tehdään osion 00 vähimmäistavoite. Se on vaihe 0 simuloituna, vaihe 1 ja osia vaiheista 2 ja 4. Tavoitteessa mukaan tulee osia vaiheista 3, 5 ja 6. Vaihe 7 on jatkoa.</p>
+<p>Yksi työlistan rivi voi näyttää tältä. Tehtävä on urasuunnitelman Wilma-tallennus ja uudelleenluku simuloidussa Wilmassa. Vaihe on 1, vaatimukset V01 ja V04, testi T05. Merkintä on työpaja, ja tehtävän tila on avoin. Rivistä näet, mitä tehdään, mihin vaatimukseen se liittyy ja millä testillä tarkistat sen. Leveää taulukkoa on vaikea lukea Muistiossa. Siksi agentti kirjoittaa tiedoston loppuun myös luettelon V01–V10, yksi rivi kustakin. Tarkistat luettelon, et koko taulukkoa.</p>
+<p>Järjestys tulee riippuvuuksista. Työpaikan ja työpaikkaohjaajan pitää olla Wilmassa ennen oppisopimusta. Tutkinnon osan pitää olla opinnoissa ennen näyttösuunnitelmaa. Jos työlista on väärässä järjestyksessä, agentti rakentaa asiat väärässä järjestyksessä.</p>
+<p>Jokaisessa tehtävässä on merkintä työpaja, lisä tai jatko. Kahdessa päivässä ei ehdi kaikkea. Työlista näyttää rehellisesti, mitä tehdään nyt ja mitä myöhemmin. Jokaisella vaatimuksella V01–V10 on toteutustapa työpajassa tai merkintä &quot;jatko + syy&quot;. Pyydät agenttia merkitsemään tehtävän valmiiksi vasta, kun olet testannut sen itse ja kirjannut tuloksen. Agentti ei merkitse tehtäviä valmiiksi omin päin.</p>
+<p><strong>Pysähdy hetkeksi:</strong> Mikä kuvauspaketin sääntö on työssäsi tärkein, ja mitä tapahtuu, jos ohjelma rikkoo sen?</p>
+<h3>Hyväksymiskriteeri</h3>
+<p><strong>Hyväksymiskriteeri</strong> on ehto, jonka kirjoitat omin sanoin ennen rakentamista. Sen täyttymisen pitää näkyä. Kriteeri ei ole toive.</p>
+<p>Huono kriteeri on &quot;toimii hyvin&quot;. Kukaan ei voi tarkistaa sitä. Hyvä kriteeri on: &quot;Urasuunnitelma löytyy uudelleen avattuna oikealta opiskelijalta, ja tavoite-kentässä on sama teksti, jonka hyväksyin.&quot; Sen voi tarkistaa avaamalla lomakkeen.</p>
+<p>Kirjoitat kriteerit tiedostoon <code>HYVAKSYMISKRITEERIT.md</code> osioittain. Agentti lukee tiedoston, mutta ei muokkaa sitä. Jokaisessa osiossa on kolme kohtaa. Hyväksyn, kun -kohta kertoo, mitä pitää näkyä. En hyväksy, jos -kohta kertoo, mikä estää hyväksynnän, vaikka muu toimisi. Tarkistan näin -kohta kertoo, mitä teet ja mitä näet.</p>
+<p>Kolmas kohta on tärkein. Jos et osaa kirjoittaa, miten tarkistat, kriteeri on vielä toive.</p>
+<p>Kriteeri kirjoitetaan, ennen kuin agentti rakentaa. Jos kirjoitat sen vasta tuloksen nähtyäsi, kirjoitat helposti sen, mitä agentti teki. Silloin kriteeri ei enää tarkista mitään.</p>
+<p>Kriteeri ja vaatimus ovat eri asioita. Vaatimus V04 kertoo, että urasuunnitelma täytetään. Kriteeri kertoo, mistä sinä näet, että se on tehty oikein.</p>
+<p>Jos et keksi kriteeriä, kysy kaksi kysymystä. Mitä näet, kun se toimii? Mitä ei saa tapahtua?</p>
+<h3>Suunnitelma ensin</h3>
+<p><strong>Suunnitelma ensin</strong> on työtapa, jossa agentti kertoo ensin, mitä aikoo tehdä. Se ei muuta tiedostoja ennen hyväksyntääsi. Tällä polulla pyydät sitä kehotteella. Kehotteen loppuun tulee: &quot;Tee suunnitelma. Älä muuta tiedostoja ennen kuin hyväksyn.&quot; Agentti vastaa suunnitelmalla, ja hyväksyt sen kirjoittamalla agentille.</p>
+<p>Kehote on pyyntö, ei tekninen este. Agentti noudattaa sitä yleensä, mutta ei aina. Siksi teet tallennuspisteen ennen suunnitelmaa ja tarkistat muuttuneet tiedostot agenttisovelluksen Git-toiminnoista hyväksynnän jälkeen. Jos jotain muuttui ennen hyväksyntää, palaat tallennuspisteeseen.</p>
+<p>Hyvä suunnitelma on lyhyt. Siinä on luettelo tiedostoista, jotka syntyvät tai muuttuvat, ja ohje siitä, miten tarkistat tuloksen. Jos suunnitelmassa on tiedostoja, joita et pyytänyt, kysy miksi. Suunnitelmasta näet, mitkä tiedostot muuttuvat ja mitä komentoja agentti aikoo ajaa. Jos suunnitelma on väärä, korjaat sen, ennen kuin mitään on tehty. Se on helpompaa kuin korjata valmista. Kehotepohja K2 sisältää pyynnön valmiina. Käytät sitä jokaisen isomman tehtävän alussa.</p>
+<p><strong>Pysähdy hetkeksi:</strong> Jos agentti olisi kirjoittanut ohjetiedoston ilman suunnitelmaa, mistä huomaisit, että siitä puuttuu sääntö?</p>
+<h3>Esimerkki: sääntö ja kriteeri samasta kokemuksesta</h3>
+<p>Oma kokemuksesi sanoo, että palkan yksikkö unohtuu usein. Siitä tulee ohjetiedostoon sääntö: &quot;Palkalla on aina yksikkö. Jos yksikkö puuttuu, kirjaus estyy.&quot;</p>
+<p>Hyväksymiskriteeri tulee samasta kokemuksesta. Hyväksyn ohjetiedoston, kun palkan yksikköä koskeva sääntö on mukana. En hyväksy, jos ohjetiedosto sallii yksikön päättelemisen summasta. Tarkistan näin: avaan <code>AGENTS.md</code>:n Muistiolla ja etsin sanan &quot;yksikkö&quot;.</p>
+<p>Myöhemmin sama sääntö testataan sovelluksessa. Liisa Kokeilun palkka &quot;2 450&quot; ilman yksikköä ei saa mennä läpi. Aino Testisen palkka 2 450 €/kk menee, koska yksikkö on mukana.</p>
+<h3>Yhteenveto</h3>
+<p>Määrittely tehdään ennen koodia, koska agentti arvaa, jos se ei tiedä. Ohjetiedosto kertoo agentille pysyvät säännöt, ja työlista pilkkoo työn tehtäviksi. Sinä tarkistat molemmat oman kokemuksesi ja kuvauspaketin perusteella. Hyväksymiskriteeri on havaittava ehto, jonka kirjoitat ennen rakentamista.</p>
+
+</section>
+<section class="md" id="tehtavat"><h2>Tehtävät</h2>
+<p>Aika noin 75 min. Tarvitset: Codex-työpöytäsovelluksen, projektikansion, Muistion ja tiedoston <code>maarittely/oma-kokemus.md</code>.</p>
+<p>Kopioit kehotteet koko lohkona ja käsittelet .md-tiedostot Muistiolla osion 00 tavalla.</p>
+<h3>Tehtävä 1: Kirjoita kriteerit, ennen kuin agentti kirjoittaa</h3>
+<ol>
+<li>Avaa Muistio.</li>
+<li>Kopioi Muistioon alla oleva pohja.</li>
+</ol>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k50">Kopioi</button></div><pre id="k50"><code># Hyväksymiskriteerit
+
+Kirjoitan nämä itse ennen kuin agentti rakentaa. Agentti lukee, ei muokkaa.
+
+## Osio 02: ohjetiedosto ja työlista
+Hyväksyn, kun:
+- [kriteeri]
+- [kriteeri]
+- [kriteeri]
+En hyväksy, jos:
+- [kriteeri]
+Tarkistan näin:
+- [mitä teen ja mitä näen]
+Liittyvät testit:
+- ei vielä
+</code></pre></div>
+<ol start="3">
+<li>Tallenna tiedosto projektikansion juureen osion 00 tavalla. Kirjoita nimi lainausmerkeissä: &quot;HYVAKSYMISKRITEERIT.md&quot;.</li>
+<li>Katso Muistion otsikkoriviltä, että nimi päättyy <code>.md</code> eikä <code>.txt</code>.</li>
+<li>Lue tiedostosta <code>maarittely/oma-kokemus.md</code> kaksi asiaa, joita ohjelma ei saa tehdä.</li>
+<li><strong>Oma kriteeri:</strong> Täytä pohja oman kokemuksesi perusteella. Hyväksyn, kun -kohtaan tulee kolme sääntöä, jotka ohjetiedostossa on oltava.</li>
+<li>Tallenna tiedosto.</li>
+<li>Sulje Muistio.</li>
+<li><strong>Kehote (K6):</strong> Avaa <code>KEHOTEPOHJAT.md</code> Muistiolla. Kopioi K6. Täytä aukko. Lähetä.</li>
+</ol>
+<p>Seuraavaksi: pyydät agentilta suunnitelman ohjetiedostosta.</p>
+<h3>Tehtävä 2: Ohjetiedosto suunnitelma ensin</h3>
+<ol>
+<li>Tarkista, että alla olevan kehotteen viimeinen rivi kieltää muutokset ennen hyväksyntääsi.</li>
+<li><strong>Kehote (K2):</strong> Kopioi koko lohko. Liitä se agentin kehotekenttään. Täytä aukot. Lähetä.</li>
+</ol>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k51">Kopioi</button></div><pre id="k51"><code>Tehtävä: kirjoita projektikansion juureen ohjetiedosto AGENTS.md kuvauspaketin pohjalta. Käytä alla olevan rungon yhdeksää kohtaa.
+Lue ensin kansio maarittely ja HYVAKSYMISKRITEERIT.md:n osio 02. Ohjetiedostoa ja työlistaa ei vielä ole.
+Painota erityisesti tätä kuvauspaketin osaa: [yksi osa, jota agentin pitää painottaa erityisesti, ja syy työstäsi].
+Tärkein kriteerini: [tärkein kolmesta säännöstäsi].
+Kirjoita kohtaan (9) tämä sääntö sanasta sanaan: [oma sääntösi].
+
+Ohjetiedoston runko:
+(1) Projekti: Oppisopimustäyttäjä. Määrittely on kansiossa maarittely. Työpajaversio tehdään simuloitua Wilmaa vasten kuvitteellisella aineistolla.
+(2) Käyttäjä: hallinnon työntekijä, joka ei ohjelmoi. Vastaa suomeksi ja selkokielellä. Kerro aina, miten tulos tarkistetaan ajamalla sovellusta. Tee tekniset valinnat itse ja kerro ne yhdellä lauseella. Kysy vain, jos valinta muuttaa sitä, mitä käyttäjä näkee tai tekee.
+(3) Työtapa: yksi pieni tehtävä kerrallaan, suunnitelma ensin. Älä tee tallennuspistettä pyytämättä. Älä merkitse testejä läpäistyiksi äläkä työlistan tehtäviä valmiiksi ilman käyttäjän testiä. Valmis-ilmoitukseen kuuluu tarkistusohje.
+(4) Tietoturva: ei oikeita opiskelijatietoja. Älä pyydä salasanoja tai tunnuksia äläkä tallenna kirjautumis- tai istuntotietoja. Käyttäjä kirjautuu itse näkyvässä selaimessa. Älä avaa Wilmaa tai testi-Wilmaa itse. Sovellus kirjoittaa vain simuloituun Wilmaan ja myöhemmin erikseen sovittuun testi-Wilmaan. Verkkoyhteydet vain asennuksiin.
+(5) Tuotteen säännöt: kokoa kuvauspaketista, erityisesti osista 6–10, 15 ja 20–22. Yksi lyhyt sääntö riviä kohden.
+(6) Tiedostot, joita et muokkaa: PAATOSLOKI.md, HYVAKSYMISKRITEERIT.md, TESTIT.md:n Tulos-, Havainto- ja Päivä-rivit ja kansio maarittely (vain luku). Kansiota testiaineisto muokkaat vain pyydettäessä.
+(7) Tekniikka: kuvauspaketin osan 13 ehdotus ja kehitystila. Valinta vahvistetaan teknisessä kokeilussa. Jos asennus estyy, kerro ennen kiertotietä. Playwright voi käyttää koneen Edgeä. Sovellus ja simuloitu Wilma käynnistyvät ilman agenttia ohjeella KAYNNISTYS.md. Mahdollisimman vähän riippuvuuksia.
+(8) Ulkoasu: PRO-värit kuvauspaketin osasta 14. Lukutilat ja jonon tilat näytetään aina myös sanoina. Toimii näppäimistöllä.
+(9) Oppijan oma sääntö: sanasta sanaan kehotteesta.
+
+Tee suunnitelma. Kerro, mitkä tiedostot muuttuvat, mitä komentoja ajat ja miten tarkistan tuloksen ilman koodin lukemista.
+Älä muuta tiedostoja ennen kuin hyväksyn.
+</code></pre></div>
+<ol start="3">
+<li>Lue agentin suunnitelma. Jos siitä puuttuu jokin yhdeksästä kohdasta tai oma sääntösi, korjauta se.</li>
+<li>Hyväksy suunnitelma kirjoittamalla agentille, että se saa toteuttaa sen.</li>
+<li>Avaa agenttisovelluksen Git-toiminnoista muuttuneet tiedostot. Totea, että uusi tiedosto on vain <code>AGENTS.md</code>. Agentin luettelo on vain apu.</li>
+</ol>
+<p>Seuraavaksi: tarkistat ja arvioit, mitä ohjetiedostoon tuli.</p>
+<h3>Tehtävä 3: Tarkista ohjetiedosto</h3>
+<ol>
+<li>Avaa <code>AGENTS.md</code> Muistiolla.</li>
+<li><strong>Oma testi:</strong> Etsi ohjetiedostosta <code>HYVAKSYMISKRITEERIT.md</code>:n kolme sääntöäsi.</li>
+<li>Rastita paperille tarkistuslistan tuotesäännöt, jotka löydät.</li>
+<li>Lue ohjetiedoston tuotteen säännöt. Merkitse paperille yksi sääntö, joka on kokemuksesi mukaan epätarkka tai väärä. Jos sellaista ei ole, kirjoita, mihin vertasit.</li>
+<li>Tarkista En hyväksy, jos -ehtosi. Kirjoita paperille, täyttyykö se.</li>
+<li>Sulje Muistio.</li>
+<li>Jos mitään ei puutu tai ole väärin, siirry vetäjän kysymyksiin.</li>
+<li><strong>Kehote:</strong> Kopioi koko lohko. Liitä se agentin kehotekenttään. Täytä aukko. Lähetä.</li>
+</ol>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k52">Kopioi</button></div><pre id="k52"><code>Lisää tai korjaa ohjetiedostoon AGENTS.md nämä säännöt: [puuttuvat tai korjattavat säännöt omin sanoin].
+Älä muuta muuta.
+</code></pre></div>
+<ol start="9">
+<li>Avaa agenttisovelluksen Git-toiminnoista muuttuneet tiedostot. Totea, että muuttui vain <code>AGENTS.md</code>.</li>
+<li>Avaa <code>AGENTS.md</code> Muistiolla ja totea, että pyytämäsi säännöt ovat siellä.</li>
+</ol>
+<p>Tuotesääntöjen tarkistuslista:</p>
+<ul>
+<li>Nimi ei yksin riitä kohdistukseen.</li>
+<li>Palkkaa, työaikaa tai työpaikkaohjaajaa ei arvata.</li>
+<li>Palkalla on aina yksikkö.</li>
+<li>Työpaikkaohjaajaa ja työnantajan edustajaa ei oleteta samaksi.</li>
+<li>Saman yrityksen toimipaikat erotetaan.</li>
+<li>Työpaikka ja työpaikkaohjaaja ennen oppisopimusta, tutkinnon osa ennen näyttösuunnitelmaa.</li>
+<li>Wilma-tallennus varmennetaan uudelleenluvulla.</li>
+<li>VALMIS vasta, kun kaikki valitut pakolliset kirjaukset on varmennettu.</li>
+</ul>
+<p>Seuraavaksi: vetäjä kysyy neljä kysymystä, ja sitten kirjaat päätöksen.</p>
+<h3>Tehtävä 4: Päätös ohjetiedostosta ja tallennuspiste (commit)</h3>
+<ol>
+<li>Avaa <code>PAATOSLOKI.md</code> Muistiolla.</li>
+<li><strong>Päätös:</strong> Kirjaa merkintä ohjetiedostosta. Kirjoita perusteeksi omin sanoin, mitä löysit tai mihin vertasit tehtävässä 3. Mainitse vetäjän kysymyksissä lisätyt säännöt.</li>
+<li>Tallenna tiedosto.</li>
+<li>Sulje Muistio.</li>
+<li>Kopioi alla oleva lohko kokonaan. Liitä se agentin kehotekenttään. Lähetä. Pohjan viimeinen rivi on uusi, koska myöhemmin työ tehdään paloina.</li>
+</ol>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k53">Kopioi</button></div><pre id="k53"><code>Lisää KEHOTEPOHJAT.md:hen K1:n perään alla oleva pohja sellaisenaan. Älä täytä hakasulkeita.
+
+## K2 Suunnitelma ensin
+Tehtävä: [tehtävä omin sanoin].
+Lue ensin AGENTS.md, TYOLISTA.md ja HYVAKSYMISKRITEERIT.md:n osio [XX].
+Tärkein kriteerini: [tärkein kriteeri].
+Tee suunnitelma. Kerro, mitkä tiedostot muuttuvat, mitä komentoja ajat ja miten tarkistan tuloksen ilman koodin lukemista.
+Älä muuta tiedostoja ennen kuin hyväksyn.
+Kun hyväksyn suunnitelman, älä vielä aloita. Annan palat yksi kerrallaan.
+</code></pre></div>
+<ol start="6">
+<li>Avaa agenttisovelluksen Git-toiminnoista muuttuneet tiedostot. Totea, että muuttuneet ovat vain <code>AGENTS.md</code>, <code>PAATOSLOKI.md</code> ja <code>KEHOTEPOHJAT.md</code>.</li>
+<li><strong>Kehote (K6):</strong> Avaa <code>KEHOTEPOHJAT.md</code> Muistiolla. Kopioi K6. Täytä aukko. Lähetä.</li>
+</ol>
+<p>Seuraavaksi: pyydät agentilta työlistan.</p>
+<h3>Tehtävä 5: Työlista</h3>
+<p>Katso ensin lukutekstistä vaiheet 0–7.</p>
+<ol>
+<li>Tarkista, että alla olevan kehotteen viimeinen rivi kieltää muutokset ennen hyväksyntääsi.</li>
+<li><strong>Kehote:</strong> Kopioi koko lohko. Liitä se agentin kehotekenttään. Täytä aukko. Lähetä.</li>
+</ol>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k54">Kopioi</button></div><pre id="k54"><code>Tee projektikansion juureen TYOLISTA.md. Pilko kuvauspaketin vaiheet 0–7 (osat 25 ja 26) pieniksi tehtäviksi riippuvuusjärjestyksessä.
+Tee taulukko, jossa on sarakkeet: nro, tehtävä, vaihe, V, T, työpaja / lisä / jatko ja tehtävän tila (avoin / kesken / valmis).
+Työpajassa tehdään kuvauspaketin osan 30 ensimmäinen kehityskokonaisuus simuloitua Wilmaa vasten.
+Uskon, että tämä vaihe jää jatkoon: [yksi vaihe, jonka uskot jäävän jatkoon, ja syy työstäsi].
+Kirjoita tiedoston loppuun luettelo V01–V10, yksi rivi kustakin: toteutustapa työpajassa ja tehtävien numerot tai &quot;jatko + syy&quot;.
+Merkitse tehtävät avoimiksi. Merkitse tehtävä valmiiksi vasta, kun pyydän sitä testini jälkeen.
+Tee suunnitelma. Älä muuta tiedostoja ennen kuin hyväksyn.
+</code></pre></div>
+<ol start="3">
+<li>Lue suunnitelma. Tarkista, että siinä ovat taulukko, kaikki vaiheet 0–7 ja luettelo V01–V10.</li>
+<li>Hyväksy suunnitelma kirjoittamalla agentille, että se saa toteuttaa sen.</li>
+<li>Avaa agenttisovelluksen Git-toiminnoista muuttuneet tiedostot. Totea, että uusi tiedosto on vain <code>TYOLISTA.md</code>.</li>
+<li>Avaa <code>TYOLISTA.md</code> Muistiolla.</li>
+<li><strong>Oma testi:</strong> Tarkista järjestys tehtävien numeroista. Työpaikan ja työpaikkaohjaajan tehtävät tulevat ennen oppisopimusta. Tutkinnon osa tulee ennen näyttösuunnitelmaa.</li>
+<li>Tarkista tiedoston lopun luettelosta, että jokaisella vaatimuksella V01–V10 on rivi.</li>
+<li>Sulje Muistio.</li>
+<li>Jos jotain puuttuu tai järjestys on väärä, korjauta se agentilla. Tarkista muutos Git-toiminnoista.</li>
+</ol>
+<p>Seuraavaksi: kirjaat päätöksen työlistasta.</p>
+<h3>Tehtävä 6: Päätös työlistasta ja tallennuspiste</h3>
+<ol>
+<li>Avaa <code>PAATOSLOKI.md</code> Muistiolla.</li>
+<li><strong>Päätös:</strong> Kirjaa merkintä työlistasta. Kirjoita perusteeksi omin sanoin, mitä huomasit järjestyksestä ja luettelosta V01–V10.</li>
+<li>Tallenna tiedosto.</li>
+<li>Sulje Muistio.</li>
+<li><strong>Kehote (K6):</strong> Avaa <code>KEHOTEPOHJAT.md</code> Muistiolla. Kopioi K6. Täytä aukko. Lähetä.</li>
+<li>Avaa agenttisovelluksen Git-toiminnoista muuttuneet tiedostot. Totea, että luettelo on tyhjä.</li>
+</ol>
+<p>Seuraavaksi: tarkistat, että osio on valmis.</p>
+<h3>Valmis, kun</h3>
+<ul>
+<li><code>HYVAKSYMISKRITEERIT.md</code>:ssä on osion 02 kriteerit omin sanoin.</li>
+<li><code>AGENTS.md</code>:ssä on yhdeksän kohtaa, oma sääntösi, kolme sääntöäsi ja kahdeksan tuotesääntöä.</li>
+<li><code>TYOLISTA.md</code>:ssä vaiheet 0–7 on pilkottu tehtäviksi, ja lopussa on luettelo V01–V10.</li>
+<li><code>KEHOTEPOHJAT.md</code>:ssä ovat K1, K2, K6 ja K7.</li>
+<li>Päätöslokissa on kaksi uutta merkintää.</li>
+<li>Osiossa on tehty kolme tallennuspistettä.</li>
+<li>Agenttisovelluksen Git-toiminnoissa ei ole muuttuneita tiedostoja.</li>
+</ul>
+<h3>Jos jäät jumiin</h3>
+<p>Jos Git-toiminnoissa näkyy muutoksia, ennen kuin hyväksyit suunnitelman, palaa tallennuspisteeseen K7:llä. Tarkista, että kehotteen viimeinen rivi on mukana.</p>
+<p>Jos ohjetiedosto on yli kaksi sivua tai kopio kuvauspaketista, korjauta: yksi lyhyt sääntö riviä kohden.</p>
+<p>Jos hylkäät ohjetiedoston tai työlistan tai agentti kiertää kehää, pysähdy. Sulje Muistio. Palaa edelliseen tallennuspisteeseen K7:llä. K7 jättää päätöslokin ja kriteerit ennalleen. Kirjaa hylkäys vasta paluun jälkeen.</p>
+<h3>Seuraava osio</h3>
+<p>Osio 03 alkaa kello 12.30. Agentti rakentaa siinä simuloidun Wilman ja kuvitteellisen aineiston.</p>
+
+</section>
+<section class="md" id="sanasto"><h2>Sanasto</h2>
+<h3>Ohjetiedosto</h3>
+<p>Projektikansion juuressa oleva <code>AGENTS.md</code>, jonka agentti lukee työn alussa. Siinä ovat projektin säännöt. Agentti kokoaa sen kuvauspaketista, ja sinä tarkistat sen.</p>
+<h3>Työlista</h3>
+<p><code>TYOLISTA.md</code>: kuvauspaketin vaiheet pieninä, järjestettyinä ja tarkistettavina tehtävinä. Jokaisessa tehtävässä on merkintä työpaja, lisä tai jatko.</p>
+<h3>Vaihe</h3>
+<p>Kuvauspaketin vaiheet 0–7, esimerkiksi vaihe 1 Tekninen kokeilu. Sanaa käytetään vain niistä.</p>
+<h3>Vaatimus</h3>
+<p>Kuvauspaketin vaatimukset V01–V10. Ne ovat kuvauspaketin osassa 15. Vaatimus kertoo, mitä sovelluksen pitää tehdä.</p>
+<h3>Hyväksymiskriteeri</h3>
+<p>Ehto, jonka kirjoitat omin sanoin ennen rakentamista ja jonka täyttyminen on havaittavissa. Eri asia kuin vaatimus.</p>
+<h3>Suunnitelma ensin</h3>
+<p>Työtapa, jossa agentti kertoo ensin, mitä aikoo tehdä, eikä muuta tiedostoja ennen hyväksyntääsi. Tällä polulla se pyydetään kehotteella: &quot;Tee suunnitelma. Älä muuta tiedostoja ennen kuin hyväksyn.&quot;</p>
+<h3>Osio ja askel</h3>
+<p>Osio on työpajan jakso, esimerkiksi osio 02. Askel on tehtävän numeroitu kohta. Vaihe on eri asia: se tarkoittaa vain kuvauspaketin vaiheita.</p>
+
+</section>
+<nav class="pager"><a href="osio-01.html">← Osio 01</a><a href="osio-03.html">Osio 03 →</a></nav>
+<footer class="page">Kaikki materiaalin henkilöt, yritykset, tunnisteet ja palkat ovat kuvitteellisia. Versio 1 · 23.10.2026.</footer>
+</main>
+</body>
+</html>

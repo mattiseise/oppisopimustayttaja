@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Osio 06: Opiskelijalista ja työjono – Claude-polku</title>
+<meta name="description" content="Voiko jono avata seuraavan opiskelijan tai kirjoittaa väärälle henkilölle, ja millä testillä sen osoitat?">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23775EC4'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='600' fill='white'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<main>
+<a class="back-link" href="index.html">← Claude-polku</a>
+<header class="page">
+  <div class="kicker">Claude-polku · Osio 06 · päivä 2, 10.45–12.00</div>
+  <h1>Opiskelijalista ja työjono</h1>
+  <div class="insight"><div class="kicker">Ajattelukysymys</div><p>Voiko jono avata seuraavan opiskelijan tai kirjoittaa väärälle henkilölle, ja millä testillä sen osoitat?</p></div>
+</header>
+<nav class="pills" aria-label="Osion sisältö">
+  <a href="#lue">1 · Lukuteksti</a><a href="#tehtavat">2 · Tehtävät</a><a href="#sanasto">3 · Sanasto</a>
+</nav>
+<section class="md" id="lue"><h2>Lukuteksti</h2>
+<p>Tähän asti sovellus on käsitellyt yhden opiskelijan kerrallaan, ja sinä olet valinnut hänet. Oikeassa työssä käsittelet usein koko listan. Kuvauspaketin osat 9 ja 20 kuvaavat, miten lista muuttuu työjonoksi.</p>
+<p>Jono säästää aikaa, mutta se tuo kaksi uutta riskiä. Jono voi kirjoittaa väärälle henkilölle, jos nimi tulkitaan väärin. Jono voi myös merkitä opiskelijan valmiiksi liian aikaisin ja siirtyä eteenpäin. Tässä osiossa testaat molemmat.</p>
+<p>Teet myös päätöksen, jota kuvauspaketti ei tee puolestasi. Päätät, mitä nimiä jonon tiloilla on.</p>
+<h3>Lista muuttuu työjonoksi</h3>
+<p>Kuvauspaketin osa 1 kuvaa tavoitteen. Kun yhden opiskelijan kirjaukset on tehty ja tarkistettu, ohjelma merkitsee hänet valmiiksi ja avaa seuraavan. Sinun ei tarvitse etsiä seuraavaa nimeä listalta itse. Jonosta näet myös, montako opiskelijaa on valmiina ja montako odottaa.</p>
+<p>Lista tuodaan CSV-tiedostosta tai liittämällä nimilista. Excel-tiedoston tuonti on lisätavoite. Ennen käsittelyä sovellus näyttää <strong>tuonnin esikatselun</strong>. Siinä näet, miten sovellus tulkitsi jokaisen rivin. Tyhjät rivit ja virherivit näkyvät erikseen. Kohdistat itse sarakkeet: mikä sarake on nimi, mikä opiskelijanumero ja mikä koulutus. Kaksi samanlaista nimiriviä tarkistetaan erikseen, koska ne voivat tarkoittaa eri ihmisiä (kuvauspaketin osa 20).</p>
+<p>Opiskelijanumerot käsitellään tekstinä. Silloin etunollat säilyvät. Aino Testisen numero on 000123. Jos se luettaisiin lukuna, siitä tulisi 123, eikä se enää vastaisi ketään. Excel tekee tämän helposti, kun CSV avataan ja tallennetaan. Siksi tarkistat CSV:n Muistiolla.</p>
+<p>Alkuperäistä listaa ei muuteta (kuvauspaketin osa 10). Sovellus pitää kirjaa omassa jonossaan. Jos merkitsisit valmiit Excel-tiedostoon, merkintä ei todistaisi mitään Wilmasta. Se kertoisi vain, että joku kirjoitti sanan valmis.</p>
+<p>Jonossa on aina yksi <strong>aktiivinen opiskelija</strong>. Sovellus lukee hänen lähteensä ja Wilman nykytilan. Sinä tarkistat ja hyväksyt juuri hänen sisältönsä. Kuvauspaketin osa 14 sanoo saman tekniseltä puolelta: yhdellä jonolla on yksi aktiivinen opiskelija.</p>
+<h3>Nimi on hakusyöte, ei kirjoituskohde</h3>
+<p>Kuvauspaketin osa 20 erottaa kaksi asiaa. Nimellä haetaan. Kirjoitus tehdään vasta, kun opiskelija ja opiskeluoikeus on tunnistettu yksiselitteisesti.</p>
+<p>Kuvitteellisessa aineistossa on kaksi Aino Testistä. Toinen on ryhmässä TK26A ja hänen numeronsa on 000123. Toinen on ryhmässä TK26B ja hänen numeronsa on 000456. Eero Esimerkillä on kaksi opiskeluoikeutta: Testikoulutus ja Esimerkkikoulutus. Nimilistassa lukee vain Aino Testinen ja Eero Esimerkki. Kumpikaan nimi ei kerro, kenelle kirjoitetaan.</p>
+<p>Sovellus näyttää silloin vaihtoehdot ja niiden erottavat tiedot, kuten opiskelijanumeron, ryhmän ja koulutuksen. Sinä valitset. Ensimmäistä hakutulosta ei arvata oikeaksi. Ei silloinkaan, kun nimi on harvinainen. Harvinainen nimi voi silti olla kahdella ihmisellä, ja yhdellä ihmisellä voi olla kaksi opiskeluoikeutta.</p>
+<p>Opiskeluoikeus on yhtä tärkeä kuin henkilö. Jos Eeron urasuunnitelma menee väärän koulutuksen alle, henkilö on oikea, mutta kirjaus väärä. Kun listassa on opiskelijanumero, kohdistus on helpompi. Sovellus varmistaa silti henkilön ja koulutuksen ennen Wilma-tallennusta (kuvauspaketin osa 9).</p>
+<p><strong>Pysähdy hetkeksi:</strong> Jos ohjelma valitsisi ensimmäisen Aino Testisen, kuka huomaisi virheen ja milloin?</p>
+<h3>Jonon tilat ja kuvauspaketin ristiriita</h3>
+<p>Jokaisella opiskelijalla on jonon tila. Se näytetään sanana, ei pelkkänä värinä. Kuvauspaketin osa 9 nimeää kuusi jonon tilaa: Odottaa, Valittava opiskelija, Käsittelyssä, Odottaa lisätietoja, Tarkistettava tallennus ja Valmis.</p>
+<p>Osan 9 nimet kertovat, mitä sinulta odotetaan. Odottaa tarkoittaa, että opiskelija on jonossa käsittelemättä. Valittava opiskelija tarkoittaa, että sinun pitää valita oikea henkilö tai koulutus. Käsittelyssä on aktiivinen opiskelija. Odottaa lisätietoja tarkoittaa, että jokin tieto puuttuu ja olet siirtänyt opiskelijan sivuun. Tarkistettava tallennus tarkoittaa, että ohjelma selvittää, tallentuiko tieto. Valmis tarkoittaa, että kaikki on tehty ja tarkistettu Wilmasta.</p>
+<p>Kuvauspaketissa on tässä kohdassa ristiriita. Osassa 9 Odottaa tarkoittaa, ettei opiskelijaa ole vielä käsitelty. Puuttuvasta tiedosta käytetään nimeä Odottaa lisätietoja. Osa 20 käyttää sanaa ODOTTAA juuri puutteen merkityksessä. Jos sovellus seuraa molempia, sama sana tarkoittaa kahta eri asiaa. Silloin et näe jonosta, onko opiskelija käsittelemätön vai jumissa.</p>
+<p>Sinä päätät, mitä nimiä sovelluksesi käyttää. Suositus on osan 9 nimet, koska niissä jokaisella jonon tilalla on oma sanansa. Voit valita myös toisin, kunhan yksi sana tarkoittaa vain yhtä asiaa. Kirjaat päätöksen ja perusteen päätöslokiin. Tämä materiaali käyttää osan 9 nimiä. VALMIS kirjoitetaan isoin kirjaimin kuten kuvauspaketin osassa 20.</p>
+<p><strong>Pysähdy hetkeksi:</strong> Millä sanalla kutsut nyt opiskelijaa, jonka paperit puuttuvat? Ymmärtäisikö kollegasi sanan samoin?</p>
+<h3>VALMIS ja seuraava</h3>
+<p>Opiskelija on VALMIS vasta, kun kaikki hänelle valitut tehtävät on hyväksytty, tallennettu Wilmaan ja uudelleenluettu (kuvauspaketin osat 10 ja 20). Työpajassa valittu tehtävä on urasuunnitelma. Kun oppisopimus tulee mukaan, VALMIS vaatii senkin.</p>
+<p>Kun opiskelija on VALMIS, sovellus avaa seuraavan käsittelemättömän opiskelijan itsestään. Seuraavan sisältö pysähtyy taas tarkistettavaksi. Edellisen arvot ja hyväksyntä eivät siirry. Jos Aino Testisen hyväksyntä jäisi voimaan, Eero Esimerkin tiedot voisivat mennä Wilmaan kenenkään tarkistamatta.</p>
+<p><strong>Pysähdy hetkeksi:</strong> Mitä tapahtuu, jos ohjelma avaa seuraavan opiskelijan ja edellisen hyväksyntä jää voimaan?</p>
+<p>Puuttuva tieto ei ohita opiskelijaa automaattisesti. Sinä voit siirtää opiskelijan odottamaan lisätietoja, mutta vain perustelun kanssa. Ville Testaajalta puuttuu esitietolomake. Perustelu kertoo myöhemmin sinulle tai kollegalle, miksi hän odottaa ja mitä puuttuu.</p>
+<p>Tarkistettava tallennus on eri asia. Silloin sovellus ei tiedä, tallentuiko tieto Wilmaan. Jono pysähtyy, eikä sitä kierretä siirtämällä opiskelijaa odottamaan. Tätä testataan osiossa 08.</p>
+<h3>Jono muistaa</h3>
+<p>Jono säilyy, kun sovellus suljetaan ja avataan. Muuten keskeneräinen työ katoaisi joka kerta. Kuvauspaketin osa 10 sanoo, että jonon voi pysäyttää ja sitä voi jatkaa myöhemmin. Saman listan tuominen uudelleen ei käynnistä valmista opiskelijaa alusta. Sovellus tunnistaa opiskelijan pysyvästä tunnisteesta, ei nimestä.</p>
+<p>Lähtötiedoston muuttumattomuuden tarkistat Gitillä ja Muistiolla. Git näyttää, onko tiedosto muuttunut sen jälkeen, kun se tuli tallennuspisteeseen (commit). Muistiossa näet itse, että etunollat ja rivit ovat ennallaan.</p>
+<p>Testit tehdään tunnetusta tilanteesta. Ennen testiä palautat lähtötilan tiedostolla <code>palauta-lahtotila.cmd</code>. Se poistaa testien urasuunnitelmat ja tyhjentää sovelluksen jonon. Muuten sovellus löytää vanhan kirjauksen, ja testi mittaa jotain muuta kuin aiot. Testi jatkaa edellisestä vain silloin, kun se tarkistaa juuri jatkumista, kuten jonon säilymistä.</p>
+<h3>Esimerkki: kahden opiskelijan jono</h3>
+<p>Liität nimilistan: Aino Testinen ja Eero Esimerkki. Esikatselussa on kaksi riviä. Aloitat käsittelyn. Ainon jonon tila on Valittava opiskelija. Sovellus näyttää kaksi vaihtoehtoa: 000123 ryhmästä TK26A ja 000456 ryhmästä TK26B. Valitset 000123. Eerolle valitset Testikoulutuksen.</p>
+<p>Aino on Käsittelyssä. Hyväksyt sisällön ja teet Wilma-tallennuksen. Ennen uudelleenlukua Ainoa ei voi merkitä valmiiksi. Kun Wilma-tallennus on varmennettu, Ainon kohdalla lukee VALMIS. Eero avautuu. Hänen työaikansa on 30 h/vko, ei Ainon 37,5 h/vko. Mitään ei ole hyväksytty. Aloitat tarkistuksen alusta.</p>
+<p>Kaikki esimerkin tiedot ovat kuvitteellisia.</p>
+<h3>Yhteenveto</h3>
+<p>Lista muuttuu työjonoksi, jossa yksi opiskelija on kerrallaan aktiivinen. Nimi on vain hakusyöte, ja sinä valitset nimikaimoista ja opiskeluoikeuksista. VALMIS tulee vasta varmennuksen jälkeen, ja seuraava alkaa ilman edellisen tietoja. Jonon tilojen nimet päätät itse kuvauspaketin ristiriidan perusteella.</p>
+
+</section>
+<section class="md" id="tehtavat"><h2>Tehtävät</h2>
+<p>Aika noin 75 min. Tarvitset: Claude-työpöytäsovelluksen Code-välilehden, Muistion ja projektikansion.</p>
+<p>Vähimmäistavoite on tehtävät 1–6: tuonti, kohdistus (T02), jono ja VALMIS (T20). Tehtävä 6 tarvitsee osion 05 palan 3. Jos se on kesken, kerro vetäjälle. Tehtävä 7 on tavoitetta. Kesken jäänyt tehdään osion 07 aikana.</p>
+<h3>Tehtävä 1: Uusi istunto ja kriteerit jonolle</h3>
+<ol>
+<li>Aloita Code-välilehdellä uusi istunto projektikansiossa <code>C:\dev\oppisopimustayttaja</code>.</li>
+<li><strong>Kehote (K11):</strong> Avaa <code>KEHOTEPOHJAT.md</code> Muistiolla. Kopioi K11. Täytä aukko: mitä haluat tietää ennen jonon rakentamista. Lähetä.</li>
+<li>Vertaa vastausta tiedostoon <code>TESTIT.md</code>.</li>
+<li>Avaa <code>HYVAKSYMISKRITEERIT.md</code> Muistiolla.</li>
+<li><strong>Oma kriteeri:</strong> Lisää osio 06. Kirjoita Hyväksyn, kun -kohtaan, mitä jonossa pitää näkyä.</li>
+<li>Kirjoita En hyväksy, jos -kohtaan vähintään yksi asia, jota jono ei saa koskaan tehdä.</li>
+<li>Tallenna tiedosto ja sulje Muistio.</li>
+</ol>
+<p>Seuraavaksi: päätät jonon tilojen nimet.</p>
+<h3>Tehtävä 2: Päätä jonon tilojen nimet</h3>
+<ol>
+<li>Avaa kuvauspaketti kansiosta <code>maarittely</code> Muistiolla.</li>
+<li>Etsi Muistion haulla (Ctrl+F) sanat Listan tila. Lue osan 9 taulukko jonon tiloista.</li>
+<li>Etsi haulla sanat Puuttuva tieto ei aiheuta. Lue osan 20 kappale.</li>
+<li>Päätä nimet. Suositus on osan 9 nimet. Yksi sana saa tarkoittaa vain yhtä asiaa.</li>
+<li><strong>Päätös:</strong> Kirjaa päätöslokiin jonon tilojen nimet ja peruste omin sanoin. Hyväksyn tarkoittaa osan 9 nimiä. Korjautan tarkoittaa omia nimiäsi.</li>
+<li>Tee tallennuspiste (commit) K6:lla.</li>
+</ol>
+<p>Seuraavaksi: pyydät agentilta suunnitelman.</p>
+<h3>Tehtävä 3: Suunnitelma tuonnista ja jonosta</h3>
+<ol>
+<li>Kytke suunnittelutila päälle.</li>
+<li><strong>Kehote (K2):</strong> Kopioi koko lohko. Liitä se agentin kehotekenttään. Täytä aukot. Lähetä.</li>
+</ol>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k31">Kopioi</button></div><pre id="k31"><code>Tehtävä: [tehtävä omin sanoin].
+Lue ensin CLAUDE.md, TYOLISTA.md ja HYVAKSYMISKRITEERIT.md:n osio 06.
+Tärkein kriteerini: [tärkein kriteeri].
+Tuonti: CSV-tiedosto kansiosta testiaineisto ja liitettävä nimilista. XLSX ei kuulu tähän. Lähtötiedostoa ei muuteta. Tunnisteet käsitellään tekstinä, jotta etunollat säilyvät.
+Tuonnin esikatselussa käyttäjä kohdistaa sarakkeet ennen käsittelyä. Esikatselussa pitää näkyä: [mitä sinun pitää nähdä, jotta huomaat virherivin].
+Nimi on vain hakusyöte. Nimikaimoista ja useista opiskeluoikeuksista näytetään erottavat tiedot, ja käyttäjä valitsee. Kirjoitus sallitaan vasta yksiselitteisen valinnan jälkeen.
+Jonossa on yksi aktiivinen opiskelija. Jonon tilat näytetään sanoina: [nimet päätökseni mukaan].
+VALMIS vasta, kun valittu tehtävä, nyt urasuunnitelma, on varmennettu. Sen jälkeen seuraava avautuu automaattisesti. Edellisen arvot ja hyväksyntä eivät periydy.
+Opiskelijan voi siirtää odottamaan lisätietoja vain perustelun kanssa.
+Jono säilyy, kun sovellus suljetaan. Saman listan uudelleentuonti ei käynnistä valmista uudelleen.
+Lähtötilan palautus (palauta-lahtotila.cmd) tyhjentää myös jonon.
+Jaa työ viiteen palaan: (1) tuonti ja esikatselu, (2) kohdistus ja valinta, (3) jono ja jonon tilat, (4) VALMIS ja seuraava, (5) odottaminen ja pysyvyys. Kerro jokaisen palan kohdalla TYOLISTA.md:n tehtävän numero.
+Kun hyväksyn suunnitelman, älä aloita. Annan palat yksi kerrallaan, palat 3 ja 4 yhdessä.
+Tee suunnitelma. Kerro, mitkä tiedostot muuttuvat, mitä komentoja ajat ja miten tarkistan tuloksen ilman koodin lukemista.
+Älä muuta tiedostoja ennen kuin hyväksyn.
+</code></pre></div>
+<ol start="3">
+<li>Lue suunnitelma. Tarkista, että siinä on viisi palaa, niiden tehtävänumerot ja jonon tilojen nimet.</li>
+<li>Korjauta puuttuvat kohdat kirjoittamalla agentille.</li>
+<li>Hyväksy suunnitelma. Toimi osiossa 05 tekemäsi päätöksen mukaan. Jos agentti alkaa toteuttaa ennen K3:a, toimi kuten osion 05 tehtävän 3 askeleessa 7.</li>
+<li>Kirjoita palojen tehtävänumerot paperille.</li>
+</ol>
+<p>Seuraavaksi: rakennat tuonnin.</p>
+<h3>Tehtävä 4: Pala 1 – tuonti ja esikatselu (T18)</h3>
+<p>Työkierros on sama kuin osiossa 05. K3:n jälkeen tarkistat muutokset osiossa 05 tekemäsi päätöksen mukaan, palautat lähtötilan ja käynnistät simuloidun Wilman ja sovelluksen <code>KAYNNISTYS.md</code>:n ohjeella. Korjautan: K5 ja uusinta omalle rivilleen. Hylkään: sulje Muistio, palaa ensin tallennuspisteeseen K7:llä ja kirjaa päätös sitten. Hyväksyn: pyydä agenttia merkitsemään työlistan tehtävä valmiiksi.</p>
+<ol>
+<li>Avaa <code>testiaineisto/opiskelijalista.csv</code> Muistiolla, ei Excelillä. Katso opiskelijanumerot sekä tyhjät ja virheelliset rivit.</li>
+<li><strong>Kehote (K3):</strong> Avaa <code>KEHOTEPOHJAT.md</code> Muistiolla. Kopioi K3. Täytä aukot: palan 1 tehtävänumero ja tilanne, jonka haluat tarkistaa. Lähetä.</li>
+<li>Tarkista muutokset, palauta lähtötila ja käynnistä kuten yllä.</li>
+<li><strong>Oma testi T18 (osin):</strong> Tuo <code>opiskelijalista.csv</code>. Totea esikatselusta, että numero 000123 näkyy etunollineen, tyhjä rivi ja virherivi 12A erottuvat ja sarakkeet ovat oikein.</li>
+<li>Älä aloita käsittelyä CSV-listasta.</li>
+<li>Avaa kansion <code>testiaineisto</code> nimilista Muistiolla ja kopioi nimet.</li>
+<li>Liitä nimet sovellukseen nimilistana. Totea esikatselusta, että nimiä on kaksi.</li>
+<li>Kirjaa T18:n kohdalle Lähtötila (palauta ensin), tulos ja havainto.</li>
+<li><strong>Päätös:</strong> Kirjaa päätöslokiin päätös ja peruste. Tee tallennuspiste K6:lla.</li>
+</ol>
+<p>Seuraavaksi: nimikaimat ja opiskeluoikeudet.</p>
+<h3>Tehtävä 5: Pala 2 – kohdistus ja valinta (T02)</h3>
+<ol>
+<li><strong>Kehote (K3):</strong> Kopioi K3 ja täytä aukot palan 2 mukaan. Lähetä.</li>
+<li>Tarkista muutokset, palauta lähtötila ja käynnistä kuten tehtävässä 4.</li>
+<li><strong>Oma testi T02:</strong> Liitä nimilista ja aloita käsittely. Totea, että Aino Testiselle näytetään kaksi vaihtoehtoa erottavine tietoineen.</li>
+<li>Yritä jatkaa valitsematta. Kirjoituksen pitää estyä.</li>
+<li>Valitse Aino Testinen 000123.</li>
+<li>Totea, että Eero Esimerkille näytetään kaksi opiskeluoikeutta.</li>
+<li>Valitse Eerolle Testikoulutus.</li>
+<li>Kirjaa T02:n kohdalle Lähtötila (palauta ensin), tulos ja havainto.</li>
+<li><strong>Päätös:</strong> Kirjaa päätöslokiin päätös ja peruste. Tee tallennuspiste K6:lla.</li>
+</ol>
+<p>Seuraavaksi: jono ja VALMIS.</p>
+<h3>Tehtävä 6: Palat 3 ja 4 – jono, VALMIS ja seuraava (T20)</h3>
+<p>Teet palat 3 ja 4 yhdellä kierroksella. Tehtävä tarvitsee osion 05 palan 3.</p>
+<ol>
+<li><strong>Kehote (K3):</strong> Kopioi K3 ja täytä aukot palojen 3 ja 4 mukaan. Lähetä.</li>
+<li>Kirjoita odotusajalla Muistioon omille riveilleen: Aino Testinen, Ville Testaaja, Liisa Kokeilu. Jätä Muistio auki. Täytä T20:n Lähtötila (palauta ensin), Mitä teen ja Odotan.</li>
+<li>Tarkista muutokset, palauta lähtötila ja käynnistä kuten tehtävässä 4.</li>
+<li>Avaa simuloitu Wilma. Totea, ettei Aino Testisellä (000123) ole urasuunnitelmaa.</li>
+<li>Kopioi nimet ja liitä ne sovellukseen nimilistana. Aloita käsittely ja valitse Aino Testinen 000123.</li>
+<li><strong>Oma testi:</strong> Avaa jono. Totea, että aktiivisia opiskelijoita on yksi ja jokaisella rivillä on jonon tila sanana päätöksesi mukaan.</li>
+<li><strong>Oma testi T20:</strong> Tarkista ja hyväksy Aino Testisen sisältö.</li>
+<li>Etsi tapaa merkitä Aino valmiiksi ennen Wilma-tallennusta. Sitä ei saa olla.</li>
+<li>Tee urasuunnitelman Wilma-tallennus. Totea, että se on varmennettu ja Ainon jonon tila on VALMIS.</li>
+<li>Totea, että Ville Testaaja avautui itsestään eikä mitään ole hyväksytty. Esitiedoista ei näy arvoja, koska hänen lomakkeensa puuttuu.</li>
+<li>Avaa simuloitu Wilma. Totea, että uusi urasuunnitelma on opiskelijalla 000123. Aino Testisellä (000456) on vain lähtötilan urasuunnitelma.</li>
+<li>Kirjaa tulos ja havainto T20:n kohdalle.</li>
+<li><strong>Päätös:</strong> Kirjaa päätöslokiin päätös ja peruste. Tee tallennuspiste K6:lla.</li>
+</ol>
+<p>Seuraavaksi: odottaminen ja pysyvyys.</p>
+<h3>Tehtävä 7: Pala 5 – odottaminen ja pysyvyys (T21, tavoite)</h3>
+<ol>
+<li><strong>Kehote (K3):</strong> Kopioi K3 ja täytä aukot palan 5 mukaan. Lähetä.</li>
+<li>Täytä odotusajalla T21:n Lähtötila (palauta ensin), Mitä teen ja Odotan.</li>
+<li>Tarkista muutokset, palauta lähtötila ja käynnistä kuten tehtävässä 4.</li>
+<li>Liitä tehtävän 6 kolme nimeä. Valitse Aino 000123, hyväksy sisältö ja tee Wilma-tallennus. Ville avautuu.</li>
+<li><strong>Oma testi T21:</strong> Yritä siirtää Ville Testaaja odottamaan lisätietoja ilman perustelua. Siirron pitää estyä.</li>
+<li>Siirrä Ville perustelulla: esitietolomake puuttuu.</li>
+<li>Totea, että Liisa Kokeilu avautui omilla tiedoillaan eikä mitään ole hyväksytty. Työajassa näkyy ristiriita, koska palautus tyhjensi osion 05 valintasi.</li>
+<li>Kirjaa tulos ja havainto T21:n kohdalle.</li>
+<li><strong>Oma testi:</strong> Sulje sovellus ja käynnistä se uudelleen ilman palautusta. Totea, että jono on tallessa ja Villen perustelu näkyy.</li>
+<li><strong>Oma testi T19 (osin):</strong> Tuo <code>opiskelijalista.csv</code> uudelleen. Totea, että Aino Testinen (000123) näkyy valmiina eikä hänen käsittelynsä ala alusta. Aino Testinen (000456) ei ole valmis.</li>
+<li>Kopioi alla oleva lohko. Liitä se agentin kehotekenttään. Lähetä.</li>
+</ol>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k32">Kopioi</button></div><pre id="k32"><code>Näytä Gitillä, onko testiaineisto/opiskelijalista.csv muuttunut sen jälkeen, kun se tuli tallennuspisteeseen. Älä muuta mitään.
+</code></pre></div>
+<ol start="12">
+<li>Avaa CSV Muistiolla ja vertaa sitä tehtävän 4 havaintoosi.</li>
+<li>Kirjaa T19:n ja T22:n tulokset ja havainnot. Lähtötila on jatka testistä T21.</li>
+<li><strong>Päätös:</strong> Kirjaa päätöslokiin päätös ja peruste. Tee tallennuspiste K6:lla.</li>
+</ol>
+<p>Seuraavaksi: tarkistat, että osio on valmis.</p>
+<h3>Valmis, kun</h3>
+<p>Vähimmäistavoite:</p>
+<ul>
+<li>Kriteereissä on osio 06 ja vähintään yksi ei saa koskaan -ehto.</li>
+<li>Päätöslokissa ovat jonon tilojen nimet ja päätös jokaisesta tehdystä palasta.</li>
+<li>Esikatselu näyttää etunollat, tyhjän rivin ja virherivin (T18).</li>
+<li>Nimikaima ja kaksi opiskeluoikeutta pysäyttävät, kunnes valitset (T02).</li>
+<li>Aino tuli valmiiksi vasta varmennuksen jälkeen, ja Ville avautui ilman Ainon tietoja (T20).</li>
+<li>Viimeinen tallennuspiste on tehty.</li>
+</ul>
+<p>Tavoite:</p>
+<ul>
+<li>Ville odottaa lisätietoja perusteluineen, ja Liisa avautui omilla tiedoillaan (T21).</li>
+<li>Jono säilyy, uudelleentuonti ei avaa valmista Ainoa (T19), eikä <code>opiskelijalista.csv</code> ole muuttunut (T22).</li>
+</ul>
+<h3>Jos jäät jumiin</h3>
+<p>Jos etunollat puuttuvat esikatselusta, avaa CSV Muistiolla. Jos agentti on muuttanut tiedostoa, hylkää ja palaa tallennuspisteeseen K7:llä. Muuten korjauta K5:llä.</p>
+<p>Jos Aino tulee valmiiksi ennen Wilma-tallennusta, T20 on ei läpi. Korjauta K5:llä ennen palaa 5.</p>
+<p>Jos Aino Testisellä (000123) on urasuunnitelma palautuksen jälkeen, sulje ohjelmat ja palauta uudelleen. Jos se ei auta, kerro vetäjälle.</p>
+<p>Jos ongelma jatkuu kahden korjausyrityksen jälkeen, katkaise kehä K10:llä, palaa tallennuspisteeseen K7:llä ja kerro vetäjälle.</p>
+<p>Jos kello on 12.00 ja pala on kesken, tee tallennuspiste K6:lla viestillä Kesken: [pala] tai palaa edelliseen tallennuspisteeseen K7:llä. Pyydä agenttia merkitsemään pala työlistaan keskeneräiseksi. Vetäjä päättää osion 07 alussa, jatketaanko.</p>
+<h3>Seuraava osio</h3>
+<p>Osio 07 alkaa kello 12.45, ja siinä rakennetaan oppisopimus. Mieti lounaalla, miten tunnistat oikean toimipaikan.</p>
+
+</section>
+<section class="md" id="sanasto"><h2>Sanasto</h2>
+<h3>Työjono</h3>
+<p>Tuodusta listasta muodostuva käsittelyjärjestys. Sovellus käsittelee yhtä opiskelijaa kerrallaan. Jono säilyy, kun sovellus suljetaan.</p>
+<h3>Aktiivinen opiskelija</h3>
+<p>Jonon opiskelija, jota käsitellään nyt. Jonossa on yksi aktiivinen opiskelija kerrallaan.</p>
+<h3>Jonon tilat</h3>
+<p>Odottaa, Valittava opiskelija, Käsittelyssä, Odottaa lisätietoja, Tarkistettava tallennus ja VALMIS (kuvauspaketin osa 9). Ne näytetään sanoina. Vahvistat nimet omaan sovellukseesi osiossa 06.</p>
+<h3>Tuonnin esikatselu</h3>
+<p>Näkymä ennen käsittelyä. Siinä näet tulkitut arvot, etunollat, tyhjät rivit ja virherivit. Käsittely alkaa vasta esikatselun jälkeen.</p>
+<h3>Sarakekohdistus</h3>
+<p>Kerrot sovellukselle, mikä tuodun listan sarake on nimi, opiskelijanumero tai koulutus. Väärin kohdistettu sarake näkyy esikatselussa.</p>
+<h3>VALMIS</h3>
+<p>Opiskelijan jonon tila, kun kaikki valitut tehtävät on hyväksytty, tallennettu Wilmaan ja varmennettu uudelleenluvulla.</p>
+<h3>Uudelleentuonti</h3>
+<p>Saman listan tuominen uudestaan. Valmista opiskelijaa ei käsitellä silloin alusta. Sovellus tunnistaa opiskelijan pysyvästä tunnisteesta, ei nimestä.</p>
+
+</section>
+<nav class="pager"><a href="osio-05.html">← Osio 05</a><a href="osio-07.html">Osio 07 →</a></nav>
+<footer class="page">Kaikki materiaalin henkilöt, yritykset, tunnisteet ja palkat ovat kuvitteellisia. Versio 1 · 23.10.2026.</footer>
+</main>
+</body>
+</html>

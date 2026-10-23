@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Osio 09: Jatko: seuraavat askeleet ja pilotti – Codex-polku</title>
+<meta name="description" content="Mikä on seuraava pienin askel, jonka voit tehdä ja tarkistaa itse, ja mikä kuuluu IT:lle tai pääkäyttäjälle?">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23775EC4'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='600' fill='white'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<main>
+<a class="back-link" href="index.html">← Codex-polku</a>
+<header class="page">
+  <div class="kicker">Codex-polku · Osio 09 · päivä 2, 15.45–16.15 ja itsenäisesti 60 min</div>
+  <h1>Jatko: seuraavat askeleet ja pilotti</h1>
+  <div class="insight"><div class="kicker">Ajattelukysymys</div><p>Mikä on seuraava pienin askel, jonka voit tehdä ja tarkistaa itse, ja mikä kuuluu IT:lle tai pääkäyttäjälle?</p></div>
+</header>
+<nav class="pills" aria-label="Osion sisältö">
+  <a href="#lue">1 · Lukuteksti</a><a href="#tehtavat">2 · Tehtävät</a><a href="#sanasto">3 · Sanasto</a>
+</nav>
+<section class="md" id="lue"><h2>Lukuteksti</h2>
+<p>Työpaja päättyy, mutta työ ei. Sinulla on työpajaversio ja omat tiedostosi. Niillä työ jatkuu kohti testi-Wilmaa ja pilottia.</p>
+<p>Tämä osio kestää työpajassa puoli tuntia. Siinä kokoat jatkosuunnitelman. Lukuteksti on myös työpajan jälkeistä työtä varten. Palaa siihen, kun aloitat ensimmäisen itsenäisen työkerran.</p>
+<h3>Mitä sinulla nyt on</h3>
+<p>Vähimmäistavoite oli tämä. Simuloitu Wilma ja sovellus käynnistyvät ohjeella ilman agenttia. Sovellus avaa selaimen, jossa kirjaudut itse. Se hakee yhden opiskelijan tiedot kuvitteellisista lähteistä ja näyttää ne tarkistettavina. Se tekee urasuunnitelman Wilma-tallennuksen ja lukee lomakkeen uudelleen. Kahden opiskelijan jonossa seuraava avautuu vasta, kun edellinen on varmennettu. Lisäksi sinulla on omat tiedostosi: säännöt, työlista, päätösloki, hyväksymiskriteerit, testitulokset ja jatkosuunnitelma.</p>
+<p>Tavoite oli laajempi. Silloin sovellus näyttää myös puuttuvat ja ristiriitaiset tiedot. Se tuo opiskelijalistan, erottaa samannimiset opiskelijat ja osaa jättää opiskelijan odottamaan lisätietoja. Se kirjaa oppisopimuksen tiedot oikeassa järjestyksessä. Ulkoasu noudattaa PRO-ilmettä, ja yksi häiriötilanne on testattu. Jos testi-Wilma oli käytössä, kokeilit myös sen kenttien lukemista.</p>
+<p>Hyväksymispäätöksesi kertoo, mitä näistä toteutui. Se, mikä jäi kesken, ei ole kadonnut. Se on <code>TESTIT.md</code>:ssä merkinnällä jatko ja pian <code>JATKO.md</code>:ssä.</p>
+<p>Sinulla ei ole yhteyttä oikeaan Wilmaan, oikeita tietoja, asennettavaa ohjelmaa eikä pilottia. Ne ovat jatkoa, ja niihin tarvitaan muita.</p>
+<h3>Agentti ei muista eilistä</h3>
+<p>Kun aloitat uuden työsäikeen, agentti aloittaa tyhjästä. Se ei muista työpajaa, päätöksiäsi eikä sitä, mihin jäit. Tiedostot muistavat. <code>AGENTS.md</code> kertoo säännöt. <code>TYOLISTA.md</code> kertoo tehtävät. <code>PAATOSLOKI.md</code> kertoo päätökset ja perusteet. <code>TESTIT.md</code> kertoo tulokset, ja <code>JATKO.md</code> seuraavat askeleet.</p>
+<p>Siksi jokainen työkerta alkaa tilannekatsauksella K11. Se pyytää agenttia lukemaan tiedostot, ennen kuin se tekee mitään. Jos jokin tieto ei ole tiedostossa, sitä ei ole agentille olemassa. Kirjaa siis päätökset aina.</p>
+<p>Ohjetiedosto elää edelleen. Kun huomaat jatkossa uuden säännön, lisäät sen ohjetiedostoon ja kirjaat lisäyksen päätöslokiin. Muuten agentti ei tiedä sitä seuraavalla kerralla.</p>
+<h3>Sama työkierros yksin</h3>
+<p>Työpajan jälkeen työ etenee samalla kierroksella kuin työpajassa. Aloitat uuden työsäikeen ja annat K11:n. Pidät auki vain yhden työsäikeen. Valitset yhden tehtävän. Pyydät suunnitelman ja hyväksyt sen. Agentti toteuttaa, sinä tarkistat muutokset, ajat sovelluksen ja testaat. Lopuksi kirjaat päätöksen ja teet tallennuspisteen (commit).</p>
+<p>Varaa kalenteriin kerran viikossa 60–90 minuuttia. Lyhyempi kerta jää helposti kesken, eikä pidempi ole tarpeen. Yksi tehtävä kerrallaan. Pienin askel on yksi testi. Jos testi tekee Wilma-tallennuksen, palautat ensin simuloidun Wilman lähtötilaan. Jos testi menee läpi, kirjaat sen. Jos ei, korjautat sen K5:llä tai viet sen jatkosuunnitelmaan. Aiempaa tulosta et pyyhi, vaan uusinta kirjataan sen alle.</p>
+<p>Kolme pysäytyssääntöä pätee edelleen. Jos ongelma jatkuu kahden korjausyrityksen jälkeen, katkaiset kehän ja palaat tallennuspisteeseen. Jos et ymmärrä lupapyyntöä, et hyväksy sitä. Työkerta päättyy aina tallennuspisteeseen ja päätöslokin merkintään, vaikka tehtävä jäisi kesken.</p>
+<p><strong>Pysähdy hetkeksi:</strong> Mikä on seuraava pienin askel, jonka voit tarkistaa itse?</p>
+<h3>Mitä et tee yksin</h3>
+<p>Kuvauspaketin osassa 29 on yksitoista avointa päätöstä, P01–P11. Jokaisella on vastuutaho. Esitietopalvelu (P01) ja pilotti (P10) kuuluvat toiminnan omistajalle ja IT:lle. Tallennustapa (P08) kuuluu toiminnan omistajalle. Primus-haku (P02) kuuluu Primus-pääkäyttäjälle ja IT:lle. Lomakekartta (P04) kuuluu Wilma-pääkäyttäjälle. Koulutukset (P05) ja vakiokentät (P06) kuuluvat koulutuksen vastuuhenkilölle. Säilytys (P09) kuuluu IT:lle ja tiedon omistajalle.</p>
+<p>Osa päätöksistä on lähellä sinua. Haastattelun kirjaus (P03) on kirjaavan henkilöstön asia. Sinä tiedät, missä haastattelu on ja miten se kirjataan. Myös nykyisen tiedon käsittely (P07) ja sarja-ajon säännöt (P11) tarvitsevat sinun kokemustasi.</p>
+<p>Roolisi on substanssi ja hyväksyntä. Kerrot, mikä on oikein, ja tarkistat sen testeillä. Et ratkaise yhteyksiä, käyttöoikeuksia tai asennusta. Oikeaa aineistoa ei käsitellä, ennen kuin salaus ja säilytys on ratkaistu (P09). Asennuspaketti ja jakelu ovat IT:n työtä. Pilotti on kuvauspaketin vaihe 7, ja siinä mukana ovat kaikki vastuutahot.</p>
+<p>Kun puhut IT:n tai pääkäyttäjän kanssa, vie mukanasi <code>JATKO.md</code> ja <code>TESTIT.md</code>. Kerro, että työpajaversio on prototyyppi kuvitteellisella aineistolla. Älä lupaa sitä käyttöön. Sen arvo on siinä, että säännöt, testit ja avoimet kysymykset ovat jo kirjoitettuina.</p>
+<h3>Testi-Wilman polku</h3>
+<p>Kun testi-Wilma on käytössä, etenet pienin askelin. Ensin luetaan. Lukeminen ei muuta mitään. Jos kenttä puuttuu tai on eriniminen, huomaat sen, ennen kuin mikään kirjoittaa. Kenttäluku käy läpi opiskelijan haun, urasuunnitelman ja Primus-tietojen näkymät. Sitten tehdään yksi testikirjaus urasuunnitelmaan, ja se varmennetaan uudelleenluvulla. Vasta sen jälkeen siirretään yksi sovitin kerrallaan testi-Wilmaan. Jokainen sovitin tehdään samalla työjärjestyksellä kuin K9:ssä.</p>
+<p>Jokaisen askeleen jälkeen teet testit ja päätöksen. Testi-Wilman käyttö sovitaan Wilma-pääkäyttäjän kanssa, ja samat ehdot kuin osiossa 08 pätevät. Kirjaudut itse, eikä agentti avaa testi-Wilmaa.</p>
+<h3>Milloin pyydät apua</h3>
+<p>Pyydä apua heti, jos kysymys koskee tietoturvaa. Pyydä apua, jos agentti kiertää kehää etkä pääse eteenpäin paluulla. Pyydä apua, jos et ymmärrä lupapyyntöä. Kaikki, mikä koskee oikeaa Wilmaa, kysytään, ennen kuin tehdään.</p>
+<p>Seurantatapaamiset ovat noin kahden ja kuuden viikon päästä. Tuot niihin <code>JATKO.md</code>:n, <code>TESTIT.md</code>:n ja päätöslokin. Teette yhden työkierroksen yhdessä ja sovitte seuraavat askeleet.</p>
+<p><strong>Pysähdy hetkeksi:</strong> Mikä avoimista päätöksistä estää eniten seuraavaa askeltasi, ja kenen kanssa puhut siitä ensin?</p>
+<h3>Esimerkki: kolme seuraavaa askelta</h3>
+<p>Osio 07 siirtyi jatkoon, ja työpajassa tehtiin B2. Jatkosuunnitelman kolme askelta voisivat olla nämä.</p>
+<p>Askel 1: teen T04:n simuloidussa Wilmassa. Hyväksyn, kun Testileipomo Oy näyttää kaksi toimipaikkaa ja Kokeiluverstas Oy:n lisäys odottaa hyväksyntääni. Tarkistan hakemalla sovelluksella ja avaamalla simuloidun Wilman. En tarvitse ketään.</p>
+<p>Askel 2: teen T10:n, koska en tehnyt B1:tä. Hyväksyn, kun katko pysäyttää jonon ja Eero Esimerkillä on simuloidussa Wilmassa yksi urasuunnitelma. En tarvitse ketään.</p>
+<p>Askel 3: pyydän Wilma-pääkäyttäjältä oppisopimuslomakkeen kentät (P04). Hyväksyn, kun <code>KENTAT.md</code>:ssä ei ole oppisopimuksen kohdalla merkintää kartoitetaan. Tarkistan avaamalla <code>KENTAT.md</code>:n. Tarvitsen Wilma-pääkäyttäjän, koska oikean lomakkeen kentät eivät ole minun päätettävissäni.</p>
+<h3>Yhteenveto</h3>
+<p>Työpajaversio on lähtökohta, ei valmis ohjelma. Agentti ei muista eilistä, mutta tiedostosi muistavat, ja K11 lukee ne. Teet yhden pienen askeleen kerrallaan ja tarkistat sen itse. Yhteydet, oikeudet, säilytys, asennus ja pilotti kuuluvat vastuutahoille, ja sinun roolisi niissä on substanssi ja hyväksyntä.</p>
+
+</section>
+<section class="md" id="tehtavat"><h2>Tehtävät</h2>
+<p>Aika työpajassa noin 30 min. Sen jälkeen itsenäisesti kerran viikossa 60–90 min. Tarvitset: Codex-työpöytäsovelluksen, projektikansion ja Muistion.</p>
+<p>Tehtävät 1–4 teet työpajassa. Tehtävä 5 on työpajan jälkeistä työtä. Agentti ei muista työpajaa, mutta tiedostosi muistavat. Tarkistat muutokset agenttisovelluksen Git-toiminnoista. Agentin oma luettelo on vain apu.</p>
+<h3>Tehtävä 1: Tekemättömät testit jatkoon</h3>
+<ol>
+<li>Avaa <code>TESTIT.md</code> Muistiolla.</li>
+<li>Etsi testit, joiden viimeisin tulos on ei testattu tai ei läpi. Jos testillä on uusintarivejä, viimeisin tulos on alimmalla rivillä.</li>
+<li>Kirjoita niiden kohtaan Työpaja / lisä / jatko: jatko.</li>
+<li>Tallenna tiedosto ja sulje Muistio.</li>
+</ol>
+<p>Seuraavaksi: agentti kokoaa jatkosuunnitelman rungon.</p>
+<h3>Tehtävä 2: Jatkosuunnitelman runko</h3>
+<ol>
+<li>Tee tallennuspiste (commit) K6:lla.</li>
+<li><strong>Kehote:</strong> Kopioi koko lohko. Liitä se agentin kehotekenttään. Täytä aukko. Lähetä.</li>
+</ol>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k77">Kopioi</button></div><pre id="k77"><code>Luo projektikansion juureen tiedosto JATKO.md. Älä muuta muita tiedostoja.
+Lue ensin AGENTS.md, TYOLISTA.md, TESTIT.md, PAATOSLOKI.md ja KENTAT.md sekä kuvauspaketin osa 29.
+Tee tiedostoon viisi otsikkoa:
+(1) Avoimet tehtävät: työlistan tehtävät, jotka eivät ole valmiita, numeroineen.
+(2) Tekemättömät testit: testit, joiden merkintä on jatko.
+(3) Avoimet päätökset: P01–P11, kustakin yksi rivi ja vastuu kuvauspaketin osan 29 mukaan.
+(4) Kokeiluhavainnot: päätöslokin ja KENTAT.md:n havainnot teknisestä kokeilusta ja testi-Wilmasta.
+(5) Seuraavat askeleet: jätä tyhjäksi. Kirjoitan sen itse.
+Lisää avoimiin päätöksiin omat tietoni: [P-tunnukset, joihin voit tuoda omaa tietoa, ja mitä tiedät niistä].
+Älä kirjoita ihmisten nimiä. Käytä vain rooleja.
+Kerro lopuksi, miten tarkistan tiedoston ilman sinua.
+</code></pre></div>
+<ol start="3">
+<li>Lue kuvauspaketin osa 29 sillä aikaa, kun agentti kirjoittaa.</li>
+<li>Lue jokainen lupapyyntö kolmella kysymyksellä, ennen kuin hyväksyt.</li>
+<li>Avaa Git-toiminnoista muuttuneet tiedostot. Totea, että vain <code>JATKO.md</code> syntyi.</li>
+<li>Avaa <code>JATKO.md</code> Muistiolla.</li>
+<li>Tarkista, että avoimissa päätöksissä on rivit P01–P11 ja jokaisella vastuu osan 29 mukaan.</li>
+<li>Valitse kaksi testiä <code>TESTIT.md</code>:stä, joiden merkintä on jatko. Totea, että ne ovat myös <code>JATKO.md</code>:ssä.</li>
+<li>Sulje Muistio.</li>
+</ol>
+<p>Seuraavaksi: kirjoitat itse seuraavat askeleet.</p>
+<h3>Tehtävä 3: Kolme seuraavaa askelta</h3>
+<ol>
+<li>Lue <code>JATKO.md</code>:n avoimet tehtävät ja tekemättömät testit.</li>
+<li>Kopioi alla oleva pohja Muistiolla <code>JATKO.md</code>:n kohtaan Seuraavat askeleet kolme kertaa ja numeroi askeleet.</li>
+<li><strong>Oma kriteeri:</strong> Täytä kolme askelta omin sanoin.</li>
+<li>Tarkista, että vähintään yhden askeleen voit tehdä ja tarkistaa itse simuloidussa Wilmassa.</li>
+<li>Tarkista, että jokaisessa askeleessa, joka tarvitsee muita, rooli on nimetty.</li>
+<li>Tallenna tiedosto ja sulje Muistio.</li>
+</ol>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k78">Kopioi</button></div><pre id="k78"><code>### Askel 1
+- Mitä teen: [yksi työlistan tehtävä tai testi]
+- Hyväksyn, kun: [mitä näen, kun se on tehty]
+- Tarkistan näin: [mitä teen ja mitä näen]
+- Tarvitsen: [en ketään / IT / Wilma-pääkäyttäjä / Primus-pääkäyttäjä / koulutuksen vastuuhenkilö]
+</code></pre></div>
+<p>Seuraavaksi: sovit seurantatapaamisen.</p>
+<h3>Tehtävä 4: Seurantatapaaminen ja viimeinen päätös</h3>
+<ol>
+<li>Sovi vetäjän kanssa ensimmäinen seurantatapaaminen noin kahden viikon päähän.</li>
+<li>Sovi, miten otat yhteyttä vetäjään tapaamisten välillä, esimerkiksi sähköpostilla tai Teamsissa.</li>
+<li>Kirjoita <code>JATKO.md</code>:n loppuun tapaamisen päivä, yhteydenottotapa ja yksi kysymys, jonka haluat esittää tapaamisessa.</li>
+<li><strong>Päätös:</strong> Kirjaa päätöslokiin jatkosuunnitelmasta hyväksyn, korjautan tai hylkään ja peruste omin sanoin.</li>
+<li><strong>Kehote (K6):</strong> Kopioi K6 <code>KEHOTEPOHJAT.md</code>:stä. Kirjoita viesti omin sanoin. Lähetä.</li>
+<li>Lue jokainen lupapyyntö kolmella kysymyksellä, ennen kuin hyväksyt.</li>
+<li>Totea agentin vastauksesta, että <code>JATKO.md</code> ja <code>PAATOSLOKI.md</code> tulivat mukaan.</li>
+</ol>
+<p>Seuraavaksi: työpaja päättyy. Jatkat itsenäisesti tehtävästä 5.</p>
+<h3>Tehtävä 5: Itsenäinen työkerta työpajan jälkeen</h3>
+<p>Tee tämä kerran viikossa 60–90 min. Ensimmäisillä kerroilla teet tekemättömiä simuloidun Wilman testejä.</p>
+<ol>
+<li>Avaa Codex-työpöytäsovellus ja projektikansio.</li>
+<li>Aloita uusi työsäie. Pidä auki vain yksi työsäie.</li>
+<li><strong>Kehote (K11):</strong> Kopioi K11 <code>KEHOTEPOHJAT.md</code>:stä. Kysy aukossa, mikä <code>JATKO.md</code>:n seuraavista askeleista on ensimmäinen. Lähetä.</li>
+<li>Vertaa agentin vastausta <code>JATKO.md</code>:hen ja päätöslokin viimeiseen merkintään.</li>
+<li>Valitse yksi askel. Pienin askel on yksi testi.</li>
+<li>Tee tallennuspiste K6:lla, jos edellisen jälkeen on muutoksia.</li>
+<li>Tee ensin työkierros kuten työpajassa, jos askel vaatii rakentamista: <strong>Oma kriteeri</strong>, K2, hyväksyntä, K3 ja muutosten tarkistus Git-toiminnoista. Hyväksy suunnitelma lauseella: Hyväksyn suunnitelman. Älä vielä aloita. Annan ensimmäisen palan seuraavaksi.</li>
+<li>Palauta lähtötila kaksoisnapsauttamalla <code>palauta-lahtotila.cmd</code>, jos testi tekee Wilma-tallennuksen.</li>
+<li>Käynnistä simuloitu Wilma ja sovellus <code>KAYNNISTYS.md</code>:n ohjeella.</li>
+<li><strong>Oma testi:</strong> Tee testi ja kirjaa tulos ja havainto <code>TESTIT.md</code>:hen. Jos testillä on jo tulos, lisää sen alle rivi: - Uusinta [päivä]: [läpi / ei läpi]. [havainto]</li>
+<li>Korjauta ei läpi -tulos K5:llä, tarkista muuttuneet tiedostot Git-toiminnoista ja tee testi uudelleen.</li>
+<li><strong>Päätös:</strong> Kirjaa päätöslokiin päätös ja peruste.</li>
+<li>Tee tallennuspiste K6:lla.</li>
+<li>Merkitse askel tehdyksi <code>JATKO.md</code>:hen.</li>
+<li>Lopeta työkerta tallennuspisteeseen, vaikka askel jäisi kesken. Kirjoita päätöslokiin, mihin jäit.</li>
+</ol>
+<p>Seuraavaksi: sama työkerta ensi viikolla seuraavalla askeleella.</p>
+<h3>Valmis, kun</h3>
+<ul>
+<li><code>TESTIT.md</code>:ssä jokainen tekemätön testi on merkitty jatkoon.</li>
+<li><code>JATKO.md</code>:ssä on viisi otsikkoa, P01–P11 vastuineen ja kolme omaa askeltasi kriteereineen.</li>
+<li>Seurantatapaamisen päivä ja yhteydenottotapa ovat <code>JATKO.md</code>:n lopussa.</li>
+<li>Päätöslokissa on viimeinen merkintä, ja tallennuspiste on tehty.</li>
+</ul>
+<h3>Jos jäät jumiin</h3>
+<p>Agentti ei muista eilistä. Se ei ole vika. Aloita aina uudella työsäikeellä ja K11:llä. Jos agentin tilannekatsaus ei vastaa päätöslokia, luota päätöslokiin ja kerro agentille, mikä on oikein.</p>
+<p>Pysähdy ja ota yhteys vetäjään sovitulla tavalla, jos kysymys koskee tietoturvaa tai oikeaa Wilmaa. Pysähdy myös, jos ongelma jatkuu kahden korjausyrityksen jälkeen tai et ymmärrä lupapyyntöä. Palaa silloin tallennuspisteeseen K7:llä ja kirjaa tilanne päätöslokiin.</p>
+<h3>Seuraava osio</h3>
+<p>Seuraavaa osiota ei ole. Seuraava yhteinen kerta on seurantatapaaminen. Tuo siihen <code>JATKO.md</code>, <code>TESTIT.md</code> ja päätösloki.</p>
+
+</section>
+<section class="md" id="sanasto"><h2>Sanasto</h2>
+<h3>Jatkosuunnitelma</h3>
+<p>Tiedosto <code>JATKO.md</code>. Siinä ovat avoimet tehtävät, tekemättömät testit, avoimet päätökset vastuineen, kokeiluhavainnot ja kolme omaa seuraavaa askeltasi kriteereineen.</p>
+<h3>Avoin päätös (P01–P11)</h3>
+<p>Kuvauspaketin osan 29 asia, jota ei ole vielä ratkaistu, esimerkiksi esitietopalvelu tai säilytys. Jokaisella on vastuutaho. Sinun roolisi niissä on substanssi ja hyväksyntä.</p>
+<h3>Pääkäyttäjä</h3>
+<p>Wilman tai Primuksen ylläpitäjä oppilaitoksessa. Pääkäyttäjä päättää lomakkeista, kentistä ja käyttöoikeuksista.</p>
+<h3>Pilotti</h3>
+<p>Kuvauspaketin vaihe 7: rajattu käyttökokeilu oikealla opiskelijajonolla. Edellyttää, että avoimet päätökset on ratkaistu. Työpajaversio ei ole pilotti.</p>
+<h3>Tilannekatsaus</h3>
+<p>Kehotepohja K11. Agentti lukee ohjetiedoston, työlistan, päätöslokin ja testit ja kertoo, missä olette. Se ei muuta tiedostoja. Jokainen uusi työsäie alkaa sillä.</p>
+
+</section>
+<nav class="pager"><a href="osio-08.html">← Osio 08</a><span></span></nav>
+<footer class="page">Kaikki materiaalin henkilöt, yritykset, tunnisteet ja palkat ovat kuvitteellisia. Versio 1 · 23.10.2026.</footer>
+</main>
+</body>
+</html>

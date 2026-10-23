@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vibekoodaus-työpaja: Oppisopimustäyttäjä</title>
+<meta name="description" content="Vibekoodaus-työpaja: ohjelmointia osaamaton rakentaa agentin avulla Oppisopimustäyttäjän.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23775EC4'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='600' fill='white'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/site.js" defer></script>
+</head>
+<body>
+<main>
+<header class="page">
+  <div class="kicker">Vibekoodaus-työpaja · Kaksi päivää</div>
+  <h1>Oppisopimustäyttäjä agentin avulla</h1>
+  <div class="md lead-md"><p>Tämä on kahden päivän työpaja. Siinä ohjelmointia osaamaton rakentaa agentin avulla oikean työkalun, Oppisopimustäyttäjän. Sovellus kokoaa oppisopimuksen tiedot, näyttää ne tarkistettaviksi ja täyttää Wilma-lomakkeet. Paketti on samalla demo siitä, miten tekoälyllä tehdään aito työtä helpottava työkalu.</p>
+<p>Agentti kirjoittaa koodin. Oppija omistaa säännöt, tarkistukset ja päätökset.</p>
+</div>
+</header>
+<section class="card">
+  <div class="kicker dim">Valitse polku</div>
+  <p>Valitse polku, johon sinulla tai organisaatiollasi on tilaus. Lue sen jälkeen vain oman polkusi sivuja. Aloita osiosta 00 itsenäisesti ennen työpajaa.</p>
+</section>
+<nav class="exercises">
+<a class="exercise-card" href="claude/index.html"><div class="row"><div class="kicker">Claude-työpöytäsovelluksen Code-välilehti</div><span class="arrow">→</span></div><div class="title">Claude-polku</div><p>Sama tuote, samat vaiheet ja samat hyväksymiskriteerit. Projektiin tulee ohjetiedosto CLAUDE.md.</p></a>
+<a class="exercise-card" href="codex/index.html"><div class="row"><div class="kicker">Codex-työpöytäsovellus Windowsille</div><span class="arrow">→</span></div><div class="title">Codex-polku</div><p>Sama tuote, samat vaiheet ja samat hyväksymiskriteerit. Projektiin tulee ohjetiedosto AGENTS.md.</p></a>
+</nav>
+<section class="md"><h2>Kenelle</h2><p>Oppija on hallinnon työntekijä, joka tuntee oppisopimusprosessin ja Wilman kirjaukset. Ohjelmointia ei tarvitse osata. Vetäjä tekee ennakkovalmistelut ja ohjaa työpajan paikan päällä.</p>
+</section>
+<section class="md"><h2>Ennakkovaatimukset</h2><ul>
+<li>Tilaus: Claude Pro, Max, Team tai Enterprise, tai ChatGPT-tilaus, jossa Codex on mukana.</li>
+<li>Node.js (LTS) ja Git for Windows. Hallitulla koneella ne asentaa IT.</li>
+<li>Projektikansio <code>C:\dev\oppisopimustayttaja</code>. Ei OneDrivessa, Tiedostoissa eikä Työpöydällä.</li>
+<li>Testi-Wilma on valinnainen. Ilman sitä koko työpaja tehdään simuloidussa Wilmassa.</li>
+</ul>
+<p>Vetäjä lähettää IT-pyynnön 4 viikkoa ennen työpajaa. Pyynnön sisältö on vetäjän osiossa 00.</p>
+</section>
+<section class="md"><h2>Aikataulu</h2><div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Osio</th>
+<th>Nimi</th>
+<th>Aika</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00</td>
+<td>Ennen työpajaa: kone, kansio ja turvaraja</td>
+<td>itsenäisesti 60–90 min, viimeistään 3 arkipäivää ennen</td>
+</tr>
+<tr>
+<td>01</td>
+<td>Agentti ei ole chat: ensimmäinen tehtävä ja tallennuspiste</td>
+<td>päivä 1, 9.00–10.15</td>
+</tr>
+<tr>
+<td>02</td>
+<td>Määrittely ennen koodia: ohjetiedosto ja työlista</td>
+<td>päivä 1, 10.30–11.45</td>
+</tr>
+<tr>
+<td>03</td>
+<td>Simuloitu Wilma ja kuvitteellinen aineisto</td>
+<td>päivä 1, 12.30–13.45</td>
+</tr>
+<tr>
+<td>04</td>
+<td>Ensimmäinen varmennettu tallennus</td>
+<td>päivä 1, 14.00–16.00</td>
+</tr>
+<tr>
+<td>05</td>
+<td>Lähteet, puutteet ja ristiriidat</td>
+<td>päivä 2, 9.00–10.30</td>
+</tr>
+<tr>
+<td>06</td>
+<td>Opiskelijalista ja työjono</td>
+<td>päivä 2, 10.45–12.00</td>
+</tr>
+<tr>
+<td>07</td>
+<td>Oppisopimus ja sen edellytykset (joustokohta)</td>
+<td>päivä 2, 12.45–14.15</td>
+</tr>
+<tr>
+<td>08</td>
+<td>Hyväksymistestit ja häiriötilanne</td>
+<td>päivä 2, 14.30–15.45</td>
+</tr>
+<tr>
+<td>09</td>
+<td>Jatko: seuraavat askeleet ja pilotti</td>
+<td>päivä 2, 15.45–16.15 ja itsenäisesti 60 min</td>
+</tr>
+</tbody>
+</table></div>
+
+<p class="note">Kopioit kehotteet sivulta Kopioi-painikkeella. Älä kopioi niitä Muistiosta, koska mukaan tulisi ylimääräisiä merkkejä.</p></section>
+<section class="md"><h2>Turvaraja</h2><p>Oikeaa opiskelijatietoa ei koskaan anneta agentille: ei kehotteeseen, tiedostoon eikä kuvaan. Salasanoja ja tunnuksia ei anneta agentille. Oppija kirjautuu itse näkyvässä selaimessa. Oikea Wilma ei kuulu työpajaan.</p>
+</section>
+<section class="md"><h2>Mitä työpajan lopussa on</h2><p>Kahdessa päivässä ei valmistu koko sovellus. Rehellinen lopputulos on työpajaversio. Se toimii simuloitua Wilmaa vasten kuvitteellisella aineistolla.</p>
+<p>Vähimmäistavoite on tämä. Simuloitu Wilma ja sovellus käynnistyvät ohjeella ilman agenttia. Sovellus avaa selaimen, jossa kirjaudut itse. Se hakee yhden opiskelijan tiedot kuvitteellisista lähteistä ja näyttää ne tarkistettavina. Se tekee urasuunnitelman Wilma-tallennuksen ja lukee lomakkeen uudelleen. Näin näet, tallentuiko tieto oikein. Kahden opiskelijan jonossa seuraava avautuu vasta, kun edellinen on varmennettu. Lisäksi sinulla on omat tiedostosi: säännöt, työlista, päätösloki, hyväksymiskriteerit, testitulokset ja jatkosuunnitelma.</p>
+<p>Tavoite on vähimmäistavoitetta laajempi. Silloin sovellus näyttää myös puuttuvat ja ristiriitaiset tiedot. Se tuo opiskelijalistan, erottaa samannimiset opiskelijat ja osaa jättää opiskelijan odottamaan lisätietoja. Se kirjaa oppisopimuksen tiedot oikeassa järjestyksessä. Ulkoasu noudattaa PRO-ilmettä, ja yksi häiriötilanne on testattu. Jos testi-Wilma on käytössä, kokeilet myös sen kenttien lukemista.</p>
+<p>Yhteys oikeaan Wilmaan, oikeat tiedot, asennettava ohjelma ja pilotti ovat jatkoa.</p>
+</section>
+<section class="md"><h2>Projektikansioon syntyvät tiedostot</h2><p>Tiedosto esitellään osiossa, jossa sitä käytetään ensimmäisen kerran. Sen jälkeen se elää projektikansiossa ja jää oppijalle jatkoon. Nuoli tarkoittaa, että tiedostoa täydennetään myöhemmissä osioissa.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Tiedosto tai kansio</th>
+<th>Osio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>maarittely/</code> (kuvauspaketti, mahdollinen <code>03-kenttakartoitus.csv</code>)</td>
+<td>00</td>
+</tr>
+<tr>
+<td><code>maarittely/oma-kokemus.md</code></td>
+<td>00</td>
+</tr>
+<tr>
+<td><code>TYOKORTTI.md</code></td>
+<td>01</td>
+</tr>
+<tr>
+<td><code>KEHOTEPOHJAT.md</code></td>
+<td>01 → 04</td>
+</tr>
+<tr>
+<td><code>PAATOSLOKI.md</code></td>
+<td>01</td>
+</tr>
+<tr>
+<td><code>HYVAKSYMISKRITEERIT.md</code></td>
+<td>02</td>
+</tr>
+<tr>
+<td><code>CLAUDE.md</code> (Claude) tai <code>AGENTS.md</code> (Codex)</td>
+<td>02</td>
+</tr>
+<tr>
+<td><code>TYOLISTA.md</code></td>
+<td>02</td>
+</tr>
+<tr>
+<td><code>simuloitu-wilma/</code></td>
+<td>03 → 08</td>
+</tr>
+<tr>
+<td><code>testiaineisto/</code></td>
+<td>03</td>
+</tr>
+<tr>
+<td><code>testiaineisto/wilma-lahtotila.json</code></td>
+<td>03 → 07</td>
+</tr>
+<tr>
+<td><code>kaynnista-wilma.cmd</code></td>
+<td>03</td>
+</tr>
+<tr>
+<td><code>palauta-lahtotila.cmd</code></td>
+<td>03 → 04</td>
+</tr>
+<tr>
+<td><code>KAYNNISTYS.md</code></td>
+<td>03 → 04</td>
+</tr>
+<tr>
+<td><code>KENTAT.md</code></td>
+<td>03 → 08</td>
+</tr>
+<tr>
+<td><code>TESTIT.md</code></td>
+<td>03</td>
+</tr>
+<tr>
+<td><code>kaynnista-sovellus.cmd</code></td>
+<td>04</td>
+</tr>
+<tr>
+<td><code>JATKO.md</code></td>
+<td>09</td>
+</tr>
+</tbody>
+</table></div>
+</section>
+<footer class="page">Kaikki materiaalin henkilöt, yritykset, tunnisteet ja palkat ovat kuvitteellisia. Versio 1 · 23.10.2026.</footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Osio 01: Agentti ei ole chat: ensimmäinen tehtävä ja tallennuspiste – Claude-polku</title>
+<meta name="description" content="Mitä agentti teki koneellasi juuri nyt, ja mistä sen näet?">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23775EC4'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='600' fill='white'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<main>
+<a class="back-link" href="index.html">← Claude-polku</a>
+<header class="page">
+  <div class="kicker">Claude-polku · Osio 01 · päivä 1, 9.00–10.15</div>
+  <h1>Agentti ei ole chat: ensimmäinen tehtävä ja tallennuspiste</h1>
+  <div class="insight"><div class="kicker">Ajattelukysymys</div><p>Mitä agentti teki koneellasi juuri nyt, ja mistä sen näet?</p></div>
+</header>
+<nav class="pills" aria-label="Osion sisältö">
+  <a href="#lue">1 · Lukuteksti</a><a href="#tehtavat">2 · Tehtävät</a><a href="#sanasto">3 · Sanasto</a>
+</nav>
+<section class="md" id="lue"><h2>Lukuteksti</h2>
+<p>Olet ehkä käyttänyt chat-palvelua. Kirjoitat kysymyksen, ja saat vastauksen tekstinä. Agentti toimii eri tavalla. Se lukee ja muuttaa tiedostoja koneellasi ja ajaa komentoja. Siksi sitä myös valvotaan eri tavalla.</p>
+<p>Tässä osiossa annat agentille ensimmäisen rajatun tehtävän. Opit lukemaan lupapyynnön ja tarkistamaan, mitä muuttui. Teet ensimmäisen tallennuspisteen (commit) ja kokeilet palata siihen. Lopuksi kirjaat ensimmäiset päätökset päätöslokiin.</p>
+<p>Osion jälkeen projektikansiossa on neljä uutta asiaa: työkortti, kehotepohjat, päätösloki ja Git. Käytät niitä koko työpajan ajan.</p>
+<h3>Chat-palvelu vastaa, agentti tekee</h3>
+<p><strong>Chat-palvelu</strong> vastaa tekstillä. Se ei muuta tiedostoja koneellasi. Jos haluat vastauksen tiedostoon, kopioit sen itse.</p>
+<p>Agentti lukee ja muokkaa tiedostoja ja ajaa komentoja projektikansiossa. Kun pyydät siltä jotain, lopputulos voi olla uusi tiedosto, muuttunut tiedosto tai ajettu ohjelma.</p>
+<p>Ero näkyy samalla pyynnöllä. Pyydät: &quot;Tee lista Wilmaan täytettävistä kokonaisuuksista kuvauspaketin osan 6 mukaan.&quot; Chat-palvelussa liität ensin kuvauspaketin tekstin keskusteluun. Saat vastauksen ruudulle. Koneellasi ei muutu mitään. Agentti lukee kuvauspaketin itse kansiosta <code>maarittely</code>. Se voi kirjoittaa listan uuteen tiedostoon projektikansioon. Näet tiedoston Resurssienhallinnassa.</p>
+<p>Tämä on agentin hyöty ja riski. Se tekee työn puolestasi. Se voi myös muuttaa jotain, mitä et pyytänyt.</p>
+<p>Viestiä, jolla annat agentille tehtävän, kutsutaan kehotteeksi. Työpajassa käytät kehotepohjia. Kehotepohja on valmis kehote, jossa on hakasulkeissa aukkoja. Täytät aukot itse, koska niihin tarvitaan sinun tietoasi. Esimerkiksi kehotepohjaan K1 kirjoitat, mitä haluat ohjelmasta erityisesti tietää.</p>
+<p><strong>Pysähdy hetkeksi:</strong> Mitä agentti voi tehdä koneellasi, mitä chat-palvelu ei voi?</p>
+<h3>Projektikansio on agentin työalue</h3>
+<p>Valitsit osiossa 00 projektikansioksi <code>C:\dev\oppisopimustayttaja</code>. Se on agentin työalue. Kaikki, mitä agentti työpajassa tekee, tapahtuu sen sisällä. Kansion ulkopuoli ei kuulu agentille. Muut kansiosi, sähköpostisi ja Wilma ovat sen ulkopuolella.</p>
+<p>Raja auttaa myös tarkistamaan. Kun agentti haluaa tehdä jotain kansion ulkopuolella, se on aina syy pysähtyä.</p>
+<p>Agentti näkee kaiken, mitä kansiossa on. Se lukee kuvauspaketin ja oman kokemuksesi, jos pyydät. Siksi kansioon ei tuoda mitään, mitä agentti ei saa nähdä.</p>
+<p>Agentin työn näet kolmesta paikasta. Ennen muutosta näet lupapyynnön. Muutoksen jälkeen näet muutosnäkymän ja tiedostot Resurssienhallinnassa. Tallennuspisteistä näet, mitä on tehty aiemmin. Kun joku kysyy, mitä agentti teki, vastaat näiden perusteella, et agentin oman kertomuksen perusteella.</p>
+<h3>Lupapyyntö ja kolme kysymystä</h3>
+<p>Oletuksena agentti kysyy luvan, ennen kuin se muuttaa tiedostoa tai ajaa komennon. Tätä kysymystä kutsutaan <strong>lupapyynnöksi</strong>. Asetusta, joka ratkaisee, mitä agentti saa tehdä kysymättä, kutsutaan lupatilaksi. Muutokset voi sallia automaattisesti. Tässä osiossa et tee niin. Päätät asiasta itse osiossa 05.</p>
+<p>Lue jokainen lupapyyntö kolmella kysymyksellä:</p>
+<ul>
+<li>Mikä? Mikä tiedosto tai komento on kyseessä?</li>
+<li>Missä? Onko se projektikansion sisällä?</li>
+<li>Miksi? Liittyykö se siihen, mitä pyysin?</li>
+</ul>
+<p>Jos jokin jää epäselväksi, älä hyväksy vielä. Pyydä agenttia selittämään omin sanoin, mitä se aikoo tehdä ja miksi. Hyväksy vasta, kun ymmärrät vastauksen.</p>
+<p>Lupapyynnössä voi olla myös vaihtoehto, joka sallii saman toiminnon jatkossa kysymättä. Älä valitse sitä. Hyväksy vain tämän kerran. Muuten seuraava samanlainen muutos tapahtuu ilman, että näet sitä etukäteen. Työkortissa sama sääntö kuuluu näin: hyväksyn vain tämän kerran, enkä valitse vaihtoehtoa, joka sallii saman jatkossa kysymättä.</p>
+<p>Esimerkki: pyysit agenttia luomaan tiedoston <code>TYOKORTTI.md</code>. Lupapyynnössä agentti haluaa luoda juuri sen tiedoston projektikansioon. Kaikki kolme kysymystä saavat vastauksen, ja hyväksyt. Jos agentti haluaisi samalla muuttaa tiedostoa Tiedostot-kansiossa, Missä-kysymys ei täyty. Kiellät ja kysyt syytä.</p>
+<p>Komento on vaikeampi lukea kuin tiedoston nimi. Kun otat Gitin käyttöön, agentti pyytää lupaa ajaa komennon. Mikä: komento, joka ottaa Gitin käyttöön. Missä: projektikansiossa. Miksi: pyysit sitä. Jos komennosta ei näe, mitä se tekee, kirjoita agentille: &quot;Selitä tämä komento yhdellä lauseella. Mitä se muuttaa?&quot;</p>
+<p>Lupapyyntöjä tulee paljon, varsinkin asennuksissa. Silloin houkuttaa hyväksyä lukematta. Juuri silloin virhe pääsee läpi. Jos pyyntöjä tulee peräkkäin kymmenen, lue jokainen. Jos et jaksa, pidä tauko.</p>
+<p>Kun muutos on tehty, näet sen sovelluksen <strong>muutosnäkymästä</strong>. Se näyttää, mitä tiedostoissa muuttui. Lisätyt ja poistetut rivit erottuvat toisistaan.</p>
+<p><strong>Pysähdy hetkeksi:</strong> Milloin hyväksyisit lupapyynnön lukematta? Vastaus on: ei koskaan.</p>
+<h3>Tallennuspiste</h3>
+<p><strong>Git</strong> on ohjelma, jolla tallennuspisteet tehdään. Tallennuspiste (commit) on Gitillä tehty nimetty välitila projektikansiosta. Siihen voi palata. Paluu kumoaa kaikki tallennuspisteen jälkeen tehdyt muutokset. Aiemmat tallennuspisteet säilyvät.</p>
+<p>Tee tallennuspiste kahdessa kohdassa: ennen jokaista isompaa tehtävää ja jokaisen hyväksynnän jälkeen. Silloin sinulla on aina kohta, johon palata, jos agentti rikkoo jotain.</p>
+<p>Kuvittele, että pyydät myöhemmin agenttia muuttamaan urasuunnitelman näkymää. Samalla opiskelijahaku lakkaa toimimasta. Ilman tallennuspistettä sinun pitäisi selittää agentille, millainen haku oli. Tallennuspisteen avulla palaat kohtaan, jossa haku toimi, ja yrität muutosta uudelleen.</p>
+<p>Jokaisella tallennuspisteellä on viesti. Viesti kertoo, mitä tallennuspisteessä on valmiina. Kirjoita se niin, että tunnistat sen viikon päästä. &quot;Työkortti ja kehotepohjat valmiina&quot; on hyvä viesti. &quot;Muutoksia&quot; ei ole.</p>
+<p>Git toimii vain omalla koneellasi. Se ei ole varmuuskopio pilveen. Gitiä ei tarvitse ymmärtää tämän enempää. Pyydät agenttia tekemään tallennuspisteen tai palaamaan siihen kehotepohjilla K6 ja K7.</p>
+<h3>Päätösloki: sinä olet portinvartija</h3>
+<p>Agentti tekee työn. Sinä päätät, kelpaako se. <strong>Päätösloki</strong> on tiedosto <code>PAATOSLOKI.md</code>. Kirjaat siihen jokaisesta isommasta agentin tuotoksesta päätöksen ja yhden perusteen omin sanoin.</p>
+<p>Päätöksiä on kolme. Hyväksyn tarkoittaa, että tuotos kelpaa. Korjautan tarkoittaa, että pyydän agenttia korjaamaan. Hylkään tarkoittaa, että palaan tallennuspisteeseen.</p>
+<p>Hylkäyksessä järjestys on tärkeä: kun hylkään, palaan ensin ja kirjaan päätöksen sitten. Sulje ensin Muistio. Palaa sitten tallennuspisteeseen ja kirjoita merkintä vasta sen jälkeen. Paluu voi kumota myös merkinnän, jonka kirjoitit ennen paluuta. Kehotepohja K7 pyytää agenttia jättämään päätöslokin, kriteerit ja testit ennalleen. Järjestys suojaa merkintääsi silloinkin, kun agentti ei noudata pyyntöä.</p>
+<p>Peruste on lyhyt, mutta se kertoo, mitä tarkistit. &quot;Näyttää hyvältä&quot; ei ole peruste. &quot;Tiivistelmästä puuttui, että työpaikan pitää olla Wilmassa ennen oppisopimusta&quot; on peruste.</p>
+<p>Isompi tuotos on esimerkiksi uusi tiedosto, agentin suunnitelma tai sovelluksen uusi toimiva osa. Pieniä korjauksia ei tarvitse kirjata yksitellen.</p>
+<p>Agentti ei kirjoita päätöslokia. Jos se kirjoittaisi, se arvioisi omaa työtään. Päätösloki näyttää jälkikäteen, mitä sinä tarkistit ja päätit. Siksi kirjoitat sen itse Muistiolla.</p>
+<h3>Esimerkki: tiivistelmä, joka on melkein oikein</h3>
+<p>Pyydät agenttia tiivistämään kuvauspaketin viidellä lauseella. Yksi lause kuuluu: &quot;Ohjelma etsii opiskelijan Wilmasta nimellä ja täyttää hänen lomakkeensa.&quot;</p>
+<p>Luet lauseen omaa kokemustasi vasten. Tiedät, että nimi ei riitä. Kuvitteellisessa aineistossa on kaksi Aino Testista. Toisen opiskelijanumero on 000123, toisen 000456. Kuvauspaketin osa 9 sanoo, että oikea henkilö varmistetaan opiskelijanumerolla ennen Wilma-tallennusta.</p>
+<p>Kirjaat päätöslokiin päätöksen korjautan. Perusteeksi kirjoitat: &quot;Nimi on vain hakusana. Kohdistus tehdään opiskelijanumerolla, koska Aino Testisiä on kaksi.&quot;</p>
+<p>Agentti ei keksinyt mitään. Se tiivisti liikaa. Tällaisen kohdan huomaat vain, koska tunnet työn.</p>
+<h3>Yhteenveto</h3>
+<p>Agentti lukee ja muuttaa tiedostoja ja ajaa komentoja projektikansiossa. Luet jokaisen lupapyynnön kolmella kysymyksellä ja katsot muutokset muutosnäkymästä. Tallennuspiste on Gitillä tehty välitila, johon voi palata. Päätösloki on sinun: kirjaat siihen päätöksen ja perusteen omin sanoin.</p>
+
+</section>
+<section class="md" id="tehtavat"><h2>Tehtävät</h2>
+<p>Aika noin 75 min. Tarvitset: Claude-työpöytäsovelluksen Code-välilehden, projektikansion <code>C:\dev\oppisopimustayttaja</code>, Resurssienhallinnan ja Muistion.</p>
+<p>Lue ensin osion lukuteksti, jos et lukenut sitä etukäteen. Kopioit kehotteet aina koko lohkona, kuten osiossa 00. Tallennat ja avaat .md-tiedostot Muistiolla osion 00 tavalla.</p>
+<h3>Tehtävä 1: Ensimmäinen rajattu tehtävä</h3>
+<ol>
+<li>Avaa Claude-työpöytäsovelluksen Code-välilehti.</li>
+<li>Valitse kansioksi projektikansio <code>C:\dev\oppisopimustayttaja</code>.</li>
+<li><strong>Kehote (K1):</strong> Kopioi koko lohko. Liitä se agentin kehotekenttään. Täytä aukko sillä, mitä haluat ohjelmasta erityisesti tietää. Lähetä.</li>
+</ol>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k3">Kopioi</button></div><pre id="k3"><code>Lue kansiossa maarittely oleva kuvauspaketti. Älä muuta mitään tiedostoa.
+Kerro viidellä lauseella suomeksi, mitä Oppisopimustäyttäjä tekee.
+Kerro erityisesti [mitä haluat ohjelmasta tietää].
+Kerro lopuksi, mitä et löytänyt kuvauspaketista.
+</code></pre></div>
+<ol start="4">
+<li><strong>Oma testi:</strong> Lue tiivistelmä lause kerrallaan ja vertaa sitä omaan tietoosi.</li>
+<li>Kirjoita paperille yksi asia, jonka agentti ilmaisi väärin, epätarkasti tai jätti pois.</li>
+</ol>
+<p>Seuraavaksi: annat agentille tehtävän, joka muuttaa tiedostoja.</p>
+<h3>Tehtävä 2: Työkortti ja kehotepohjat</h3>
+<p>Työkortti on muistilista koko työpajaan. Kehotepohjat ovat kehotteita, joiden aukot täytät myöhemmin itse. Alla olevissa lohkoissa on sekä pyyntö että tiedoston teksti. Älä täytä niiden hakasulkeita.</p>
+<ol>
+<li>Kopioi työkortin lohko kokonaan. Liitä se agentin kehotekenttään. Lähetä.</li>
+<li>Kuuntele, kun vetäjä lukee lupapyynnön ääneen kolmella kysymyksellä: Mikä? Missä? Miksi?</li>
+<li>Hyväksy lupapyyntö vain tämän kerran, kun kaikki kolme kysymystä saavat vastauksen.</li>
+<li>Kopioi kehotepohjien lohko kokonaan. Liitä se agentin kehotekenttään. Lähetä.</li>
+<li>Lue tämä lupapyyntö itse ääneen kolmella kysymyksellä, ennen kuin hyväksyt.</li>
+<li>Avaa projektikansio Resurssienhallinnassa. Totea, että siellä on vain kansio <code>maarittely</code> sekä tiedostot <code>TYOKORTTI.md</code> ja <code>KEHOTEPOHJAT.md</code>.</li>
+<li>Avaa <code>TYOKORTTI.md</code> Muistiolla samalla tavalla kuin osiossa 00: avaa Muistio ja vedä tiedosto sen ikkunaan.</li>
+<li>Tarkista, että kaikki viisi osaa ovat mukana.</li>
+<li>Sulje Muistio.</li>
+</ol>
+<p>Työkortin lohko:</p>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k4">Kopioi</button></div><pre id="k4"><code>Luo projektikansion juureen tiedosto TYOKORTTI.md. Kopioi siihen alla oleva teksti sellaisenaan. Älä muuta muita tiedostoja.
+
+# Työkortti
+
+## (1) Työkierros
+Tallennuspiste → kriteeri → suunnitelma → agentti tekee → tarkistan muutokset → ajan ja testaan itse → päätös → tallennuspiste.
+Yksi pieni tehtävä kerrallaan.
+
+## (2) Lupapyyntö: kolme kysymystä
+- Mikä? Mikä tiedosto tai komento?
+- Missä? Onko se projektikansion sisällä?
+- Miksi? Liittyykö se siihen, mitä pyysin?
+Jos jokin jää epäselväksi, pyydän agenttia selittämään ennen kuin hyväksyn.
+Hyväksyn vain tämän kerran. En valitse vaihtoehtoa, joka sallii saman jatkossa kysymättä.
+
+## (3) Ennen kuin hyväksyn
+- Luin lupapyynnöt ja katsoin muutosnäkymästä, mitä muuttui.
+- Ajoin sovelluksen ja näin tuloksen itse.
+- Kävin kriteerini läpi yksi kerrallaan.
+- Kokeilin vähintään yhtä tapausta, jonka pitää pysähtyä.
+- Muuttui vain se, mitä pyysin.
+- Kirjasin oman havainnon TESTIT.md:hen.
+- Kirjasin päätöksen.
+- Teen tallennuspisteen vasta hyväksynnän jälkeen.
+
+## (4) Tietoturva
+- Ei oikeaa opiskelijatietoa agentille: ei kehotteeseen, tiedostoon eikä kuvaan.
+- Ei salasanoja eikä tunnuksia agentille.
+- Kirjaudun itse näkyvässä selaimessa.
+- Luen lupapyynnön ennen hyväksymistä.
+- En salli kaikkea automaattisesti.
+- Oikea Wilma ei kuulu työpajaan.
+- Testi-Wilmasta saatu aineisto puhdistetaan kuvauspaketin liitteen A mukaan ennen agenttia.
+- Projektikansio ei ole OneDrivessa.
+- Epäilen tietovuotoa: pysähdyn ja kerron vetäjälle.
+
+## (5) Kun olen jumissa
+- Annan virheilmoituksen agentille sellaisenaan.
+- Jos ongelma on jäljellä kahden korjausyrityksen jälkeen, katkaisen kehän ja palaan tallennuspisteeseen.
+- Kun hylkään, suljen Muistion, palaan ensin ja kirjaan päätöksen sitten.
+- Pyydän vetäjän apuun.
+</code></pre></div>
+<p>Kehotepohjien lohko:</p>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k5">Kopioi</button></div><pre id="k5"><code>Luo projektikansion juureen tiedosto KEHOTEPOHJAT.md. Kopioi siihen alla oleva teksti sellaisenaan. Älä täytä hakasulkeita. Älä muuta muita tiedostoja.
+
+# Kehotepohjat
+
+Täytän hakasulkeissa olevat aukot itse ennen lähettämistä.
+
+## K1 Tutustu, älä muuta
+Lue [mitä luetaan]. Älä muuta mitään tiedostoa.
+Kerro [vastauksen muoto ja pituus] suomeksi.
+Kerro erityisesti [mitä haluan tietää].
+Kerro lopuksi, mitä et löytänyt.
+
+## K6 Tallennuspiste
+Tee tallennuspiste. Viesti: [mitä nyt toimii, omin sanoin].
+Näytä sen jälkeen, mitkä tiedostot tulivat mukaan.
+
+## K7 Palaa tallennuspisteeseen
+Haluan palata tallennuspisteeseen [tallennuspisteen viesti].
+Älä palauta tiedostoja PAATOSLOKI.md, HYVAKSYMISKRITEERIT.md ja TESTIT.md.
+Kerro ensin, mitkä muutokset katoavat. Älä tee mitään ennen kuin vahvistan.
+</code></pre></div>
+<p>Seuraavaksi: aloitat päätöslokin.</p>
+<h3>Tehtävä 3: Päätösloki</h3>
+<p>Päätösloki on sinun tiedostosi, ja kirjoitat sen itse.</p>
+<ol>
+<li>Avaa Muistio.</li>
+<li>Kopioi Muistioon alla oleva pohja.</li>
+<li>Tallenna tiedosto projektikansion juureen osion 00 tavalla. Kirjoita nimi lainausmerkeissä: &quot;PAATOSLOKI.md&quot;.</li>
+<li>Katso Muistion otsikkoriviltä, että nimi on <code>PAATOSLOKI.md</code> eikä <code>PAATOSLOKI.md.txt</code>.</li>
+<li><strong>Päätös:</strong> Kirjaa merkintä 1 tehtävän 1 tiivistelmästä. Valitse hyväksyn, korjautan tai hylkään. Kirjoita peruste omin sanoin paperille kirjoittamasi havainnon pohjalta.</li>
+<li>Tallenna tiedosto.</li>
+<li>Sulje Muistio.</li>
+</ol>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k6">Kopioi</button></div><pre id="k6"><code># Päätösloki
+
+Kirjoitan tämän itse. Agentti ei muokkaa tätä tiedostoa.
+
+## Merkintä 1
+- Päivä ja osio: [päivä], osio 01
+- Tuotos: [mitä agentti teki]
+- Päätös: [hyväksyn / korjautan / hylkään]
+- Peruste: [yksi peruste omin sanoin]
+- Tallennuspisteen viesti: [viesti tai &quot;ei vielä&quot;]
+</code></pre></div>
+<p>Kopioi merkinnän rivit uudeksi merkinnäksi aina, kun kirjaat uuden päätöksen.</p>
+<p>Seuraavaksi: otat Gitin käyttöön ja teet ensimmäisen tallennuspisteen (commit).</p>
+<h3>Tehtävä 4: Ensimmäinen tallennuspiste</h3>
+<p>Tallennuspiste (commit) on Gitillä tehty nimetty välitila projektikansiosta. Git toimii vain koneellasi.</p>
+<ol>
+<li>Kysy vetäjältä, mitä nimeä ja sähköpostia käytät Gitissä.</li>
+<li><strong>Kehote (K6):</strong> Kopioi koko lohko. Liitä se agentin kehotekenttään. Täytä aukot. Kirjoita viesti omin sanoin: mitä projektikansiossa nyt on. Lähetä.</li>
+</ol>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k7">Kopioi</button></div><pre id="k7"><code>Ota Git käyttöön tässä projektikansiossa. Käytä vain tässä projektissa nimeä [sovittu nimi] ja sähköpostia [sovittu sähköposti].
+Tee tallennuspiste. Viesti: [mitä nyt toimii, omin sanoin].
+Näytä sen jälkeen, mitkä tiedostot tulivat mukaan.
+</code></pre></div>
+<ol start="3">
+<li>Lue jokainen lupapyyntö kolmella kysymyksellä, ennen kuin hyväksyt. Hyväksy vain tämän kerran.</li>
+<li>Tarkista agentin vastauksesta, että mukana ovat <code>TYOKORTTI.md</code>, <code>KEHOTEPOHJAT.md</code>, <code>PAATOSLOKI.md</code> ja kansio <code>maarittely</code>.</li>
+</ol>
+<p>Seuraavaksi: kokeilet, miten tallennuspisteeseen palataan.</p>
+<h3>Tehtävä 5: Palaa tallennuspisteeseen</h3>
+<p>Kokeilet paluuta pienellä muutoksella.</p>
+<ol>
+<li>Katso, kun vetäjä rikkoo tiedoston omalla koneellaan ja palaa tallennuspisteeseen.</li>
+<li>Kopioi koko lohko. Liitä se agentin kehotekenttään. Lähetä.</li>
+</ol>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k8">Kopioi</button></div><pre id="k8"><code>Poista TYOKORTTI.md:stä viimeinen rivi. Älä muuta muuta.
+</code></pre></div>
+<ol start="3">
+<li>Hyväksy lupapyyntö vain tämän kerran, kun se koskee vain tiedostoa <code>TYOKORTTI.md</code>.</li>
+<li>Katso muutosnäkymästä, mikä rivi poistui.</li>
+<li>Avaa <code>TYOKORTTI.md</code> Muistiolla ja totea, että rivi puuttuu.</li>
+<li>Sulje Muistio. Se suljetaan aina ennen paluuta.</li>
+<li><strong>Kehote (K7):</strong> Kopioi koko lohko. Liitä se agentin kehotekenttään. Kirjoita aukkoon tehtävän 4 tallennuspisteen viesti. Lähetä.</li>
+</ol>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k9">Kopioi</button></div><pre id="k9"><code>Haluan palata tallennuspisteeseen [tallennuspisteen viesti].
+Älä palauta tiedostoja PAATOSLOKI.md, HYVAKSYMISKRITEERIT.md ja TESTIT.md.
+Kerro ensin, mitkä muutokset katoavat. Älä tee mitään ennen kuin vahvistan.
+</code></pre></div>
+<ol start="8">
+<li>Lue agentin vastaus. Siinä pitää mainita vain poistettu rivi.</li>
+<li>Vahvista paluu kirjoittamalla agentille: &quot;Kyllä, palaa.&quot;</li>
+<li>Lue lupapyyntö kolmella kysymyksellä, ennen kuin hyväksyt.</li>
+<li>Avaa <code>TYOKORTTI.md</code> Muistiolla ja totea, että rivi on palannut.</li>
+<li>Sulje Muistio.</li>
+</ol>
+<p>Seuraavaksi: kirjaat, mitä paluu osoitti.</p>
+<h3>Tehtävä 6: Päätös ja toinen tallennuspiste</h3>
+<ol>
+<li>Avaa <code>PAATOSLOKI.md</code> Muistiolla.</li>
+<li><strong>Päätös:</strong> Kirjaa merkintä 2 agentin tekemästä paluusta. Kirjoita perusteeksi omin sanoin, mitä näit.</li>
+<li>Kirjoita kohtaan Tallennuspisteen viesti se viesti, jonka annat seuraavaksi.</li>
+<li>Tallenna tiedosto.</li>
+<li>Sulje Muistio.</li>
+<li><strong>Kehote (K6):</strong> Avaa <code>KEHOTEPOHJAT.md</code> Muistiolla. Kopioi K6 ja liitä se agentin kehotekenttään. Täytä aukko samalla viestillä kuin päätöslokissa. Lähetä.</li>
+<li>Lue lupapyyntö kolmella kysymyksellä, ennen kuin hyväksyt.</li>
+<li>Kopioi koko lohko. Liitä se agentin kehotekenttään. Lähetä.</li>
+</ol>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k10">Kopioi</button></div><pre id="k10"><code>Näytä tallennuspisteiden viestit. Älä muuta mitään.
+</code></pre></div>
+<ol start="9">
+<li>Totea agentin vastauksesta, että tallennuspisteitä on kaksi.</li>
+</ol>
+<p>Seuraavaksi: tarkistat, että osio on valmis.</p>
+<h3>Valmis, kun</h3>
+<ul>
+<li>Projektikansiossa ovat <code>TYOKORTTI.md</code>, <code>KEHOTEPOHJAT.md</code> (K1, K6 ja K7) ja <code>PAATOSLOKI.md</code>.</li>
+<li>Päätöslokissa on kaksi merkintää, ja perusteet ovat omin sanoin.</li>
+<li>Agentti näytti tehtävässä 6 kaksi tallennuspistettä.</li>
+<li>Kokeilit paluuta, ja poistettu rivi palasi tiedostoon <code>TYOKORTTI.md</code>.</li>
+</ul>
+<h3>Jos jäät jumiin</h3>
+<p>Jos agentti kertoo, ettei Gitiä löydy, kerro vetäjälle. Jatka sillä välin tehtäviä 1–3.</p>
+<p>Jos agentti kysyy nimeä tai sähköpostia, tarkista, että tehtävän 4 kehotteen ensimmäinen rivi on mukana. Käytä vetäjän kanssa sovittuja tietoja.</p>
+<p>Jos et löydä tiedostoa Resurssienhallinnasta, tarkista, että katsot kansiota <code>C:\dev\oppisopimustayttaja</code>.</p>
+<p>Jos agentti tekee enemmän kuin pyysit, älä hyväksy enempää. Pyydä agenttia selittämään, mitä se teki. Sulje Muistio ja palaa tarvittaessa tallennuspisteeseen K7:llä.</p>
+<p>Jos et ymmärrä lupapyyntöä, älä hyväksy sitä. Pyydä agenttia selittämään se omin sanoin tai kysy vetäjältä.</p>
+<h3>Seuraava osio</h3>
+<p>Osio 02 alkaa kello 10.30. Siinä agentti kirjoittaa ohjetiedoston ja työlistan, ja sinä tarkistat niiden säännöt. Tarvitset tiedoston <code>maarittely/oma-kokemus.md</code>.</p>
+
+</section>
+<section class="md" id="sanasto"><h2>Sanasto</h2>
+<h3>Chat-palvelu</h3>
+<p>Keskustelupalvelu, joka vastaa tekstillä mutta ei muuta tiedostoja koneellasi.</p>
+<h3>Kehote</h3>
+<p>Viesti, jolla annat agentille tehtävän. Puhekielessä myös prompti.</p>
+<h3>Kehotepohja</h3>
+<p>Valmis kehote, jossa on hakasulkeissa aukot. Täytät aukot itse ennen lähettämistä.</p>
+<h3>Lupapyyntö</h3>
+<p>Agenttisovelluksen kysymys, ennen kuin agentti muuttaa tiedostoa tai ajaa komennon. Luet sen kolmella kysymyksellä: mikä, missä ja miksi.</p>
+<h3>Lupatila</h3>
+<p>Asetus, joka ratkaisee, mitä agentti saa tehdä kysymättä. Oletuksena agentti kysyy luvan. Päätät osiossa 05, sallitko muutokset automaattisesti.</p>
+<h3>Muutosnäkymä</h3>
+<p>Näkymä, joka näyttää, mitä tiedostoissa muuttui. Englanniksi diff.</p>
+<h3>Komento</h3>
+<p>Tekstimuotoinen käsky, jonka agentti ajaa koneella, esimerkiksi asennus tai käynnistys.</p>
+<h3>Tallennuspiste (commit)</h3>
+<p>Gitillä tehty nimetty välitila projektikansiosta. Siihen voi palata. Tallennuspisteen viesti kertoo omin sanoin, mitä siinä on valmiina.</p>
+<h3>Palata tallennuspisteeseen</h3>
+<p>Palauttaa projektikansion aiempaan tallennuspisteeseen. Sen jälkeiset muutokset katoavat.</p>
+<h3>Päätösloki</h3>
+<p><code>PAATOSLOKI.md</code>. Kirjaat siihen jokaisesta isommasta agentin tuotoksesta päätöksen ja yhden perusteen omin sanoin. Agentti ei kirjoita eikä muokkaa sitä.</p>
+<h3>Hyväksyn / korjautan / hylkään</h3>
+<p>Päätöslokin kolme päätöstä. Korjautan: pyydän agenttia korjaamaan. Hylkään: palaan tallennuspisteeseen.</p>
+
+</section>
+<nav class="pager"><a href="osio-00.html">← Osio 00</a><a href="osio-02.html">Osio 02 →</a></nav>
+<footer class="page">Kaikki materiaalin henkilöt, yritykset, tunnisteet ja palkat ovat kuvitteellisia. Versio 1 · 23.10.2026.</footer>
+</main>
+</body>
+</html>

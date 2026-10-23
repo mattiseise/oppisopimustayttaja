@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vetäjä · Osio 00: Ennen työpajaa: kone, kansio ja turvaraja</title>
+<meta name="description" content="Vibekoodaus-työpaja: ohjelmointia osaamaton rakentaa agentin avulla Oppisopimustäyttäjän.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23775EC4'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='600' fill='white'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<main>
+<a class="back-link" href="index.html">← Vetäjän sivut</a>
+<header class="page">
+  <div class="kicker">Vetäjä · Osio 00 · itsenäisesti 60–90 min, viimeistään 3 arkipäivää ennen</div>
+  <h1>Ennen työpajaa: kone, kansio ja turvaraja</h1>
+</header>
+<nav class="pills" aria-label="Osion sisältö"><a href="#materiaali">Vetäjän materiaali</a><a href="../claude/osio-00.html">Oppija: Claude</a><a href="../codex/osio-00.html">Oppija: Codex</a></nav>
+<section class="md" id="materiaali"><h2>Vetäjän materiaali</h2>
+<h3>Ajattelukysymys ja tavoitteet (Bloom)</h3>
+<blockquote>
+<p>Ajattelukysymys: Mitä tietoa agentti saa nähdä, ja mitä se ei saa nähdä koskaan?</p>
+</blockquote>
+<ul>
+<li>Ymmärtää: oppija kertoo omin sanoin, mitä työpajassa rakennetaan ja mitä sen lopussa on valmiina.</li>
+<li>Muistaa: oppija nimeää tiedot, joita ei koskaan anneta agentille.</li>
+<li>Soveltaa: oppija luo projektikansion oikeaan paikkaan ja tekee käynnistystestin.</li>
+<li>Analysoida: oppija kuvaa omasta työstään kolme kirjauksen virhealtista kohtaa.</li>
+</ul>
+<p>Osio on tunnistamisen tasolla. Oppija tekee sen itsenäisesti viimeistään kolme arkipäivää ennen työpajaa. Hän ei vielä rakenna mitään. Tavoitteet näkyvät <code>oma-kokemus.md</code>:ssä: Ymmärtää kohdassa Mitä työpajan lopussa on valmiina, Muistaa kohdissa Mitä agentti saa nähdä ja Mitä agentti ei saa nähdä koskaan, Analysoida kolmessa virheessä. Vetäjän raskain työ liittyy tähän osioon: ennakkopyynnöt, harjoitusajo ja savutesti.</p>
+<p>Lupaa oppijalle sama kuin hänen lukutekstinsä. Vähimmäistavoite: simuloitu Wilma ja Oppisopimustäyttäjä käynnistyvät <code>KAYNNISTYS.md</code>:n ohjeella ilman agenttia. Sovellus avaa näkyvän selaimen, ja oppija kirjautuu itse. Yhden opiskelijan tiedot haetaan kuvitteellisista lähteistä tarkistettaviksi. Urasuunnitelman Wilma-tallennus varmennetaan uudelleenluvulla. Kahden opiskelijan jonossa VALMIS tulee vasta varmennuksen jälkeen. Lisäksi oppijalla on ohjetiedosto, työlista, päätösloki, hyväksymiskriteerit, <code>TESTIT.md</code> ja <code>JATKO.md</code>. Tavoite lisää lukutilat ja ristiriidat, listatuonnin ja nimikaimat, jonon tilan Odottaa lisätietoja, oppisopimuksen riippuvuuksineen, PRO-ilmeen, yhden häiriötestin ja testi-Wilman lukukokeilun, jos ehdot täyttyvät. Älä lupaa koko tuotetta V01–V10. Oikea Wilma, oikeat tiedot, asennuspaketti ja pilotti ovat jatkoa.</p>
+<h3>Aikataulu (minuutit, summa = osion kesto)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Min</th>
+<th>Oppijan työ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12</td>
+<td>Lukuteksti</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Tehtävä 1: tilaus ja agenttisovellus</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Tehtävä 2: projektikansio</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Tehtävä 3: kuvauspaketti kansioon ja ensimmäisen pääosan (KP osat 1–12) luku</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Tehtävä 4: käynnistystesti</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Tehtävä 5: muistilista, .md-tiedoston tallennus ja avaus, oman tiedoston alku</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Tehtävä 6: oma kokemus</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Tehtävä 7: testi-Wilman tilanne</td>
+</tr>
+<tr>
+<td>90</td>
+<td>Yhteensä</td>
+</tr>
+</tbody>
+</table></div>
+<p>Osion kesto on 60–90 min. Taulukko on mitoitettu ylärajalle. Oppija selviää noin 75 minuutissa, jos sovellus ja tilaus toimivat valmiiksi. KP:n ensimmäinen pääosa (noin 1 200 sanaa) luetaan tässä, jotta osion 02 aika riittää rakentamiseen. Savutesti (15–30 min) tehdään erikseen osion 00 jälkeen.</p>
+<h3>Ennen osiota</h3>
+<p>Ennakon aikajana tarkistuslistana:</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> 4 viikkoa ennen: tilaus tai lisenssi oppijan polulle.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> 4 viikkoa ennen: IT-pyyntö lähetetty (sisältö alla).</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> 4 viikkoa ennen: testi-Wilma-pyyntö Wilma-pääkäyttäjälle (osa P10:tä, sisältö alla).</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> 4 viikkoa ennen: koulutuksen vastuuhenkilöltä ensimmäinen koulutus ja sen tutkinnon osat (P05). Tieto on julkista, ja sen saa antaa agentille.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> 2 viikkoa ennen: harjoitusajo oppijan polulla hallitulla koneella.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Ennen jakoa: olet kokeillut omassa Windows-versiossasi Muistion lainausmerkkitavan ja raahaustavan (alla).</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> 1 viikko ennen: oppija saa osion 00 ja kuvauspaketin. Hän tekee osion viimeistään 3 arkipäivää ennen.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Osion 00 jälkeen, viimeistään 2 arkipäivää ennen: savutesti oppijan koneella oppijan tunnuksella.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Edellinen päivä: tilaus voimassa, käyttörajat tiedossa, kuvauspaketti ja mahdollinen <code>03-kenttakartoitus.csv</code> toimitettu, varakone valmiina.</li>
+</ul>
+<p><strong>IT-pyynnön sisältö.</strong> Node.js (LTS), Git for Windows ja oppijan polun agenttisovellus. Oikeus luoda kansio <code>C:\dev</code>. Välityspalvelimessa sallitaan npm-rekisteri sekä Electronin ja Playwrightin lataukset. Kysy samalla, estääkö PowerShellin suoritusasetus npm-komennot ja saako projektikansiossa ajaa kaksoisnapsautettavia .cmd-tiedostoja. Oppija ei muuta suoritusasetusta itse. Jos npm-komennot estyvät, agentti voi käyttää muuta käynnistystapaa tai IT ratkaisee asian. Electronin paketointi asennettavaksi ja koodin allekirjoitus eivät kuulu työpajaan. Sovellus ajetaan kehitystilassa.</p>
+<p><strong>Testi-Wilma-pyyntö (osa P10:tä).</strong> Pyydä Wilma-pääkäyttäjältä ympäristön osoite, testirooli ja vain kuvitteellisia testiopiskelijoita. Pyydä kirjallinen vahvistus siitä, ettei ympäristössä ole oikeita opiskelijatietoja. Testi-Wilmaa käytetään työpajassa vain kenttien lukukokeiluun osiossa 08. Siihen ei kirjoiteta. Käytön ehdot, joiden kaikkien pitää täyttyä:</p>
+<ul>
+<li>Ympäristö on vahvistetusti testikäytössä, eikä siinä ole oikeita tietoja.</li>
+<li>Käytössä on testirooli.</li>
+<li>Kirjautuminen toimi savutestissä.</li>
+<li>Oppija kirjautuu itse.</li>
+<li>Agentti ei avaa testi-Wilmaa itse.</li>
+<li>Kenttäluku tallentaa vain rakenteen, ja oppija tarkistaa tulosteen ennen agenttia.</li>
+<li>HAR-tallenteita tai koko sivun lähdekoodia ei tallenneta (KP liite A).</li>
+</ul>
+<p>Jos testi-Wilmaa ei saada, päärunko ei muutu. Koko työpaja tehdään simuloidussa Wilmassa, ja testi-Wilma siirtyy jatkoon.</p>
+<h3>Ohjaus askel askeleelta</h3>
+<p><strong>Harjoitusajo (2 viikkoa ennen).</strong> Aja osiot 01–08 itse oppijan polulla hallitulla koneella materiaalin kehotepohjilla. Tallenna välitila osioiden 03–07 lopusta. Välitila on projektikansio ilman oppijan omia tiedostoja (päätösloki, hyväksymiskriteerit, testit, oma kokemus). Kirjaa todelliset kestot ja korjaa aikataulua. Mittaa osio 02 erikseen tehtävittäin. Se on päivän 1 tiukin osio, ja aloittelija on sinua hitaampi. Jos osio ei mahdu, siirrä substanssikatselmoinnista lisää kysymyksiä osion 03 alkuun. Välitiloja tarvitaan, jos oppijan projekti rikkoutuu yli 15 minuutiksi.</p>
+<p><strong>Osion jakaminen.</strong> Jaa materiaali muotoiltuna, esimerkiksi verkkosivuna tai oppimisalustalla, ei .md-tiedostoina. Jos oppija lukee materiaalia Muistiossa, kehotelohkojen reunamerkit kopioituvat agentille. Toimita kuvauspaketti tekstinä tai Markdownina, ei pelkkänä Word-tiedostona. Oppija saa lukea ensimmäisen pääosan myös Word-versiosta. Liitä mukaan <code>03-kenttakartoitus.csv</code>, jos se on olemassa. Kerro oppijalle, kumman polun kansiota hän lukee. Hän lukee vain sitä.</p>
+<p><strong>Muistio ja .md ennen jakoa.</strong> Oppija tallentaa .md-tiedoston kirjoittamalla nimen lainausmerkkeihin, esimerkiksi &quot;oma-kokemus.md&quot;. Hän avaa .md-tiedoston raahaamalla sen Muistion ikkunaan. Myöhemmät osiot viittaavat tähän tapaan. Kokeile molempia omassa Windows-versiossasi, ennen kuin materiaali lähtee oppijalle. Tarkista samalla, näkyykö pääte Muistion otsikkorivillä tai välilehdellä. Jos jokin toimii toisin, kerro oppijalle oikea tapa jakoviestissä.</p>
+<p><strong>Oppijan tehtävät.</strong> Oppija tekee tehtävät 1–7 itse. Pyydä häntä ilmoittamaan heti, jos tehtävä 4 ei onnistu. Vastaa tehtävän 7 kysymykseen testi-Wilmasta samana päivänä, jos voit.</p>
+<p><strong>Savutesti.</strong> Tee testi osion 00 jälkeen oppijan koneella, oppijan tunnuksella ja oppijan polun agenttisovelluksella. Testi vie 15–30 min. Oppija pitää hiiren. Tartu näppäimistöön vain asennus- ja järjestelmäongelmissa.</p>
+<p>Aloita oppijan Valmis, kun -listalla. Tarkista nämä:</p>
+<ul>
+<li>Projektikansio on <code>C:\dev\oppisopimustayttaja</code> tai varapaikka, eikä polussa näy OneDrivea.</li>
+<li><code>maarittely/oma-kokemus.md</code> on oikeanniminen. Muistion otsikkorivillä näkyy <code>.md</code>, ei <code>.txt</code>.</li>
+<li>Tiedosto avautuu Muistioon raahaamalla, ja kaikki kohdat on täytetty ilman tunnistetietoja.</li>
+<li>Node.js- ja Git-versiot on kirjattu.</li>
+<li>Väärännimiset kopiot, kuten <code>oma-kokemus.md.txt</code>, on poistettu yhdessä.</li>
+</ul>
+<p>Luo sitten tyhjä kansio <code>C:\dev\savutesti</code>, valitse se agenttisovelluksessa ja anna tämä kehote:</p>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k79">Kopioi</button></div><pre id="k79"><code>Tämä on savutesti. Työskentele vain kansiossa C:\dev\savutesti.
+Luo pienin mahdollinen Electron-sovellus, joka avaa ikkunan, jossa lukee &quot;Savutesti&quot;.
+Luo erillinen Playwright-skripti, joka avaa näkyvän selaimen tyhjälle sivulle.
+Jos selaimen lataus estyy, käytä koneen Edgeä.
+Jos jokin lataus tai asennus estyy, kerro virheilmoitus sellaisenaan ennen kuin kokeilet kiertotietä.
+Älä tallenna selaimen istuntoa, evästeitä, tallenteita tai sivujen sisältöä.
+Tee kummallekin käynnistystiedosto, jonka avaan kaksoisnapsautuksella. Ikkuna jää auki virheen sattuessa.
+</code></pre></div>
+<p>Oppija käynnistää kummankin itse kaksoisnapsauttamalla käynnistystiedostoa Resurssienhallinnassa. Sama tapa on käytössä osioista 03 ja 04 alkaen (<code>kaynnista-wilma.cmd</code>, <code>kaynnista-sovellus.cmd</code>). Kirjaa viisi asiaa: aukesivatko käynnistystiedostot kaksoisnapsautuksella, aukesiko ikkuna, aukesiko selain, mitä lupapyyntöjä tai hyväksyntöjä tuli ja kauanko asennus kesti. Kokeile samalla tekstin kopiointia käynnistysikkunasta: maalaa hiirellä, sitten Ctrl+C. Lataukset jäävät koneen välimuistiin, mikä nopeuttaa osiota 04.</p>
+<p>Jos testi-Wilma on käytössä, oppija käynnistää selainskriptin itse sen käynnistystiedostolla. Oppija kirjoittaa testi-Wilman osoitteen itse selaimeen ja kirjautuu. Agentti ei saa osoitetta eikä tunnuksia. Kun kirjautuminen on kokeiltu, oppija sulkee selaimen. Jos kirjautuminen ei onnistu (esimerkiksi SSO tai lisätunnistautuminen), kirjaa havainto IT:lle. Kiertoteitä ei etsitä. Poista kansio <code>C:\dev\savutesti</code> lopuksi, jotta kirjautuneen istunnon jälkiä ei jää kansioon, jonka agentti näkee. Sama sääntö pätee osiossa 04.</p>
+<p>Claude-polulla savutesti tuottaa useita lupapyyntöjä. Käytä tilaisuutta: oppija lukee jokaisen ennen hyväksyntää. Polun riski on lupapyyntöväsymys asennuksissa, ja se alkaa tässä. Codex-polulla asennukset kirjoittavat projektikansion ulkopuolelle (npm-välimuisti, Playwrightin selain). Se vaatii hyväksynnän tai Edgen. Tarkista myös, aukeaako ikkuna hiekkalaatikosta. Jos ei aukea, oppija käynnistää sovelluksen itse käynnistystiedostolla. Kirjaa tämä, koska sama toistuu osiossa 04.</p>
+<p><strong>Gitin nimi ja sähköposti.</strong> Sovi oppijan kanssa, mitä nimeä ja sähköpostia hän käyttää Gitissä osiossa 01. Asetus tehdään projektikohtaisesti. Kaikki pysyy koneella. Tallennuspisteitä ei viedä verkkopalveluun.</p>
+<p><strong>Käyttörajat.</strong> Tarkista tilauksen käyttörajat ennakkoon. Älä lupaa niistä oppijalle mitään.</p>
+<h3>Polkujen erot (taulukko Claude | Codex)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Asia</th>
+<th>Claude</th>
+<th>Codex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tilaus</td>
+<td>Pro, Max, Team tai Enterprise</td>
+<td>ChatGPT-tilaus, jossa Codex on mukana (esim. Plus, Pro, Business, Edu, Enterprise)</td>
+</tr>
+<tr>
+<td>Sovellus</td>
+<td>Claude-työpöytäsovellus, Code-välilehti</td>
+<td>Codex-työpöytäsovellus Windowsille. Pilvitilaa ei käytetä.</td>
+</tr>
+<tr>
+<td>Sovelluksen asennus</td>
+<td>IT-pyynnössä</td>
+<td>IT-pyynnössä</td>
+</tr>
+<tr>
+<td>Kansion valinta</td>
+<td>Kansio, jossa agentti työskentelee. Sovellus käyttää nimeä työhakemisto.</td>
+<td>Uusi paikallinen projekti (Local), kansio valitaan tai luodaan</td>
+</tr>
+<tr>
+<td>OneDrive-riski</td>
+<td>Oppija voi itse valita väärän kansion</td>
+<td>Uusi paikallinen projekti voi oletuksena mennä Tiedostot-kansioon, joka voi olla OneDrivessa</td>
+</tr>
+<tr>
+<td>Käynnistystesti</td>
+<td>Oppija lukee lupapyynnön ennen komentoa ja hyväksyy vain tämän kerran. Resurssienhallinta: kansioon ei tullut mitään.</td>
+<td>Oppija kieltää verkkoyhteyden ja lukee ajetut komennot. Resurssienhallinta: kansioon ei tullut mitään.</td>
+</tr>
+<tr>
+<td>Muistilistan polkukohta</td>
+<td>Älä salli kaikkea automaattisesti</td>
+<td>Älä valitse täysiä oikeuksia</td>
+</tr>
+<tr>
+<td>Savutestin riski</td>
+<td>Lupapyyntöväsymys asennuksissa</td>
+<td>Asennukset projektikansion ulkopuolelle, ikkunan avaaminen hiekkalaatikosta</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Väärinkäsitykset (vähintään 3)</h3>
+<p><strong>Väärinkäsitys 1:</strong> &quot;Työpajan lopussa ohjelma on käyttövalmis.&quot; Työpajan lopussa on työpajaversio. Se toimii simuloitua Wilmaa vasten kuvitteellisella aineistolla. Ennen käyttöä tarvitaan oikea vaihe 0, testi-Wilma, salaus ja säilytys, asennuspaketti ja pilotti (KP osat 25–26). Sano tämä ääneen jo ennakkoon, ettei oppija pety päivän 2 lopussa.</p>
+<p><strong>Väärinkäsitys 2:</strong> &quot;Testi-Wilmaan saa antaa agentille tunnukset, koska siellä ei ole oikeita tietoja.&quot; Tunnukset antavat pääsyn käyttäjänä. Agentti voi käyttää niitä tavalla, jota kukaan ei tarkistanut. Turvaraja on sama kaikissa ympäristöissä: oppija kirjautuu itse, eikä agentti saa tunnuksia.</p>
+<p><strong>Väärinkäsitys 3:</strong> &quot;Projektikansio voi olla Tiedostoissa.&quot; Tiedostot-kansio on hallituilla koneilla usein OneDriven synkronoima. Tiedostot kopioituvat pilveen, ja synkronointi voi lukita tiedostoja asennusten aikana. Codex-polulla tämä on sovelluksen tunnettu oletus.</p>
+<h3>Jumikohdat ja purku (taulukko: oire | todennäköinen syy | purku)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Oire</th>
+<th>Todennäköinen syy</th>
+<th>Purku</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kansion polussa näkyy OneDrive</td>
+<td>Kansio luotiin Tiedostoihin tai Työpöydälle, tai Codexin oletus hyväksyttiin</td>
+<td>Luo kansio <code>C:\dev</code>:n alle ja valitse se agenttisovelluksessa. Kopioi <code>maarittely</code> uuteen kansioon.</td>
+</tr>
+<tr>
+<td>Sovellus ilmoittaa tilauksesta</td>
+<td>Lisenssi ei ole aktivoitunut, tai oppija kirjautui eri tunnuksella</td>
+<td>Tarkista tunnus ja lisenssi. Varalla toinen tunnus organisaation lisenssiehtojen mukaan.</td>
+</tr>
+<tr>
+<td>Agentti ei löydä Node.js:ää tai Gitiä</td>
+<td>IT-asennus puuttuu, tai sovellus avattiin ennen asennusta</td>
+<td>Käynnistä agenttisovellus uudelleen. Jos ei auta, IT asentaa tai otetaan varakone.</td>
+</tr>
+<tr>
+<td>Savutestin lataus katkeaa</td>
+<td>Välityspalvelin estää npm-rekisterin tai Electronin ja Playwrightin lataukset</td>
+<td>Kirjaa virheilmoitus IT:lle. Playwright käyttää koneen Edgeä.</td>
+</tr>
+<tr>
+<td>Tiedoston nimi on <code>oma-kokemus.md.txt</code></td>
+<td>Nimi kirjoitettiin ilman lainausmerkkejä, ja Muistio lisäsi päätteen</td>
+<td>Avaa tiedosto raahaamalla ja tallenna uudelleen nimellä lainausmerkeissä. Poista vääränniminen tiedosto yhdessä.</td>
+</tr>
+<tr>
+<td><code>.md</code>-tiedosto ei näy Muistion avausikkunassa, tai kaksoisnapsautus avaa muun ohjelman</td>
+<td>Avausikkuna näyttää oletuksena vain .txt-tiedostot</td>
+<td>Avaa Muistio ja raahaa tiedosto sen ikkunaan (osion 00 tapa).</td>
+</tr>
+<tr>
+<td><code>oma-kokemus.md</code>:ssä on nimiä tai yritysten nimiä</td>
+<td>Oppija kirjoitti tapauksen sellaisenaan</td>
+<td>Poistakaa ne yhdessä ja kirjoittakaa yleisellä tasolla. Kertaa muistilista.</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Varasuunnitelma</h3>
+<p>Jos agenttisovellus tai tilaus ei toimi, vaihda toiseen polkuun, jos se toimii. Polut tuottavat saman tuotteen. Oppija aloittaa toisen polun osiosta 00.</p>
+<p>Jos Node.js tai Git ei asennu hallitulle koneelle, käytä varakonetta, jolla sama polku on asennettu. Viimeinen vaihtoehto on, että oppija ohjaa agenttia vetäjän koneella. Ohjaus, tarkistus ja päätökset säilyvät.</p>
+<p>Jos Electron ei asennu tai käynnisty, mutta Node.js toimii, sovelluksen käyttöliittymä ajetaan selaimessa ja Playwright erillisenä prosessina. Tämä muuttaa vaiheen 1 teknologiavalintaa (KP osa 13). Oppija kirjaa sen päätöslokiin osiossa 04. Työpöytäkuori jää jatkoon.</p>
+<p>Jos Playwrightin selainlataus on estetty, Playwright käyttää koneen Edgeä. Jos käyttöraja tulee vastaan, käytä toista tunnusta lisenssiehtojen mukaan tai varakonetta.</p>
+<h3>Tarkista ennen seuraavaa osiota</h3>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Projektikansio on <code>C:\dev\oppisopimustayttaja</code> tai varapaikka, eikä se ole OneDrivessa.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> <code>maarittely/</code> sisältää kuvauspaketin tekstinä ja tiedoston <code>oma-kokemus.md</code>.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> <code>oma-kokemus.md</code> on oikeanniminen ja avautuu Muistioon raahaamalla.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> <code>oma-kokemus.md</code>:ssä ovat lause, mitä agentti saa nähdä ja mitä ei koskaan, mitä työpajan lopussa on, lomakkeet, kolme virhettä, kaksi kieltoa, versiot ja testi-Wilman tilanne. Tunnistetietoja ei ole.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Oppijan vastaus kohtaan Mitä työpajan lopussa on valmiina ei lupaa koko tuotetta. Jos lupaa, korjaa käsitys savutestissä.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Oppija on lukenut KP osat 1–12 ja tietää, että osioiden 01 ja 02 lukutekstit luetaan ennen päivää 1.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Savutesti on tehty osion 00 jälkeen: käynnistystiedostot aukesivat kaksoisnapsautuksella, ikkuna ja selain aukesivat, havainnot on kirjattu ja kansio <code>C:\dev\savutesti</code> poistettu.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Gitin nimi ja sähköposti on sovittu.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Testi-Wilman tilanne ja käytön ehdot ovat tiedossa.</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"  type="checkbox"> Harjoitusajon välitilat ovat tallessa.</li>
+</ul>
+<h3>Tarkistettavat nimet</h3>
+<ul>
+<li>Claude: kansion valinta Code-välilehdellä (työhakemiston valinta).</li>
+<li>Claude: lupapyynnön hyväksymis- ja kieltämispainikkeiden nimet sekä mahdollinen valinta, joka sallii saman jatkossa kysymättä.</li>
+<li>Codex: uuden paikallisen projektin (Local) luonti ja kansion valinta.</li>
+<li>Codex: miten sovellus näyttää agentin ajamat komennot.</li>
+<li>Codex: oletusoikeuksien ja täysien oikeuksien nimet oikeusasetuksessa.</li>
+<li>Codex: verkkoyhteyden hyväksyntäpyynnön muoto.</li>
+<li>Molemmat: rivinvaihto kehotekentässä ja liitetyn lohkon rivinvaihdot.</li>
+<li>Windows: Muistion valikkopolku Tiedosto → Tallenna nimellä, lainausmerkeissä kirjoitettu nimi ja tallennuspaikan valinta.</li>
+<li>Windows: näkyykö tiedostopääte Muistion otsikkorivillä tai välilehdellä.</li>
+<li>Windows: tiedoston raahaus Resurssienhallinnasta Muistion ikkunaan.</li>
+<li>Windows: kaksoisnapsautettava käynnistystiedosto (.cmd) hallitulla koneella: aukeaako ikkuna, näkyykö pääte Resurssienhallinnassa.</li>
+<li>Windows: tekstin kopiointi käynnistysikkunasta oppijan Windows-versiossa.</li>
+</ul>
+
+</section>
+<nav class="pager"><span></span><a href="osio-01.html">Osio 01 →</a></nav>
+<footer class="page">Kaikki materiaalin henkilöt, yritykset, tunnisteet ja palkat ovat kuvitteellisia. Versio 1 · 23.10.2026.</footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Osio 07: Oppisopimus ja sen edellytykset (joustokohta) – Codex-polku</title>
+<meta name="description" content="Missä järjestyksessä tiedot pitää viedä, ja mitä ohjelma ei saa koskaan arvata?">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23775EC4'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='600' fill='white'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/site.js" defer></script>
+</head>
+<body>
+<main>
+<a class="back-link" href="index.html">← Codex-polku</a>
+<header class="page">
+  <div class="kicker">Codex-polku · Osio 07 · päivä 2, 12.45–14.15</div>
+  <h1>Oppisopimus ja sen edellytykset (joustokohta)</h1>
+  <div class="insight"><div class="kicker">Ajattelukysymys</div><p>Missä järjestyksessä tiedot pitää viedä, ja mitä ohjelma ei saa koskaan arvata?</p></div>
+</header>
+<nav class="pills" aria-label="Osion sisältö">
+  <a href="#lue">1 · Lukuteksti</a><a href="#tehtavat">2 · Tehtävät</a><a href="#sanasto">3 · Sanasto</a>
+</nav>
+<section class="md" id="lue"><h2>Lukuteksti</h2>
+<p>Urasuunnitelma on yksi lomake. Oppisopimus on erilainen. Sen voi kirjata vasta, kun muut tiedot ovat Wilmassa. Työpaikan pitää olla siellä. Työpaikkaohjaajan pitää olla siellä ja liitettynä oikeaan toimipaikkaan.</p>
+<p>Tässä osiossa agentti lisää simuloituun Wilmaan työpaikka-, työpaikkaohjaaja- ja oppisopimusnäkymät. Sovellukseen tulee kolme uutta sovitinta. Sinä päätät järjestyksen ja testaat tapaukset, joissa kirjaus menee helpoimmin väärin.</p>
+<p>Osio on joustokohta. Jos aamupäivän työ on kesken, vetäjä lyhentää osion pelkkään työpaikkaan tai siirtää sen jatkoon. Silloin teet ensin kesken jääneet palat. Kumpikaan ei ole epäonnistuminen. Varmennettu urasuunnitelma ja toimiva jono ovat tärkeämpiä kuin keskeneräinen oppisopimus.</p>
+<p>Jos osio lyhenee tai siirtyy, mikään ei katoa. Kirjaat päätöksen ja syyn päätöslokiin. Merkitset tekemättömät testit <code>TESTIT.md</code>:hen jatkoon. Osiossa 09 ne siirtyvät jatkosuunnitelmaan, ja teet ne työpajan jälkeen samalla työtavalla.</p>
+<h3>Järjestys tulee riippuvuuksista</h3>
+<p>Kuvauspaketin osa 7 kertoo järjestyksen. Työpaikka ja työpaikkaohjaaja lisätään ennen oppisopimusta ja näyttösuunnitelmaa. Tutkinnon osan pitää löytyä opinnoista, ennen kuin sille tehdään näyttösuunnitelma.</p>
+<p>Syy on yksinkertainen. Kuvauspaketin mukaan oppisopimus viittaa Wilmassa jo olevaan työpaikkaan ja työpaikkaohjaajaan. Jos työpaikkaa ei ole, viitattavaa ei ole. Puuttuva viittaus estää Wilma-tallennuksen (osa 21).</p>
+<p>Järjestys on sinun tietoasi. Agentti lukee sen kuvauspaketista, mutta et voi luottaa siihen, että se noudattaa sitä. Siksi kirjoitat lomakkeiden järjestyksen itse kehotteeseen ja tarkistat sen suunnitelmasta.</p>
+<h3>Yritys ja toimipaikka</h3>
+<p>Yrityksellä voi olla monta toimipaikkaa. Testileipomo Oy:llä on kaksi: Keskusta ja Satama. Opiskelija on töissä yhdessä niistä. Pelkkä yrityksen nimi ei siis kerro, mihin oppisopimus kohdistuu. Kuvauspaketin osa 7 sanoo, että saman yrityksen toimipaikat erotetaan.</p>
+<p>Sama koskee henkilöitä. <strong>Työpaikkaohjaaja</strong> ohjaa opiskelijaa työpaikalla. Työnantajan edustaja on oppisopimuksen työnantajapuolen henkilö. He voivat olla eri henkilöitä, vaikka toimisivat samassa yrityksessä. Ohjelma ei saa olettaa heitä samaksi henkilöksi.</p>
+<p>Testiaineistossa on lisäksi kaksi työpaikkaohjaajaa nimeltä Pekka Mallikas. Toinen on Esimerkkikone Oy:ssä, toinen Testileipomo Oy:n Satamassa. Nimi ei riitä työpaikkaohjaajankaan kohdistukseen. Työpaikkaohjaaja tunnistetaan työpaikan ja toimipaikan kautta.</p>
+<p><strong>Pysähdy hetkeksi:</strong> Mistä tunnistat oikean toimipaikan, jos yrityksellä on kaksi?</p>
+<h3>Palkka, yksikkö ja työaika</h3>
+<p>Kuvauspaketin osa 8 sanoo, että puuttuvaa palkkaa, työaikaa tai työpaikkaohjaajaa ei arvata. Palkan kohdalla tarkistetaan aina, onko kyse kuukausi- vai tuntipalkasta.</p>
+<p>Liisa Kokeilun palkaksi on kirjattu &quot;2 450&quot; ilman yksikköä. Summa näyttää kuukausipalkalta, mutta ohjelma ei saa päätellä sitä. Puuttuva yksikkö estää oppisopimuksen kirjauksen, kunnes joku selvittää sen. Liisan työajassa on lisäksi ristiriita. Haastattelussa se on 37,5 h/vko, esitiedoissa 30 h/vko. Ratkaisit sen osiossa 05, mutta ratkaisematon ristiriita estää kirjauksen samalla tavalla.</p>
+<p>Eero Esimerkin palkka on 14,20 €/h. Yksikön pitää kulkea summan mukana Wilmaan asti. Jos sovellus tallentaa pelkän luvun, tieto on väärin, vaikka luku on oikein.</p>
+<h3>Ensin haku, sitten uusi tietue</h3>
+<p>Ennen kuin sovellus lisää mitään, se etsii. Kuvauspaketin osat 6 ja 8 sanovat, että olemassa oleva tietue näytetään ennen uuden luomista. Haun tulos on yksi kolmesta.</p>
+<p>Haku voi löytää yhden tietueen. Esimerkkikone Oy:llä on yksi toimipaikka, joten tulos on selvä. Haku voi löytää monta. Testileipomo Oy ilman toimipaikkaa on moniselitteinen. Sovellus pysähtyy ja näyttää vaihtoehdot, ja sinä valitset. Haku voi myös jäädä tyhjäksi. Kokeiluverstas Oy:tä ei ole simuloidussa Wilmassa. Sovellus valmistelee lisäyksen, ja sinä hyväksyt sen, ennen kuin mitään kirjoitetaan.</p>
+<p>Kuvauspaketin osa 21 lisää säännön: ensimmäistä osumaa ei valita arvaamalla. Sääntö koskee yrityksiä, toimipaikkoja ja henkilöitä.</p>
+<p>Valmisteltu lisäys ei ole vielä Wilmassa. Luet sen tiedot, ennen kuin hyväksyt. Onko yrityksen nimi kirjoitettu oikein? Mistä lähteestä se tuli? Onko toimipaikka oikea? Kuvauspaketin vaiheessa 3 on lisäksi ehto: kun saman opiskelijan käsittely uusitaan, sovellus tunnistaa jo luodun tietueen. Siksi haet testissä Kokeiluverstas Oy:n uudelleen ja toteat, että se on Wilmassa vain kerran.</p>
+<h3>Mitä ohjelma ei saa arvata</h3>
+<p>Ajattelukysymyksen toinen puoli kokoaa osion. Ohjelma ei arvaa opiskelijaa nimestä. Se ei arvaa toimipaikkaa yrityksen nimestä eikä työpaikkaohjaajaa henkilön nimestä. Se ei päättele palkan yksikköä summasta. Se ei valitse työaikaa kahdesta eri lähteestä. Se ei keksi kenttää, jota ei löydy.</p>
+<p>Jokaisessa tapauksessa oikea toiminta on sama. Sovellus pysähtyy, näyttää vaihtoehdot tai puutteen ja odottaa sinua. Pysähtyminen ei ole vika. Se on se kohta, jossa sinun osaamisesi tulee sovellukseen.</p>
+<p><strong>Pysähdy hetkeksi:</strong> Mikä näistä arvauksista olisi omassa työssäsi vaarallisin, ja miksi?</p>
+<p><strong>Pysähdy hetkeksi:</strong> Mitä Wilmassa tapahtuu, jos sovellus luo työpaikan uudelleen joka kerta, kun käsittelet saman opiskelijan?</p>
+<h3>Sama työjärjestys uusille lomakkeille</h3>
+<p>Osiossa 04 rakensit urasuunnitelman sovittimen kehotepohjalla K9. Samaa työjärjestystä käytetään nyt kolmelle lomakkeelle. Ensin kentän haku ja yksi osuma, sitten täyttö, Wilma-tallennus, uudelleenluku ja kaksoiskappaleen esto. Agentti pysähtyy jokaisen kohdan jälkeen. Sinä tarkistat tuloksen ja annat vasta sitten luvan jatkaa. Palojen välissä katsot agenttisovelluksen Git-toiminnoista, mitä muuttui.</p>
+<p>Kaksoiskappaleen esto on tässä osiossa tärkeä. Jos käsittelet työpaikan kahdesti, Wilmassa pitää olla edelleen yksi Kokeiluverstas Oy.</p>
+<p>Pysähdysten tarkistukset teet testien tapauksilla. Niissä Kokeiluverstas Oy päätyy simuloituun Wilmaan jo rakennusvaiheessa. Siksi palautat ennen omaa testiä simuloidun Wilman lähtötilaan. Lähtötilassa ovat testiaineiston työpaikat ja henkilöt, mutta ei Kokeiluverstas Oy:tä eikä oppisopimuksia. Silloin testi alkaa joka kerta samasta tilanteesta, eikä tulos riipu siitä, mitä edellinen kokeilu jätti.</p>
+<p>Oppisopimus tulee jonoon uudeksi tehtäväksi. Osiossa 06 opiskelija oli VALMIS, kun urasuunnitelma oli varmennettu. Nyt VALMIS vaatii kaikkien valittujen tehtävien varmennuksen. Jos valitset urasuunnitelman ja oppisopimuksen, opiskelija on VALMIS vasta, kun molemmat on varmennettu.</p>
+<p>Puuttuvaa kenttää ei keksitä. Jos simuloidusta oppisopimusnäkymästä puuttuu kenttä, jonka muistat oikeasta Wilmasta, kirjaat sen <code>KENTAT.md</code>:hen. Simuloitu Wilma ei todista, millainen oikea lomake on. Oikean lomakkeen kentät selvitetään jatkossa Wilma-pääkäyttäjän kanssa.</p>
+<h3>Lisä: HOPS ja lausepohja</h3>
+<p>Jos aikaa jää, teet lisätehtävän. HOPSissa opiskelijalle lisätään tutkinnon osat. Jokainen osa saa oman aikataulunsa, esimerkiksi 2027–2028. Kuvauspaketin osa 19 kieltää kovakoodaamasta samaa aikataulua kaikille osille.</p>
+<p>Lausepohja on valmis tavoiteteksti, jossa on hakasulkeissa aukkoja. Kuvauspaketin osa 18 antaa esimerkin: &quot;Opiskelija kehittää osaamistaan tehtävässä [vahvistettu työtehtävä] harjoittelemalla [tutkinnon osan tavoite].&quot; Jos hakasulkeita jää tekstiin, ehdotusta ei voi hyväksyä. Tekstiehdotus ei myöskään osoita opiskelijan osaamista. Kielimallia ei käytetä, koska se on kuvauspaketissa jatkopäätös.</p>
+<h3>Esimerkki: Aino Testisen oppisopimus</h3>
+<p>Aino Testinen (000123) on töissä Testileipomo Oy:n Keskustan toimipaikassa. Haastattelussa työajaksi on kirjattu 37,5 h/vko ja palkaksi 2 450 €/kk. Työpaikkaohjaaja on Maija Mallikas. Työnantajan edustaja on Kaisa Mallikas.</p>
+<p>Sovellus hakee ensin työpaikan. Testileipomo Oy:llä on kaksi toimipaikkaa, joten sovellus kysyy. Valitset Keskustan, koska haastattelu sanoo niin. Sitten sovellus hakee työpaikkaohjaajan. Maija Mallikas löytyy Keskustan toimipaikasta. Kaisa Mallikas tulee omaan kenttäänsä työnantajan edustajaksi. Vasta nyt sovellus täyttää oppisopimuksen, tekee Wilma-tallennuksen ja lukee lomakkeen uudelleen.</p>
+<p>Avaat simuloidun Wilman itse. Aino Testisen oppisopimuksessa on Keskusta, 37,5 h/vko ja 2 450 €/kk. Maija ja Kaisa ovat eri kentissä. Toisen Aino Testisen (000456) tietoihin ei ole tullut mitään. Vasta nyt sovellus näyttää Ainon jonon tilana VALMIS. Kirjaat testin T08 tuloksen.</p>
+<p>Liisa Kokeilun kohdalla sama ketju pysähtyy palkkaan. Se on oikea tulos, ja kirjaat sen testiin T03.</p>
+<h3>Yhteenveto</h3>
+<p>Oppisopimus kirjataan viimeisenä, koska se viittaa työpaikkaan ja työpaikkaohjaajaan. Sovellus etsii, ennen kuin lisää, ja moniselitteinen haku pysähtyy sinun valintaasi. Yritys ja toimipaikka erotetaan, samoin työpaikkaohjaaja ja työnantajan edustaja. Palkkaa, sen yksikköä, työaikaa tai työpaikkaohjaajaa ei arvata.</p>
+
+</section>
+<section class="md" id="tehtavat"><h2>Tehtävät</h2>
+<p>Aika noin 90 min. Tarvitset: Codex-työpöytäsovelluksen, projektikansion, Muistion ja Edgen.</p>
+<p>Osio on joustokohta, ja sen palat ovat tavoitetta. Lyhennetyssä toteutuksessa teet vain työpaikan.</p>
+<p>Jos korjautat, käytä K5:tä. Jos hylkäät, sulje Muistio, palaa ensin tallennuspisteeseen (commit) K7:llä ja kirjaa päätös vasta sitten.</p>
+<p><code>TESTIT.md</code>:ssä kirjoitat Lähtötila-riville palauta ensin tai jatka testistä Tnn. Aiempaa tulosta et pyyhi. Lisäät testin alle rivin:</p>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k72">Kopioi</button></div><pre id="k72"><code>- Uusinta [päivä]: [läpi / ei läpi]. [havainto]
+</code></pre></div>
+<h3>Tehtävä 1: Laajuus, tilannekatsaus ja kriteerit</h3>
+<ol>
+<li>Kysy vetäjältä, teetkö koko osion, lyhennetyn toteutuksen vai siirtyykö osio jatkoon.</li>
+<li><strong>Kehote (K11):</strong> Avaa <code>KEHOTEPOHJAT.md</code> Muistiolla. Kopioi K11. Täytä aukko: mitkä osioiden 04–06 palat ja testit ovat kesken. Lähetä.</li>
+<li>Vertaa agentin vastausta päätöslokin viimeiseen merkintään.</li>
+<li>Tee siirrossa tehtävä 8 ja sitten kesken jääneet palat vetäjän järjestyksessä. Ensin vähimmäistavoite: osion 04 T13, osion 05 tehtävät 1–5 ja osion 06 tehtävät 1–6. Siirrossa et tee tämän osion muita tehtäviä.</li>
+<li>Tee lyhennetyssä ensin osioiden 05 ja 06 kesken jääneet palat samassa järjestyksessä.</li>
+<li><strong>Oma kriteeri:</strong> Kirjoita Muistiolla <code>HYVAKSYMISKRITEERIT.md</code>:hen osio 07: vähintään kaksi Hyväksyn, kun -kohtaa, yksi En hyväksy, jos -kohta ja Tarkistan näin. Liittyvät testit: T03, T04 ja T08, lyhennetyssä vain T04.</li>
+<li>Tallenna tiedosto ja sulje Muistio.</li>
+</ol>
+<p>Seuraavaksi: pyydät agentilta suunnitelman.</p>
+<h3>Tehtävä 2: Suunnitelma paloissa</h3>
+<ol>
+<li>Kirjoita paperille oppisopimuksen kentät, jotka tunnet työstäsi. Lyhennetyssä ohita tämä.</li>
+<li>Tarkista, että lohkon kaksi viimeistä riviä ovat mukana.</li>
+<li><strong>Kehote (K2 + K9):</strong> Kopioi koko lohko. Liitä se agentin kehotekenttään. Täytä aukot. Lähetä. Lyhennetyssä katso lohkon alta.</li>
+</ol>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k73">Kopioi</button></div><pre id="k73"><code>Tehtävä: lisää simuloituun Wilmaan oppisopimus-, työpaikka- ja työpaikkaohjaajanäkymät. Lisää niiden kentät KENTAT.md:hen. Tee sovellukseen sovittimet näille lomakkeille.
+Simuloidussa Wilmassa pitää olla: Testileipomo Oy (toimipaikat Keskusta ja Satama), Esimerkkikone Oy, työpaikkaohjaajat Maija Mallikas (Testileipomo Oy Keskusta), Pekka Mallikas (Esimerkkikone Oy) ja Pekka Mallikas (Testileipomo Oy Satama) sekä työnantajan edustaja Kaisa Mallikas (Testileipomo Oy). Kokeiluverstas Oy puuttuu tarkoituksella.
+Lisää ne ensimmäisessä palassa myös lähtötilaan (testiaineisto/wilma-lahtotila.json), ilman Kokeiluverstas Oy:tä ja oppisopimuksia.
+Oppisopimus on jonossa uusi valittava tehtävä. VALMIS vaatii kaikkien valittujen tehtävien varmennuksen.
+Oppisopimuksen kentät, jotka tunnen työstäni: [kentät paperiltasi, ilman oikeita tietoja].
+Lue ensin AGENTS.md, TYOLISTA.md ja HYVAKSYMISKRITEERIT.md:n osio 07.
+Tärkein kriteerini: [tärkein kriteeri].
+Rakennetaan lomakkeet [lomakkeet siinä järjestyksessä, jossa ne pitää viedä Wilmaan] simuloituun Wilmaan.
+Käytä vain KENTAT.md:n kenttiä. Jos kenttä puuttuu, merkitse se puuttuvaksi. Älä keksi kenttiä.
+Etene jokaisen lomakkeen kohdalla tässä järjestyksessä ja pysähdy jokaisen kohdan jälkeen:
+(1) kenttien haku: jokaiselle kentälle täsmälleen yksi osuma
+(2) täyttö
+(3) Wilma-tallennus
+(4) uudelleenluku ja vertailu hyväksyttyyn sisältöön
+(5) kaksoiskappaleen esto
+Kiinnitä erityistä huomiota kenttään [kenttä, joka menee käsin kirjatessa helpoimmin väärin].
+Kerro jokaisen kohdan jälkeen, miten tarkistan sen itse sovelluksesta.
+Tee suunnitelma paloissa: ensin näkymät, sitten yksi pala kutakin lomaketta kohden. Kerro jokaisen palan TYOLISTA.md:n tehtävän numero.
+Kerro, mitkä tiedostot muuttuvat, mitä komentoja ajat ja miten tarkistan tuloksen ilman koodin lukemista.
+Älä muuta tiedostoja ennen kuin hyväksyn.
+Kun hyväksyn suunnitelman, älä vielä aloita. Annan palat yksi kerrallaan.
+</code></pre></div>
+<p>Lyhennetty toteutus: kopioi K2 ja K9 <code>KEHOTEPOHJAT.md</code>:stä samaan viestiin. Kirjoita K2:n tehtäväksi alla oleva lohko ja K9:n lomakkeeksi Työpaikka. Täytä muut aukot. Lähetä.</p>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k74">Kopioi</button></div><pre id="k74"><code>Lisää simuloituun Wilmaan työpaikkanäkymä ja sovellukseen työpaikan sovitin. Lisää kentät KENTAT.md:hen. Simuloidussa Wilmassa pitää olla Testileipomo Oy (toimipaikat Keskusta ja Satama) ja Esimerkkikone Oy, ei Kokeiluverstas Oy:tä. Lisää ne ensimmäisessä palassa myös lähtötilaan (testiaineisto/wilma-lahtotila.json). Tee kaksi palaa: näkymä ja sovitin.
+</code></pre></div>
+<ol start="4">
+<li>Lue suunnitelma. Tarkista lomakkeiden järjestys ja se, ettei puuttuvaa työpaikkaa luoda kysymättä.</li>
+<li>Korjauta puutteet kirjoittamalla ne agentille.</li>
+<li>Hyväksy suunnitelma kirjoittamalla agentille täsmälleen: Hyväksyn suunnitelman. Älä vielä aloita. Annan ensimmäisen palan seuraavaksi.</li>
+<li>Pysäytä agentti, jos se silti alkaa muuttaa tiedostoja. Tarkista muutokset Git-toiminnoista. Palaa tarvittaessa tallennuspisteeseen K7:llä.</li>
+</ol>
+<p>Seuraavaksi: ensimmäinen pala.</p>
+<h3>Palan alku ja loppu (tehtävät 3–7)</h3>
+<p>Tehtävä kertoo pysähdysten tapauksen.</p>
+<ol>
+<li><strong>Kehote (K3):</strong> Kopioi K3 <code>KEHOTEPOHJAT.md</code>:stä. Täytä aukot tälle palalle. Lähetä.</li>
+<li>Toimi osiossa 05 tekemäsi päätöksen mukaan. Lue lupapyynnöt kolmella kysymyksellä.</li>
+<li>Käynnistä simuloitu Wilma ja sovellus <code>KAYNNISTYS.md</code>:n ohjeella, jos agentti pysähtyy tarkistukseen.</li>
+<li>Tee jokaisessa pysähdyksessä agentin kertoma tarkistus vain tehtävän tapauksella. Anna sitten lupa jatkaa.</li>
+<li>Avaa palan lopuksi Git-toiminnoista muuttuneet tiedostot. Käy ne läpi kolmella kysymyksellä.</li>
+<li>Sulje simuloitu Wilma ja sovellus. Palauta lähtötila kaksoisnapsauttamalla <code>palauta-lahtotila.cmd</code>. Käynnistä molemmat uudelleen.</li>
+</ol>
+<p>Palan loppu päätöksen jälkeen: jos hyväksyit, pyydä agenttia merkitsemään työlistan tehtävä valmiiksi. Tee tallennuspiste K6:lla.</p>
+<h3>Tehtävä 3: Pala 1, uudet näkymät ja lähtötila</h3>
+<p>Lyhennetyssä ohita askeleet 4 ja 5.</p>
+<ol>
+<li>Tee tallennuspiste K6:lla.</li>
+<li>Tee palan alku. Muuttua saavat simuloitu Wilma, sen lähtötila ja <code>KENTAT.md</code>.</li>
+<li><strong>Oma testi:</strong> Totea simuloidusta Wilmasta Testileipomo Oy:n kaksi toimipaikkaa ja se, ettei Kokeiluverstas Oy:tä löydy.</li>
+<li>Avaa Aino Testisen (000123) oppisopimusnäkymä. Vertaa sen kenttiä paperisi kenttiin.</li>
+<li>Kirjoita <code>KENTAT.md</code>:hen Muistiolla, mikä oppisopimuksen kentissä eroaa muistamastasi oikeasta Wilmasta.</li>
+<li><strong>Päätös:</strong> Kirjaa päätöslokiin näkymistä päätös. Kirjoita perusteeseen Näin: … Siksi: …</li>
+<li>Tee palan loppu.</li>
+</ol>
+<p>Seuraavaksi: työpaikan sovitin.</p>
+<h3>Tehtävä 4: Pala 2, työpaikka ja toimipaikka</h3>
+<ol>
+<li>Tee palan alku. Pysähdysten tapaus on Kokeiluverstas Oy. Lue lisäyksen tiedot ennen kohtaa (3) Wilma-tallennus.</li>
+<li>Totea simuloidusta Wilmasta, ettei Kokeiluverstas Oy:tä ole. Jos on, palauta lähtötila.</li>
+<li><strong>Oma testi T04:</strong> Hae sovelluksella työpaikkaa Testileipomo Oy ilman toimipaikkaa. Totea, että sovellus näyttää Keskustan ja Sataman eikä valitse itse.</li>
+<li>Hae Esimerkkikone Oy. Totea, että sovellus löytää olemassa olevan tietueen.</li>
+<li>Hae Kokeiluverstas Oy. Totea, että sovellus valmistelee lisäyksen ja odottaa hyväksyntääsi. Lue tiedot ennen hyväksyntää.</li>
+<li>Hae Kokeiluverstas Oy uudelleen. Totea simuloidusta Wilmasta, että yritys on siellä vain kerran.</li>
+<li>Kirjaa tulos ja havainto <code>TESTIT.md</code>:n testiin T04.</li>
+<li><strong>Päätös:</strong> Kirjaa päätöslokiin työpaikan sovittimesta päätös ja peruste.</li>
+<li>Tee palan loppu.</li>
+</ol>
+<p>Seuraavaksi: työpaikkaohjaaja. Lyhennetyssä tehtävä 8.</p>
+<h3>Tehtävä 5: Pala 3, työpaikkaohjaaja</h3>
+<ol>
+<li>Tee palan alku. Pysähdysten tapaus on Esimerkkikone Oy:n Pekka Mallikas.</li>
+<li><strong>Oma testi T04:</strong> Hae työpaikkaohjaajaa nimellä Pekka Mallikas. Totea, että sovellus näyttää kaksi vaihtoehtoa työpaikkoineen eikä valitse itse.</li>
+<li>Valitse Pekka Mallikas, jonka työpaikka on Esimerkkikone Oy. Totea, ettei valinta liity Testileipomo Oy:n Satamaan.</li>
+<li>Kirjaa tulos ja havainto testin T04 alle uudelle riville.</li>
+<li><strong>Päätös:</strong> Kirjaa päätöslokiin työpaikkaohjaajan sovittimesta päätös ja peruste.</li>
+<li>Tee palan loppu.</li>
+</ol>
+<p>Seuraavaksi: oppisopimus.</p>
+<h3>Tehtävä 6: Pala 4, oppisopimus</h3>
+<ol>
+<li>Tee palan alku. Pysähdysten tapaukset: (1)–(2) Liisa Kokeilu, (3)–(5) Aino Testinen (000123).</li>
+<li><strong>Oma testi T03:</strong> Liitä nimilista, jossa on vain Liisa Kokeilu. Valitse tehtäväksi oppisopimus.</li>
+<li>Valitse Esimerkkikone Oy, jos sovellus kysyy työpaikkaa.</li>
+<li>Totea, että sovellus estää kirjauksen ja kertoo syyksi palkan puuttuvan yksikön. Jos työajan ristiriita on ratkaisematta, sekin näkyy syynä.</li>
+<li>Totea simuloidusta Wilmasta, ettei Liisalle syntynyt oppisopimusta.</li>
+<li>Kirjaa tulos ja havainto testiin T03.</li>
+<li><strong>Oma testi T08:</strong> Palauta lähtötila. Liitä nimilista, jossa on vain Aino Testinen. Valitse 000123 ja tehtäviksi urasuunnitelma ja oppisopimus.</li>
+<li>Tee urasuunnitelman Wilma-tallennus. Totea, ettei Ainon jonon tila ole vielä VALMIS.</li>
+<li>Tarkista ennen oppisopimuksen hyväksyntää: Testileipomo Oy Keskusta, 37,5 h/vko, 2 450 €/kk sekä Maija ja Kaisa Mallikas eri kentissä.</li>
+<li>Hyväksy sisältö. Totea, että kirjaus on varmennettu ja Ainon jonon tila on nyt VALMIS.</li>
+<li>Avaa simuloitu Wilma suoraan. Totea samat arvot Ainon (000123) oppisopimuksessa. Toisella Aino Testisellä (000456) ei ole oppisopimusta.</li>
+<li>Kirjaa tulos ja havainto testiin T08.</li>
+<li><strong>Päätös:</strong> Kirjaa päätöslokiin oppisopimuksen sovittimesta päätös ja peruste.</li>
+<li>Tee palan loppu.</li>
+</ol>
+<p>Seuraavaksi: lisätehtävä tai kenttäluku.</p>
+<h3>Tehtävä 7: Lisätehtävä tai testi-Wilman kenttäluku</h3>
+<p>Jos testi-Wilma on käytössä, teet kenttäluvun C osiota 08 varten. Muuten valitset A:n tai B:n.</p>
+<ol>
+<li><strong>Oma kriteeri:</strong> Kirjoita <code>HYVAKSYMISKRITEERIT.md</code>:n osioon 07 tehtävällesi yksi Hyväksyn, kun -kohta ja yksi En hyväksy, jos -kohta.</li>
+<li>Tarkista, että K2:n kaksi viimeistä riviä ovat mukana.</li>
+<li><strong>Kehote (K2):</strong> Kopioi K2 <code>KEHOTEPOHJAT.md</code>:stä. Kirjoita tehtäväksi A tai B omin sanoin tai liitä C:n lohko. Täytä muut aukot. Lähetä.</li>
+<li>Lue suunnitelma ja hyväksy se kuten tehtävässä 2.</li>
+<li>Tee palan alku.</li>
+<li><strong>Oma testi:</strong> Tee tehtäväsi testi. Kirjaa tulos ja havainto <code>TESTIT.md</code>:hen.</li>
+<li><strong>Päätös:</strong> Kirjaa päätöslokiin päätös ja peruste.</li>
+<li>Tee palan loppu.</li>
+</ol>
+<p>A. HOPS (T06). Simuloituun Wilmaan ja lähtötilaan tulee HOPS-näkymä, sovellukseen sen sovitin. Testi: Aino Testisen Testiosa A saa aikataulun 2027–2028 ja Testiosa B itse valitsemasi. Totea ne simuloidusta Wilmasta. Uusinta ei monista osia.</p>
+<p>B. Lausepohja (T09). Kirjoitat itse tavoitetekstin lausepohjan hakasulkeineen. Kielimallia ei käytetä. Testi: täyttämätön aukko estää hyväksynnän.</p>
+<p>C. Kenttäluku testi-Wilmaa varten, vain vetäjän luvalla. K2:n tehtävä:</p>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k75">Kopioi</button></div><pre id="k75"><code>Lisää sovellukseen kenttäluku. Käynnistän sen itse sovelluksesta, kun näkymä on auki näkyvässä selaimessa. Kenttäluku lukee vain auki olevan sivun. Se ei siirry muille sivuille, ei kirjoita kenttiin eikä paina painikkeita. Se kirjoittaa tiedostoon vain näkyvien kenttien nimet ja tyypit. Ei arvoja, piilokenttiä, sivun osoitetta, evästeitä, istuntoa eikä sivun lähdekoodia. Tiedosto tulee projektikansion ulkopuolelle kansioon C:\dev\testi-wilma-raaka. Sovellus ei tallenna projektikansioon selainprofiilia, evästeitä eikä tallenteita. Älä lue tulostiedostoa.
+</code></pre></div>
+<p>Testi C: aja kenttäluku simuloidun Wilman urasuunnitelmaan näkyvässä selaimessa. Sulje sovellus. Avaa tuloste Muistiolla. Yksikin arvo on ei läpi. Avaa ennen tallennuspistettä Git-toiminnoista muuttuneet tiedostot. Totea, ettei projektikansioon tullut selainprofiilia, evästeitä, tallenteita eikä sivujen sisältöä.</p>
+<p>Seuraavaksi: tarkistat, että osio on valmis.</p>
+<h3>Tehtävä 8: Jos osio lyhennetään tai siirtyy jatkoon</h3>
+<ol>
+<li><strong>Päätös:</strong> Kirjaa päätöslokiin osion 07 lyhennys tai siirto ja syy omin sanoin.</li>
+<li>Avaa <code>TESTIT.md</code> Muistiolla. Kirjoita jatko Työpaja / lisä / jatko -riville testeihin T03, T04 ja T08, joita et tehnyt kokonaan. Älä pyyhi aiempia tuloksia.</li>
+<li>Tallenna tiedosto ja sulje Muistio.</li>
+<li>Pyydä agenttia merkitsemään <code>TYOLISTA.md</code>:hen osion 07 tekemättömät tehtävät jatkoon.</li>
+<li>Avaa Git-toiminnoista muuttuneet tiedostot. Totea, että vain <code>TYOLISTA.md</code> muuttui.</li>
+<li>Tee tallennuspiste K6:lla.</li>
+</ol>
+<p>Seuraavaksi: siirrossa kesken jääneet palat kello 14.15 asti, sitten osio 08. Lyhennetyssä osio 08.</p>
+<h3>Valmis, kun</h3>
+<ul>
+<li>Osion 07 kriteerit ja huomiosi oppisopimuksen kentistä ovat tallessa.</li>
+<li>Palautus tuo simuloituun Wilmaan työpaikat ja henkilöt ilman Kokeiluverstas Oy:tä.</li>
+<li>Testileipomo Oy ja Pekka Mallikas näkyvät vaihtoehtoina. Liisan oppisopimus estyy. Aino on VALMIS vasta oikein varmennetun oppisopimuksen jälkeen.</li>
+<li>T03:lla, T04:llä ja T08:lla on tulos tai merkintä jatko, ja aiemmat tulokset ovat tallessa.</li>
+<li>Jokaisesta palasta on päätös ja tallennuspiste. Lyhennetyssä riittää työpaikka, siirrossa tehtävä 8 ja kesken jääneet palat.</li>
+</ul>
+<h3>Jos jäät jumiin</h3>
+<p>Jos agentti luo työpaikan tai työpaikkaohjaajan kysymättä, hylkää pala. Jos palkka tallentuu ilman yksikköä, korjauta K5:llä.</p>
+<p>Jos pala on kesken kello 14.15, tee tallennuspiste viestillä Kesken: [pala] tai palaa edelliseen K7:llä. Pyydä agenttia merkitsemään pala työlistaan keskeneräiseksi. Tee tehtävä 8.</p>
+<p>Jos ongelma jatkuu kahden korjausyrityksen jälkeen, katkaise kehä K10:llä, palaa tallennuspisteeseen K7:llä ja kerro vetäjälle.</p>
+<h3>Seuraava osio</h3>
+<p>Osio 08 alkaa kello 14.30. Siinä teet hyväksymistestit ja päätät, hyväksytkö työpajaversion.</p>
+
+</section>
+<section class="md" id="sanasto"><h2>Sanasto</h2>
+<h3>Työpaikka</h3>
+<p>Yritys tai muu työnantaja, jossa opiskelija tekee oppisopimustaan. Työpaikan pitää olla Wilmassa ennen oppisopimusta. Sovellus etsii olemassa olevan työpaikan, ennen kuin valmistelee uuden.</p>
+<h3>Toimipaikka</h3>
+<p>Yrityksen yksittäinen paikka, esimerkiksi Testileipomo Oy:n Keskusta tai Satama. Saman yrityksen toimipaikat erotetaan.</p>
+<h3>Työpaikkaohjaaja</h3>
+<p>Henkilö, joka ohjaa opiskelijaa työpaikalla. Kirjoitetaan aina kokonaan, ei pelkkä &quot;ohjaaja&quot;. Tunnistetaan työpaikan ja toimipaikan kautta, koska nimi ei riitä.</p>
+<h3>Työnantajan edustaja</h3>
+<p>Oppisopimuksen työnantajapuolen henkilö. Voi olla eri kuin työpaikkaohjaaja.</p>
+<h3>Palkkayksikkö</h3>
+<p>Tieto siitä, onko palkka esimerkiksi kuukausi- vai tuntipalkka. Yksikköä ei päätellä summasta. Puuttuva yksikkö estää kirjauksen.</p>
+<h3>Riippuvuusjärjestys</h3>
+<p>Järjestys, jossa tiedot viedään Wilmaan. Työpaikka ja työpaikkaohjaaja ennen oppisopimusta, tutkinnon osa ennen näyttösuunnitelmaa. Lähde on kuvauspaketin osa 7.</p>
+<h3>Olemassa oleva tietue</h3>
+<p>Wilmassa jo oleva työpaikka, henkilö tai lomake. Se näytetään, ennen kuin uutta luodaan. Jos osumia on monta, sovellus pysähtyy valintaasi.</p>
+<h3>Lausepohja (lisä)</h3>
+<p>Valmis tavoiteteksti, jossa on hakasulkeissa aukkoja. Täyttämätön aukko estää hyväksynnän.</p>
+<h3>HOPS (lisä)</h3>
+<p>Wilman opintojen suunnittelun näkymä, johon valitaan tutkinnon osat ja niiden aikataulut. Jokainen osa saa oman aikataulunsa.</p>
+
+</section>
+<nav class="pager"><a href="osio-06.html">← Osio 06</a><a href="osio-08.html">Osio 08 →</a></nav>
+<footer class="page">Kaikki materiaalin henkilöt, yritykset, tunnisteet ja palkat ovat kuvitteellisia. Versio 1 · 23.10.2026.</footer>
+</main>
+</body>
+</html>

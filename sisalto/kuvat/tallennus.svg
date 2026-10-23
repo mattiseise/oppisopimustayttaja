@@ -1,5 +1,5 @@
 <svg class="anim anim-tallennus" viewBox="0 0 560 320" role="img" aria-labelledby="tallennus-title" xmlns="http://www.w3.org/2000/svg">
-  <title id="tallennus-title">Sinä hyväksyt urasuunnitelman tiedot Oppisopimustäyttäjässä. Sovellus täyttää lomakkeen testi-Wilmassa, tallentaa sen, avaa lomakkeen uudelleen ja merkitsee tallennuksen varmennetuksi vasta, kun jokainen kenttä täsmää.</title>
+  <title id="tallennus-title">Sinä hyväksyt urasuunnitelman tiedot Oppisopimustäyttäjässä. Sovellus täyttää lomakkeen testi-Wilmassa, tallentaa sen, avaa lomakkeen uudelleen ja tarkistaa jokaisen kentän. Tallennus on varmennettu vasta, kun kaikki kentät täsmäävät.</title>
   <style>
     .anim-tallennus .ikkuna { fill: #FFFFFF; }
     .anim-tallennus .reuna { fill: none; stroke: #E4DFEE; stroke-width: 2; }
@@ -45,8 +45,9 @@
     .anim-tallennus .tallenna { animation: tallennus-paina-2 12s infinite; }
     .anim-tallennus .tallenna rect { animation: tallennus-vari-2 12s infinite; }
     .anim-tallennus .ilmoitus { opacity: 0; animation: tallennus-ilmoitus 12s infinite; }
-    /* Tahti 4: sovellus avaa lomakkeen uudelleen, tarkistusmerkit */
-    .anim-tallennus .k-avaa { animation: tallennus-k-avaa 12s infinite; }
+    /* Tahti 4: sovellus avaa lomakkeen uudelleen (välivaihe) ja tarkistaa jokaisen kentän */
+    .anim-tallennus .k-avaa { opacity: 0; animation: tallennus-k-avaa 12s infinite; }
+    .anim-tallennus .k-tarkistaa { animation: tallennus-k-tarkistaa 12s infinite; }
     .anim-tallennus .ok1 { animation: tallennus-ok-1 12s infinite; }
     .anim-tallennus .ok2 { animation: tallennus-ok-2 12s infinite; }
     .anim-tallennus .ok3 { animation: tallennus-ok-3 12s infinite; }
@@ -110,8 +111,8 @@
     }
     @keyframes tallennus-ilmoitus {
       0%, 43% { opacity: 0; }
-      45%, 54% { opacity: 1; }
-      56%, 100% { opacity: 0; }
+      45%, 51% { opacity: 1; }
+      53%, 100% { opacity: 0; }
     }
     @keyframes tallennus-k-hyvaksyt {
       0%, 3% { opacity: 0; transform: translateY(4px); }
@@ -125,32 +126,37 @@
     }
     @keyframes tallennus-k-tallentaa {
       0%, 36% { opacity: 0; transform: translateY(4px); }
-      38%, 54% { opacity: 1; transform: translateY(0); }
-      56%, 100% { opacity: 0; transform: translateY(0); }
+      38%, 50% { opacity: 1; transform: translateY(0); }
+      52%, 100% { opacity: 0; transform: translateY(0); }
     }
     @keyframes tallennus-k-avaa {
-      0%, 55% { opacity: 0; transform: translateY(4px); }
-      57%, 96% { opacity: 1; transform: translateY(0); }
+      0%, 51% { opacity: 0; transform: translateY(4px); }
+      53%, 61% { opacity: 1; transform: translateY(0); }
+      63%, 100% { opacity: 0; transform: translateY(0); }
+    }
+    @keyframes tallennus-k-tarkistaa {
+      0%, 62% { opacity: 0; transform: translateY(4px); }
+      64%, 96% { opacity: 1; transform: translateY(0); }
       100% { opacity: 0; transform: translateY(0); }
     }
     @keyframes tallennus-ok-1 {
-      0%, 61% { opacity: 0; transform: translateY(4px); }
-      63%, 96% { opacity: 1; transform: translateY(0); }
+      0%, 64% { opacity: 0; transform: translateY(4px); }
+      66%, 96% { opacity: 1; transform: translateY(0); }
       100% { opacity: 0; transform: translateY(0); }
     }
     @keyframes tallennus-ok-2 {
-      0%, 66% { opacity: 0; transform: translateY(4px); }
-      68%, 96% { opacity: 1; transform: translateY(0); }
+      0%, 69% { opacity: 0; transform: translateY(4px); }
+      71%, 96% { opacity: 1; transform: translateY(0); }
       100% { opacity: 0; transform: translateY(0); }
     }
     @keyframes tallennus-ok-3 {
-      0%, 71% { opacity: 0; transform: translateY(4px); }
-      73%, 96% { opacity: 1; transform: translateY(0); }
+      0%, 74% { opacity: 0; transform: translateY(4px); }
+      76%, 96% { opacity: 1; transform: translateY(0); }
       100% { opacity: 0; transform: translateY(0); }
     }
     @keyframes tallennus-varmennettu {
-      0%, 79% { opacity: 0; transform: translateY(4px); }
-      81%, 96% { opacity: 1; transform: translateY(0); }
+      0%, 80% { opacity: 0; transform: translateY(4px); }
+      82%, 96% { opacity: 1; transform: translateY(0); }
       100% { opacity: 0; transform: translateY(0); }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -216,6 +222,7 @@
   <text class="tekija k-tayttaa" x="391" y="287"><tspan class="kuka">Sovellus</tspan> täyttää lomakkeen</text>
   <text class="tekija k-tallentaa" x="391" y="287"><tspan class="kuka">Sovellus</tspan> tallentaa</text>
   <text class="tekija k-avaa" x="391" y="287"><tspan class="kuka">Sovellus</tspan> avaa lomakkeen uudelleen</text>
+  <text class="tekija k-tarkistaa" x="391" y="287"><tspan class="kuka">Sovellus</tspan> tarkistaa jokaisen kentän</text>
 
   <text class="selite" x="280" y="312">Pelkkä Tallennettu-ilmoitus ei riitä.</text>
 </svg>

@@ -1,5 +1,5 @@
 <svg class="anim anim-jono" viewBox="0 0 560 292" role="img" aria-labelledby="jono-title" xmlns="http://www.w3.org/2000/svg">
-  <title id="jono-title">Jonossa on auki yksi opiskelija kerrallaan. Sovellus tarkistaa Aino Testisen kirjaukset ja merkitsee hänet valmiiksi, sinä siirrät Ville Testaajan odottamaan ja kirjaat syyn, ja sitten sovellus avaa Liisa Kokeilun.</title>
+  <title id="jono-title">Jonossa on auki yksi opiskelija kerrallaan. Sinä tarkistat Aino Testisen kirjaukset, ja hän on valmis, sinä siirrät Ville Testaajan odottamaan ja kirjaat syyn, ja sitten sovellus avaa Liisa Kokeilun.</title>
   <style>
     .anim-jono .ikkuna { fill: #FFFFFF; }
     .anim-jono .reuna { fill: none; stroke: #E4DFEE; stroke-width: 2; }
@@ -123,7 +123,7 @@
   <rect class="aktiivinen pois-1" x="20" y="98" width="520" height="52" rx="8"/>
   <text class="nimi" x="36" y="120">Aino Testinen</text>
   <text class="tunniste" x="150" y="120">000123</text>
-  <g class="tarkistettu esiin-1"><path d="M37 136 l4 4 l8 -8"/><text class="tekija" x="55" y="141"><tspan class="kuka">Sovellus</tspan> tarkistaa kirjaukset</text></g>
+  <g class="tarkistettu esiin-1"><path d="M37 136 l4 4 l8 -8"/><text class="tekija" x="55" y="141"><tspan class="kuka">Sinä</tspan> tarkistat kirjaukset</text></g>
   <g class="tila kasittely pois-1"><rect x="396" y="110" width="132" height="28" rx="6"/><text x="462" y="129">KÄSITTELYSSÄ</text></g>
   <g class="tila valmis esiin-2"><rect x="396" y="110" width="132" height="28" rx="6"/><text x="462" y="129">VALMIS</text></g>
 

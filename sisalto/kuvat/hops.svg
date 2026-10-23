@@ -1,0 +1,116 @@
+<svg class="anim anim-hops" viewBox="0 0 560 308" role="img" aria-labelledby="hops-title" xmlns="http://www.w3.org/2000/svg">
+  <title id="hops-title">HOPSiin lisätään ensin Testiosa A ja Testiosa B aikatauluineen. Kummallekin tutkinnon osalle tehdään sen jälkeen näyttösuunnitelma, jossa ovat työpaikka ja ohjaaja. Arvosanoja ei tehdä.</title>
+  <style>
+    .anim-hops .paneeli { fill: #F5F3F8; stroke: #E4DFEE; stroke-width: 1.5; }
+    .anim-hops .paneeli-otsikko { fill: #1A0530; font: 600 18px var(--sans, sans-serif); }
+    .anim-hops .rivi { fill: #FFFFFF; stroke: #E4DFEE; stroke-width: 2; }
+    .anim-hops .rivi-teksti { fill: #1A0530; font: 500 16px var(--sans, sans-serif); text-anchor: middle; }
+    .anim-hops .rivi-teksti tspan.osa { font-weight: 600; }
+    .anim-hops .kortti { fill: #FFFFFF; stroke: #E4DFEE; stroke-width: 2; }
+    .anim-hops .kortti-otsikko { fill: #1A0530; font: 600 17px var(--sans, sans-serif); }
+    .anim-hops .erotin { stroke: #E4DFEE; stroke-width: 1.5; }
+    .anim-hops .nimi { fill: #5B5470; font: 500 15px var(--sans, sans-serif); }
+    .anim-hops .arvo { fill: #1A0530; font: 500 15px var(--sans, sans-serif); text-anchor: end; }
+    .anim-hops .viiva { stroke: #6A50BD; stroke-width: 2.5; fill: none; }
+    .anim-hops .selite { fill: #5B5470; font: 500 15px var(--sans, sans-serif); text-anchor: middle; }
+
+    .anim-hops .osa-a { animation: hops-osa-a 10s infinite; }
+    .anim-hops .osa-a .rivi { animation: hops-osa-a-korostus 10s infinite; }
+    .anim-hops .ns-a { animation: hops-ns-a 10s infinite; }
+    .anim-hops .ns-a .kortti { animation: hops-ns-a-korostus 10s infinite; }
+    .anim-hops .osa-b { animation: hops-osa-b 10s infinite; }
+    .anim-hops .osa-b .rivi { animation: hops-osa-b-korostus 10s infinite; }
+    .anim-hops .ns-b { animation: hops-ns-b 10s infinite; }
+    .anim-hops .ns-b .kortti { animation: hops-ns-b-korostus 10s infinite; }
+    .anim-hops .selite { animation: hops-selite 10s infinite; }
+
+    @keyframes hops-osa-a {
+      0%, 6% { opacity: 0; transform: translateY(-6px); }
+      10%, 96% { opacity: 1; transform: translateY(0); }
+      99%, 100% { opacity: 0; }
+    }
+    @keyframes hops-osa-a-korostus {
+      0%, 26% { fill: #EEE8FF; stroke: #6A50BD; }
+      29%, 100% { fill: #FFFFFF; stroke: #E4DFEE; }
+    }
+    @keyframes hops-ns-a {
+      0%, 18% { opacity: 0; transform: translateY(-6px); }
+      23%, 96% { opacity: 1; transform: translateY(0); }
+      99%, 100% { opacity: 0; }
+    }
+    @keyframes hops-ns-a-korostus {
+      0%, 34% { fill: #EEE8FF; stroke: #6A50BD; }
+      37%, 100% { fill: #FFFFFF; stroke: #E4DFEE; }
+    }
+    @keyframes hops-osa-b {
+      0%, 38% { opacity: 0; transform: translateY(-6px); }
+      42%, 96% { opacity: 1; transform: translateY(0); }
+      99%, 100% { opacity: 0; }
+    }
+    @keyframes hops-osa-b-korostus {
+      0%, 58% { fill: #EEE8FF; stroke: #6A50BD; }
+      61%, 100% { fill: #FFFFFF; stroke: #E4DFEE; }
+    }
+    @keyframes hops-ns-b {
+      0%, 52% { opacity: 0; transform: translateY(-6px); }
+      57%, 96% { opacity: 1; transform: translateY(0); }
+      99%, 100% { opacity: 0; }
+    }
+    @keyframes hops-ns-b-korostus {
+      0%, 68% { fill: #EEE8FF; stroke: #6A50BD; }
+      71%, 100% { fill: #FFFFFF; stroke: #E4DFEE; }
+    }
+    @keyframes hops-selite {
+      0%, 74% { opacity: 0; }
+      78%, 96% { opacity: 1; }
+      99%, 100% { opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .anim-hops * { animation: none !important; }
+    }
+  </style>
+  <defs>
+    <marker id="hops-nuoli" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6A50BD"/>
+    </marker>
+  </defs>
+
+  <!-- HOPS-paneeli -->
+  <rect class="paneeli" x="12" y="12" width="536" height="106" rx="12"/>
+  <text class="paneeli-otsikko" x="28" y="40">HOPS</text>
+
+  <g class="osa-a">
+    <rect class="rivi" x="28" y="52" width="242" height="50" rx="8"/>
+    <text class="rivi-teksti" x="149" y="82.5"><tspan class="osa">Testiosa A</tspan> · 2027–2028</text>
+  </g>
+  <g class="osa-b">
+    <rect class="rivi" x="290" y="52" width="242" height="50" rx="8"/>
+    <text class="rivi-teksti" x="411" y="82.5"><tspan class="osa">Testiosa B</tspan> · 2027–2028</text>
+  </g>
+
+  <!-- Näyttösuunnitelma A -->
+  <g class="ns-a">
+    <path class="viiva" d="M149 102 V154" marker-end="url(#hops-nuoli)"/>
+    <rect class="kortti" x="28" y="158" width="242" height="106" rx="12"/>
+    <text class="kortti-otsikko" x="44" y="186">Näyttösuunnitelma</text>
+    <line class="erotin" x1="44" y1="198" x2="254" y2="198"/>
+    <text class="nimi" x="44" y="224">Työpaikka</text>
+    <text class="arvo" x="254" y="224">Testileipomo Oy</text>
+    <text class="nimi" x="44" y="250">Ohjaaja</text>
+    <text class="arvo" x="254" y="250">Maija Mallikas</text>
+  </g>
+
+  <!-- Näyttösuunnitelma B -->
+  <g class="ns-b">
+    <path class="viiva" d="M411 102 V154" marker-end="url(#hops-nuoli)"/>
+    <rect class="kortti" x="290" y="158" width="242" height="106" rx="12"/>
+    <text class="kortti-otsikko" x="306" y="186">Näyttösuunnitelma</text>
+    <line class="erotin" x1="306" y1="198" x2="516" y2="198"/>
+    <text class="nimi" x="306" y="224">Työpaikka</text>
+    <text class="arvo" x="516" y="224">Testileipomo Oy</text>
+    <text class="nimi" x="306" y="250">Ohjaaja</text>
+    <text class="arvo" x="516" y="250">Maija Mallikas</text>
+  </g>
+
+  <text class="selite" x="280" y="294">ei arvosanoja</text>
+</svg>

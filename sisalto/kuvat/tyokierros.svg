@@ -1,0 +1,64 @@
+<svg class="anim anim-kierros" viewBox="0 0 560 360" role="img" aria-labelledby="kierros-title" xmlns="http://www.w3.org/2000/svg">
+  <title id="kierros-title">Työtapa kehänä: annat kehotteen, tekoäly suunnittelee, luet ja hyväksyt, tekoäly rakentaa, kokeilet itse ja teet tallennuspisteen. Jos kokeilu ei toimi, tekoäly korjaa. Sen jälkeen seuraava vaihe alkaa samalla tavalla.</title>
+  <style>
+    .anim-kierros .solmu rect.pohja { stroke-width: 2; }
+    .anim-kierros .sina rect.pohja { fill: #FFFFFF; stroke: #E4DFEE; }
+    .anim-kierros .tekoaly rect.pohja { fill: #EEE8FF; stroke: #C9BCF0; }
+    .anim-kierros .solmu rect.korostus { fill: #6A50BD; opacity: 0; animation: kierros-korostus 9s infinite; }
+    .anim-kierros .solmu text { fill: #1A0530; font: 600 16px var(--sans, sans-serif); text-anchor: middle; animation: kierros-teksti 9s infinite; }
+    .anim-kierros .s2 rect.korostus, .anim-kierros .s2 text { animation-delay: 1.5s; }
+    .anim-kierros .s3 rect.korostus, .anim-kierros .s3 text { animation-delay: 3s; }
+    .anim-kierros .s4 rect.korostus, .anim-kierros .s4 text { animation-delay: 4.5s; }
+    .anim-kierros .s5 rect.korostus, .anim-kierros .s5 text { animation-delay: 6s; }
+    .anim-kierros .s6 rect.korostus, .anim-kierros .s6 text { animation-delay: 7.5s; }
+    .anim-kierros .viiva { stroke: #6A50BD; stroke-width: 2.5; fill: none; }
+    .anim-kierros .paluu { stroke: #7D7694; stroke-width: 2; fill: none; stroke-dasharray: 6 5; }
+    .anim-kierros .selite { fill: #5B5470; font: 500 15px var(--sans, sans-serif); }
+    .anim-kierros .merkki-teksti { fill: #1A0530; font: 600 15px var(--sans, sans-serif); text-anchor: middle; }
+    @keyframes kierros-korostus {
+      0%, 15% { opacity: 1; }
+      18%, 100% { opacity: 0; }
+    }
+    @keyframes kierros-teksti {
+      0%, 15% { fill: #FFFFFF; }
+      18%, 100% { fill: #1A0530; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .anim-kierros * { animation: none !important; }
+    }
+  </style>
+  <defs>
+    <marker id="kierros-nuoli" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6A50BD"/>
+    </marker>
+    <marker id="kierros-nuoli-harmaa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#7D7694"/>
+    </marker>
+  </defs>
+
+  <!-- Kehä myötäpäivään ylhäältä -->
+  <g class="solmu sina s1"><rect class="pohja" x="180" y="14" width="200" height="52" rx="12"/><rect class="korostus" x="180" y="14" width="200" height="52" rx="12"/><text x="280" y="46">Annat kehotteen</text></g>
+  <g class="solmu tekoaly s2"><rect class="pohja" x="340" y="94" width="200" height="52" rx="12"/><rect class="korostus" x="340" y="94" width="200" height="52" rx="12"/><text x="440" y="126">Tekoäly suunnittelee</text></g>
+  <g class="solmu sina s3"><rect class="pohja" x="340" y="214" width="200" height="52" rx="12"/><rect class="korostus" x="340" y="214" width="200" height="52" rx="12"/><text x="440" y="246">Luet ja hyväksyt</text></g>
+  <g class="solmu tekoaly s4"><rect class="pohja" x="180" y="294" width="200" height="52" rx="12"/><rect class="korostus" x="180" y="294" width="200" height="52" rx="12"/><text x="280" y="326">Tekoäly rakentaa</text></g>
+  <g class="solmu sina s5"><rect class="pohja" x="20" y="214" width="200" height="52" rx="12"/><rect class="korostus" x="20" y="214" width="200" height="52" rx="12"/><text x="120" y="246">Kokeilet itse</text></g>
+  <g class="solmu sina s6"><rect class="pohja" x="20" y="94" width="200" height="52" rx="12"/><rect class="korostus" x="20" y="94" width="200" height="52" rx="12"/><text x="120" y="126">Teet tallennuspisteen</text></g>
+
+  <path class="viiva" d="M382 40 Q440 40 440 90" marker-end="url(#kierros-nuoli)"/>
+  <path class="viiva" d="M440 148 V210" marker-end="url(#kierros-nuoli)"/>
+  <path class="viiva" d="M440 268 Q440 320 384 320" marker-end="url(#kierros-nuoli)"/>
+  <path class="viiva" d="M178 320 Q120 320 120 270" marker-end="url(#kierros-nuoli)"/>
+  <path class="viiva" d="M120 212 V150" marker-end="url(#kierros-nuoli)"/>
+  <path class="viiva" d="M120 92 Q120 40 176 40" marker-end="url(#kierros-nuoli)"/>
+  <text class="selite" x="14" y="36">seuraava vaihe</text>
+
+  <!-- Korjaus: kokeilu ei toimi, tekoäly korjaa -->
+  <path class="paluu" d="M222 250 Q262 254 262 290" marker-end="url(#kierros-nuoli-harmaa)"/>
+  <text class="selite" x="236" y="232">ei toimi</text>
+
+  <!-- Selite keskellä -->
+  <rect x="200" y="160" width="74" height="32" rx="8" fill="#FFFFFF" stroke="#E4DFEE" stroke-width="2"/>
+  <text class="merkki-teksti" x="237" y="181">Sinä</text>
+  <rect x="286" y="160" width="84" height="32" rx="8" fill="#EEE8FF" stroke="#C9BCF0" stroke-width="2"/>
+  <text class="merkki-teksti" x="328" y="181">Tekoäly</text>
+</svg>

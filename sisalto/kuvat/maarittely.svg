@@ -1,0 +1,111 @@
+<svg class="anim anim-maarittely" viewBox="0 0 560 312" role="img" aria-labelledby="maarittely-title" xmlns="http://www.w3.org/2000/svg">
+  <title id="maarittely-title">Tekoäly lukee kuvauspaketin. Siitä syntyy ohjetiedosto (CLAUDE.md tai AGENTS.md) ja TYOLISTA.md, jossa työ on pilkottu paloiksi järjestyksessä.</title>
+  <style>
+    .anim-maarittely .tiedosto { fill: #FFFFFF; stroke: #E4DFEE; stroke-width: 2; stroke-linejoin: round; }
+    .anim-maarittely .taitos { fill: #F5F3F8; stroke: #E4DFEE; stroke-width: 2; stroke-linejoin: round; }
+    .anim-maarittely .paketti .tiedosto, .anim-maarittely .paketti .taitos { animation: maarittely-luettava 10s infinite; }
+    .anim-maarittely .tekstirivi { stroke: #E4DFEE; stroke-width: 5; stroke-linecap: round; }
+    .anim-maarittely .otsikko { fill: #1A0530; font: 600 17px var(--sans, sans-serif); }
+    .anim-maarittely .keskelle { text-anchor: middle; }
+    .anim-maarittely .tiedostonimi { fill: #1A0530; font: 600 17px var(--mono, monospace); }
+    .anim-maarittely .tunniste { fill: #5B5470; font: 500 15px var(--mono, monospace); }
+    .anim-maarittely .rivi text { fill: #1A0530; font: 500 15px var(--sans, sans-serif); }
+    .anim-maarittely .rivi rect { fill: #FFFFFF; stroke: #7D7694; stroke-width: 1.5; }
+    .anim-maarittely .rivi .jatkuu { fill: #7D7694; }
+    .anim-maarittely .agentti rect { fill: #EEE8FF; stroke: #6A50BD; stroke-width: 2; animation: maarittely-agentti 10s infinite; }
+    .anim-maarittely .agentti text { fill: #1A0530; font: 600 18px var(--sans, sans-serif); text-anchor: middle; animation: maarittely-agentti-teksti 10s infinite; }
+    .anim-maarittely .viiva { stroke: #6A50BD; stroke-width: 2.5; fill: none; }
+    .anim-maarittely .nuoli1 { animation: maarittely-nuoli1 10s infinite; }
+    .anim-maarittely .ohje { animation: maarittely-ohje 10s infinite; }
+    .anim-maarittely .lista { animation: maarittely-lista 10s infinite; }
+    .anim-maarittely .r1 { animation: maarittely-r1 10s infinite; }
+    .anim-maarittely .r2 { animation: maarittely-r2 10s infinite; }
+    .anim-maarittely .r3 { animation: maarittely-r3 10s infinite; }
+    .anim-maarittely .r4 { animation: maarittely-r4 10s infinite; }
+    .anim-maarittely .r5 { animation: maarittely-r5 10s infinite; }
+    .anim-maarittely .r6 { animation: maarittely-r6 10s infinite; }
+    .anim-maarittely .r7 { animation: maarittely-r7 10s infinite; }
+    @keyframes maarittely-luettava {
+      0%, 12% { stroke: #E4DFEE; }
+      15%, 33% { stroke: #6A50BD; }
+      36%, 100% { stroke: #E4DFEE; }
+    }
+    @keyframes maarittely-agentti {
+      0%, 12% { fill: #EEE8FF; }
+      15%, 33% { fill: #6A50BD; }
+      36%, 100% { fill: #EEE8FF; }
+    }
+    @keyframes maarittely-agentti-teksti {
+      0%, 12% { fill: #1A0530; }
+      15%, 33% { fill: #FFFFFF; }
+      36%, 100% { fill: #1A0530; }
+    }
+    @keyframes maarittely-nuoli1 {
+      0%, 5% { opacity: 0; }
+      10%, 94% { opacity: 1; }
+      98%, 100% { opacity: 0; }
+    }
+    @keyframes maarittely-ohje {
+      0%, 36% { opacity: 0; transform: translateX(-8px); }
+      41%, 94% { opacity: 1; transform: none; }
+      98%, 100% { opacity: 0; transform: none; }
+    }
+    @keyframes maarittely-lista {
+      0%, 42% { opacity: 0; transform: translateX(-8px); }
+      47%, 94% { opacity: 1; transform: none; }
+      98%, 100% { opacity: 0; transform: none; }
+    }
+    @keyframes maarittely-r1 { 0%, 50% { opacity: 0; transform: translateY(4px); } 53%, 94% { opacity: 1; transform: none; } 98%, 100% { opacity: 0; transform: none; } }
+    @keyframes maarittely-r2 { 0%, 55% { opacity: 0; transform: translateY(4px); } 58%, 94% { opacity: 1; transform: none; } 98%, 100% { opacity: 0; transform: none; } }
+    @keyframes maarittely-r3 { 0%, 60% { opacity: 0; transform: translateY(4px); } 63%, 94% { opacity: 1; transform: none; } 98%, 100% { opacity: 0; transform: none; } }
+    @keyframes maarittely-r4 { 0%, 65% { opacity: 0; transform: translateY(4px); } 68%, 94% { opacity: 1; transform: none; } 98%, 100% { opacity: 0; transform: none; } }
+    @keyframes maarittely-r5 { 0%, 70% { opacity: 0; transform: translateY(4px); } 73%, 94% { opacity: 1; transform: none; } 98%, 100% { opacity: 0; transform: none; } }
+    @keyframes maarittely-r6 { 0%, 75% { opacity: 0; transform: translateY(4px); } 78%, 94% { opacity: 1; transform: none; } 98%, 100% { opacity: 0; transform: none; } }
+    @keyframes maarittely-r7 { 0%, 80% { opacity: 0; transform: translateY(4px); } 83%, 94% { opacity: 1; transform: none; } 98%, 100% { opacity: 0; transform: none; } }
+    @media (prefers-reduced-motion: reduce) {
+      .anim-maarittely * { animation: none !important; }
+    }
+  </style>
+  <defs>
+    <marker id="maarittely-nuoli" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6A50BD"/>
+    </marker>
+  </defs>
+
+  <!-- Kuvauspaketti -->
+  <g class="paketti">
+    <path class="tiedosto" d="M12 104 H130 L148 122 V208 H12 Z"/>
+    <path class="taitos" d="M130 104 V122 H148 Z"/>
+    <text class="otsikko keskelle" x="80" y="146">Kuvauspaketti</text>
+    <path class="tekstirivi" d="M32 166 H128 M32 180 H128 M32 194 H100"/>
+  </g>
+
+  <g class="nuoli1"><path class="viiva" d="M148 156 H174" marker-end="url(#maarittely-nuoli)"/></g>
+
+  <!-- Agentti -->
+  <g class="agentti"><rect x="178" y="126" width="110" height="60" rx="12"/><text x="233" y="162">Tekoäly</text></g>
+
+  <!-- Ohjetiedosto -->
+  <g class="ohje">
+    <path class="viiva" d="M288 156 H306 V49 H330" marker-end="url(#maarittely-nuoli)"/>
+    <path class="tiedosto" d="M334 12 H530 L548 30 V86 H334 Z"/>
+    <path class="taitos" d="M530 12 V30 H548 Z"/>
+    <text class="otsikko" x="350" y="42">Ohjetiedosto</text>
+    <text class="tunniste" x="350" y="68">CLAUDE.md / AGENTS.md</text>
+  </g>
+
+  <!-- TYOLISTA.md -->
+  <g class="lista">
+    <path class="viiva" d="M288 156 H306 V200 H330" marker-end="url(#maarittely-nuoli)"/>
+    <path class="tiedosto" d="M334 100 H530 L548 118 V300 H334 Z"/>
+    <path class="taitos" d="M530 100 V118 H548 Z"/>
+    <text class="tiedostonimi" x="350" y="130">TYOLISTA.md</text>
+  </g>
+  <g class="rivi r1"><rect x="351" y="147" width="11" height="11" rx="2"/><text x="370" y="158">Kenttäkartta</text></g>
+  <g class="rivi r2"><rect x="351" y="168" width="11" height="11" rx="2"/><text x="370" y="179">Ensimmäinen tallennus</text></g>
+  <g class="rivi r3"><rect x="351" y="189" width="11" height="11" rx="2"/><text x="370" y="200">Tietolähteet</text></g>
+  <g class="rivi r4"><rect x="351" y="210" width="11" height="11" rx="2"/><text x="370" y="221">Työpaikka ja ohjaaja</text></g>
+  <g class="rivi r5"><rect x="351" y="231" width="11" height="11" rx="2"/><text x="370" y="242">Oppisopimus</text></g>
+  <g class="rivi r6"><rect x="351" y="252" width="11" height="11" rx="2"/><text x="370" y="263">HOPS</text></g>
+  <g class="rivi r7"><text class="jatkuu" x="370" y="284">…</text></g>
+</svg>

@@ -1,0 +1,164 @@
+<svg class="anim anim-lahteet" viewBox="0 0 560 276" role="img" aria-labelledby="lahteet-title" xmlns="http://www.w3.org/2000/svg">
+  <title id="lahteet-title">Sovellus hakee tiedot esitiedoista, haastattelusta ja Wilman profiilista yhteen tarkistusnäkymään, jossa jokaisella kentällä on arvo ja lähde. Työajan ristiriidassa sinä valitset arvon, ja puuttuvaa ohjaajaa sovellus ei arvaa.</title>
+  <style>
+    .anim-lahteet .kortti { fill: #FFFFFF; stroke: #E4DFEE; stroke-width: 2; }
+    .anim-lahteet .ikkuna { fill: #FFFFFF; }
+    .anim-lahteet .reuna { fill: none; stroke: #E4DFEE; stroke-width: 2; }
+    .anim-lahteet .palkki-sovellus { fill: #EEE8FF; }
+    .anim-lahteet .palkki-selain { fill: #F5F3F8; }
+    .anim-lahteet .erotin { fill: none; stroke: #E4DFEE; stroke-width: 1.5; }
+    .anim-lahteet .nimi { fill: #1A0530; font: 600 15px var(--sans, sans-serif); text-anchor: middle; }
+    .anim-lahteet .testi { fill: #5B5470; font: 500 15px var(--mono, monospace); letter-spacing: 0.04em; text-anchor: middle; }
+    .anim-lahteet .otsikko { fill: #1A0530; font: 600 15px var(--sans, sans-serif); }
+    .anim-lahteet .nakyma { fill: #1A0530; font: 600 17px var(--sans, sans-serif); }
+    .anim-lahteet .rivi { fill: #FFFFFF; stroke: #E4DFEE; stroke-width: 1.5; }
+    .anim-lahteet .kentta { fill: #1A0530; font: 600 15px var(--sans, sans-serif); }
+    .anim-lahteet .arvo { fill: #1A0530; font: 500 15px var(--sans, sans-serif); }
+    .anim-lahteet .lahde { fill: #5B5470; font: 500 15px var(--sans, sans-serif); text-anchor: end; }
+    .anim-lahteet .ok circle { fill: #E3F5EE; }
+    .anim-lahteet .ok path { fill: none; stroke: #0F9D6C; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .anim-lahteet .merkki rect { fill: #FDECEA; stroke: #B42318; stroke-width: 1.5; }
+    .anim-lahteet .merkki text { fill: #B42318; font: 600 15px var(--sans, sans-serif); letter-spacing: 0.04em; text-anchor: middle; }
+    .anim-lahteet .valinta rect { fill: #FFFFFF; stroke: #7D7694; stroke-width: 1.5; }
+    .anim-lahteet .valinta text { fill: #1A0530; font: 600 15px var(--sans, sans-serif); text-anchor: middle; }
+    .anim-lahteet .valittu rect { fill: #6A50BD; stroke: #6A50BD; }
+    .anim-lahteet .valittu text { fill: #FFFFFF; }
+    .anim-lahteet .viiva { fill: none; stroke: #6A50BD; stroke-width: 2.5; }
+    .anim-lahteet .tekija { fill: #1A0530; font: 500 15px var(--sans, sans-serif); }
+    .anim-lahteet .keski { text-anchor: middle; }
+    .anim-lahteet .kuka { fill: #6A50BD; font-weight: 600; }
+
+    /* Tahti 1: sovellus hakee, lähteistä nuolet näkymään */
+    .anim-lahteet .k-hakee { animation: lahteet-nuoli-1 10s infinite; }
+    .anim-lahteet .n1 { animation: lahteet-nuoli-1 10s infinite; }
+    .anim-lahteet .n2 { animation: lahteet-nuoli-2 10s infinite; }
+    .anim-lahteet .n3 { animation: lahteet-nuoli-3 10s infinite; }
+    /* Tahti 2: rivit ilmestyvät */
+    .anim-lahteet .r1 { animation: lahteet-rivi-1 10s infinite; }
+    .anim-lahteet .r2 { animation: lahteet-rivi-2 10s infinite; }
+    .anim-lahteet .r3 { animation: lahteet-rivi-3 10s infinite; }
+    .anim-lahteet .r2 .rivi { animation: lahteet-ristiriita 10s infinite; }
+    /* Tahti 3: sinä valitset */
+    .anim-lahteet .valittu { animation: lahteet-paina 10s infinite; }
+    .anim-lahteet .valittu rect { animation: lahteet-valinta-tausta 10s infinite; }
+    .anim-lahteet .valittu text { animation: lahteet-valinta-teksti 10s infinite; }
+    /* Tahti 4: rivi muuttuu (vanha arvo on välivaihe) */
+    .anim-lahteet .vanha { opacity: 0; animation: lahteet-vanha 10s infinite; }
+    .anim-lahteet .uusi { animation: lahteet-uusi 10s infinite; }
+
+    @keyframes lahteet-nuoli-1 {
+      0%, 3% { opacity: 0; }
+      6%, 96% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    @keyframes lahteet-nuoli-2 {
+      0%, 7% { opacity: 0; }
+      10%, 96% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    @keyframes lahteet-nuoli-3 {
+      0%, 11% { opacity: 0; }
+      14%, 96% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    @keyframes lahteet-rivi-1 {
+      0%, 16% { opacity: 0; transform: translateY(6px); }
+      19%, 96% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(0); }
+    }
+    @keyframes lahteet-rivi-2 {
+      0%, 25% { opacity: 0; transform: translateY(6px); }
+      28%, 96% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(0); }
+    }
+    @keyframes lahteet-rivi-3 {
+      0%, 34% { opacity: 0; transform: translateY(6px); }
+      37%, 96% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(0); }
+    }
+    @keyframes lahteet-ristiriita {
+      0%, 47% { stroke: #6A50BD; }
+      50%, 100% { stroke: #E4DFEE; }
+    }
+    @keyframes lahteet-paina {
+      0%, 47% { transform: translateY(0); }
+      48%, 51% { transform: translateY(2px); }
+      53%, 100% { transform: translateY(0); }
+    }
+    @keyframes lahteet-valinta-tausta {
+      0%, 47% { fill: #FFFFFF; stroke: #7D7694; }
+      49%, 100% { fill: #6A50BD; stroke: #6A50BD; }
+    }
+    @keyframes lahteet-valinta-teksti {
+      0%, 47% { fill: #1A0530; }
+      49%, 100% { fill: #FFFFFF; }
+    }
+    @keyframes lahteet-vanha {
+      0%, 54% { opacity: 1; }
+      56%, 100% { opacity: 0; }
+    }
+    @keyframes lahteet-uusi {
+      0%, 55% { opacity: 0; transform: translateY(4px); }
+      58%, 100% { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .anim-lahteet * { animation: none !important; }
+    }
+  </style>
+  <defs>
+    <marker id="lahteet-nuoli" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6A50BD"/>
+    </marker>
+  </defs>
+
+  <!-- Lähteet -->
+  <text class="tekija keski k-hakee" x="72" y="27"><tspan class="kuka">Sovellus</tspan> hakee</text>
+  <rect class="kortti" x="8" y="40" width="128" height="48" rx="10"/>
+  <text class="nimi" x="72" y="69">Esitiedot</text>
+  <rect class="kortti" x="8" y="112" width="128" height="48" rx="10"/>
+  <text class="nimi" x="72" y="141">Haastattelu</text>
+  <rect class="ikkuna" x="8" y="184" width="128" height="70" rx="10"/>
+  <path class="palkki-selain" d="M8 208 V194 Q8 184 18 184 H126 Q136 184 136 194 V208 Z"/>
+  <path class="erotin" d="M8 208 H136"/>
+  <rect class="reuna" x="8" y="184" width="128" height="70" rx="10"/>
+  <text class="testi" x="72" y="201">TESTI-WILMA</text>
+  <text class="nimi" x="72" y="237">Profiili (Wilma)</text>
+
+  <path class="viiva n1" d="M136 64 C166 64 160 112 188 112" marker-end="url(#lahteet-nuoli)"/>
+  <path class="viiva n2" d="M136 136 C164 136 160 146 188 146" marker-end="url(#lahteet-nuoli)"/>
+  <path class="viiva n3" d="M136 219 C166 219 160 180 188 180" marker-end="url(#lahteet-nuoli)"/>
+
+  <!-- Tarkistusnäkymä -->
+  <rect class="ikkuna" x="196" y="10" width="356" height="254" rx="10"/>
+  <path class="palkki-sovellus" d="M196 44 V20 Q196 10 206 10 H542 Q552 10 552 20 V44 Z"/>
+  <path class="erotin" d="M196 44 H552"/>
+  <rect class="reuna" x="196" y="10" width="356" height="254" rx="10"/>
+  <text class="otsikko" x="210" y="32">Oppisopimustäyttäjä</text>
+  <text class="nakyma" x="210" y="72">Tarkistus</text>
+
+  <g class="r1">
+    <rect class="rivi" x="208" y="84" width="332" height="38" rx="8"/>
+    <text class="kentta" x="220" y="108">Palkka</text>
+    <text class="arvo" x="292" y="108">2 450 €/kk</text>
+    <text class="lahde" x="500" y="108">haastattelu</text>
+    <g class="ok"><circle cx="518" cy="103" r="10"/><path d="M513 103 l3.5 3.5 l7 -7"/></g>
+  </g>
+
+  <g class="r2">
+    <rect class="rivi" x="208" y="130" width="332" height="76" rx="8"/>
+    <text class="kentta" x="220" y="154">Työaika</text>
+    <text class="arvo vanha" x="292" y="154">37,5 h / 30 h</text>
+    <text class="arvo uusi" x="292" y="154">Valittu: 37,5 h</text>
+    <g class="merkki"><rect x="432" y="139" width="96" height="26" rx="6"/><text x="480" y="157">RISTIRIITA</text></g>
+    <g class="valinta valittu"><rect x="292" y="170" width="64" height="28" rx="7"/><text x="324" y="189">37,5 h</text></g>
+    <g class="valinta"><rect x="364" y="170" width="50" height="28" rx="7"/><text x="389" y="189">30 h</text></g>
+    <text class="tekija" x="428" y="189"><tspan class="kuka">Sinä</tspan> valitset</text>
+  </g>
+
+  <g class="r3">
+    <rect class="rivi" x="208" y="214" width="332" height="38" rx="8"/>
+    <text class="kentta" x="220" y="238">Ohjaaja</text>
+    <text class="tekija" x="292" y="238"><tspan class="kuka">Sovellus</tspan> ei arvaa</text>
+    <g class="merkki"><rect x="440" y="220" width="88" height="26" rx="6"/><text x="484" y="238">PUUTTUU</text></g>
+  </g>
+</svg>

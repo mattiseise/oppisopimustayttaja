@@ -1,0 +1,112 @@
+<svg class="anim anim-kartoitus" viewBox="0 0 560 296" role="img" aria-labelledby="kartoitus-title" xmlns="http://www.w3.org/2000/svg">
+  <title id="kartoitus-title">Testi-Wilman urasuunnitelmalomake, johon olet kirjautunut itse. Apuohjelma lukee kentät yksi kerrallaan ja kirjaa tiedostoon vain kentän nimen ja tyypin. Kenttien arvoja ei tallenneta.</title>
+  <style>
+    .anim-kartoitus .ikkuna { fill: none; stroke: #E4DFEE; stroke-width: 2; }
+    .anim-kartoitus .palkki { fill: #F5F3F8; }
+    .anim-kartoitus .raja { stroke: #E4DFEE; stroke-width: 2; }
+    .anim-kartoitus .pallo { fill: #7D7694; }
+    .anim-kartoitus .testi rect { fill: #FEF3E2; stroke: #B54708; stroke-width: 1.5; }
+    .anim-kartoitus .testi text { fill: #B54708; font: 700 16px var(--sans, sans-serif); letter-spacing: 1px; text-anchor: middle; }
+    .anim-kartoitus .otsikko { fill: #1A0530; font: 600 17px var(--sans, sans-serif); }
+    .anim-kartoitus .nimike { fill: #5B5470; font: 500 15px var(--sans, sans-serif); }
+    .anim-kartoitus .kentta { fill: #FFFFFF; stroke: #E4DFEE; stroke-width: 1.5; }
+    .anim-kartoitus .arvo { fill: #1A0530; font: 500 15px var(--sans, sans-serif); }
+    .anim-kartoitus .valikko { stroke: #7D7694; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .anim-kartoitus .selite { fill: #5B5470; font: 500 15px var(--sans, sans-serif); text-anchor: middle; }
+    .anim-kartoitus .tiedosto { fill: #FFFFFF; stroke: #E4DFEE; stroke-width: 2; stroke-linejoin: round; }
+    .anim-kartoitus .taitos { fill: #F5F3F8; stroke: #E4DFEE; stroke-width: 2; stroke-linejoin: round; }
+    .anim-kartoitus .tiedostonimi { fill: #1A0530; font: 600 15px var(--sans, sans-serif); }
+    .anim-kartoitus .kenttanimi { fill: #1A0530; font: 600 15px var(--sans, sans-serif); }
+    .anim-kartoitus .tyyppi { fill: #5B5470; font: 500 15px var(--mono, monospace); }
+    .anim-kartoitus .viiva { stroke: #6A50BD; stroke-width: 2.5; fill: none; }
+    .anim-kartoitus .lukuviiva { opacity: 0; animation: kartoitus-lukuviiva 10s infinite; }
+    .anim-kartoitus .lukuviiva rect { fill: #6A50BD; fill-opacity: 0.1; }
+    .anim-kartoitus .lukuviiva path { stroke: #6A50BD; stroke-width: 2.5; }
+    .anim-kartoitus .merkinta rect { fill: #EEE8FF; }
+    .anim-kartoitus .merkinta text { fill: #6A50BD; font: 600 15px var(--sans, sans-serif); text-anchor: middle; }
+    .anim-kartoitus .kirjaudu { animation: kartoitus-kirjaudu 10s infinite; }
+    .anim-kartoitus .kartta { animation: kartoitus-kartta 10s infinite; }
+    .anim-kartoitus .k1 { animation: kartoitus-k1 10s infinite; }
+    .anim-kartoitus .k2 { animation: kartoitus-k2 10s infinite; }
+    .anim-kartoitus .k3 { animation: kartoitus-k3 10s infinite; }
+    .anim-kartoitus .merkinta { animation: kartoitus-merkinta 10s infinite; }
+    @keyframes kartoitus-kirjaudu {
+      0%, 2% { opacity: 0; }
+      6%, 94% { opacity: 1; }
+      98%, 100% { opacity: 0; }
+    }
+    @keyframes kartoitus-kartta {
+      0%, 10% { opacity: 0; transform: translateX(-8px); }
+      14%, 94% { opacity: 1; transform: none; }
+      98%, 100% { opacity: 0; transform: none; }
+    }
+    @keyframes kartoitus-lukuviiva {
+      0%, 14% { opacity: 0; transform: translateY(0); }
+      18%, 28% { opacity: 1; transform: translateY(0); }
+      32%, 42% { opacity: 1; transform: translateY(44px); }
+      46%, 56% { opacity: 1; transform: translateY(88px); }
+      60%, 100% { opacity: 0; transform: translateY(88px); }
+    }
+    @keyframes kartoitus-k1 { 0%, 22% { opacity: 0; transform: translateX(-6px); } 25%, 94% { opacity: 1; transform: none; } 98%, 100% { opacity: 0; transform: none; } }
+    @keyframes kartoitus-k2 { 0%, 36% { opacity: 0; transform: translateX(-6px); } 39%, 94% { opacity: 1; transform: none; } 98%, 100% { opacity: 0; transform: none; } }
+    @keyframes kartoitus-k3 { 0%, 50% { opacity: 0; transform: translateX(-6px); } 53%, 94% { opacity: 1; transform: none; } 98%, 100% { opacity: 0; transform: none; } }
+    @keyframes kartoitus-merkinta {
+      0%, 64% { opacity: 0; transform: translateY(6px); }
+      68%, 94% { opacity: 1; transform: none; }
+      98%, 100% { opacity: 0; transform: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .anim-kartoitus * { animation: none !important; }
+    }
+  </style>
+  <defs>
+    <marker id="kartoitus-nuoli" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6A50BD"/>
+    </marker>
+  </defs>
+
+  <!-- Selainikkuna: testi-Wilma -->
+  <rect x="12" y="12" width="284" height="224" rx="12" fill="#FFFFFF"/>
+  <path class="palkki" d="M12 50 V24 Q12 12 24 12 H284 Q296 12 296 24 V50 Z"/>
+  <path class="raja" d="M12 50 H296"/>
+  <circle class="pallo" cx="32" cy="31" r="4.5"/>
+  <circle class="pallo" cx="48" cy="31" r="4.5"/>
+  <circle class="pallo" cx="64" cy="31" r="4.5"/>
+  <g class="testi"><rect x="150" y="18" width="134" height="26" rx="13"/><text x="217" y="36.5">TESTI-WILMA</text></g>
+  <rect class="ikkuna" x="12" y="12" width="284" height="224" rx="12"/>
+
+  <!-- Lomake: arvot näkyvät vain täällä -->
+  <text class="otsikko" x="28" y="80">Urasuunnitelma</text>
+  <text class="nimike" x="28" y="117">Tavoite</text>
+  <rect class="kentta" x="122" y="96" width="158" height="32" rx="6"/>
+  <text class="arvo" x="134" y="117">Leipurin ammatti</text>
+  <text class="nimike" x="28" y="161">Työtehtävät</text>
+  <rect class="kentta" x="122" y="140" width="158" height="32" rx="6"/>
+  <text class="arvo" x="134" y="161">Taikinat, paisto</text>
+  <text class="nimike" x="28" y="205">Aikataulu</text>
+  <rect class="kentta" x="122" y="184" width="158" height="32" rx="6"/>
+  <text class="arvo" x="134" y="205">8/2026–5/2027</text>
+  <path class="valikko" d="M258 197 L264 203 L270 197"/>
+
+  <!-- Lukuviiva kulkee kenttien yli (vain animaatiossa) -->
+  <g class="lukuviiva">
+    <rect x="18" y="92" width="272" height="40"/>
+    <path d="M18 132 H290"/>
+  </g>
+
+  <text class="selite kirjaudu" x="154" y="262">Kirjaudut itse</text>
+
+  <!-- Kenttäkartta: vain nimi ja tyyppi -->
+  <g class="kartta">
+    <path class="viiva" d="M298 158 H322" marker-end="url(#kartoitus-nuoli)"/>
+    <path class="tiedosto" d="M328 48 H530 L548 66 V242 H328 Z"/>
+    <path class="taitos" d="M530 48 V66 H548 Z"/>
+    <text class="tiedostonimi" x="344" y="80">Urasuunnitelman kentät</text>
+    <path class="raja" d="M344 92 H532"/>
+  </g>
+  <g class="k1"><text class="kenttanimi" x="344" y="116">Tavoite</text><text class="tyyppi" x="344" y="135">teksti · pakollinen</text></g>
+  <g class="k2"><text class="kenttanimi" x="344" y="160">Työtehtävät</text><text class="tyyppi" x="344" y="179">teksti</text></g>
+  <g class="k3"><text class="kenttanimi" x="344" y="204">Aikataulu</text><text class="tyyppi" x="344" y="223">valinta</text></g>
+
+  <g class="merkinta"><rect x="350" y="254" width="176" height="28" rx="14"/><text x="438" y="273">arvoja ei tallenneta</text></g>
+</svg>

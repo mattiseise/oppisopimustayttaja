@@ -1,0 +1,83 @@
+<svg class="anim anim-tallennuspiste" viewBox="0 0 560 230" role="img" aria-labelledby="tallennuspiste-title" xmlns="http://www.w3.org/2000/svg">
+  <title id="tallennuspiste-title">Aikajanalla on tallennuspisteet Määrittely, Kenttäkartta ja Ensimmäinen tallennus. Kun seuraava muutos rikkoo jotain, palataan viimeiseen ehjään tallennuspisteeseen.</title>
+  <style>
+    .anim-tallennuspiste .aikajana { stroke: #7D7694; stroke-width: 2; fill: none; }
+    .anim-tallennuspiste .piste { fill: #6A50BD; stroke: #FFFFFF; stroke-width: 3; }
+    .anim-tallennuspiste .nimi { fill: #1A0530; font: 600 17px var(--sans, sans-serif); text-anchor: middle; }
+    .anim-tallennuspiste .halo { fill: #EEE8FF; animation: tallennuspiste-halo 10s infinite; }
+    .anim-tallennuspiste .p1 { animation: tallennuspiste-p1 10s infinite; }
+    .anim-tallennuspiste .p2 { animation: tallennuspiste-p2 10s infinite; }
+    .anim-tallennuspiste .p3 { animation: tallennuspiste-p3 10s infinite; }
+    .anim-tallennuspiste .rikki { opacity: 0; animation: tallennuspiste-rikki 10s infinite; }
+    .anim-tallennuspiste .rikki circle { fill: #FDECEA; stroke: #B42318; stroke-width: 2.5; }
+    .anim-tallennuspiste .rikki path { stroke: #B42318; stroke-width: 2.5; stroke-linecap: round; fill: none; }
+    .anim-tallennuspiste .rikki text { fill: #B42318; }
+    .anim-tallennuspiste .paluu { animation: tallennuspiste-paluu 10s infinite; }
+    .anim-tallennuspiste .paluu path { stroke: #6A50BD; stroke-width: 2.5; fill: none; }
+    .anim-tallennuspiste .selite { fill: #6A50BD; font: 600 16px var(--sans, sans-serif); text-anchor: middle; }
+    @keyframes tallennuspiste-p1 {
+      0%, 2% { opacity: 0; transform: translateY(6px); }
+      6%, 94% { opacity: 1; transform: none; }
+      98%, 100% { opacity: 0; transform: none; }
+    }
+    @keyframes tallennuspiste-p2 {
+      0%, 12% { opacity: 0; transform: translateY(6px); }
+      16%, 94% { opacity: 1; transform: none; }
+      98%, 100% { opacity: 0; transform: none; }
+    }
+    @keyframes tallennuspiste-p3 {
+      0%, 22% { opacity: 0; transform: translateY(6px); }
+      26%, 94% { opacity: 1; transform: none; }
+      98%, 100% { opacity: 0; transform: none; }
+    }
+    @keyframes tallennuspiste-rikki {
+      0%, 34% { opacity: 0; transform: translateY(6px); }
+      38%, 66% { opacity: 1; transform: none; }
+      72%, 100% { opacity: 0; transform: none; }
+    }
+    @keyframes tallennuspiste-paluu {
+      0%, 46% { opacity: 0; }
+      52%, 94% { opacity: 1; }
+      98%, 100% { opacity: 0; }
+    }
+    @keyframes tallennuspiste-halo {
+      0%, 56% { opacity: 0; }
+      60%, 94% { opacity: 1; }
+      98%, 100% { opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .anim-tallennuspiste * { animation: none !important; }
+    }
+  </style>
+  <defs>
+    <marker id="tallennuspiste-nuoli" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6A50BD"/>
+    </marker>
+    <marker id="tallennuspiste-nuoli-harmaa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#7D7694"/>
+    </marker>
+  </defs>
+
+  <!-- Aikajana -->
+  <path class="aikajana" d="M32 133 H524" marker-end="url(#tallennuspiste-nuoli-harmaa)"/>
+
+  <!-- Viimeinen ehjä piste korostuu, kun sinne palataan -->
+  <circle class="halo" cx="340" cy="133" r="21"/>
+
+  <g class="p1"><circle class="piste" cx="80" cy="133" r="11"/><text class="nimi" x="80" y="169">Määrittely</text></g>
+  <g class="p2"><circle class="piste" cx="210" cy="133" r="11"/><text class="nimi" x="210" y="169">Kenttäkartta</text></g>
+  <g class="p3"><circle class="piste" cx="340" cy="133" r="11"/><text class="nimi" x="340" y="169">Ensimmäinen</text><text class="nimi" x="340" y="189">tallennus</text></g>
+
+  <!-- Tilapäinen virhe: näkyy vain animaatiossa -->
+  <g class="rikki">
+    <circle cx="470" cy="133" r="14"/>
+    <path d="M464 127 L476 139 M476 127 L464 139"/>
+    <text class="nimi" x="470" y="169">Rikki</text>
+  </g>
+
+  <!-- Paluu tallennuspisteeseen -->
+  <g class="paluu">
+    <path d="M462 111 C446 57 364 57 348 107" marker-end="url(#tallennuspiste-nuoli)"/>
+    <text class="selite" x="405" y="49">palaa tallennuspisteeseen</text>
+  </g>
+</svg>

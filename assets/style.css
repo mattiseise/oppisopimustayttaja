@@ -412,3 +412,22 @@ nav.pager {
   nav.pills, nav.pager, .prompt-head .copy-btn { display: none !important; }
   .prompt { break-inside: avoid; }
 }
+
+/* Etusivun pikaohjekortti */
+a.exercise-card.featured {
+  border-left: 4px solid var(--accent);
+  background: linear-gradient(135deg, #EEE8FF, #FFFFFF 70%);
+}
+a.exercise-card.featured:hover { background: #EEE8FF; }
+
+/* Animoidut kuvat (pikaohje) */
+figure.anim-figure { margin: 4px 0; gap: 8px; }
+figure.anim-figure svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+figure.anim-figure.puuttuu { border: 1px dashed var(--faint); border-radius: var(--radius); padding: 24px; }

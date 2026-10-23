@@ -1,0 +1,221 @@
+<svg class="anim anim-tallennus" viewBox="0 0 560 320" role="img" aria-labelledby="tallennus-title" xmlns="http://www.w3.org/2000/svg">
+  <title id="tallennus-title">Sinä hyväksyt urasuunnitelman tiedot Oppisopimustäyttäjässä. Sovellus täyttää lomakkeen testi-Wilmassa, tallentaa sen, avaa lomakkeen uudelleen ja merkitsee tallennuksen varmennetuksi vasta, kun jokainen kenttä täsmää.</title>
+  <style>
+    .anim-tallennus .ikkuna { fill: #FFFFFF; }
+    .anim-tallennus .reuna { fill: none; stroke: #E4DFEE; stroke-width: 2; }
+    .anim-tallennus .palkki-sovellus { fill: #EEE8FF; }
+    .anim-tallennus .palkki-selain { fill: #F5F3F8; }
+    .anim-tallennus .erotin { fill: none; stroke: #E4DFEE; stroke-width: 1.5; }
+    .anim-tallennus .piste { fill: #7D7694; }
+    .anim-tallennus .otsikko { fill: #1A0530; font: 600 15px var(--sans, sans-serif); }
+    .anim-tallennus .lomake { fill: #1A0530; font: 600 17px var(--sans, sans-serif); }
+    .anim-tallennus .tunniste { fill: #5B5470; font: 500 15px var(--mono, monospace); text-anchor: end; }
+    .anim-tallennus .kentta { fill: #5B5470; font: 500 15px var(--sans, sans-serif); }
+    .anim-tallennus .arvo { fill: #1A0530; font: 600 15px var(--sans, sans-serif); }
+    .anim-tallennus .testi rect { fill: #FFFFFF; stroke: #E4DFEE; stroke-width: 1.5; }
+    .anim-tallennus .testi text { fill: #5B5470; font: 500 15px var(--mono, monospace); letter-spacing: 0.06em; text-anchor: middle; }
+    .anim-tallennus .syote { fill: #FFFFFF; stroke: #E4DFEE; stroke-width: 1.5; }
+    .anim-tallennus .painike rect { fill: #6A50BD; }
+    .anim-tallennus .painike text { fill: #FFFFFF; font: 600 15px var(--sans, sans-serif); text-anchor: middle; }
+    .anim-tallennus .ok circle { fill: #E3F5EE; }
+    .anim-tallennus .ok path { fill: none; stroke: #0F9D6C; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .anim-tallennus .ilmoitus rect { fill: #F5F3F8; stroke: #E4DFEE; stroke-width: 1.5; }
+    .anim-tallennus .ilmoitus text { fill: #5B5470; font: 500 15px var(--sans, sans-serif); text-anchor: middle; }
+    .anim-tallennus .tekija { fill: #1A0530; font: 500 15px var(--sans, sans-serif); text-anchor: middle; }
+    .anim-tallennus .kuka { fill: #6A50BD; font-weight: 600; }
+    .anim-tallennus .varmennettu rect { fill: #E3F5EE; stroke: #0F9D6C; stroke-width: 1.5; }
+    .anim-tallennus .varmennettu text { fill: #0F9D6C; font: 600 15px var(--sans, sans-serif); letter-spacing: 0.04em; text-anchor: middle; }
+    .anim-tallennus .selite { fill: #5B5470; font: 500 15px var(--sans, sans-serif); text-anchor: middle; }
+    .anim-tallennus .viiva { fill: none; stroke: #6A50BD; stroke-width: 2.5; animation: tallennus-viiva 12s infinite; }
+
+    /* Tahti 1: sinä hyväksyt */
+    .anim-tallennus .k-hyvaksyt { animation: tallennus-k-hyvaksyt 12s infinite; }
+    .anim-tallennus .hyvaksy { animation: tallennus-paina-1 12s infinite; }
+    .anim-tallennus .hyvaksy rect { animation: tallennus-vari-1 12s infinite; }
+    /* Tahti 2: sovellus täyttää (teksti on välivaihe) */
+    .anim-tallennus .k-tayttaa { opacity: 0; animation: tallennus-k-tayttaa 12s infinite; }
+    .anim-tallennus .s1 { animation: tallennus-kohdistus-1 12s infinite; }
+    .anim-tallennus .s2 { animation: tallennus-kohdistus-2 12s infinite; }
+    .anim-tallennus .s3 { animation: tallennus-kohdistus-3 12s infinite; }
+    .anim-tallennus .a1 { animation: tallennus-arvo-1 12s infinite; }
+    .anim-tallennus .a2 { animation: tallennus-arvo-2 12s infinite; }
+    .anim-tallennus .a3 { animation: tallennus-arvo-3 12s infinite; }
+    /* Tahti 3: sovellus tallentaa (teksti ja Tallennettu-ilmoitus ovat välivaiheita) */
+    .anim-tallennus .k-tallentaa { opacity: 0; animation: tallennus-k-tallentaa 12s infinite; }
+    .anim-tallennus .tallenna { animation: tallennus-paina-2 12s infinite; }
+    .anim-tallennus .tallenna rect { animation: tallennus-vari-2 12s infinite; }
+    .anim-tallennus .ilmoitus { opacity: 0; animation: tallennus-ilmoitus 12s infinite; }
+    /* Tahti 4: sovellus avaa lomakkeen uudelleen, tarkistusmerkit */
+    .anim-tallennus .k-avaa { animation: tallennus-k-avaa 12s infinite; }
+    .anim-tallennus .ok1 { animation: tallennus-ok-1 12s infinite; }
+    .anim-tallennus .ok2 { animation: tallennus-ok-2 12s infinite; }
+    .anim-tallennus .ok3 { animation: tallennus-ok-3 12s infinite; }
+    /* Tahti 5: varmennettu */
+    .anim-tallennus .varmennettu { animation: tallennus-varmennettu 12s infinite; }
+
+    @keyframes tallennus-paina-1 {
+      0%, 6% { transform: translateY(0); }
+      7%, 10% { transform: translateY(2px); }
+      12%, 100% { transform: translateY(0); }
+    }
+    @keyframes tallennus-vari-1 {
+      0%, 6% { fill: #6A50BD; }
+      7%, 10% { fill: #1A0530; }
+      12%, 100% { fill: #6A50BD; }
+    }
+    @keyframes tallennus-viiva {
+      0%, 9% { opacity: 0.25; }
+      12%, 96% { opacity: 1; }
+      100% { opacity: 0.25; }
+    }
+    @keyframes tallennus-kohdistus-1 {
+      0%, 15% { stroke: #E4DFEE; }
+      16%, 21% { stroke: #6A50BD; }
+      23%, 100% { stroke: #E4DFEE; }
+    }
+    @keyframes tallennus-kohdistus-2 {
+      0%, 22% { stroke: #E4DFEE; }
+      23%, 28% { stroke: #6A50BD; }
+      30%, 100% { stroke: #E4DFEE; }
+    }
+    @keyframes tallennus-kohdistus-3 {
+      0%, 29% { stroke: #E4DFEE; }
+      30%, 35% { stroke: #6A50BD; }
+      37%, 100% { stroke: #E4DFEE; }
+    }
+    @keyframes tallennus-arvo-1 {
+      0%, 16% { opacity: 0; transform: translateX(-6px); }
+      18%, 96% { opacity: 1; transform: translateX(0); }
+      100% { opacity: 0; transform: translateX(0); }
+    }
+    @keyframes tallennus-arvo-2 {
+      0%, 23% { opacity: 0; transform: translateX(-6px); }
+      25%, 96% { opacity: 1; transform: translateX(0); }
+      100% { opacity: 0; transform: translateX(0); }
+    }
+    @keyframes tallennus-arvo-3 {
+      0%, 30% { opacity: 0; transform: translateX(-6px); }
+      32%, 96% { opacity: 1; transform: translateX(0); }
+      100% { opacity: 0; transform: translateX(0); }
+    }
+    @keyframes tallennus-paina-2 {
+      0%, 38% { transform: translateY(0); }
+      39%, 42% { transform: translateY(2px); }
+      44%, 100% { transform: translateY(0); }
+    }
+    @keyframes tallennus-vari-2 {
+      0%, 38% { fill: #6A50BD; }
+      39%, 42% { fill: #1A0530; }
+      44%, 100% { fill: #6A50BD; }
+    }
+    @keyframes tallennus-ilmoitus {
+      0%, 43% { opacity: 0; }
+      45%, 54% { opacity: 1; }
+      56%, 100% { opacity: 0; }
+    }
+    @keyframes tallennus-k-hyvaksyt {
+      0%, 3% { opacity: 0; transform: translateY(4px); }
+      5%, 96% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(0); }
+    }
+    @keyframes tallennus-k-tayttaa {
+      0%, 13% { opacity: 0; transform: translateY(4px); }
+      15%, 35% { opacity: 1; transform: translateY(0); }
+      37%, 100% { opacity: 0; transform: translateY(0); }
+    }
+    @keyframes tallennus-k-tallentaa {
+      0%, 36% { opacity: 0; transform: translateY(4px); }
+      38%, 54% { opacity: 1; transform: translateY(0); }
+      56%, 100% { opacity: 0; transform: translateY(0); }
+    }
+    @keyframes tallennus-k-avaa {
+      0%, 55% { opacity: 0; transform: translateY(4px); }
+      57%, 96% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(0); }
+    }
+    @keyframes tallennus-ok-1 {
+      0%, 61% { opacity: 0; transform: translateY(4px); }
+      63%, 96% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(0); }
+    }
+    @keyframes tallennus-ok-2 {
+      0%, 66% { opacity: 0; transform: translateY(4px); }
+      68%, 96% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(0); }
+    }
+    @keyframes tallennus-ok-3 {
+      0%, 71% { opacity: 0; transform: translateY(4px); }
+      73%, 96% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(0); }
+    }
+    @keyframes tallennus-varmennettu {
+      0%, 79% { opacity: 0; transform: translateY(4px); }
+      81%, 96% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .anim-tallennus * { animation: none !important; }
+    }
+  </style>
+  <defs>
+    <marker id="tallennus-nuoli" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6A50BD"/>
+    </marker>
+  </defs>
+
+  <!-- Vasen: Oppisopimustäyttäjä -->
+  <rect class="ikkuna" x="8" y="10" width="188" height="252" rx="10"/>
+  <path class="palkki-sovellus" d="M8 44 V20 Q8 10 18 10 H186 Q196 10 196 20 V44 Z"/>
+  <path class="erotin" d="M8 44 H196"/>
+  <rect class="reuna" x="8" y="10" width="188" height="252" rx="10"/>
+  <text class="otsikko" x="20" y="32">Oppisopimustäyttäjä</text>
+  <text class="otsikko" x="20" y="70">Aino Testinen</text>
+  <path class="erotin" d="M20 82 H184"/>
+  <text class="kentta" x="20" y="104">Tavoite</text>
+  <text class="arvo" x="20" y="123">Leipuri</text>
+  <text class="kentta" x="20" y="149">Työtehtävät</text>
+  <text class="arvo" x="20" y="168">Taikinat, paisto</text>
+  <text class="kentta" x="20" y="194">Aikataulu</text>
+  <text class="arvo" x="20" y="213">2026–2028</text>
+  <g class="painike hyvaksy"><rect x="20" y="224" width="164" height="30" rx="8"/><text x="102" y="244">Hyväksy</text></g>
+
+  <path class="viiva" d="M200 136 H226" marker-end="url(#tallennus-nuoli)"/>
+
+  <!-- Oikea: testi-Wilma selaimessa -->
+  <rect class="ikkuna" x="230" y="10" width="322" height="252" rx="10"/>
+  <path class="palkki-selain" d="M230 44 V20 Q230 10 240 10 H542 Q552 10 552 20 V44 Z"/>
+  <path class="erotin" d="M230 44 H552"/>
+  <rect class="reuna" x="230" y="10" width="322" height="252" rx="10"/>
+  <circle class="piste" cx="246" cy="27" r="4"/>
+  <circle class="piste" cx="259" cy="27" r="4"/>
+  <circle class="piste" cx="272" cy="27" r="4"/>
+  <g class="testi"><rect x="288" y="16" width="128" height="22" rx="6"/><text x="352" y="32">TESTI-WILMA</text></g>
+
+  <text class="lomake" x="246" y="74">Urasuunnitelma</text>
+  <text class="tunniste" x="536" y="74">000123</text>
+
+  <text class="kentta" x="246" y="110">Tavoite</text>
+  <text class="kentta" x="246" y="150">Työtehtävät</text>
+  <text class="kentta" x="246" y="190">Aikataulu</text>
+  <rect class="syote s1" x="344" y="90" width="150" height="30" rx="6"/>
+  <rect class="syote s2" x="344" y="130" width="150" height="30" rx="6"/>
+  <rect class="syote s3" x="344" y="170" width="150" height="30" rx="6"/>
+  <text class="arvo a1" x="354" y="110">Leipuri</text>
+  <text class="arvo a2" x="354" y="150">Taikinat, paisto</text>
+  <text class="arvo a3" x="354" y="190">2026–2028</text>
+  <g class="ok ok1"><circle cx="520" cy="105" r="11"/><path d="M514 105 l4 4 l8 -8"/></g>
+  <g class="ok ok2"><circle cx="520" cy="145" r="11"/><path d="M514 145 l4 4 l8 -8"/></g>
+  <g class="ok ok3"><circle cx="520" cy="185" r="11"/><path d="M514 185 l4 4 l8 -8"/></g>
+
+  <g class="painike tallenna"><rect x="246" y="218" width="96" height="30" rx="8"/><text x="294" y="238">Tallenna</text></g>
+  <g class="ilmoitus"><rect x="354" y="218" width="104" height="30" rx="8"/><text x="406" y="238">Tallennettu</text></g>
+  <g class="varmennettu"><rect x="354" y="218" width="136" height="30" rx="8"/><text x="422" y="238">VARMENNETTU</text></g>
+
+  <!-- Kuka tekee -->
+  <text class="tekija k-hyvaksyt" x="102" y="287"><tspan class="kuka">Sinä</tspan> hyväksyt</text>
+  <text class="tekija k-tayttaa" x="391" y="287"><tspan class="kuka">Sovellus</tspan> täyttää lomakkeen</text>
+  <text class="tekija k-tallentaa" x="391" y="287"><tspan class="kuka">Sovellus</tspan> tallentaa</text>
+  <text class="tekija k-avaa" x="391" y="287"><tspan class="kuka">Sovellus</tspan> avaa lomakkeen uudelleen</text>
+
+  <text class="selite" x="280" y="312">Pelkkä Tallennettu-ilmoitus ei riitä.</text>
+</svg>

@@ -1,0 +1,149 @@
+<svg class="anim anim-testit" viewBox="0 0 560 318" role="img" aria-labelledby="testit-title" xmlns="http://www.w3.org/2000/svg">
+  <title id="testit-title">Tekoäly tekee tiedoston TESTIT.md, jossa testit on kirjoitettu tavallisella kielellä ja ruudut ovat tyhjiä. Sinä teet testit testi-Wilmassa ja merkitset tulokset. Yksi testi ei mene läpi, kerrot tekoälylle mikä ei toiminut, ja korjauksen jälkeen kaikki testit menevät läpi.</title>
+  <style>
+    .anim-testit .rooli { fill: #FFFFFF; stroke: #E4DFEE; stroke-width: 2; }
+    .anim-testit .rooli-nimi { fill: #1A0530; font: 600 17px var(--sans, sans-serif); text-anchor: middle; }
+    .anim-testit .rooli-teksti { fill: #5B5470; font: 500 15px var(--sans, sans-serif); text-anchor: middle; }
+    .anim-testit .viiva { stroke: #6A50BD; stroke-width: 2.5; fill: none; }
+    .anim-testit .tiedosto { fill: none; stroke: #E4DFEE; stroke-width: 2; }
+    .anim-testit .tiedosto-pohja { fill: #FFFFFF; }
+    .anim-testit .palkki { fill: #F5F3F8; }
+    .anim-testit .tiedostonimi { fill: #1A0530; font: 600 15px var(--mono, monospace); }
+    .anim-testit .tunnus { fill: #1A0530; font: 500 15px var(--sans, sans-serif); }
+    .anim-testit .ruutu { fill: #FFFFFF; stroke: #7D7694; stroke-width: 1.5; }
+    .anim-testit .ok-ruutu { fill: #E3F5EE; stroke: #0F9D6C; stroke-width: 1.5; }
+    .anim-testit .ok-merkki { stroke: #0F9D6C; stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .anim-testit .ok-teksti { fill: #0F9D6C; font: 600 15px var(--sans, sans-serif); text-anchor: end; }
+    .anim-testit .virhe-ruutu { fill: #FDECEA; stroke: #B42318; stroke-width: 1.5; }
+    .anim-testit .virhe-merkki { stroke: #B42318; stroke-width: 2.4; fill: none; stroke-linecap: round; }
+    .anim-testit .virhe-teksti { fill: #B42318; font: 600 15px var(--sans, sans-serif); text-anchor: end; }
+    .anim-testit .kerro { fill: #EEE8FF; }
+    .anim-testit .kerro-teksti { fill: #6A50BD; font: 600 15px var(--sans, sans-serif); text-anchor: middle; }
+
+    /* Tekoäly tekee listan, sinä merkitset tulokset */
+    .anim-testit .tekoaly .rooli { animation: testit-tekoaly 12s infinite; }
+    .anim-testit .sina .rooli { animation: testit-sina 12s infinite; }
+    .anim-testit .tekee { animation: testit-tekee 12s infinite; }
+    .anim-testit .korjaa { opacity: 0; animation: testit-korjaa 12s infinite; }
+    .anim-testit .r1 { animation: testit-r1 12s infinite; }
+    .anim-testit .r2 { animation: testit-r2 12s infinite; }
+    .anim-testit .r3 { animation: testit-r3 12s infinite; }
+    .anim-testit .r4 { animation: testit-r4 12s infinite; }
+    .anim-testit .r5 { animation: testit-r5 12s infinite; }
+    .anim-testit .ok1 { animation: testit-ok1 12s infinite; }
+    .anim-testit .ok2 { animation: testit-ok2 12s infinite; }
+    .anim-testit .ok3 { animation: testit-ok3 12s infinite; }
+    .anim-testit .ok4 { animation: testit-ok4 12s infinite; }
+    .anim-testit .ok5 { animation: testit-ok5 12s infinite; }
+    .anim-testit .ei4 { opacity: 0; animation: testit-ei4 12s infinite; }
+
+    @keyframes testit-tekoaly {
+      0%, 1% { fill: #FFFFFF; stroke: #E4DFEE; }
+      3%, 14% { fill: #EEE8FF; stroke: #6A50BD; }
+      17%, 56% { fill: #FFFFFF; stroke: #E4DFEE; }
+      58%, 68% { fill: #EEE8FF; stroke: #6A50BD; }
+      71%, 100% { fill: #FFFFFF; stroke: #E4DFEE; }
+    }
+    @keyframes testit-sina {
+      0%, 15% { fill: #FFFFFF; stroke: #E4DFEE; }
+      17%, 54% { fill: #EEE8FF; stroke: #6A50BD; }
+      57%, 69% { fill: #FFFFFF; stroke: #E4DFEE; }
+      71%, 80% { fill: #EEE8FF; stroke: #6A50BD; }
+      83%, 100% { fill: #FFFFFF; stroke: #E4DFEE; }
+    }
+    @keyframes testit-tekee {
+      0%, 56% { opacity: 1; }
+      58%, 68% { opacity: 0; }
+      70%, 100% { opacity: 1; }
+    }
+    @keyframes testit-korjaa {
+      0%, 56% { opacity: 0; }
+      58%, 68% { opacity: 1; }
+      70%, 100% { opacity: 0; }
+    }
+    @keyframes testit-r1 { 0%, 2% { opacity: 0; } 5%, 96% { opacity: 1; } 99%, 100% { opacity: 0; } }
+    @keyframes testit-r2 { 0%, 4% { opacity: 0; } 7%, 96% { opacity: 1; } 99%, 100% { opacity: 0; } }
+    @keyframes testit-r3 { 0%, 6% { opacity: 0; } 9%, 96% { opacity: 1; } 99%, 100% { opacity: 0; } }
+    @keyframes testit-r4 { 0%, 8% { opacity: 0; } 11%, 96% { opacity: 1; } 99%, 100% { opacity: 0; } }
+    @keyframes testit-r5 { 0%, 10% { opacity: 0; } 13%, 96% { opacity: 1; } 99%, 100% { opacity: 0; } }
+    @keyframes testit-ok1 { 0%, 20% { opacity: 0; } 23%, 96% { opacity: 1; } 99%, 100% { opacity: 0; } }
+    @keyframes testit-ok2 { 0%, 27% { opacity: 0; } 30%, 96% { opacity: 1; } 99%, 100% { opacity: 0; } }
+    @keyframes testit-ok3 { 0%, 34% { opacity: 0; } 37%, 96% { opacity: 1; } 99%, 100% { opacity: 0; } }
+    @keyframes testit-ei4 { 0%, 41% { opacity: 0; } 44%, 68% { opacity: 1; } 71%, 100% { opacity: 0; } }
+    @keyframes testit-ok5 { 0%, 50% { opacity: 0; } 53%, 96% { opacity: 1; } 99%, 100% { opacity: 0; } }
+    @keyframes testit-ok4 { 0%, 74% { opacity: 0; } 77%, 96% { opacity: 1; } 99%, 100% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      .anim-testit * { animation: none !important; }
+    }
+  </style>
+  <defs>
+    <marker id="testit-nuoli" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6A50BD"/>
+    </marker>
+  </defs>
+
+  <!-- Roolit -->
+  <g class="tekoaly">
+    <rect class="rooli" x="12" y="40" width="160" height="74" rx="12"/>
+    <text class="rooli-nimi" x="92" y="71">Tekoäly</text>
+    <text class="rooli-teksti tekee" x="92" y="96">tekee listan</text>
+    <text class="rooli-teksti korjaa" x="92" y="96">korjaa virheen</text>
+  </g>
+  <g class="sina">
+    <rect class="rooli" x="12" y="146" width="160" height="100" rx="12"/>
+    <text class="rooli-nimi" x="92" y="177">Sinä</text>
+    <text class="rooli-teksti" x="92" y="201">teet testit</text>
+    <text class="rooli-teksti" x="92" y="223">testi-Wilmassa</text>
+  </g>
+  <path class="viiva" d="M172 77 H192" marker-end="url(#testit-nuoli)"/>
+  <path class="viiva" d="M172 196 H192" marker-end="url(#testit-nuoli)"/>
+
+  <!-- TESTIT.md -->
+  <rect class="tiedosto-pohja" x="196" y="12" width="352" height="256" rx="12"/>
+  <path class="palkki" d="M196 44 V24 A12 12 0 0 1 208 12 H536 A12 12 0 0 1 548 24 V44 Z"/>
+  <line x1="196" y1="44" x2="548" y2="44" stroke="#E4DFEE" stroke-width="1.5"/>
+  <text class="tiedostonimi" x="212" y="34">TESTIT.md</text>
+  <rect class="tiedosto" x="196" y="12" width="352" height="256" rx="12"/>
+
+  <!-- Rivit: tyhjä ruutu ja testi tavallisella kielellä (tekoäly) -->
+  <g class="r1"><rect class="ruutu" x="214" y="67" width="20" height="20" rx="4"/><text class="tunnus" x="246" y="82">Oikea opiskelija löytyy</text></g>
+  <g class="r2"><rect class="ruutu" x="214" y="105" width="20" height="20" rx="4"/><text class="tunnus" x="246" y="120">Kaksi samannimistä</text></g>
+  <g class="r3"><rect class="ruutu" x="214" y="143" width="20" height="20" rx="4"/><text class="tunnus" x="246" y="158">Tallennus tarkistetaan</text></g>
+  <g class="r4"><rect class="ruutu" x="214" y="181" width="20" height="20" rx="4"/><text class="tunnus" x="246" y="196">Puuttuva palkka pysäyttää</text></g>
+  <g class="r5"><rect class="ruutu" x="214" y="219" width="20" height="20" rx="4"/><text class="tunnus" x="246" y="234">Seuraava aukeaa oikein</text></g>
+
+  <!-- Tulokset (sinä) -->
+  <g class="ok1">
+    <rect class="ok-ruutu" x="214" y="67" width="20" height="20" rx="4"/>
+    <path class="ok-merkki" d="M219 77.5 L222.5 81 L229 73.5"/>
+    <text class="ok-teksti" x="532" y="82">LÄPI</text>
+  </g>
+  <g class="ok2">
+    <rect class="ok-ruutu" x="214" y="105" width="20" height="20" rx="4"/>
+    <path class="ok-merkki" d="M219 115.5 L222.5 119 L229 111.5"/>
+    <text class="ok-teksti" x="532" y="120">LÄPI</text>
+  </g>
+  <g class="ok3">
+    <rect class="ok-ruutu" x="214" y="143" width="20" height="20" rx="4"/>
+    <path class="ok-merkki" d="M219 153.5 L222.5 157 L229 149.5"/>
+    <text class="ok-teksti" x="532" y="158">LÄPI</text>
+  </g>
+  <!-- Neljäs testi: ensin ei läpi (vain animaatiossa), korjauksen jälkeen läpi -->
+  <g class="ei4">
+    <rect class="virhe-ruutu" x="214" y="181" width="20" height="20" rx="4"/>
+    <path class="virhe-merkki" d="M220 187 L228 195 M228 187 L220 195"/>
+    <text class="virhe-teksti" x="532" y="196">EI LÄPI</text>
+    <rect class="kerro" x="232" y="280" width="280" height="30" rx="15"/>
+    <text class="kerro-teksti" x="372" y="300">Kerro tekoälylle, mikä ei toiminut</text>
+  </g>
+  <g class="ok4">
+    <rect class="ok-ruutu" x="214" y="181" width="20" height="20" rx="4"/>
+    <path class="ok-merkki" d="M219 191.5 L222.5 195 L229 187.5"/>
+    <text class="ok-teksti" x="532" y="196">LÄPI</text>
+  </g>
+  <g class="ok5">
+    <rect class="ok-ruutu" x="214" y="219" width="20" height="20" rx="4"/>
+    <path class="ok-merkki" d="M219 229.5 L222.5 233 L229 225.5"/>
+    <text class="ok-teksti" x="532" y="234">LÄPI</text>
+  </g>
+</svg>

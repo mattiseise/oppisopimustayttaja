@@ -1,0 +1,148 @@
+<svg class="anim anim-jono" viewBox="0 0 560 292" role="img" aria-labelledby="jono-title" xmlns="http://www.w3.org/2000/svg">
+  <title id="jono-title">Jonossa on auki yksi opiskelija kerrallaan. Sovellus tarkistaa Aino Testisen kirjaukset ja merkitsee hänet valmiiksi, sinä siirrät Ville Testaajan odottamaan ja kirjaat syyn, ja sitten sovellus avaa Liisa Kokeilun.</title>
+  <style>
+    .anim-jono .ikkuna { fill: #FFFFFF; }
+    .anim-jono .reuna { fill: none; stroke: #E4DFEE; stroke-width: 2; }
+    .anim-jono .palkki-sovellus { fill: #EEE8FF; }
+    .anim-jono .erotin { fill: none; stroke: #E4DFEE; stroke-width: 1.5; }
+    .anim-jono .otsikko { fill: #1A0530; font: 600 15px var(--sans, sans-serif); }
+    .anim-jono .nakyma { fill: #1A0530; font: 600 17px var(--sans, sans-serif); }
+    .anim-jono .rivi { fill: #FFFFFF; stroke: #E4DFEE; stroke-width: 1.5; }
+    .anim-jono .aktiivinen { fill: #EEE8FF; stroke: #6A50BD; stroke-width: 2; }
+    .anim-jono .nimi { fill: #1A0530; font: 600 15px var(--sans, sans-serif); }
+    .anim-jono .tunniste { fill: #5B5470; font: 500 15px var(--mono, monospace); }
+    .anim-jono .tekija { fill: #5B5470; font: 500 15px var(--sans, sans-serif); }
+    .anim-jono .kuka { fill: #6A50BD; font-weight: 600; }
+    .anim-jono .tarkistettu path { fill: none; stroke: #0F9D6C; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .anim-jono .tila rect { stroke-width: 1.5; }
+    .anim-jono .tila text { font: 600 15px var(--sans, sans-serif); letter-spacing: 0.04em; text-anchor: middle; }
+    .anim-jono .kasittely rect { fill: #EEE8FF; stroke: #6A50BD; }
+    .anim-jono .kasittely text { fill: #6A50BD; }
+    .anim-jono .valmis rect { fill: #E3F5EE; stroke: #0F9D6C; }
+    .anim-jono .valmis text { fill: #0F9D6C; }
+    .anim-jono .odottaa rect { fill: #FEF3E2; stroke: #B54708; }
+    .anim-jono .odottaa text { fill: #B54708; }
+    .anim-jono .jonossa rect { fill: #F5F3F8; stroke: #E4DFEE; }
+    .anim-jono .jonossa text { fill: #5B5470; }
+    .anim-jono .laskuri-valmis { fill: #E3F5EE; stroke: #0F9D6C; stroke-width: 1.5; }
+    .anim-jono .laskuri-odottaa { fill: #FEF3E2; stroke: #B54708; stroke-width: 1.5; }
+    .anim-jono .luku { font: 600 15px var(--sans, sans-serif); text-anchor: middle; }
+    .anim-jono .luku-valmis { fill: #0F9D6C; }
+    .anim-jono .luku-odottaa { fill: #B54708; }
+
+    /* Välivaiheet: perustilassa piilossa */
+    .anim-jono .pois-1 { opacity: 0; animation: jono-pois-1 12s infinite; }
+    .anim-jono .pois-2 { opacity: 0; animation: jono-pois-2 12s infinite; }
+    .anim-jono .pois-3 { opacity: 0; animation: jono-pois-3 12s infinite; }
+    .anim-jono .pois-4 { opacity: 0; animation: jono-pois-4 12s infinite; }
+    .anim-jono .valivaihe { opacity: 0; animation: jono-valivaihe 12s infinite; }
+    /* Lopputila: perustilassa näkyvissä */
+    .anim-jono .esiin-1 { animation: jono-esiin-1 12s infinite; }
+    .anim-jono .esiin-2 { animation: jono-esiin-2 12s infinite; }
+    .anim-jono .esiin-3 { animation: jono-esiin-3 12s infinite; }
+    .anim-jono .esiin-4 { animation: jono-esiin-4 12s infinite; }
+    .anim-jono .esiin-5 { animation: jono-esiin-5 12s infinite; }
+
+    /* Tahti 1: Aino käsittelyssä, tarkistettu → VALMIS */
+    @keyframes jono-pois-1 {
+      0%, 22% { opacity: 1; }
+      24%, 96% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    @keyframes jono-esiin-1 {
+      0%, 12% { opacity: 0; transform: translateY(4px); }
+      14%, 96% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(0); }
+    }
+    @keyframes jono-esiin-2 {
+      0%, 22% { opacity: 0; }
+      24%, 96% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    /* Tahti 2: Ville aukeaa */
+    @keyframes jono-pois-2 {
+      0%, 28% { opacity: 1; }
+      30%, 96% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    @keyframes jono-valivaihe {
+      0%, 28% { opacity: 0; }
+      30%, 52% { opacity: 1; }
+      54%, 100% { opacity: 0; }
+    }
+    /* Tahti 3: syy kirjataan, Ville → ODOTTAA */
+    @keyframes jono-esiin-3 {
+      0%, 42% { opacity: 0; transform: translateY(4px); }
+      44%, 96% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(0); }
+    }
+    @keyframes jono-pois-3 {
+      0%, 52% { opacity: 1; }
+      54%, 96% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    @keyframes jono-esiin-4 {
+      0%, 52% { opacity: 0; }
+      54%, 96% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    /* Tahti 4: Liisa aukeaa */
+    @keyframes jono-pois-4 {
+      0%, 60% { opacity: 1; }
+      62%, 96% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    @keyframes jono-esiin-5 {
+      0%, 60% { opacity: 0; }
+      62%, 96% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .anim-jono * { animation: none !important; }
+    }
+  </style>
+
+  <!-- Ikkuna -->
+  <rect class="ikkuna" x="8" y="10" width="544" height="272" rx="10"/>
+  <path class="palkki-sovellus" d="M8 44 V20 Q8 10 18 10 H542 Q552 10 552 20 V44 Z"/>
+  <path class="erotin" d="M8 44 H552"/>
+  <rect class="reuna" x="8" y="10" width="544" height="272" rx="10"/>
+  <text class="otsikko" x="24" y="32">Oppisopimustäyttäjä</text>
+  <text class="nakyma" x="24" y="78">Jono</text>
+
+  <!-- Laskuri -->
+  <rect class="laskuri-valmis" x="336" y="58" width="96" height="28" rx="14"/>
+  <text class="luku luku-valmis pois-1" x="384" y="77">Valmis 0</text>
+  <text class="luku luku-valmis esiin-2" x="384" y="77">Valmis 1</text>
+  <rect class="laskuri-odottaa" x="442" y="58" width="98" height="28" rx="14"/>
+  <text class="luku luku-odottaa pois-3" x="491" y="77">Odottaa 0</text>
+  <text class="luku luku-odottaa esiin-4" x="491" y="77">Odottaa 1</text>
+
+  <!-- Aino Testinen -->
+  <rect class="rivi" x="20" y="98" width="520" height="52" rx="8"/>
+  <rect class="aktiivinen pois-1" x="20" y="98" width="520" height="52" rx="8"/>
+  <text class="nimi" x="36" y="120">Aino Testinen</text>
+  <text class="tunniste" x="150" y="120">000123</text>
+  <g class="tarkistettu esiin-1"><path d="M37 136 l4 4 l8 -8"/><text class="tekija" x="55" y="141"><tspan class="kuka">Sovellus</tspan> tarkistaa kirjaukset</text></g>
+  <g class="tila kasittely pois-1"><rect x="396" y="110" width="132" height="28" rx="6"/><text x="462" y="129">KÄSITTELYSSÄ</text></g>
+  <g class="tila valmis esiin-2"><rect x="396" y="110" width="132" height="28" rx="6"/><text x="462" y="129">VALMIS</text></g>
+
+  <!-- Ville Testaaja -->
+  <rect class="rivi" x="20" y="158" width="520" height="52" rx="8"/>
+  <rect class="aktiivinen valivaihe" x="20" y="158" width="520" height="52" rx="8"/>
+  <text class="nimi" x="36" y="180">Ville Testaaja</text>
+  <text class="tunniste" x="150" y="180">000999</text>
+  <text class="tekija esiin-3" x="36" y="201"><tspan class="kuka">Sinä</tspan> kirjaat syyn: esitiedot puuttuvat</text>
+  <g class="tila jonossa pois-2"><rect x="396" y="170" width="132" height="28" rx="6"/><text x="462" y="189">JONOSSA</text></g>
+  <g class="tila kasittely valivaihe"><rect x="396" y="170" width="132" height="28" rx="6"/><text x="462" y="189">KÄSITTELYSSÄ</text></g>
+  <g class="tila odottaa esiin-4"><rect x="396" y="170" width="132" height="28" rx="6"/><text x="462" y="189">ODOTTAA</text></g>
+
+  <!-- Liisa Kokeilu -->
+  <rect class="rivi" x="20" y="218" width="520" height="52" rx="8"/>
+  <rect class="aktiivinen esiin-5" x="20" y="218" width="520" height="52" rx="8"/>
+  <text class="nimi" x="36" y="240">Liisa Kokeilu</text>
+  <text class="tunniste" x="150" y="240">002024</text>
+  <text class="tekija esiin-5" x="36" y="261"><tspan class="kuka">Sovellus</tspan> avaa seuraavan</text>
+  <g class="tila jonossa pois-4"><rect x="396" y="230" width="132" height="28" rx="6"/><text x="462" y="249">JONOSSA</text></g>
+  <g class="tila kasittely esiin-5"><rect x="396" y="230" width="132" height="28" rx="6"/><text x="462" y="249">KÄSITTELYSSÄ</text></g>
+</svg>

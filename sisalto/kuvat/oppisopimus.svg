@@ -1,0 +1,184 @@
+<svg class="anim anim-oppisopimus" viewBox="0 0 560 240" role="img" aria-labelledby="oppisopimus-title" xmlns="http://www.w3.org/2000/svg">
+  <title id="oppisopimus-title">Työpaikka ja työpaikkaohjaaja kirjataan ensin, ja vasta niiden jälkeen oppisopimus aukeaa. Palkka ilman yksikköä pysäyttää kirjauksen, ja kun yksikkö €/kk lisätään, oppisopimus valmistuu.</title>
+  <style>
+    .anim-oppisopimus .laatikko { fill: #FFFFFF; stroke: #E4DFEE; stroke-width: 2; }
+    .anim-oppisopimus .otsikko { fill: #1A0530; font: 600 17px var(--sans, sans-serif); text-anchor: middle; }
+    .anim-oppisopimus .tieto { fill: #5B5470; font: 500 15px var(--sans, sans-serif); text-anchor: middle; }
+    .anim-oppisopimus .kentta-nimi { fill: #5B5470; font: 500 15px var(--sans, sans-serif); }
+    .anim-oppisopimus .kentta { fill: #FFFFFF; stroke: #E4DFEE; stroke-width: 1.5; }
+    .anim-oppisopimus .arvo { fill: #1A0530; font: 500 16px var(--sans, sans-serif); }
+    .anim-oppisopimus .viiva { stroke: #6A50BD; stroke-width: 2.5; fill: none; }
+    .anim-oppisopimus .ok-tausta { fill: #E3F5EE; }
+    .anim-oppisopimus .ok-merkki { stroke: #0F9D6C; stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .anim-oppisopimus .ok-teksti { fill: #0F9D6C; font: 600 15px var(--sans, sans-serif); }
+    .anim-oppisopimus .virhe-tausta { fill: #FDECEA; }
+    .anim-oppisopimus .virhe-merkki { stroke: #B42318; stroke-width: 2.4; fill: none; stroke-linecap: round; }
+    .anim-oppisopimus .virhe-teksti { fill: #B42318; font: 600 15px var(--sans, sans-serif); }
+    .anim-oppisopimus .lukko-runko { fill: #7D7694; }
+    .anim-oppisopimus .lukko-sanka { stroke: #7D7694; stroke-width: 4; fill: none; }
+    .anim-oppisopimus .lukko-teksti { fill: #7D7694; font: 600 15px var(--sans, sans-serif); text-anchor: middle; }
+
+    /* Korostus siirtyy laatikosta toiseen */
+    .anim-oppisopimus .b1 .laatikko { animation: oppisopimus-b1 10s infinite; }
+    .anim-oppisopimus .b2 .laatikko { animation: oppisopimus-b2 10s infinite; }
+    .anim-oppisopimus .b3 .laatikko { animation: oppisopimus-b3 10s infinite; }
+    .anim-oppisopimus .b3 .otsikko { animation: oppisopimus-b3-otsikko 10s infinite; }
+    /* Merkit ja kentät ilmestyvät */
+    .anim-oppisopimus .valmis1 { animation: oppisopimus-valmis1 10s infinite; }
+    .anim-oppisopimus .valmis2 { animation: oppisopimus-valmis2 10s infinite; }
+    .anim-oppisopimus .lukko { opacity: 0; animation: oppisopimus-lukko 10s infinite; }
+    .anim-oppisopimus .lukko-sanka { animation: oppisopimus-sanka 10s infinite; }
+    .anim-oppisopimus .palkka { animation: oppisopimus-palkka 10s infinite; }
+    .anim-oppisopimus .palkka .kentta { animation: oppisopimus-kentta 10s infinite; }
+    .anim-oppisopimus .virhe { opacity: 0; animation: oppisopimus-virhe 10s infinite; }
+    .anim-oppisopimus .yksikko { animation: oppisopimus-yksikko 10s infinite; }
+    .anim-oppisopimus .kentta-ok { animation: oppisopimus-kentta-ok 10s infinite; }
+    .anim-oppisopimus .valmis3 { animation: oppisopimus-valmis3 10s infinite; }
+
+    @keyframes oppisopimus-b1 {
+      0%, 2% { fill: #FFFFFF; stroke: #E4DFEE; }
+      4%, 18% { fill: #EEE8FF; stroke: #6A50BD; }
+      21%, 100% { fill: #FFFFFF; stroke: #E4DFEE; }
+    }
+    @keyframes oppisopimus-b2 {
+      0%, 20% { fill: #FFFFFF; stroke: #E4DFEE; }
+      23%, 36% { fill: #EEE8FF; stroke: #6A50BD; }
+      39%, 100% { fill: #FFFFFF; stroke: #E4DFEE; }
+    }
+    @keyframes oppisopimus-b3 {
+      0%, 38% { fill: #F5F3F8; stroke: #E4DFEE; stroke-dasharray: 6 5; }
+      41%, 84% { fill: #EEE8FF; stroke: #6A50BD; stroke-dasharray: 6 0; }
+      87%, 100% { fill: #FFFFFF; stroke: #E4DFEE; stroke-dasharray: 6 0; }
+    }
+    @keyframes oppisopimus-b3-otsikko {
+      0%, 38% { fill: #7D7694; }
+      41%, 100% { fill: #1A0530; }
+    }
+    @keyframes oppisopimus-valmis1 {
+      0%, 12% { opacity: 0; transform: translateY(4px); }
+      15%, 96% { opacity: 1; transform: translateY(0); }
+      99%, 100% { opacity: 0; }
+    }
+    @keyframes oppisopimus-valmis2 {
+      0%, 31% { opacity: 0; transform: translateY(4px); }
+      34%, 96% { opacity: 1; transform: translateY(0); }
+      99%, 100% { opacity: 0; }
+    }
+    @keyframes oppisopimus-lukko {
+      0%, 38% { opacity: 1; }
+      42%, 100% { opacity: 0; }
+    }
+    @keyframes oppisopimus-sanka {
+      0%, 35% { transform: translateY(0); }
+      38%, 100% { transform: translateY(-6px); }
+    }
+    @keyframes oppisopimus-palkka {
+      0%, 40% { opacity: 0; }
+      44%, 96% { opacity: 1; }
+      99%, 100% { opacity: 0; }
+    }
+    @keyframes oppisopimus-kentta {
+      0%, 50% { stroke: #E4DFEE; }
+      52%, 66% { stroke: #B42318; }
+      69%, 100% { stroke: #E4DFEE; }
+    }
+    @keyframes oppisopimus-virhe {
+      0%, 49% { opacity: 0; }
+      52%, 66% { opacity: 1; }
+      69%, 100% { opacity: 0; }
+    }
+    @keyframes oppisopimus-yksikko {
+      0%, 67% { opacity: 0; transform: translateX(-4px); }
+      70%, 96% { opacity: 1; transform: translateX(0); }
+      99%, 100% { opacity: 0; }
+    }
+    @keyframes oppisopimus-kentta-ok {
+      0%, 72% { opacity: 0; }
+      75%, 96% { opacity: 1; }
+      99%, 100% { opacity: 0; }
+    }
+    @keyframes oppisopimus-valmis3 {
+      0%, 78% { opacity: 0; transform: translateY(4px); }
+      81%, 96% { opacity: 1; transform: translateY(0); }
+      99%, 100% { opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .anim-oppisopimus * { animation: none !important; }
+    }
+  </style>
+  <defs>
+    <marker id="oppisopimus-nuoli" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6A50BD"/>
+    </marker>
+  </defs>
+
+  <!-- 1. Työpaikka -->
+  <g class="b1">
+    <rect class="laatikko" x="12" y="16" width="140" height="208" rx="12"/>
+    <text class="otsikko" x="82" y="50">Työpaikka</text>
+    <text class="tieto" x="82" y="84">Testileipomo Oy</text>
+    <text class="tieto" x="82" y="106">Keskusta</text>
+    <g transform="translate(32 178)">
+      <g class="valmis1">
+        <rect class="ok-tausta" width="100" height="28" rx="14"/>
+        <path class="ok-merkki" d="M15 14 L19.5 18.5 L26 10.5"/>
+        <text class="ok-teksti" x="32" y="19.5">VALMIS</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- 2. Työpaikkaohjaaja -->
+  <g class="b2">
+    <rect class="laatikko" x="180" y="16" width="164" height="208" rx="12"/>
+    <text class="otsikko" x="262" y="50">Työpaikkaohjaaja</text>
+    <text class="tieto" x="262" y="84">Maija Mallikas</text>
+    <g transform="translate(212 178)">
+      <g class="valmis2">
+        <rect class="ok-tausta" width="100" height="28" rx="14"/>
+        <path class="ok-merkki" d="M15 14 L19.5 18.5 L26 10.5"/>
+        <text class="ok-teksti" x="32" y="19.5">VALMIS</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- 3. Oppisopimus -->
+  <g class="b3">
+    <rect class="laatikko" x="372" y="16" width="176" height="208" rx="12"/>
+    <text class="otsikko" x="460" y="50">Oppisopimus</text>
+
+    <!-- Lukko: näkyy vain animaatiossa ennen kuin työpaikka ja ohjaaja ovat valmiit -->
+    <g class="lukko">
+      <path class="lukko-sanka" d="M450 118 V106 a10 10 0 0 1 20 0 V118"/>
+      <rect class="lukko-runko" x="443" y="116" width="34" height="27" rx="5"/>
+      <circle cx="460" cy="128" r="3.5" fill="#FFFFFF"/>
+      <text class="lukko-teksti" x="460" y="170">LUKITTU</text>
+    </g>
+
+    <g class="palkka">
+      <text class="kentta-nimi" x="388" y="84">Palkka</text>
+      <rect class="kentta" x="388" y="94" width="144" height="34" rx="6"/>
+      <text class="arvo" x="436" y="117" text-anchor="end">2 450</text>
+    </g>
+    <text class="arvo yksikko" x="441" y="117">€/kk</text>
+    <path class="ok-merkki kentta-ok" d="M507 111 L511.5 115.5 L518 107.5"/>
+
+    <!-- Virhe: näkyy vain animaatiossa -->
+    <g class="virhe">
+      <path class="virhe-merkki" d="M389 141 L397 149 M397 141 L389 149"/>
+      <text class="virhe-teksti" x="403" y="151">Yksikkö puuttuu</text>
+      <rect class="virhe-tausta" x="410" y="178" width="100" height="28" rx="14"/>
+      <text class="virhe-teksti" x="460" y="197.5" text-anchor="middle">PYSÄHTYY</text>
+    </g>
+
+    <g transform="translate(410 178)">
+      <g class="valmis3">
+        <rect class="ok-tausta" width="100" height="28" rx="14"/>
+        <path class="ok-merkki" d="M15 14 L19.5 18.5 L26 10.5"/>
+        <text class="ok-teksti" x="32" y="19.5">VALMIS</text>
+      </g>
+    </g>
+  </g>
+
+  <path class="viiva" d="M152 120 H176" marker-end="url(#oppisopimus-nuoli)"/>
+  <path class="viiva" d="M344 120 H368" marker-end="url(#oppisopimus-nuoli)"/>
+</svg>

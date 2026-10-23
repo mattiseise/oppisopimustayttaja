@@ -37,4 +37,9 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.removeChild(ta);
     done();
   }
+
+  // Tulostuspainike
+  document.querySelectorAll('.print-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () { window.print(); });
+  });
 });

@@ -1,0 +1,127 @@
+<svg class="anim anim-pilotti" viewBox="0 0 560 292" role="img" aria-labelledby="pilotti-title" xmlns="http://www.w3.org/2000/svg">
+  <title id="pilotti-title">IT hyväksyy asennuspaketin, ja pilotti tehdään oikeassa Wilmassa 3–5 opiskelijalla niin, että sovellus käsittelee oikeat tiedot omalla koneella eikä tekoäly näe niitä. Havainnoista tehdään korjaukset ja pilotti toistetaan ennen käyttöönottoa.</title>
+  <style>
+    .anim-pilotti .solmu rect { fill: #FFFFFF; stroke: #E4DFEE; stroke-width: 2; animation: pilotti-laatikko 12s infinite; }
+    .anim-pilotti .solmu .nimi { fill: #1A0530; font: 600 18px var(--sans, sans-serif); text-anchor: middle; animation: pilotti-nimi 12s infinite; }
+    .anim-pilotti .solmu .ali { fill: #5B5470; font: 500 15px var(--sans, sans-serif); text-anchor: middle; animation: pilotti-ali 12s infinite; }
+    .anim-pilotti .s3 rect, .anim-pilotti .s3 .nimi { animation-delay: 3.6s; }
+    .anim-pilotti .s4 rect, .anim-pilotti .s4 .nimi { animation-delay: 5.2s; }
+    .anim-pilotti .s2 rect { animation-name: pilotti-kahdesti-laatikko; }
+    .anim-pilotti .s2 .nimi { animation-name: pilotti-kahdesti-nimi; }
+    .anim-pilotti .s2 .ali { animation-name: pilotti-kahdesti-ali; }
+    .anim-pilotti .kaytto rect { fill: #E3F5EE; stroke: #0F9D6C; stroke-width: 2; animation: pilotti-kaytto 12s infinite; }
+    .anim-pilotti .kaytto .nimi { fill: #1A0530; font: 600 18px var(--sans, sans-serif); text-anchor: middle; }
+    .anim-pilotti .kaytto .tila { fill: #0F9D6C; font: 600 15px var(--sans, sans-serif); text-anchor: middle; letter-spacing: 0.5px; animation: pilotti-tila 12s infinite; }
+    .anim-pilotti .huomio { animation: pilotti-huomio 12s infinite; }
+    .anim-pilotti .huomio path { fill: #F5F3F8; stroke: #E4DFEE; stroke-width: 2; }
+    .anim-pilotti .huomio text { fill: #1A0530; font: 500 15px var(--sans, sans-serif); text-anchor: middle; }
+    .anim-pilotti .huomio .vahva { fill: #6A50BD; font-weight: 600; }
+    .anim-pilotti .viiva { stroke: #6A50BD; stroke-width: 2.5; fill: none; }
+    .anim-pilotti .paluu { stroke: #7D7694; stroke-width: 2; fill: none; stroke-dasharray: 6 5; }
+    .anim-pilotti .selite { fill: #5B5470; font: 500 15px var(--sans, sans-serif); text-anchor: middle; }
+    @keyframes pilotti-laatikko {
+      0% { fill: #FFFFFF; stroke: #E4DFEE; }
+      2%, 12% { fill: #6A50BD; stroke: #6A50BD; }
+      14%, 100% { fill: #FFFFFF; stroke: #E4DFEE; }
+    }
+    @keyframes pilotti-nimi {
+      0% { fill: #1A0530; }
+      2%, 12% { fill: #FFFFFF; }
+      14%, 100% { fill: #1A0530; }
+    }
+    @keyframes pilotti-ali {
+      0% { fill: #5B5470; }
+      2%, 12% { fill: #FFFFFF; }
+      14%, 100% { fill: #5B5470; }
+    }
+    @keyframes pilotti-kahdesti-laatikko {
+      0%, 13% { fill: #FFFFFF; stroke: #E4DFEE; }
+      15%, 27% { fill: #6A50BD; stroke: #6A50BD; }
+      29%, 55% { fill: #FFFFFF; stroke: #E4DFEE; }
+      57%, 69% { fill: #6A50BD; stroke: #6A50BD; }
+      71%, 100% { fill: #FFFFFF; stroke: #E4DFEE; }
+    }
+    @keyframes pilotti-kahdesti-nimi {
+      0%, 13% { fill: #1A0530; }
+      15%, 27% { fill: #FFFFFF; }
+      29%, 55% { fill: #1A0530; }
+      57%, 69% { fill: #FFFFFF; }
+      71%, 100% { fill: #1A0530; }
+    }
+    @keyframes pilotti-kahdesti-ali {
+      0%, 13% { fill: #5B5470; }
+      15%, 27% { fill: #FFFFFF; }
+      29%, 55% { fill: #5B5470; }
+      57%, 69% { fill: #FFFFFF; }
+      71%, 100% { fill: #5B5470; }
+    }
+    @keyframes pilotti-huomio {
+      0%, 14% { opacity: 0; transform: translateY(6px); }
+      17%, 95% { opacity: 1; transform: translateY(0); }
+      99%, 100% { opacity: 0; transform: translateY(0); }
+    }
+    @keyframes pilotti-kaytto {
+      0%, 71% { fill: #FFFFFF; stroke: #E4DFEE; }
+      74%, 96% { fill: #E3F5EE; stroke: #0F9D6C; }
+      100% { fill: #FFFFFF; stroke: #E4DFEE; }
+    }
+    @keyframes pilotti-tila {
+      0%, 71% { opacity: 0; }
+      74%, 96% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .anim-pilotti * { animation: none !important; }
+    }
+  </style>
+  <defs>
+    <marker id="pilotti-nuoli" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6A50BD"/>
+    </marker>
+    <marker id="pilotti-nuoli-harmaa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#7D7694"/>
+    </marker>
+  </defs>
+
+  <!-- Huomio pilotin kohdalla -->
+  <g class="huomio">
+    <path d="M80 12 H480 Q490 12 490 22 V60 Q490 70 480 70 H290 L280 80 L270 70 H80 Q70 70 70 60 V22 Q70 12 80 12 Z"/>
+    <text x="280" y="36">Sovellus käsittelee oikeat tiedot omalla koneella.</text>
+    <text class="vahva" x="280" y="58">Tekoäly ei näe niitä.</text>
+  </g>
+
+  <!-- Rivi 1: asennuspaketti, pilotti, käyttöön -->
+  <g class="solmu s1">
+    <rect x="12" y="88" width="160" height="84" rx="12"/>
+    <text class="nimi" x="92" y="122">Asennuspaketti</text>
+    <text class="ali" x="92" y="146">IT hyväksyy</text>
+  </g>
+  <g class="solmu s2">
+    <rect x="200" y="88" width="160" height="84" rx="12"/>
+    <text class="nimi" x="280" y="112">Pilotti</text>
+    <text class="ali" x="280" y="136">3–5 opiskelijaa</text>
+    <text class="ali" x="280" y="156">oikea Wilma</text>
+  </g>
+  <g class="kaytto">
+    <rect x="388" y="88" width="160" height="84" rx="12"/>
+    <text class="nimi" x="468" y="122">Käyttöön</text>
+    <text class="tila" x="468" y="146">VALMIS</text>
+  </g>
+
+  <!-- Rivi 2: korjauskierros pilotin alla -->
+  <g class="solmu s3">
+    <rect x="110" y="228" width="140" height="50" rx="12"/>
+    <text class="nimi" x="180" y="259">Havainnot</text>
+  </g>
+  <g class="solmu s4">
+    <rect x="310" y="228" width="140" height="50" rx="12"/>
+    <text class="nimi" x="380" y="259">Korjaukset</text>
+  </g>
+
+  <path class="viiva" d="M172 130 H196" marker-end="url(#pilotti-nuoli)"/>
+  <path class="viiva" d="M360 130 H384" marker-end="url(#pilotti-nuoli)"/>
+  <path class="viiva" d="M240 172 C240 202 180 198 180 224" marker-end="url(#pilotti-nuoli)"/>
+  <path class="viiva" d="M250 253 H306" marker-end="url(#pilotti-nuoli)"/>
+  <path class="paluu" d="M380 228 C380 202 320 202 320 176" marker-end="url(#pilotti-nuoli-harmaa)"/>
+  <text class="selite" x="280" y="206">uusi kierros</text>
+</svg>

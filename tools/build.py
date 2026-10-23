@@ -296,6 +296,35 @@ def build_teacher(rows: list[dict]) -> None:
     (out_dir / "index.html").write_text(page("Vetäjän sivut – Vibekoodaus-työpaja", body, 1), encoding="utf-8")
 
 
+def figures(rendered: str) -> str:
+    """Korvaa kappaleet [[kuva:nimi|kuvateksti]] animoiduilla SVG-kuvilla kansiosta sisalto/kuvat/."""
+    def fig(m: re.Match) -> str:
+        name, caption = m.group(1), m.group(2)
+        svg_path = SRC / "kuvat" / f"{name}.svg"
+        if not svg_path.exists():
+            print(f"Varoitus: kuva puuttuu: {svg_path.name}")
+            return f'<figure class="anim-figure puuttuu"><figcaption>Kuva puuttuu: {name}</figcaption></figure>'
+        return f'<figure class="anim-figure">{read(svg_path).strip()}<figcaption>{caption}</figcaption></figure>'
+    return re.sub(r"<p>\[\[kuva:([a-z0-9-]+)\|(.+?)\]\]</p>", fig, rendered)
+
+
+def build_onepager() -> None:
+    title, text = strip_h1(read(SRC / "pikaohje.md"))
+    body = f"""<a class="back-link" href="index.html">← Työpajan etusivu</a>
+<header class="page">
+  <div class="kicker">Pikaohje · Claude tai Codex</div>
+  <h1>{html.escape(title.split(": ", 1)[-1])}</h1>
+  <button class="print-btn" type="button">Tulosta ohje</button>
+</header>
+<section class="md">
+{figures(render(text, shift=0))}
+</section>"""
+    (ROOT / "pikaohje.html").write_text(
+        page(f"{title} – Vibekoodaus-työpaja", body, 0, "Yhden sivun ohje: Oppisopimustäyttäjä oikeaan käyttöön agentin avulla, valmistelusta pilottiin."),
+        encoding="utf-8",
+    )
+
+
 def build_index(rows: list[dict]) -> None:
     intro, secs = readme_sections()
     table = "\n".join(l for l in secs["Rakenne"].splitlines() if l.startswith("|"))
@@ -310,6 +339,13 @@ def build_index(rows: list[dict]) -> None:
   <h1>Oppisopimustäyttäjä agentin avulla</h1>
   <div class="md lead-md">{render(intro)}</div>
 </header>
+<nav class="exercises">
+<a class="exercise-card featured" href="pikaohje.html"><div class="row">
+<div class="kicker">Pikaohje · Yksi sivu · Claude tai Codex</div><span class="arrow">→</span></div>
+<div class="title">Näin tuote tehdään oikeaan käyttöön</div>
+<p>Valmistelusta testi-Wilmaan ja pilottiin. Jokaisessa vaiheessa valmis kehote ja animoitu kuva.</p></a>
+</nav>
+<header class="page"><div class="kicker">Laaja työpajamateriaali · Kaksi päivää</div></header>
 <section class="card">
   <div class="kicker dim">Valitse polku</div>
   <p>Valitse polku, johon sinulla tai organisaatiollasi on tilaus. Lue sen jälkeen vain oman polkusi sivuja. Aloita osiosta 00 itsenäisesti ennen työpajaa.</p>
@@ -335,6 +371,7 @@ def main() -> None:
             shutil.rmtree(ROOT / d)
     rows = schedule()
     build_index(rows)
+    build_onepager()
     for key in PATHS:
         build_student(key, rows)
     build_teacher(rows)

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vaihe 0: Pyynnöt ja luvat – Vibekoodaus-työpaja</title>
+<meta name="description" content="Pikaohjeen vaihe 0: keneltä pyydetään testi-Wilma, tiedot ja luvat, ja valmis viesti IT:lle.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23775EC4'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='600' fill='white'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/site.js" defer></script>
+</head>
+<body>
+<main>
+<a class="back-link" href="pikaohje.html">← Pikaohje</a>
+<header class="page">
+  <div class="kicker">Pikaohje · Vaihe 0</div>
+  <h1>Pyynnöt ja luvat</h1>
+  <button class="print-btn" type="button">Tulosta ohje</button>
+</header>
+<section class="md">
+<p>Tämä on pikaohjeen vaihe 0. Aloita viikkoja ennen, koska vastauksia joutuu odottamaan. Kun IT on asentanut ohjelmat, jatka pikaohjeen vaiheesta 0B.</p>
+<figure class="anim-figure"><svg class="anim anim-valmistelu" viewBox="0 0 560 310" role="img" aria-labelledby="valmistelu-title" xmlns="http://www.w3.org/2000/svg">
+  <title id="valmistelu-title">Tarkistuslista ennen koodia: testi-Wilma ja testitunnus, lomakkeiden kentät, esitietolomakkeen palvelu, Primus-tietojen lukutapa ja asennuslupa, kullakin oma vastuutaho. Kun kaikki viisi on kuitattu, ollaan valmiita aloittamaan.</title>
+  <style>
+    .anim-valmistelu .kortti { fill: #FFFFFF; stroke: #E4DFEE; stroke-width: 2; }
+    .anim-valmistelu .ruutu { fill: #FFFFFF; stroke: #7D7694; stroke-width: 2; }
+    .anim-valmistelu .ok rect { fill: #0F9D6C; stroke: #0F9D6C; stroke-width: 2; }
+    .anim-valmistelu .merkki { fill: none; stroke: #FFFFFF; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+    .anim-valmistelu .asia { fill: #1A0530; font: 600 16px var(--sans, sans-serif); }
+    .anim-valmistelu .tagi rect { fill: #EEE8FF; }
+    .anim-valmistelu .tagi text { fill: #6A50BD; font: 600 15px var(--sans, sans-serif); text-anchor: middle; }
+    .anim-valmistelu .valmis rect { fill: #E3F5EE; stroke: #0F9D6C; stroke-width: 2; }
+    .anim-valmistelu .valmis circle { fill: #0F9D6C; }
+    .anim-valmistelu .valmis text { fill: #1A0530; font: 600 17px var(--sans, sans-serif); text-anchor: middle; }
+    .anim-valmistelu .r1 { animation: valmistelu-rivi1 10s infinite; }
+    .anim-valmistelu .r2 { animation: valmistelu-rivi2 10s infinite; }
+    .anim-valmistelu .r3 { animation: valmistelu-rivi3 10s infinite; }
+    .anim-valmistelu .r4 { animation: valmistelu-rivi4 10s infinite; }
+    .anim-valmistelu .r5 { animation: valmistelu-rivi5 10s infinite; }
+    .anim-valmistelu .r1 .ok { animation: valmistelu-ok1 10s infinite; }
+    .anim-valmistelu .r2 .ok { animation: valmistelu-ok2 10s infinite; }
+    .anim-valmistelu .r3 .ok { animation: valmistelu-ok3 10s infinite; }
+    .anim-valmistelu .r4 .ok { animation: valmistelu-ok4 10s infinite; }
+    .anim-valmistelu .r5 .ok { animation: valmistelu-ok5 10s infinite; }
+    .anim-valmistelu .valmis { animation: valmistelu-valmis 10s infinite; }
+    @keyframes valmistelu-rivi1 {
+      0%, 3% { opacity: 0; transform: translateY(6px); }
+      6%, 94% { opacity: 1; transform: translateY(0); }
+      98%, 100% { opacity: 0; transform: translateY(0); }
+    }
+    @keyframes valmistelu-rivi2 {
+      0%, 15% { opacity: 0; transform: translateY(6px); }
+      18%, 94% { opacity: 1; transform: translateY(0); }
+      98%, 100% { opacity: 0; transform: translateY(0); }
+    }
+    @keyframes valmistelu-rivi3 {
+      0%, 27% { opacity: 0; transform: translateY(6px); }
+      30%, 94% { opacity: 1; transform: translateY(0); }
+      98%, 100% { opacity: 0; transform: translateY(0); }
+    }
+    @keyframes valmistelu-rivi4 {
+      0%, 39% { opacity: 0; transform: translateY(6px); }
+      42%, 94% { opacity: 1; transform: translateY(0); }
+      98%, 100% { opacity: 0; transform: translateY(0); }
+    }
+    @keyframes valmistelu-rivi5 {
+      0%, 51% { opacity: 0; transform: translateY(6px); }
+      54%, 94% { opacity: 1; transform: translateY(0); }
+      98%, 100% { opacity: 0; transform: translateY(0); }
+    }
+    @keyframes valmistelu-ok1 { 0%, 10% { opacity: 0; } 12%, 100% { opacity: 1; } }
+    @keyframes valmistelu-ok2 { 0%, 22% { opacity: 0; } 24%, 100% { opacity: 1; } }
+    @keyframes valmistelu-ok3 { 0%, 34% { opacity: 0; } 36%, 100% { opacity: 1; } }
+    @keyframes valmistelu-ok4 { 0%, 46% { opacity: 0; } 48%, 100% { opacity: 1; } }
+    @keyframes valmistelu-ok5 { 0%, 58% { opacity: 0; } 60%, 100% { opacity: 1; } }
+    @keyframes valmistelu-valmis {
+      0%, 66% { opacity: 0; transform: translateY(6px); }
+      70%, 94% { opacity: 1; transform: translateY(0); }
+      98%, 100% { opacity: 0; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .anim-valmistelu * { animation: none !important; }
+    }
+  </style>
+
+  <!-- Rivi 1 -->
+  <g class="r1"><g transform="translate(0 12)">
+    <rect class="kortti" x="12" y="0" width="536" height="40" rx="10"/>
+    <rect class="ruutu" x="26" y="9" width="22" height="22" rx="5"/>
+    <g class="ok"><rect x="26" y="9" width="22" height="22" rx="5"/><path class="merkki" d="M31 20.5 L35.5 25 L43 15.5"/></g>
+    <text class="asia" x="62" y="26">Testi-Wilma ja testitunnus</text>
+    <g class="tagi"><rect x="382" y="6" width="154" height="28" rx="14"/><text x="459" y="25">Wilma-pääkäyttäjä</text></g>
+  </g></g>
+
+  <!-- Rivi 2 -->
+  <g class="r2"><g transform="translate(0 60)">
+    <rect class="kortti" x="12" y="0" width="536" height="40" rx="10"/>
+    <rect class="ruutu" x="26" y="9" width="22" height="22" rx="5"/>
+    <g class="ok"><rect x="26" y="9" width="22" height="22" rx="5"/><path class="merkki" d="M31 20.5 L35.5 25 L43 15.5"/></g>
+    <text class="asia" x="62" y="26">Lomakkeiden kentät</text>
+    <g class="tagi"><rect x="382" y="6" width="154" height="28" rx="14"/><text x="459" y="25">Wilma-pääkäyttäjä</text></g>
+  </g></g>
+
+  <!-- Rivi 3 -->
+  <g class="r3"><g transform="translate(0 108)">
+    <rect class="kortti" x="12" y="0" width="536" height="40" rx="10"/>
+    <rect class="ruutu" x="26" y="9" width="22" height="22" rx="5"/>
+    <g class="ok"><rect x="26" y="9" width="22" height="22" rx="5"/><path class="merkki" d="M31 20.5 L35.5 25 L43 15.5"/></g>
+    <text class="asia" x="62" y="26">Esitietolomakkeen palvelu</text>
+    <g class="tagi"><rect x="492" y="6" width="44" height="28" rx="14"/><text x="514" y="25">IT</text></g>
+  </g></g>
+
+  <!-- Rivi 4 -->
+  <g class="r4"><g transform="translate(0 156)">
+    <rect class="kortti" x="12" y="0" width="536" height="40" rx="10"/>
+    <rect class="ruutu" x="26" y="9" width="22" height="22" rx="5"/>
+    <g class="ok"><rect x="26" y="9" width="22" height="22" rx="5"/><path class="merkki" d="M31 20.5 L35.5 25 L43 15.5"/></g>
+    <text class="asia" x="62" y="26">Primus-tietojen lukutapa</text>
+    <g class="tagi"><rect x="374" y="6" width="162" height="28" rx="14"/><text x="455" y="25">Primus-pääkäyttäjä</text></g>
+  </g></g>
+
+  <!-- Rivi 5 -->
+  <g class="r5"><g transform="translate(0 204)">
+    <rect class="kortti" x="12" y="0" width="536" height="40" rx="10"/>
+    <rect class="ruutu" x="26" y="9" width="22" height="22" rx="5"/>
+    <g class="ok"><rect x="26" y="9" width="22" height="22" rx="5"/><path class="merkki" d="M31 20.5 L35.5 25 L43 15.5"/></g>
+    <text class="asia" x="62" y="26">Asennuslupa: Node.js, Git, sovellus</text>
+    <g class="tagi"><rect x="492" y="6" width="44" height="28" rx="14"/><text x="514" y="25">IT</text></g>
+  </g></g>
+
+  <!-- Lopuksi -->
+  <g class="valmis">
+    <rect x="160" y="258" width="240" height="40" rx="20"/>
+    <circle cx="195" cy="278" r="11"/>
+    <path class="merkki" d="M190 278.5 L193.8 282.3 L200.5 274"/>
+    <text x="300" y="284">Valmis aloittamaan</text>
+  </g>
+</svg><figcaption>Ennen aloitusta pyydetään tiedot ja luvat. Ilman niitä työtä ei voi aloittaa.</figcaption></figure>
+<h2>Keneltä ja mitä</h2>
+<p>Pyydä vastaukset kirjallisena. Tarvitset niitä myöhemmin kehotteissa.</p>
+<ul>
+<li><strong>Wilma-pääkäyttäjä:</strong> testi-Wilma ja testitunnus hallinnon roolilla. Varmista, että testi-Wilmassa on vain keksittyjä opiskelijoita, eikä se ole kopio oikeista tiedoista. Pyydä sinne keksityt oppisopimusopiskelijat: yksi tavallinen, yksi jolla on yksi tutkinnon osa HOPSissa (lomakkeiden kartoitukseen), yksi jonka HOPS on tyhjä (vaiheen 7 kokeiluun) ja kaksi samannimistä. Pyydä myös oikeus lisätä testi-Wilmaan työpaikka ja työpaikkaohjaaja.</li>
+<li><strong>Wilma-pääkäyttäjä:</strong> varmista, että testitunnuksella voi avata ja tallentaa nämä lomakkeet: urasuunnitelma, HOPS, näyttösuunnitelma, oppisopimus, työpaikka ja työpaikkaohjaaja. Kirjoita muistiin, mistä valikosta kukin avataan.</li>
+<li><strong>Koulutuksen vastuuhenkilö:</strong> valitse yksi koulutus, jolla aloitetaan. Pyydä sen näyttösuunnitelman vakiotiedot sähköpostilla tekstinä, ei kuvana.</li>
+<li><strong>IT:</strong> missä esitietolomakkeen vastaukset ovat, ja voiko ne hakea ohjelmalla. Pyydä myös tapa tehdä keksitylle opiskelijalle esitietovastaus ja haastattelu. Yhdessä työaika on eri (37,5 h ja 30 h), toisessa palkasta puuttuu yksikkö. Jos IT kysyy teknisiä lisätietoja, ohjaa kysymys Matille.</li>
+<li><strong>Primus-pääkäyttäjä:</strong> miten Primuksen tiedot luetaan. Sovellus tarvitsee opiskelijan ja opiskelijanumeron, opiskeluoikeuden ja koulutuksen, HOPS-valinnat sekä työpaikan ja ohjaajan.</li>
+<li><strong>IT:</strong> asennukset ja luvat. Alla on sähköposti IT:lle, ei kehote tekoälylle. Poista siitä Claude tai Codex sen mukaan, kumpi teillä on. Matti tarkistaa viestin ennen lähettämistä.</li>
+</ul>
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k16">Kopioi</button></div><pre id="k16"><code>Tarvitsen työkoneelleni oppisopimuskirjausten apuohjelman tekemiseen nämä: Claude- tai Codex-työpöytäsovellus, Node.js (LTS) ja Git for Windows. Ohjelmat lataavat ohjelmapaketteja internetistä (npm), ja selainautomaatio käyttää koneen Edge-selainta. Codex käyttää PowerShelliä, joten npm:n pitää toimia siinä. Tarvitsen myös luvan ajaa kansiossa C:\dev\oppisopimustayttaja olevia käynnistystiedostoja (.cmd) ja myöhemmin asentaa valmiin sovelluksen. Lisätietoja antaa Matti Seise.
+</code></pre></div>
+<h2>Tilaus</h2>
+<p>Tilauksen hankkii esihenkilösi tai IT. Älä ota tilausta omalla maksukortilla. Käytä sitä tekoälyä, jonka organisaatio on hankkinut.</p>
+<h2>Jos testi-Wilmaa ei saada</h2>
+<p>Jos testi-Wilmaa ei saada tai se on kopio oikeista tiedoista, älä jatka pikaohjeen vaiheeseen 3. Sovi Matin kanssa, miten edetään.</p>
+<a class="exercise-card featured" href="pikaohje.html"><div class="row"><div class="kicker">Avaa sivu</div><span class="arrow">→</span></div><div class="title">Kun IT on asentanut ohjelmat, jatka pikaohjeen vaiheesta 0B</div></a>
+
+</section>
+<footer class="page">Kaikki materiaalin henkilöt, yritykset, tunnisteet ja palkat ovat kuvitteellisia. Versio 1 · 23.10.2026.</footer>
+</main>
+</body>
+</html>

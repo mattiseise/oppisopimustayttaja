@@ -256,19 +256,8 @@
     <text x="300" y="284">Valmis aloittamaan</text>
   </g>
 </svg><figcaption>Ennen aloitusta pyydetään tiedot ja luvat. Ilman niitä työtä ei voi aloittaa.</figcaption></figure>
-<p>Pyydä vastaukset kirjallisena. Tarvitset niitä myöhemmin kehotteissa.</p>
-<ul>
-<li><strong>Wilma-pääkäyttäjä:</strong> testi-Wilma ja testitunnus hallinnon roolilla. Varmista, että testi-Wilmassa on vain keksittyjä opiskelijoita, eikä se ole kopio oikeista tiedoista. Pyydä sinne keksityt oppisopimusopiskelijat: yksi tavallinen, yksi jolla on yksi tutkinnon osa HOPSissa (lomakkeiden kartoitukseen), yksi jonka HOPS on tyhjä (vaiheen 7 kokeiluun) ja kaksi samannimistä. Pyydä myös oikeus lisätä testi-Wilmaan työpaikka ja työpaikkaohjaaja.</li>
-<li><strong>Wilma-pääkäyttäjä:</strong> varmista, että testitunnuksella voi avata ja tallentaa nämä lomakkeet: urasuunnitelma, HOPS, näyttösuunnitelma, oppisopimus, työpaikka ja työpaikkaohjaaja. Kirjoita muistiin, mistä valikosta kukin avataan.</li>
-<li><strong>Koulutuksen vastuuhenkilö:</strong> valitse yksi koulutus, jolla aloitetaan. Pyydä sen näyttösuunnitelman vakiotiedot sähköpostilla tekstinä, ei kuvana.</li>
-<li><strong>IT:</strong> missä esitietolomakkeen vastaukset ovat, ja voiko ne hakea ohjelmalla. Pyydä myös tapa tehdä keksitylle opiskelijalle esitietovastaus ja haastattelu. Yhdessä työaika on eri (37,5 h ja 30 h), toisessa palkasta puuttuu yksikkö. Jos IT kysyy teknisiä lisätietoja, ohjaa kysymys Matille.</li>
-<li><strong>Primus-pääkäyttäjä:</strong> miten Primuksen tiedot luetaan. Sovellus tarvitsee opiskelijan ja opiskelijanumeron, opiskeluoikeuden ja koulutuksen, HOPS-valinnat sekä työpaikan ja ohjaajan.</li>
-<li><strong>IT:</strong> asennukset ja luvat. Alla on sähköposti IT:lle, ei kehote tekoälylle. Poista siitä Claude tai Codex sen mukaan, kumpi teillä on. Matti tarkistaa viestin ennen lähettämistä.</li>
-</ul>
-<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k1">Kopioi</button></div><pre id="k1"><code>Tarvitsen työkoneelleni oppisopimuskirjausten apuohjelman tekemiseen nämä: Claude- tai Codex-työpöytäsovellus, Node.js (LTS) ja Git for Windows. Ohjelmat lataavat ohjelmapaketteja internetistä (npm), ja selainautomaatio käyttää koneen Edge-selainta. Codex käyttää PowerShelliä, joten npm:n pitää toimia siinä. Tarvitsen myös luvan ajaa kansiossa C:\dev\oppisopimustayttaja olevia käynnistystiedostoja (.cmd) ja myöhemmin asentaa valmiin sovelluksen. Lisätietoja antaa Matti Seise.
-</code></pre></div>
-<p>Tilauksen hankkii esihenkilösi tai IT. Älä ota tilausta omalla maksukortilla. Käytä sitä tekoälyä, jonka organisaatio on hankkinut.</p>
-<p>Jos testi-Wilmaa ei saada tai se on kopio oikeista tiedoista, älä jatka vaiheeseen 3. Sovi Matin kanssa, miten edetään.</p>
+<p>Tarvitset testi-Wilman ja keksityt testiopiskelijat, tiedot lomakkeista, esitiedoista ja Primuksesta, IT:n asennukset sekä tilauksen. Vastauksia joutuu odottamaan, joten aloita ajoissa. Pyydä vastaukset kirjallisena, koska tarvitset niitä kehotteissa.</p>
+<a class="exercise-card featured" href="valmistelu.html"><div class="row"><div class="kicker">Avaa sivu</div><span class="arrow">→</span></div><div class="title">Pyynnöt ja luvat: keneltä pyydät mitäkin ja valmis viesti IT:lle</div></a>
 <h3>0B. Valmistele kone (20 min, Matin kanssa)</h3>
 <p>Aloita tästä, kun IT on asentanut ohjelmat.</p>
 <p><strong>Työkansio.</strong> Avaa Resurssienhallinta. Valitse vasemmalta Tämä tietokone ja sitten Paikallinen levy (C:). Tee uusi kansio nimeltä <code>dev</code>. Avaa se ja tee sen sisään kansio <code>oppisopimustayttaja</code> ilman ä-kirjaimia. Tee sen sisään vielä kansio <code>maarittely</code>. Jos Windows pyytää järjestelmänvalvojan oikeuksia, pysähdy ja pyydä IT:tä tekemään kansio.</p>
@@ -387,7 +376,7 @@
   <g class="rivi r7"><text class="jatkuu" x="370" y="284">…</text></g>
 </svg><figcaption>Tekoäly lukee kuvauspaketin ja tekee siitä ohjeen itselleen ja työlistan.</figcaption></figure>
 <p>Ensin tekoäly lukee, mitä ollaan tekemässä. Siitä syntyy kaksi tiedostoa: ohje, jonka tekoäly lukee aina työn alussa, ja työlista, jossa työ on pilkottu pieniksi paloiksi.</p>
-<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k2">Kopioi</button></div><pre id="k2"><code>Lue kansion maarittely kuvauspaketti kokonaan. Kuvauspaketissa mainittuja liitteitä ei ole. Lomakkeiden kentät selvitetään myöhemmin testi-Wilmasta. Älä vielä kirjoita koodia.
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k1">Kopioi</button></div><pre id="k1"><code>Lue kansion maarittely kuvauspaketti kokonaan. Kuvauspaketissa mainittuja liitteitä ei ole. Lomakkeiden kentät selvitetään myöhemmin testi-Wilmasta. Älä vielä kirjoita koodia.
 Tee projektille ohjetiedosto, jonka luet aina työn alussa. Kirjaa siihen:
 - mitä Oppisopimustäyttäjä tekee, lyhyesti
 - säännöt: et käsittele oikeita henkilötietoja, et pyydä salasanoja, käyttäjä kirjautuu itse, puuttuvaa tietoa ei arvata, Wilmaan ei tallenneta mitään ilman käyttäjän hyväksyntää, jokainen tallennus tarkistetaan lukemalla lomake uudelleen, paikalliset henkilötiedot salataan ja lokeihin ei kirjoiteta henkilötietoja
@@ -486,10 +475,10 @@ Näytä lopuksi tiivistelmä ja kerro, mikä kuvauspaketissa jäi epäselväksi.
   </g>
 </svg><figcaption>Kun jokin menee pieleen, palaat edelliseen tallennuspisteeseen.</figcaption></figure>
 <p>Täydennä ennen lähettämistä: oma nimesi ja työsähköpostisi.</p>
-<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k3">Kopioi</button></div><pre id="k3"><code>Ota Git käyttöön tässä kansiossa ja tee tallennuspiste viestillä &quot;1: Kuvaus ja työlista&quot;. Jos tarvitset nimen ja sähköpostin, käytä vain tässä kansiossa nimeä [oma nimesi] ja osoitetta [työsähköpostisi]. Älä muuta koneen muita asetuksia.
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k2">Kopioi</button></div><pre id="k2"><code>Ota Git käyttöön tässä kansiossa ja tee tallennuspiste viestillä &quot;1: Kuvaus ja työlista&quot;. Jos tarvitset nimen ja sähköpostin, käytä vain tässä kansiossa nimeä [oma nimesi] ja osoitetta [työsähköpostisi]. Älä muuta koneen muita asetuksia.
 </code></pre></div>
 <p>Tee tallennuspiste aina, kun jokin toimii. Käytä tätä kehotetta ja kirjoita viestiin vaiheen numero ja se, mikä nyt toimii:</p>
-<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k4">Kopioi</button></div><pre id="k4"><code>Tee tallennuspiste viestillä &quot;[vaiheen numero]: [mikä nyt toimii]&quot;. Näytä lopuksi kaikki tallennuspisteet listana.
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k3">Kopioi</button></div><pre id="k3"><code>Tee tallennuspiste viestillä &quot;[vaiheen numero]: [mikä nyt toimii]&quot;. Näytä lopuksi kaikki tallennuspisteet listana.
 </code></pre></div>
 <h3>3. Lomakkeiden kentät (2–4 h, ensimmäisellä kerralla Matin kanssa)</h3>
 <figure class="anim-figure"><svg class="anim anim-kartoitus" viewBox="0 0 560 296" role="img" aria-labelledby="kartoitus-title" xmlns="http://www.w3.org/2000/svg">
@@ -606,7 +595,7 @@ Näytä lopuksi tiivistelmä ja kerro, mikä kuvauspaketissa jäi epäselväksi.
 </svg><figcaption>Apuohjelma lukee lomakkeen kenttien nimet. Lomaketta ei tarvitse täyttää, eikä kenttiin kirjoitettuja tietoja tallenneta.</figcaption></figure>
 <p>Tekoäly ei tiedä, mitä kenttiä teidän Wilman lomakkeissa on. Siksi se tekee pienen apuohjelman, joka lukee kenttien nimet testi-Wilmasta. Kenttiin kirjoitettuja tietoja apuohjelma ei tallenna.</p>
 <p>Täydennä ennen lähettämistä: testi-Wilman osoite.</p>
-<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k5">Kopioi</button></div><pre id="k5"><code>Tee skripti, joka kartoittaa Wilman lomakkeiden kentät.
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k4">Kopioi</button></div><pre id="k4"><code>Tee skripti, joka kartoittaa Wilman lomakkeiden kentät.
 - Tee käynnistystä varten tiedosto kartoita-lomake.cmd, jonka käynnistän kaksoisnapsauttamalla.
 - Skripti avaa näkyvän Edge-selaimen osoitteeseen [testi-Wilman osoite]. Näytä selaimen sivun yläreunassa iso teksti KARTOITUS – TESTI-WILMA. Minä kirjaudun itse ja avaan lomakkeen.
 - Mustassa ikkunassa lukee suomeksi, mitä teen seuraavaksi. Kun olen avannut lomakkeen, napsautan mustaa ikkunaa ja painan Enter. Silloin skripti lukee avoinna olevan lomakkeen kentät: näkyvä nimi, tyyppi, pakollisuus, vaihtoehdot ja tunniste.
@@ -618,7 +607,7 @@ Tee ensin suunnitelma ja odota hyväksyntääni.
 <p>Odota, että tekoäly kertoo apuohjelman olevan valmis. Sulje oikea Wilma ja oma Edge-selaimesi. Kaksoisnapsauta sitten <code>kartoita-lomake.cmd</code> kansiossa <code>C:\dev\oppisopimustayttaja</code>. Jos Windows varoittaa tiedostosta tai estää sen, älä ohita varoitusta itse, vaan kysy Matilta.</p>
 <p>Aukeaa musta ikkuna ja selain, jonka yläreunassa lukee KARTOITUS – TESTI-WILMA. Kirjaudu vain tähän ikkunaan. Avaa lomake keksitylle testiopiskelijalle uutena, esimerkiksi Ohjaus ja tuki → Urasuunnitelmat → Lisää uusi. Lomaketta ei tarvitse täyttää. Napsauta sitten mustaa ikkunaa ja paina Enter. Älä paina Enteriä Wilman lomakkeessa. Sulje lomake tallentamatta. Tee sama jokaiselle lomakkeelle. Näyttösuunnitelman avaat sille testiopiskelijalle, jolla on tutkinnon osa HOPSissa.</p>
 <p>Kun kaikki lomakkeet on käyty, pyydä:</p>
-<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k6">Kopioi</button></div><pre id="k6"><code>Näytä jokaisen lomakkeen kentät taulukkona: kentän nimi, onko pakollinen ja mitä vaihtoehtoja siinä on. Älä näytä teknisiä tunnisteita.
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k5">Kopioi</button></div><pre id="k5"><code>Näytä jokaisen lomakkeen kentät taulukkona: kentän nimi, onko pakollinen ja mitä vaihtoehtoja siinä on. Älä näytä teknisiä tunnisteita.
 </code></pre></div>
 <p>Tarkista, että lista on oikein ja ettei siinä ole nimiä tai opiskelijanumeroita. Jos on, kirjoita: &quot;Kenttäkartassa on henkilötietoja. Poista ne ja korjaa apuohjelma niin, ettei se tallenna niitä.&quot; Tee kartoitus sitten uudelleen. Kerro tekoälylle, mitkä kentät ovat käytännössä pakollisia. Kirjoita lopuksi tekoälylle: Tee tallennuspiste viestillä &quot;3: lomakkeiden kentät&quot;.</p>
 <h3>4. Ensimmäinen kirjaus testi-Wilmaan (½–1 päivä)</h3>
@@ -851,7 +840,7 @@ Tee ensin suunnitelma ja odota hyväksyntääni.
   <text class="selite" x="280" y="312">Pelkkä Tallennettu-ilmoitus ei riitä.</text>
 </svg><figcaption>Sovellus täyttää lomakkeen testi-Wilmassa, tallentaa sen ja tarkistaa, että tieto meni perille.</figcaption></figure>
 <p>Tämä on tärkein vaihe. Sovellus täyttää urasuunnitelman ja tallentaa sen. Sitten se avaa lomakkeen uudelleen ja tarkistaa, että tiedot ovat oikein. Pelkkä &quot;Tallennettu&quot;-ilmoitus ei riitä.</p>
-<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k7">Kopioi</button></div><pre id="k7"><code>Rakenna Oppisopimustäyttäjän ensimmäinen versio:
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k6">Kopioi</button></div><pre id="k6"><code>Rakenna Oppisopimustäyttäjän ensimmäinen versio:
 - Electron-sovellus, jonka käynnistän kaksoisnapsauttamalla tiedostoa kaynnista-sovellus.cmd. Kirjoita mustaan ikkunaan suomeksi, ettei sitä saa sulkea, kun sovellus on käytössä.
 - se avaa näkyvän Edge-selaimen testi-Wilmaan, ja minä kirjaudun itse
 - se näyttää koko ajan isolla, että ollaan testi-Wilmassa, eikä tallenna mitään, jos osoite ei ole asetustiedoston testi-Wilman osoite
@@ -1044,7 +1033,7 @@ Tee ensin suunnitelma ja odota hyväksyntääni.
 <p>Kokeile vain keksityn opiskelijan tiedoilla. Älä anna tekoälylle kansiota tai tiedostoa, jossa on oikeita haastatteluja tai esitietoja.</p>
 <p>Jos IT:n mukaan esitietoja ei voi hakea ohjelmalla, älä keksi tapaa itse. Sovi Matin kanssa varatapa: tiedot luetaan Wilman näkymästä, tai syötät ne sovellukseen itse. Jos tekoäly pyytää avainta, salasanaa tai tunnusta mihin tahansa palveluun, älä anna sitä. Ota yhteys Mattiin.</p>
 <p>Täydennä ennen lähettämistä: IT:n ja Primus-pääkäyttäjän kirjalliset vastaukset sekä paikka, johon keksityn opiskelijan haastattelu on tallennettu.</p>
-<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k8">Kopioi</button></div><pre id="k8"><code>Lisää sovellukseen tietojen haku:
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k7">Kopioi</button></div><pre id="k7"><code>Lisää sovellukseen tietojen haku:
 - esitiedot palvelusta [palvelun nimi ja IT:n vastaus siitä, miten tiedot haetaan]
 - haastattelu paikasta [mihin keksityn opiskelijan haastattelu on tallennettu testiä varten]
 - Primus-tiedot [Primus-pääkäyttäjän vastaus: PrimusQuery tai Wilman näkymät]
@@ -1240,7 +1229,7 @@ Tee ensin suunnitelma ja odota hyväksyntääni.
   <path class="viiva" d="M344 120 H368" marker-end="url(#oppisopimus-nuoli)"/>
 </svg><figcaption>Työpaikka ja ohjaaja ensin, oppisopimus vasta niiden jälkeen.</figcaption></figure>
 <p>Järjestyksellä on väliä. Oppisopimus tarvitsee työpaikan ja ohjaajan, joten ne kirjataan ensin.</p>
-<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k9">Kopioi</button></div><pre id="k9"><code>Lisää oppisopimuksen kirjaus. Ensin työpaikka ja työpaikkaohjaaja, sitten oppisopimus.
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k8">Kopioi</button></div><pre id="k8"><code>Lisää oppisopimuksen kirjaus. Ensin työpaikka ja työpaikkaohjaaja, sitten oppisopimus.
 Etsi olemassa oleva työpaikka ja toimipaikka. Jos vaihtoehtoja on useita, kysy minulta. Jos työpaikkaa ei ole, valmistele lisäys ja odota hyväksyntääni.
 Työpaikkaohjaaja ja työnantajan edustaja voivat olla eri henkilöitä tai sama henkilö. Älä oleta kumpaakaan. Näytä molemmat erikseen hyväksyttäviksi.
 Palkka tallennetaan yksikön kanssa (€/kk tai €/h). Puuttuva yksikkö tai ristiriitainen työaika estää kirjauksen.
@@ -1366,7 +1355,7 @@ Tee ensin suunnitelma ja odota hyväksyntääni.
   <text class="selite" x="280" y="294">ei arvosanoja</text>
 </svg><figcaption>Tutkinnon osa HOPSiin ensin, sitten sille näyttösuunnitelma.</figcaption></figure>
 <p>Täydennä ennen lähettämistä: vastuuhenkilön vakiotiedot sähköpostista.</p>
-<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k10">Kopioi</button></div><pre id="k10"><code>Lisää HOPS: valitsen tutkinnon osat itse sovelluksessa opiskelijan koulutuksen osista, ja kullekin valitaan aikataulu Wilman vaihtoehdoista.
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k9">Kopioi</button></div><pre id="k9"><code>Lisää HOPS: valitsen tutkinnon osat itse sovelluksessa opiskelijan koulutuksen osista, ja kullekin valitaan aikataulu Wilman vaihtoehdoista.
 Lisää jokaiselle valitulle tutkinnon osalle näyttösuunnitelma: työpaikka, ohjaaja ja nämä vakiotiedot: [koulutuksen vastuuhenkilön vakiotiedot].
 Arvosanoja tai arviointeja ei tehdä.
 Tutkinnon osan pitää olla HOPSissa ennen sen näyttösuunnitelmaa.
@@ -1523,7 +1512,7 @@ Tee ensin suunnitelma ja odota hyväksyntääni.
   <g class="tila kasittely esiin-5"><rect x="396" y="230" width="132" height="28" rx="6"/><text x="462" y="249">KÄSITTELYSSÄ</text></g>
 </svg><figcaption>Yksi opiskelija kerrallaan. Seuraava aukeaa vasta, kun edellinen on tarkistettu.</figcaption></figure>
 <p>Kun yksi opiskelija toimii, sovellukselle annetaan lista. Se käsittelee opiskelijat yksi kerrallaan, ja sinä tarkistat jokaisen ennen tallennusta.</p>
-<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k11">Kopioi</button></div><pre id="k11"><code>Lisää opiskelijalistan tuonti CSV:stä, Excelistä ja liitetystä nimilistasta. Näytä esikatselu ennen tuontia. Säilytä opiskelijanumeroiden etunollat.
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k10">Kopioi</button></div><pre id="k10"><code>Lisää opiskelijalistan tuonti CSV:stä, Excelistä ja liitetystä nimilistasta. Näytä esikatselu ennen tuontia. Säilytä opiskelijanumeroiden etunollat.
 Listasta tulee jono, jossa käsitellään yksi opiskelija kerrallaan.
 Jos samannimisiä opiskelijoita tai koulutuksia on useita, kysy minulta.
 Opiskelija on VALMIS vasta, kun hänen kaikki kirjauksensa on tallennettu ja tarkistettu. Sen jälkeen seuraava opiskelija aukeaa itsestään.
@@ -1683,7 +1672,7 @@ Tee ensin suunnitelma ja odota hyväksyntääni.
   </g>
 </svg><figcaption>Tekoäly tekee testilistan tavallisella kielellä. Sinä teet testit ja kerrot tulokset.</figcaption></figure>
 <p>Ennen pilottia kaikki kokeillaan vielä kerran. Tekoäly tekee listan siitä, mitä pitää kokeilla. Sinä teet kokeilut itse.</p>
-<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k12">Kopioi</button></div><pre id="k12"><code>Lisää häiriötilanteiden käsittely: yhteys katkeaa tallennuksen aikana, Wilman istunto vanhenee, sovellus suljetaan kesken. Jos ei ole varmaa, tallentuiko tieto, jono pysähtyy ja sovellus tarkistaa Wilman tilanteen ennen uutta yritystä. Kerro jokaisesta häiriötestistä, miten saan häiriön aikaan ilman teknisiä työkaluja. Jos ajoitus on vaikea, lisää sovellukseen testitila, jossa ennen tallennusta on tauko. Testitila toimii vain testi-Wilmassa, eikä se ole käytössä asennuspaketissa.
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k11">Kopioi</button></div><pre id="k11"><code>Lisää häiriötilanteiden käsittely: yhteys katkeaa tallennuksen aikana, Wilman istunto vanhenee, sovellus suljetaan kesken. Jos ei ole varmaa, tallentuiko tieto, jono pysähtyy ja sovellus tarkistaa Wilman tilanteen ennen uutta yritystä. Kerro jokaisesta häiriötestistä, miten saan häiriön aikaan ilman teknisiä työkaluja. Jos ajoitus on vaikea, lisää sovellukseen testitila, jossa ennen tallennusta on tauko. Testitila toimii vain testi-Wilmassa, eikä se ole käytössä asennuspaketissa.
 Tee TESTIT.md kuvauspaketin hyväksymistesteistä. Ota mukaan vain testit, jotka koskevat sitä, mitä on rakennettu. Listaa erikseen testit, joita ei voi vielä tehdä, ja kerro lyhyesti miksi. Kirjoita jokainen testi tavallisella kielellä, ilman testikoodeja ja teknisiä sanoja: mitä teen ja mitä pitää tapahtua.
 Näytä testit minulle numeroituna listana. Kun kerron tuloksen, merkitse se TESTIT.md:hen.
 Tee ensin suunnitelma ja odota hyväksyntääni.
@@ -1817,7 +1806,7 @@ Tee ensin suunnitelma ja odota hyväksyntääni.
   <path class="paluu" d="M380 228 C380 202 320 202 320 176" marker-end="url(#pilotti-nuoli-harmaa)"/>
   <text class="selite" x="280" y="206">uusi kierros</text>
 </svg><figcaption>Asennuspaketti, pilotti muutamalla opiskelijalla ja korjaukset ennen laajempaa käyttöä.</figcaption></figure>
-<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k13">Kopioi</button></div><pre id="k13"><code>Tee sovellukseen asetus, jolla valitaan testi-Wilma tai oikea Wilma. Jätä oikean Wilman osoite asetuksiin tyhjäksi. Se lisätään pilotin alussa. Näytä valittu ympäristö koko ajan isolla (TESTI-WILMA tai OIKEA WILMA). Oikeassa Wilmassa sovellus kysyy vahvistuksen ennen jokaista tallennusta.
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k12">Kopioi</button></div><pre id="k12"><code>Tee sovellukseen asetus, jolla valitaan testi-Wilma tai oikea Wilma. Jätä oikean Wilman osoite asetuksiin tyhjäksi. Se lisätään pilotin alussa. Näytä valittu ympäristö koko ajan isolla (TESTI-WILMA tai OIKEA WILMA). Oikeassa Wilmassa sovellus kysyy vahvistuksen ennen jokaista tallennusta.
 Tee sovelluksesta Windows-asennuspaketti ja käyttöohje KAYTTOOHJE.md tavallisella kielellä. Varmista, ettei testitila ole asennuspaketissa käytössä.
 Kirjaa ASENNUS-IT.md:hen, mitä IT:n pitää tarkistaa: mitä asennetaan, mihin sovellus tallentaa tietoa, miten tieto on suojattu ja miten sovellus poistetaan.
 Kerro lopuksi, missä asennuspaketti on.
@@ -1828,13 +1817,13 @@ Tee ensin suunnitelma ja odota hyväksyntääni.
 <p>Pilotissa sovellus käsittelee oikeita tietoja omalla koneellasi, mutta tekoäly ei näe niitä. Kun kerrot tekoälylle virheestä, älä kopioi opiskelijan tietoja. Kuvaa virhe ja toista se testi-Wilmassa keksityllä opiskelijalla.</p>
 <h2>Jos jäät jumiin</h2>
 <p>Kopioi virheilmoitus tekoälylle sellaisenaan. Poista siitä ensin opiskelijan tiedot, jos niitä on. Jos virhettä ei voi kopioida, kirjoita se itse tai ota kuvakaappaus vain testi-Wilmasta.</p>
-<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k14">Kopioi</button></div><pre id="k14"><code>Tein näin: [mitä tein]. Sain tämän virheen: [virheilmoitus]. Odotin: [mitä odotin]. Selvitä syy ja kerro ennen korjausta, mitä muutat.
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k13">Kopioi</button></div><pre id="k13"><code>Tein näin: [mitä tein]. Sain tämän virheen: [virheilmoitus]. Odotin: [mitä odotin]. Selvitä syy ja kerro ennen korjausta, mitä muutat.
 </code></pre></div>
 <p>Jos kaksi korjausyritystä ei auta, palaa edelliseen tallennuspisteeseen:</p>
-<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k15">Kopioi</button></div><pre id="k15"><code>Lopeta korjaaminen. Kerro kolmella lauseella, mitä yritit. Näytä tallennuspisteet listana. Haluan palata viimeisimpään, jossa kaikki toimi. Kerro ensin, mitä katoaa, ja odota vahvistustani.
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k14">Kopioi</button></div><pre id="k14"><code>Lopeta korjaaminen. Kerro kolmella lauseella, mitä yritit. Näytä tallennuspisteet listana. Haluan palata viimeisimpään, jossa kaikki toimi. Kerro ensin, mitä katoaa, ja odota vahvistustani.
 </code></pre></div>
 <p>Kun aloitat uuden päivän, aloita uusi keskustelu samassa työkansiossa ja lähetä tämä:</p>
-<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k16">Kopioi</button></div><pre id="k16"><code>Lue ohjetiedosto ja TYOLISTA.md. Kerro tavallisella kielellä, mikä on valmista ja mitä tehdään seuraavaksi. Älä muuta mitään.
+<div class="prompt"><div class="prompt-head"><span class="kicker dim">Kopioi koko lohko</span><button class="copy-btn" type="button" data-copy="#k15">Kopioi</button></div><pre id="k15"><code>Lue ohjetiedosto ja TYOLISTA.md. Kerro tavallisella kielellä, mikä on valmista ja mitä tehdään seuraavaksi. Älä muuta mitään.
 </code></pre></div>
 <p>Jos tekoäly tekee jotain, mitä et pyytänyt, pysäytä se Clauden tai Codexin pysäytyspainikkeella ja kerro, mitä halusit.</p>
 <p>Jos Claude tai Codex ilmoittaa, että käyttöraja on täynnä, työ ei katoa. Jatka samasta keskustelusta ilmoitettuna aikana.</p>

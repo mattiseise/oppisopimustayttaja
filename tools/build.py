@@ -308,20 +308,39 @@ def figures(rendered: str) -> str:
     return re.sub(r"<p>\[\[kuva:([a-z0-9-]+)\|(.+?)\]\]</p>", fig, rendered)
 
 
-def build_onepager() -> None:
-    title, text = strip_h1(read(SRC / "pikaohje.md"))
-    body = f"""<a class="back-link" href="index.html">← Työpajan etusivu</a>
+def link_cards(rendered: str) -> str:
+    """Kappale, jossa on pelkkä linkki toiselle sivulle, näytetään korttina."""
+    return re.sub(
+        r'<p><a href="([a-z0-9-]+\.html)">([^<]+)</a></p>',
+        r'<a class="exercise-card featured" href="\1"><div class="row"><div class="kicker">Avaa sivu</div>'
+        r'<span class="arrow">→</span></div><div class="title">\2</div></a>',
+        rendered,
+    )
+
+
+def build_guide_page(src: str, out: str, kicker: str, back: tuple[str, str], description: str) -> None:
+    """Pikaohjeen kaltainen yksittäinen sivu sivuston juureen."""
+    title, text = strip_h1(read(SRC / src))
+    body = f"""<a class="back-link" href="{back[0]}">← {back[1]}</a>
 <header class="page">
-  <div class="kicker">Pikaohje · Claude tai Codex</div>
+  <div class="kicker">{kicker}</div>
   <h1>{html.escape(title.split(": ", 1)[-1])}</h1>
   <button class="print-btn" type="button">Tulosta ohje</button>
 </header>
 <section class="md">
-{figures(render(text, shift=0))}
+{link_cards(figures(render(text, shift=0)))}
 </section>"""
-    (ROOT / "pikaohje.html").write_text(
-        page(f"{title} – Vibekoodaus-työpaja", body, 0, "Yhden sivun ohje: Oppisopimustäyttäjä oikeaan käyttöön agentin avulla, valmistelusta pilottiin."),
-        encoding="utf-8",
+    (ROOT / out).write_text(page(f"{title} – Vibekoodaus-työpaja", body, 0, description), encoding="utf-8")
+
+
+def build_onepager() -> None:
+    build_guide_page(
+        "pikaohje.md", "pikaohje.html", "Pikaohje · Claude tai Codex", ("index.html", "Työpajan etusivu"),
+        "Yhden sivun ohje: Oppisopimustäyttäjä oikeaan käyttöön agentin avulla, valmistelusta pilottiin.",
+    )
+    build_guide_page(
+        "valmistelu.md", "valmistelu.html", "Pikaohje · Vaihe 0", ("pikaohje.html", "Pikaohje"),
+        "Pikaohjeen vaihe 0: keneltä pyydetään testi-Wilma, tiedot ja luvat, ja valmis viesti IT:lle.",
     )
 
 

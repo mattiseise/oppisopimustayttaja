@@ -1,5 +1,5 @@
 <svg class="anim anim-tallennuspiste" viewBox="0 0 560 230" role="img" aria-labelledby="tallennuspiste-title" xmlns="http://www.w3.org/2000/svg">
-  <title id="tallennuspiste-title">Aikajanalla on tallennuspisteet Määrittely, Kenttäkartta ja Ensimmäinen tallennus. Kun seuraava muutos rikkoo jotain, palataan viimeiseen ehjään tallennuspisteeseen.</title>
+  <title id="tallennuspiste-title">Aikajanalla on tallennuspisteet Kuvaus ja työlista, Kenttäkartta ja Ensimmäinen tallennus. Kun seuraava muutos rikkoo jotain, palataan viimeiseen ehjään tallennuspisteeseen.</title>
   <style>
     .anim-tallennuspiste .aikajana { stroke: #7D7694; stroke-width: 2; fill: none; }
     .anim-tallennuspiste .piste { fill: #6A50BD; stroke: #FFFFFF; stroke-width: 3; }
@@ -64,7 +64,7 @@
   <!-- Viimeinen ehjä piste korostuu, kun sinne palataan -->
   <circle class="halo" cx="340" cy="133" r="21"/>
 
-  <g class="p1"><circle class="piste" cx="80" cy="133" r="11"/><text class="nimi" x="80" y="169">Määrittely</text></g>
+  <g class="p1"><circle class="piste" cx="80" cy="133" r="11"/><text class="nimi" x="80" y="169">Kuvaus ja</text><text class="nimi" x="80" y="189">työlista</text></g>
   <g class="p2"><circle class="piste" cx="210" cy="133" r="11"/><text class="nimi" x="210" y="169">Kenttäkartta</text></g>
   <g class="p3"><circle class="piste" cx="340" cy="133" r="11"/><text class="nimi" x="340" y="169">Ensimmäinen</text><text class="nimi" x="340" y="189">tallennus</text></g>
 
